@@ -1,6 +1,13 @@
 ---
+import { Image } from 'astro:assets';
 import PageLayout from '../layouts/PageLayout.astro';
 import TechCard from '../components/TechCard.astro';
+
+import cageInImg from '../assets/cage-in_pic1-min.jpg';
+import goldProxyImg from '../assets/gold-proxy-index_pic1.png';
+import goldProxy2Img from '../assets/gold-proxy-index_pic2.png';
+import drillDbImg from '../assets/drill-database-corrections_pic1-min.png';
+import drillDb2Img from '../assets/drill-database-corrections_pic2.png';
 ---
 
 <PageLayout
@@ -10,7 +17,7 @@ import TechCard from '../components/TechCard.astro';
   <!-- Page Hero -->
   <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Our Innovations</p>
       <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Proprietary Technologies</h1>
       <p class="text-slate-400 text-lg max-w-2xl mx-auto">
@@ -36,7 +43,7 @@ import TechCard from '../components/TechCard.astro';
               <li>CAGE-IN is an integrated interpretation approach that works increasingly well when geological maps, soil/rock geochem data, structural maps, and locations of historical/artisanal workings are available</li>
             </ul>
           `}
-          image="/assets/cage-in_pic1-min.jpg"
+          image={cageInImg}
           downloadUrl="/assets/downloads/20170214-CAGEIN_GeoExploration_Presentation.pdf"
           downloadLabel="Download CAGE-IN Presentation"
           reversed={false}
@@ -52,11 +59,11 @@ import TechCard from '../components/TechCard.astro';
             <p class="mb-3">Regular statistical requirements are to increase sample size multifold, which becomes unviable after a certain depth.</p>
             <p>We have developed a statistical correlation model where the gold grade can be predicted using statistical models of structure, ore chemistry and pathfinders.</p>
           `}
-          image="/assets/gold-proxy-index_pic1.png"
+          image={goldProxyImg}
           reversed={true}
         />
         <div class="pb-12 -mt-4">
-          <img src="/assets/gold-proxy-index_pic2.png" alt="Gold Proxy Index Chart" class="rounded-xl shadow-md max-w-lg mx-auto w-full object-cover" />
+          <Image src={goldProxy2Img} alt="Gold Proxy Index Chart" width={600} class="rounded-xl shadow-md max-w-lg mx-auto w-full object-cover" />
         </div>
       </div>
 
@@ -74,11 +81,11 @@ import TechCard from '../components/TechCard.astro';
               <li>Deviations flagged for supervisory verification</li>
             </ul>
           `}
-          image="/assets/drill-database-corrections_pic1-min.png"
+          image={drillDbImg}
           reversed={false}
         />
         <div class="pb-12 -mt-4">
-          <img src="/assets/drill-database-corrections_pic2.png" alt="QA/QC Tool" class="rounded-xl shadow-md max-w-lg mx-auto w-full object-cover" />
+          <Image src={drillDb2Img} alt="QA/QC Tool" width={600} class="rounded-xl shadow-md max-w-lg mx-auto w-full object-cover" />
         </div>
       </div>
 

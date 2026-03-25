@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import PageLayout from '../layouts/PageLayout.astro';
+import amitTripathiImg from '../assets/amit_tripathi.jpg';
 ---
 
 <PageLayout
@@ -9,7 +11,7 @@ import PageLayout from '../layouts/PageLayout.astro';
   <!-- Page Hero -->
   <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">The Expert Behind the Work</p>
       <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Dr. Amit Tripathi</h1>
       <p class="text-slate-400 text-lg">Founder & Principal Consultant, AI Resource Exploration</p>
@@ -43,10 +45,11 @@ import PageLayout from '../layouts/PageLayout.astro';
         <div class="flex justify-center lg:justify-start lg:pt-4">
           <div class="relative">
             <div class="absolute -inset-2 rounded-full bg-geo-secondary/20"></div>
-            <img
-              src="/assets/people/amit_tripathi.jpg"
+            <Image
+              src={amitTripathiImg}
               alt="Dr. Amit Tripathi"
-              class="relative w-64 h-64 rounded-full object-cover shadow-xl border-4 border-white"
+              width={256}
+              class="relative w-52 h-52 sm:w-64 sm:h-64 rounded-full object-cover shadow-xl border-4 border-white"
             />
           </div>
         </div>

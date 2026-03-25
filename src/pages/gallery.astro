@@ -62,7 +62,7 @@ const images = [
   <!-- Page Hero -->
   <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">In the Field</p>
       <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Gallery</h1>
       <p class="text-slate-400 text-lg">
@@ -102,9 +102,12 @@ const images = [
   </section>
 
   <style>
-    #gallery { columns: 2; column-gap: 0.75rem; }
+    #gallery { columns: 1; column-gap: 0.75rem; }
+    @media (min-width: 480px) {
+      #gallery { columns: 2; }
+    }
     @media (min-width: 640px) {
-      #gallery { columns: 3; column-gap: 0.75rem; }
+      #gallery { columns: 3; }
     }
     #gallery a { break-inside: avoid; }
   </style>

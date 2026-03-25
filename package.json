@@ -19,6 +19,7 @@
     "lucide-astro": "^0.556.0",
     "mapbox-gl": "^3.20.0",
     "photoswipe": "^5.4.4",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2"
   },
   "devDependencies": {

@@ -1,24 +1,42 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import PageLayout from '../layouts/PageLayout.astro';
 
-const caseStudies = [
+import case1aImg from '../assets/case1-1-2.jpg';
+import case1bImg from '../assets/case1-2.jpg';
+import case2aImg from '../assets/case2-1.png';
+import case2bImg from '../assets/case2-2.png';
+import case3aImg from '../assets/case3-1.png';
+import case3bImg from '../assets/case3-2.png';
+import case4aImg from '../assets/case4-1-1.png';
+import case4bImg from '../assets/case4-2.png';
+
+const caseStudies: Array<{
+  number: string;
+  type: string;
+  images: Array<{ src: ImageMetadata; alt: string }>;
+  before: string;
+  after: string;
+  bg: string;
+}> = [
   {
     number: '01',
     type: 'Copper-Gold Porphyry',
     images: [
-      { src: '/assets/case1-1-2.jpg', alt: 'Copper-Gold Porphyry — site overview' },
-      { src: '/assets/case1-2.jpg',   alt: 'Copper-Gold Porphyry — drill results' },
+      { src: case1aImg, alt: 'Copper-Gold Porphyry — site overview' },
+      { src: case1bImg, alt: 'Copper-Gold Porphyry — drill results' },
     ],
     before: 'Gold production dating back to the 1920s. Over 3 million ounces of gold produced from manto-type, fault-vein-hosted, and disconformity-related high-grade underground ore bodies. In the 2000s a gold-copper porphyry was found just west of the old gold mine and a resource drilling program started. About 3 Moz Au-eq resources were identified by 2010.',
-    after:  'The project database was reanalyzed using CAGE-IN technology. The study successfully identified additional porphyries and drill targets. Within two years the resources more than tripled to over 11 Moz Au-eq — equivalent to over $3.5 billion in-situ gold value at 2025 prices.',
+    after:  'The project database was reanalyzed using CAGE-IN technology. The study successfully identified additional porphyries and drill targets. Within two years the resources more than tripled to over 12.8 Moz Au-eq — equivalent to over $3.5 billion in-situ gold value at 2025 prices.',
     bg: 'bg-white',
   },
   {
     number: '02',
     type: 'Skarn Deposit',
     images: [
-      { src: '/assets/case2-1.png', alt: 'Skarn Deposit — geophysics before CAGE-IN' },
-      { src: '/assets/case2-2.png', alt: 'Skarn Deposit — targets after CAGE-IN' },
+      { src: case2aImg, alt: 'Skarn Deposit — geophysics before CAGE-IN' },
+      { src: case2bImg, alt: 'Skarn Deposit — targets after CAGE-IN' },
     ],
     before: 'Operating gold-silver mine in a skarn adjacent to a granitic intrusive. Geophysical signatures of mineralization were very weak and could not be used to identify or expand mineralization trends.',
     after:  'CAGE-IN technology successfully defined the mineralization signature by combining multiple layers of data. Mineralization signatures became visible in geophysics and new similar signatures were identified NW of the existing mine, providing immediate drill targets for brownfield resource expansion.',
@@ -28,8 +46,8 @@ const caseStudies = [
     number: '03',
     type: 'Epithermal Gold',
     images: [
-      { src: '/assets/case3-1.png', alt: 'Epithermal Gold — indistinguishable signatures before' },
-      { src: '/assets/case3-2.png', alt: 'Epithermal Gold — defined signatures after CAGE-IN' },
+      { src: case3aImg, alt: 'Epithermal Gold — indistinguishable signatures before' },
+      { src: case3bImg, alt: 'Epithermal Gold — defined signatures after CAGE-IN' },
     ],
     before: 'Operating epithermal gold mine had indistinguishable geophysical signatures — no contrast between ore and waste. The weak contrast could not be used to identify or expand mineralization trends.',
     after:  'CAGE-IN technology successfully defined the mineralization signature combining multiple layers of data. Mineralization signatures became visible in geophysics and new similar signatures were identified along strike of the existing mine, providing immediate drill targets for brownfield resource expansion.',
@@ -39,8 +57,8 @@ const caseStudies = [
     number: '04',
     type: 'Greenfield Nickel Laterite',
     images: [
-      { src: '/assets/case4-1-1.png', alt: 'Greenfield Nickel Laterite — regional dataset' },
-      { src: '/assets/case4-2.png',   alt: 'Greenfield Nickel Laterite — identified targets' },
+      { src: case4aImg, alt: 'Greenfield Nickel Laterite — regional dataset' },
+      { src: case4bImg, alt: 'Greenfield Nickel Laterite — identified targets' },
     ],
     before: 'Reconnaissance for nickel laterite was to be conducted over 1,000 km² with no previous history of nickel mining or mineralization. Available datasets were regional geophysical surveys and remote sensing data.',
     after:  'Using CAGE-IN, multiple geological datasets were analyzed together. Theoretical geological concepts were applied and nickel targets were defined per metallogenic theory. Several Ni targets were identified, field-checked, and rapidly developed into drill targets. The area is still being explored but several interesting drill intercepts and resource zones have already been identified.',
@@ -57,7 +75,7 @@ const caseStudies = [
   <!-- Page Hero -->
   <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Real-World Results</p>
       <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Case Studies</h1>
       <p class="text-slate-400 text-lg max-w-2xl mx-auto">
@@ -105,11 +123,12 @@ const caseStudies = [
           </div>
 
           <!-- Images -->
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {study.images.map((img) => (
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
+                width={500}
                 class="w-full h-52 object-cover rounded-xl shadow-md"
               />
             ))}

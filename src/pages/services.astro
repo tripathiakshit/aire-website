@@ -1,32 +1,39 @@
 ---
+import { Image } from 'astro:assets';
 import PageLayout from '../layouts/PageLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
+
+import geologicalMappingImg from '../assets/geological_mapping-min.jpg';
+import geospatialImg from '../assets/geospatial.jpg';
+import geostatisticsImg from '../assets/geostatistics-min.png';
+import dataInterpretationImg from '../assets/data_interpretation-min.png';
+import structuralModellingImg from '../assets/structural_modelling.png';
 
 const services = [
   {
     title: 'Mineral Reconnaissance',
     description: 'Remote sensing and field verification-based geological mapping of large areas to identify prospective targets for further investigation.',
-    image: '/assets/geological_mapping-min.jpg',
+    image: geologicalMappingImg,
   },
   {
     title: 'GIS Integration',
     description: 'Integrating data from multiple sources into a single unified database, enabling comprehensive spatial analysis across all exploration datasets.',
-    image: '/assets/geospatial.jpg',
+    image: geospatialImg,
   },
   {
     title: 'Turnkey Exploration & Resource Modelling',
     description: 'High-resolution mapping, sampling, and geophysics combined with predictive modelling and drill planning. Full drilling management including logging, sampling, QA-QC, cross sections, and resource models.',
-    image: '/assets/geostatistics-min.png',
+    image: geostatisticsImg,
   },
   {
     title: 'Exploration Technologies',
     description: 'Developing and deploying proprietary technology tools for efficient, AI-driven, and eco-friendly exploration — increasing process efficiency while reducing environmental impact.',
-    image: '/assets/data_interpretation-min.png',
+    image: dataInterpretationImg,
   },
   {
     title: 'Integrated Data Interpretation',
     description: 'Proven proprietary technology for integrating historical data, known mineralization data, and geological and geophysical datasets for precise mineral targeting over large areas.',
-    image: '/assets/structural_modelling.png',
+    image: structuralModellingImg,
   },
   {
     title: 'Mineral Intelligence',
@@ -53,7 +60,7 @@ const services = [
   <!-- Page Hero -->
   <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">What We Offer</p>
       <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Our Services</h1>
       <p class="text-slate-400 text-lg max-w-2xl mx-auto">
@@ -96,9 +103,10 @@ const services = [
           </ul>
         </div>
         <div>
-          <img
-            src="/assets/geological_mapping-min.jpg"
+          <Image
+            src={geologicalMappingImg}
             alt="Mineral Reconnaissance — geological mapping"
+            width={600}
             class="rounded-xl shadow-lg w-full object-cover"
           />
         </div>
@@ -109,9 +117,10 @@ const services = [
       <!-- Turnkey Exploration & Resource Modelling -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div class="order-2 md:order-1">
-          <img
-            src="/assets/geostatistics-min.png"
+          <Image
+            src={geostatisticsImg}
             alt="Turnkey Exploration and Resource Modelling"
+            width={600}
             class="rounded-xl shadow-lg w-full object-cover"
           />
         </div>
@@ -142,9 +151,10 @@ const services = [
           </ul>
         </div>
         <div>
-          <img
-            src="/assets/geospatial.jpg"
+          <Image
+            src={geospatialImg}
             alt="GIS Integration — geospatial analysis"
+            width={600}
             class="rounded-xl shadow-lg w-full object-cover"
           />
         </div>
@@ -155,9 +165,10 @@ const services = [
       <!-- Integrated Data Interpretation -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div class="order-2 md:order-1">
-          <img
-            src="/assets/data_interpretation-min.png"
+          <Image
+            src={dataInterpretationImg}
             alt="Integrated Data Interpretation"
+            width={600}
             class="rounded-xl shadow-lg w-full object-cover"
           />
         </div>

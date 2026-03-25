@@ -1,0 +1,49 @@
+---
+import locationsData from '../data/locations.json';
+---
+
+<div
+  id="map-container"
+  class="w-full h-full"
+  data-locations={JSON.stringify(locationsData)}
+  data-token={import.meta.env.PUBLIC_MAPBOX_TOKEN ?? ''}
+></div>
+
+<script>
+  import mapboxgl from 'mapbox-gl';
+  import 'mapbox-gl/dist/mapbox-gl.css';
+
+  const container = document.getElementById('map-container') as HTMLElement;
+  const token = (container as any).dataset.token as string;
+  const locations = JSON.parse((container as any).dataset.locations) as Array<{
+    name: string;
+    commodity: string;
+    lat: number;
+    lng: number;
+    id: number;
+  }>;
+
+  if (!token) {
+    container.innerHTML = '<div class="flex items-center justify-center h-full bg-gray-100 text-gray-500 text-sm p-8 text-center">Map requires a Mapbox token. Add PUBLIC_MAPBOX_TOKEN to your .env file.</div>';
+  } else {
+    mapboxgl.accessToken = token;
+    const map = new mapboxgl.Map({
+      container: 'map-container',
+      style: 'mapbox://styles/mapbox/light-v11',
+      center: [0, 20],
+      zoom: 2,
+    });
+
+    locations.forEach(loc => {
+      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        `<div style="padding: 4px"><strong>${loc.name}</strong><br/><span style="color: #666; font-size: 12px">${loc.commodity}</span></div>`
+      );
+      new mapboxgl.Marker({ color: '#0c498e' })
+        .setLngLat([loc.lng, loc.lat])
+        .setPopup(popup)
+        .addTo(map);
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+  }
+</script>

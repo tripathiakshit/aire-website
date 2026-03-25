@@ -1,0 +1,142 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const images = [
+  'Arlit-080808-115.jpg',
+  'Arlit-080808-168.jpg',
+  'Arlit-more-pictures-229.jpg',
+  'Arlit-more-pictures-273.jpg',
+  'CIMG0281.JPG',
+  'CIMG0742.JPG',
+  'DSC01217.JPG',
+  'DSC02393.JPG',
+  'DSC02399.JPG',
+  'DSCN0138.JPG',
+  'IMG_0073.JPG',
+  'IMG_0091.JPG',
+  'IMG_0230.JPG',
+  'IMG_0246.JPG',
+  'IMG_0247.JPG',
+  'IMG_0254.JPG',
+  'IMG_0266.JPG',
+  'IMG_0523.JPG',
+  'IMG-20130912-00043.jpg',
+  'IMG_3389.JPG',
+  'IMG_4503.JPG',
+  'IMG_4527.JPG',
+  'IMGP1375.JPG',
+  'PB120109.JPG',
+  'PB120110.JPG',
+  'Platform3-22th_July-2008-(122).jpg',
+  'SAM_0017.JPG',
+  'SAM_0023.JPG',
+  'SAM_0179.JPG',
+  'SAM_0185.JPG',
+  'SAM_0896.JPG',
+  'SANY0101.JPG',
+  'SANY0212.JPG',
+  'SANY0286.JPG',
+  'SANY0312.JPG',
+  'SANY0320.JPG',
+  'SANY0324.JPG',
+  'SANY0332.JPG',
+  'SANY0384.JPG',
+  'SANY0394.JPG',
+  'SANY0399.JPG',
+  'SANY0411.JPG',
+  'SANY0415.JPG',
+  'SANY0422.JPG',
+  'SANY0435.JPG',
+  'SANY0484.JPG',
+  'SANY0536.JPG',
+  'Slickensides.JPG',
+  'starofSierraLeone.JPG',
+  'Streached-clast-in-marble-in-browns-creek-mine.jpg',
+];
+---
+
+<PageLayout
+  title="Gallery — AI Resource Exploration"
+  description="Photo gallery from AI Resource Exploration field projects spanning five continents."
+>
+  <!-- Page Hero -->
+  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">In the Field</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Gallery</h1>
+      <p class="text-slate-400 text-lg">
+        Field photography from mineral exploration projects across five continents.
+      </p>
+    </div>
+  </section>
+
+  <!-- Masonry gallery -->
+  <section class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      id="gallery"
+      class="pswp-gallery"
+    >
+      {images.map((img) => (
+        <a
+          href={`/assets/gallery/${img}`}
+          target="_blank"
+          class="relative block overflow-hidden rounded-sm mb-2 group"
+        >
+          <img
+            src={`/assets/gallery/${img}`}
+            alt="AI Resource Exploration field photography"
+            class="w-full block transition-transform duration-500 group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300 flex items-end p-3">
+            <span class="text-white/0 group-hover:text-white/70 text-[10px] uppercase tracking-widest font-medium transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+              View
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+    </div>
+  </section>
+
+  <style>
+    #gallery { columns: 2; column-gap: 0.75rem; }
+    @media (min-width: 640px) {
+      #gallery { columns: 3; column-gap: 0.75rem; }
+    }
+    #gallery a { break-inside: avoid; }
+  </style>
+
+  <script>
+    import PhotoSwipeLightbox from 'photoswipe/lightbox';
+    import 'photoswipe/style.css';
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+      // Let PhotoSwipe determine dimensions from the loaded image
+      // rather than requiring data-pswp-width / data-pswp-height
+    });
+
+    // Resolve image dimensions dynamically so the lightbox
+    // shows each photo at its real aspect ratio
+    lightbox.addFilter('domItemData', (itemData, element) => {
+      const img = element.querySelector('img');
+      if (img && img.naturalWidth) {
+        itemData.width = img.naturalWidth;
+        itemData.height = img.naturalHeight;
+      } else if (img) {
+        img.addEventListener('load', () => {
+          itemData.width = img.naturalWidth;
+          itemData.height = img.naturalHeight;
+        }, { once: true });
+      }
+      return itemData;
+    });
+
+    lightbox.init();
+  </script>
+</PageLayout>

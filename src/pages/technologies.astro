@@ -1,0 +1,127 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import TechCard from '../components/TechCard.astro';
+---
+
+<PageLayout
+  title="Technologies — AI Resource Exploration"
+  description="Proprietary technologies developed by AI Resource Exploration: CAGE-IN, Gold Proxy Index, Drill Database Corrections, and Spectral Classification."
+>
+  <!-- Page Hero -->
+  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Our Innovations</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Proprietary Technologies</h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+        Innovations that give our clients a decisive advantage in mineral exploration.
+      </p>
+    </div>
+  </section>
+
+  <!-- Technologies -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 divide-y divide-gray-200">
+
+      <!-- CAGE-IN -->
+      <div>
+        <TechCard
+          title="CAGE-IN: Constrained Area Gridding for Enhanced Interpretation"
+          description={`
+            <p class="mb-3">CAGE-IN technology enhances existing geophysical data to identify additional targets even in well-explored areas.</p>
+            <ul class="list-disc list-inside space-y-1 text-sm">
+              <li>Applicable to several mineral occurrences</li>
+              <li>Demonstrated in porphyry, epithermal, and skarn deposit types</li>
+              <li>Can be applied on pre-existing surveys as well as in conjunction with fresh acquisition</li>
+              <li>CAGE-IN is an integrated interpretation approach that works increasingly well when geological maps, soil/rock geochem data, structural maps, and locations of historical/artisanal workings are available</li>
+            </ul>
+          `}
+          image="/assets/cage-in_pic1-min.jpg"
+          downloadUrl="/assets/downloads/20170214-CAGEIN_GeoExploration_Presentation.pdf"
+          downloadLabel="Download CAGE-IN Presentation"
+          reversed={false}
+        />
+      </div>
+
+      <!-- Gold Proxy Index -->
+      <div>
+        <TechCard
+          title="Gold Proxy Index"
+          description={`
+            <p class="mb-3">Coarse-free gold deposits are a delight for metallurgy and highly profitable — <strong>but</strong> gold nuggets have an erratic distribution and their point density gets very rare with increasing median grain size, making it virtually impossible to estimate grade by drilling.</p>
+            <p class="mb-3">Regular statistical requirements are to increase sample size multifold, which becomes unviable after a certain depth.</p>
+            <p>We have developed a statistical correlation model where the gold grade can be predicted using statistical models of structure, ore chemistry and pathfinders.</p>
+          `}
+          image="/assets/gold-proxy-index_pic1.png"
+          reversed={true}
+        />
+        <div class="pb-12 -mt-4">
+          <img src="/assets/gold-proxy-index_pic2.png" alt="Gold Proxy Index Chart" class="rounded-xl shadow-md max-w-lg mx-auto w-full object-cover" />
+        </div>
+      </div>
+
+      <!-- Drill Database Corrections -->
+      <div>
+        <TechCard
+          title="Drill Database Corrections"
+          description={`
+            <p class="mb-3">Common sources of error in drill databases are data entry errors. We have developed several multi-level QA/QC routines that clean drilling databases of errors by flagging locations of potential errors.</p>
+            <ul class="list-disc list-inside space-y-1 text-sm">
+              <li>Clean databases ready for modelling</li>
+              <li>Data validation within defined ranges</li>
+              <li>Comparing data records with 3-element and 5-element averages of numerical data</li>
+              <li>Comparing multiple entries of text data</li>
+              <li>Deviations flagged for supervisory verification</li>
+            </ul>
+          `}
+          image="/assets/drill-database-corrections_pic1-min.png"
+          reversed={false}
+        />
+        <div class="pb-12 -mt-4">
+          <img src="/assets/drill-database-corrections_pic2.png" alt="QA/QC Tool" class="rounded-xl shadow-md max-w-lg mx-auto w-full object-cover" />
+        </div>
+      </div>
+
+      <!-- Spectral Classification -->
+      <div>
+        <TechCard
+          title="Spectral Classification"
+          description={`
+            <p class="mb-3">Proprietary image classification technology uses spectral signatures to identify mineral prospects over very large areas.</p>
+            <ul class="list-disc list-inside space-y-1 text-sm mb-4">
+              <li>Works for regional prospect identification as well as high-resolution targeting</li>
+              <li>Perfect for shallow mineralization with subtle superficial spectral signatures</li>
+              <li>Successful in delineating targets for Cu-Au Porphyry, hydrothermal and lateritic mineralization</li>
+              <li>Works on the principle that mineralized bodies have identifiable spectral signatures that affect surface bodies and vegetation</li>
+            </ul>
+            <h4 class="font-semibold text-gray-800 mb-2">Exploration Applications</h4>
+            <ul class="list-disc list-inside space-y-1 text-sm mb-4">
+              <li>Potential mineral bearing areas within large prospects</li>
+              <li>Locate active, abandoned, and artisanal mining areas</li>
+            </ul>
+            <h4 class="font-semibold text-gray-800 mb-2">Regulatory Applications</h4>
+            <ul class="list-disc list-inside space-y-1 text-sm">
+              <li>Change in mining activity sites over time</li>
+              <li>Illegal mining activities or mining outside concession areas</li>
+            </ul>
+          `}
+          downloadUrl="/assets/downloads/20170808-GeoExploration_SpectralClassification-Web.pdf"
+          downloadLabel="Download Spectral Classification Presentation"
+          reversed={true}
+        />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-geo-slate text-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl font-bold mb-4">Interested in Our Technologies?</h2>
+      <p class="text-slate-400 mb-8">Contact us to learn how these proprietary tools can be applied to your exploration project.</p>
+      <a href="/contact" class="inline-block bg-geo-gold text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</PageLayout>

@@ -1,0 +1,403 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+---
+
+<PageLayout
+  title="AI Resource Exploration — Redefining Resource Discovery Worldwide"
+  description="AI Resource Exploration specializes in high-impact mineral exploration services backed by industry-leading technology and proven global experience."
+>
+  <!-- Hero -->
+  <section
+    class="relative min-h-screen flex items-center justify-center"
+    style="background: linear-gradient(to bottom, rgba(7,31,61,0.72) 0%, rgba(7,31,61,0.55) 100%), url('/assets/hero-min.jpg') center center / cover no-repeat;"
+  >
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <div class="relative z-10 text-center text-white px-6 max-w-5xl mx-auto">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-5">Global Experts in Advanced Mineral Exploration</p>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-6">
+        Redefining Resource<br /><em class="not-italic text-geo-secondary">Discovery</em> Worldwide
+      </h1>
+      <p class="text-base md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
+        We specialize in high-impact mineral exploration services backed by industry-leading technology and proven global experience.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/services"
+          class="w-full sm:w-auto px-8 py-4 rounded border-2 border-white/60 text-white font-medium text-sm uppercase tracking-wider hover:bg-white hover:text-geo-primary transition-all duration-200 text-center"
+        >
+          Our Services
+        </a>
+        <a
+          href="/contact"
+          class="w-full sm:w-auto px-8 py-4 rounded bg-geo-gold text-white font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors text-center"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/40">
+      <span class="text-[10px] uppercase tracking-widest">Scroll</span>
+      <div class="w-px h-8 bg-white/20"></div>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="bg-geo-slate text-white py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="font-display text-5xl font-bold text-geo-gold">26+</p>
+          <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Years Experience</p>
+        </div>
+        <div>
+          <p class="font-display text-5xl font-bold text-geo-gold">15+</p>
+          <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Countries</p>
+        </div>
+        <div>
+          <p class="font-display text-5xl font-bold text-geo-gold">60+</p>
+          <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Projects</p>
+        </div>
+        <div>
+          <p class="font-display text-5xl font-bold text-geo-gold">22+</p>
+          <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Publications</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Highlights -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="flex flex-col items-center text-center gap-4">
+          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+          </div>
+          <h4 class="font-display text-xl text-geo-primary font-semibold">Strategic Exploration Planning</h4>
+          <p class="text-slate-500 leading-relaxed">We develop and execute end-to-end exploration strategies tailored to your project goals and geological context.</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-4">
+          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h4 class="font-display text-xl text-geo-primary font-semibold">AI-Based Optimization</h4>
+          <p class="text-slate-500 leading-relaxed">CAGE-IN helps us optimize your mineral exploration plan, targeted drilling, and risk management with data-driven precision.</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-4">
+          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
+            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+            </svg>
+          </div>
+          <h4 class="font-display text-xl text-geo-primary font-semibold">Global Mineral Investment Insights</h4>
+          <p class="text-slate-500 leading-relaxed">We connect investors to international mining opportunities by assessing geological value and project viability worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services -->
+  <section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">What We Do</p>
+        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Our Core Services Drive Global Discovery</h2>
+        <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
+          We deliver specialized solutions to meet the growing needs of the mineral exploration and geoscience industry.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ServiceCard
+          title="Exploration Planning & Strategy"
+          description="End-to-end exploration strategy development combining geophysical, geochemical, and remote sensing data to target high-potential zones."
+          image="/assets/geological_mapping-min.jpg"
+        />
+        <ServiceCard
+          title="Geophysical Surveys & Mapping"
+          description="Comprehensive geophysical survey design and execution, delivering detailed subsurface imaging across varied geological terrains."
+          image="/assets/geospatial.jpg"
+        />
+        <ServiceCard
+          title="Geochemical Sampling & Analysis"
+          description="Rigorous sampling programs and laboratory analysis to identify geochemical anomalies and vectoring toward mineralization."
+          image="/assets/geostatistics-min.png"
+        />
+        <ServiceCard
+          title="Drilling Program Design & Support"
+          description="From drill pad siting to program supervision, we ensure safe, efficient, and productive drilling operations."
+          image="/assets/cage-in_pic1-min.jpg"
+        />
+      </div>
+      <div class="text-center mt-12">
+        <a
+          href="/services"
+          class="inline-flex items-center gap-2 text-geo-primary font-semibold text-sm uppercase tracking-wider hover:text-geo-gold transition-colors"
+        >
+          More Services
+          <span class="text-geo-gold">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted Expertise -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Why Choose Us</p>
+        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Trusted Expertise in Every Layer of the Earth</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="flex flex-col gap-4 p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
+          <div class="w-12 h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h4 class="font-display text-lg text-geo-primary font-semibold">Expert-Led Geoscience Teams</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">Our team consists of seasoned geologists, geophysicists, and data scientists with decades of combined field experience.</p>
+        </div>
+        <div class="flex flex-col gap-4 p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
+          <div class="w-12 h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h4 class="font-display text-lg text-geo-primary font-semibold">Cutting-Edge Technologies</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">We deploy the latest geophysical tools, geospatial data platforms, and proprietary AI-powered systems like CAGE-IN.</p>
+        </div>
+        <div class="flex flex-col gap-4 p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
+          <div class="w-12 h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+            </svg>
+          </div>
+          <h4 class="font-display text-lg text-geo-primary font-semibold">Global Field Experience</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">From North America to Africa, our projects span varied geological terrains and regulatory environments across 15+ countries.</p>
+        </div>
+        <div class="flex flex-col gap-4 p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
+          <div class="w-12 h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
+            <svg class="w-6 h-6 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+            </svg>
+          </div>
+          <h4 class="font-display text-lg text-geo-primary font-semibold">End-to-End Project Support</h4>
+          <p class="text-slate-500 text-sm leading-relaxed">We manage all stages — from planning and permitting to execution and reporting — ensuring seamless project delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Competitive Advantage</p>
+          <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-6 leading-tight">Proprietary<br />Technologies</h2>
+          <p class="text-slate-600 text-lg leading-relaxed mb-4">
+            AI Resource Exploration has developed a suite of proprietary technologies that go beyond conventional exploration methods. Our CAGE-IN system, Gold Proxy Index, and Spectral Classification tools give clients a decisive edge.
+          </p>
+          <p class="text-slate-500 leading-relaxed mb-8">
+            These innovations allow us to identify targets in well-explored areas, predict gold grades in coarse-gold deposits, and classify mineral prospects over large regions using spectral signatures.
+          </p>
+          <a
+            href="/technologies"
+            class="inline-block bg-geo-primary text-white px-7 py-3.5 rounded font-semibold text-sm uppercase tracking-wider hover:bg-geo-primary-dark transition-colors"
+          >
+            Explore Our Technologies
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <img src="/assets/cage-in_pic1-min.jpg" alt="CAGE-IN Technology" class="rounded-xl shadow-md w-full h-36 md:h-44 object-cover" />
+          <img src="/assets/gold-proxy-index_pic1.png" alt="Gold Proxy Index" class="rounded-xl shadow-md w-full h-36 md:h-44 object-cover md:mt-6" />
+          <img src="/assets/drill-database-corrections_pic1-min.png" alt="Drill Database" class="rounded-xl shadow-md w-full h-36 md:h-44 object-cover" />
+          <img src="/assets/data_interpretation-min.png" alt="Data Interpretation" class="rounded-xl shadow-md w-full h-36 md:h-44 object-cover md:mt-6" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Driving Smarter Exploration -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Proven Solutions</p>
+        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Driving Smarter Exploration with Proven Solutions</h2>
+        <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
+          Our success is measured by how well we solve complex mineral discovery challenges. Here are key solutions we've implemented to transform exploration outcomes worldwide.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="overflow-hidden h-52">
+            <img src="/assets/geological_mapping-min.jpg" alt="Strategic Exploration Planning" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h4 class="font-display text-xl text-geo-primary font-semibold mb-3">Strategic Exploration Planning</h4>
+            <p class="text-slate-500 text-sm leading-relaxed">We tailor exploration programs based on geophysical, geochemical, and remote sensing data to target high-potential zones.</p>
+          </div>
+        </div>
+        <div class="group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="overflow-hidden h-52">
+            <img src="/assets/cage-in_pic1-min.jpg" alt="Efficient Drilling Campaigns" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h4 class="font-display text-xl text-geo-primary font-semibold mb-3">Efficient Drilling Campaigns</h4>
+            <p class="text-slate-500 text-sm leading-relaxed">From drill pad siting to program supervision, we ensure safe, efficient, and productive drilling operations.</p>
+          </div>
+        </div>
+        <div class="group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="overflow-hidden h-52">
+            <img src="/assets/geostatistics-min.png" alt="Resource Modeling & Estimation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <h4 class="font-display text-xl text-geo-primary font-semibold mb-3">Resource Modeling & Estimation</h4>
+            <p class="text-slate-500 text-sm leading-relaxed">We leverage 3D modeling and geostatistical techniques to define resources with maximum confidence.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guiding Principles -->
+  <section class="py-24 bg-geo-slate text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Our Approach</p>
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">We Prepare an Effective Exploration Strategy for Clients</h2>
+          <p class="text-slate-400 text-lg leading-relaxed mb-8">
+            AI Resource Exploration brings decades of geological expertise and advanced modeling tools to your exploration strategy. Our consultants help reduce uncertainty and deliver actionable insights at every project phase.
+          </p>
+          <ul class="text-slate-300 space-y-3 text-sm mb-10">
+            <li class="flex items-start gap-3">
+              <span class="text-geo-gold mt-0.5 shrink-0">→</span>
+              Deep industry experience across continents
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-geo-gold mt-0.5 shrink-0">→</span>
+              Cutting-edge 3D geologic and resource modeling
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-geo-gold mt-0.5 shrink-0">→</span>
+              Clear risk assessment and project cost forecasting
+            </li>
+          </ul>
+          <div class="flex items-center gap-6 p-6 bg-white/5 rounded-xl border border-white/10">
+            <div>
+              <p class="font-display text-5xl font-bold text-geo-gold">93%</p>
+              <p class="text-slate-400 text-xs uppercase tracking-wider mt-1">Client Satisfaction Rate</p>
+            </div>
+            <div class="w-px h-12 bg-white/10"></div>
+            <p class="text-slate-400 text-sm leading-relaxed">Our track record speaks for itself — clients return to us because we deliver.</p>
+          </div>
+        </div>
+        <div>
+          <p class="text-slate-400 leading-relaxed mb-6">
+            At AI Resource Exploration, we follow a strong ethical framework that prioritizes environmental responsibility, data integrity, and long-term client success.
+          </p>
+          <div class="space-y-3">
+            <details class="group border border-white/10 rounded-lg overflow-hidden" open>
+              <summary class="flex items-center justify-between px-6 py-4 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+                <span class="font-semibold text-white">Environmental Stewardship</span>
+                <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+              </summary>
+              <div class="px-6 py-4 text-slate-400 text-sm leading-relaxed border-t border-white/10">
+                We conduct all exploration activities with care for the land, minimizing impact through sustainable field practices and compliance with local regulations.
+              </div>
+            </details>
+            <details class="group border border-white/10 rounded-lg overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-4 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+                <span class="font-semibold text-white">Data Integrity</span>
+                <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+              </summary>
+              <div class="px-6 py-4 text-slate-400 text-sm leading-relaxed border-t border-white/10">
+                From sample collection to reporting, our team ensures accuracy, traceability, and full transparency in every dataset we deliver.
+              </div>
+            </details>
+            <details class="group border border-white/10 rounded-lg overflow-hidden">
+              <summary class="flex items-center justify-between px-6 py-4 cursor-pointer bg-white/5 hover:bg-white/10 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+                <span class="font-semibold text-white">Client Commitment</span>
+                <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+              </summary>
+              <div class="px-6 py-4 text-slate-400 text-sm leading-relaxed border-t border-white/10">
+                We act as true partners, offering solutions that are in our clients' best interests — always focused on safety, quality, and results.
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="flex justify-center lg:justify-start">
+          <div class="relative">
+            <div class="absolute -inset-4 rounded-full bg-geo-secondary/20"></div>
+            <img
+              src="/assets/people/amit_tripathi.jpg"
+              alt="Dr. Amit Tripathi"
+              class="relative w-72 h-72 rounded-full object-cover shadow-2xl border-4 border-white"
+            />
+            <div class="absolute -bottom-2 -right-2 w-20 h-20 rounded-full bg-geo-gold/20 border-2 border-geo-gold/40"></div>
+          </div>
+        </div>
+        <div>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">The Expert Behind the Work</p>
+          <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-6 leading-tight">Dr. Amit Tripathi</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Dr. Tripathi brings over 26 years of multidisciplinary experience across mineral exploration, mine planning, and geological consultancy. His work spans five continents and more than 15 countries.
+          </p>
+          <p class="text-slate-500 leading-relaxed mb-8">
+            A member of AusIMM and holder of a Ph.D. in Structural Geology, Dr. Tripathi has authored one book and published 22+ scientific research papers in national and international journals.
+          </p>
+          <div class="flex flex-wrap gap-6 mb-8">
+            {[
+              { num: '26+', label: 'Years Experience' },
+              { num: '15+', label: 'Countries' },
+              { num: '22+', label: 'Publications' },
+            ].map(({ num, label }) => (
+              <div class="text-center">
+                <p class="font-display text-4xl font-bold text-geo-gold">{num}</p>
+                <p class="text-slate-400 text-xs uppercase tracking-wider mt-1">{label}</p>
+              </div>
+            ))}
+          </div>
+          <a href="/about" class="text-geo-primary font-semibold text-sm uppercase tracking-wider hover:text-geo-gold transition-colors">
+            Read full biography →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="py-24 bg-geo-slate text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Work With Us</p>
+      <h2 class="font-display text-4xl md:text-5xl font-bold mb-6">Ready to Start a Project?</h2>
+      <p class="text-slate-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+        Contact us to discuss how AI Resource Exploration's expertise and proprietary technologies can advance your mineral exploration program.
+      </p>
+      <a
+        href="/contact"
+        class="inline-block bg-geo-gold text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</PageLayout>

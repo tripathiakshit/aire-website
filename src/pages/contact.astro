@@ -1,0 +1,152 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Contact Us — AI Resource Exploration"
+  description="Contact AI Resource Exploration to discuss your mineral exploration project. We welcome inquiries from mining companies, investors, and industry partners."
+>
+  <!-- Page Hero -->
+  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Contact Us</h1>
+      <p class="text-slate-400 text-lg">
+        Drop us a message — we'd love to hear about your project.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+        <!-- Contact Info -->
+        <div>
+          <h2 class="font-display text-2xl text-geo-primary mb-6">Get in Touch</h2>
+          <p class="text-gray-700 leading-relaxed mb-8">
+            We welcome inquiries from mining companies, exploration teams, investors, and industry partners. Whether you need full-scope exploration consulting or specific technical expertise, AI Resource Exploration can help.
+          </p>
+
+          <!-- Office Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50">
+              <h3 class="font-semibold text-geo-primary mb-2 text-sm uppercase tracking-wider">Branch Office</h3>
+              <p class="text-gray-700 text-sm leading-relaxed mb-3">
+                PO Box 16122 Collins Street West<br />
+                Victoria 8007<br />
+                Australia
+              </p>
+              <a
+                href="mailto:info@geoexplorationllc.com"
+                class="text-geo-primary text-sm font-medium hover:text-geo-gold transition-colors break-all"
+              >
+                info@geoexplorationllc.com
+              </a>
+            </div>
+            <div class="p-5 rounded-xl border border-slate-100 bg-slate-50">
+              <h3 class="font-semibold text-geo-primary mb-2 text-sm uppercase tracking-wider">Head Office</h3>
+              <p class="text-gray-700 text-sm leading-relaxed mb-3">
+                AI Resource Exploration
+              </p>
+              <a
+                href="mailto:info@geoexplorationllc.com"
+                class="text-geo-primary text-sm font-medium hover:text-geo-gold transition-colors break-all"
+              >
+                info@geoexplorationllc.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Principal Consultant -->
+          <div class="flex items-start gap-4 p-5 rounded-xl border border-geo-gold/20 bg-geo-primary/5">
+            <div class="w-10 h-10 rounded-full bg-geo-primary/10 flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-5 h-5 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-geo-primary text-sm">Dr. Amit Tripathi</p>
+              <p class="text-gray-600 text-sm">Principal Consultant</p>
+              <p class="text-gray-500 text-sm">AI Resource Exploration</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="bg-white rounded-xl shadow-md p-8 border border-slate-100">
+          <h2 class="font-display text-xl text-gray-800 font-bold mb-6">Send a Message</h2>
+          <form name="Contact" method="POST" data-netlify="true" class="space-y-5">
+            <input type="hidden" name="form-name" value="Contact" />
+
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
+                Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                maxlength="100"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-geo-primary focus:border-transparent outline-none transition"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                maxlength="100"
+                placeholder="yourname@email.com"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-geo-primary focus:border-transparent outline-none transition"
+              />
+            </div>
+
+            <div>
+              <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">
+                Phone Number <span class="text-gray-400 font-normal">(optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                maxlength="14"
+                placeholder="(optional)"
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-geo-primary focus:border-transparent outline-none transition"
+              />
+            </div>
+
+            <div>
+              <label for="comments" class="block text-sm font-medium text-gray-700 mb-1">
+                Comments <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                id="comments"
+                name="comments"
+                required
+                maxlength="1500"
+                rows={6}
+                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-geo-primary focus:border-transparent outline-none transition resize-y"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-geo-gold cursor-pointer text-white px-8 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</PageLayout>

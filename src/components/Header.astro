@@ -1,0 +1,125 @@
+---
+import { Menu, X } from 'lucide-astro';
+
+const pathname = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/services', label: 'Services' },
+  { href: '/cage-in', label: 'CAGE-IN' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/publications', label: 'Publications' },
+];
+
+function isActive(href: string) {
+  if (href === '/') return pathname === '/';
+  return pathname.startsWith(href);
+}
+---
+
+<header id="site-header" class="sticky top-0 z-50 bg-white shadow-sm transition-shadow duration-300">
+  <!-- Gold accent stripe -->
+  <div class="h-1 bg-geo-gold"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-18 py-3">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3 shrink-0">
+        <img src="/assets/AIRE-logo-long.jpg" alt="AI Resource Exploration Logo" class="h-11 w-auto" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-1">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`px-3 py-2 text-sm font-medium tracking-wide transition-colors ${
+              isActive(link.href)
+                ? 'text-geo-primary'
+                : 'text-slate-500 hover:text-geo-primary'
+            }`}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="/contact"
+          class={`ml-3 px-5 py-2.5 text-sm font-semibold rounded transition-colors ${
+            isActive('/contact')
+              ? 'bg-geo-primary text-white'
+              : 'bg-geo-gold text-white hover:bg-amber-500'
+          }`}
+        >
+          Contact
+        </a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-toggle"
+        aria-label="Toggle mobile menu"
+        aria-expanded="false"
+        class="lg:hidden p-2 rounded text-slate-500 hover:text-geo-primary hover:bg-gray-100 transition-colors"
+      >
+        <span id="menu-icon-open"><Menu size={22} /></span>
+        <span id="menu-icon-close" class="hidden"><X size={22} /></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+    <nav class="px-4 py-3 flex flex-col gap-1">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`px-3 py-2.5 text-sm font-medium tracking-wide transition-colors rounded ${
+            isActive(link.href)
+              ? 'text-geo-primary bg-blue-50'
+              : 'text-slate-600 hover:text-geo-primary hover:bg-gray-50'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="/contact"
+        class={`mt-2 px-4 py-3 text-sm font-semibold text-white text-center rounded transition-colors ${isActive('/contact') ? 'bg-geo-primary' : 'bg-geo-gold hover:bg-amber-500'}`}
+      >
+        Contact
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header?.classList.replace('shadow-sm', 'shadow-md');
+    } else {
+      header?.classList.replace('shadow-md', 'shadow-sm');
+    }
+  });
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    if (isOpen) {
+      menu?.classList.add('hidden');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+    } else {
+      menu?.classList.remove('hidden');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+  });
+</script>

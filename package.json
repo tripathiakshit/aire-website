@@ -1,0 +1,27 @@
+{
+  "name": "geoexploration-website",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.2",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.0.6",
+    "lucide-astro": "^0.556.0",
+    "mapbox-gl": "^3.20.0",
+    "photoswipe": "^5.4.4",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/mapbox-gl": "^3.4.1"
+  }
+}

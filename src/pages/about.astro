@@ -1,0 +1,109 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="About — AI Resource Exploration"
+  description="About Dr. Amit Tripathi — Founder of AI Resource Exploration, structural geologist with 26+ years of international mineral exploration experience."
+>
+  <!-- Page Hero -->
+  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">The Expert Behind the Work</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Dr. Amit Tripathi</h1>
+      <p class="text-slate-400 text-lg">Founder & Principal Consultant, AI Resource Exploration</p>
+    </div>
+  </section>
+
+  <!-- Stats Row -->
+  <section class="bg-geo-primary text-white py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {[
+          { num: '26+', label: 'Years Experience' },
+          { num: '15+', label: 'Countries' },
+          { num: '22+', label: 'Publications' },
+          { num: 'Ph.D.', label: 'Structural Geology' },
+        ].map(({ num, label }) => (
+          <div>
+            <p class="font-display text-4xl md:text-5xl font-bold text-geo-gold">{num}</p>
+            <p class="text-blue-200/70 text-xs uppercase tracking-[0.15em] mt-2">{label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Bio Section -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-14">
+        <!-- Photo -->
+        <div class="flex justify-center lg:justify-start lg:pt-4">
+          <div class="relative">
+            <div class="absolute -inset-2 rounded-full bg-geo-secondary/20"></div>
+            <img
+              src="/assets/people/amit_tripathi.jpg"
+              alt="Dr. Amit Tripathi"
+              class="relative w-64 h-64 rounded-full object-cover shadow-xl border-4 border-white"
+            />
+          </div>
+        </div>
+
+        <!-- Bio Text -->
+        <div class="lg:col-span-2">
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.2em] mb-3">Biography</p>
+          <h2 class="font-display text-3xl text-geo-primary mb-1">Dr. Amit Tripathi</h2>
+          <p class="text-slate-400 text-sm mb-6 font-medium">Ph.D. Structural Geology &nbsp;·&nbsp; Member AusIMM</p>
+
+          <div class="mb-6 p-4 border-l-4 border-geo-gold bg-amber-50/50 rounded-r">
+            <h3 class="text-xs font-semibold uppercase tracking-wider text-geo-gold mb-2">Qualifications</h3>
+            <ul class="text-slate-600 text-sm space-y-1">
+              <li>Ph.D., Geology — BHU, India</li>
+              <li>M.Sc., Geology (Structural Geology specialization) — BHU, India</li>
+            </ul>
+          </div>
+
+          <div class="space-y-4 text-slate-600 leading-relaxed text-[15px]">
+            <p>
+              Dr. Amit has multidisciplinary experience in mineral and nuclear energy exploration, mine planning, processing, and geo-statistical quality control across a variety of minerals — high-value minerals, base metals, and industrial minerals — recognized through his membership of the Australasian Institute of Mines and Metals (AusIMM).
+            </p>
+            <p>
+              His experience spans twenty-six years across research, exploration, and mining industries in several countries on five continents — USA, Australia, Canada, Colombia, Ecuador, Guyana, India, Madagascar, Mongolia, Nicaragua, Niger, Panama, Senegal, South Africa, and Tanzania.
+            </p>
+            <p>
+              Dr. Tripathi is a Doctorate in Structural Geology who founded AI Resource Exploration, providing end-to-end services in the fields of Mining, Mineral Exploration, and Mineral Processing.
+            </p>
+            <p>
+              He served the National Mineral Development Corporation (NMDC), one of the top ten public sector companies of the Government of India, for seven years in various capacities — including as project manager in Tanzania and Lesotho, leading the team in Africa to a successful hard rock exploration project. During this time he also completed exploration of diamond-bearing kimberlites in South India.
+            </p>
+            <p>
+              He has served in senior management and advisory positions, preparing NI43-101 and JORC compliant reports for several listed companies including Goviex Uranium Ltd. (Canada), Sunward Resources Ltd. (Canada), Condoto Platinum Ltd (Australia), Future Vantage (Singapore) Pvt. Ltd., and Blue Stream Enterprises Ltd. (BVI).
+            </p>
+            <p>
+              Dr. Tripathi has worked on structural correlations of mineralization and developed a mathematical model for assessment of gold grades in coarse gold deposits and high nugget effect geological environments.
+            </p>
+            <p>
+              He has authored one book and published approximately twenty-two scientific research papers in national and international journals — internationally recognized and referenced in gold, diamond, and iron ore exploration works.
+            </p>
+            <p>
+              International analysts including Ticker Trax (Thom Calandra) and 321Gold (Bob Moriarty) have reviewed and written about his work. In 1992, he was awarded the prestigious Dr. K.S. Krishnan Fellowship by the Dept. of Atomic Energy.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-geo-slate text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Work With Us</p>
+      <h2 class="font-display text-4xl font-bold mb-6">Ready to discuss your project?</h2>
+      <a href="/contact" class="inline-block bg-geo-gold text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</PageLayout>

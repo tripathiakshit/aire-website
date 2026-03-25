@@ -1,0 +1,36 @@
+---
+import { Download } from 'lucide-astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  downloadUrl?: string;
+  downloadLabel?: string;
+  reversed?: boolean;
+}
+
+const { title, description, image, downloadUrl, downloadLabel, reversed = false } = Astro.props;
+---
+
+<div class={`flex flex-col ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 items-center py-12`}>
+  {image && (
+    <div class="w-full md:w-1/2 shrink-0">
+      <img src={image} alt={title} class="w-full rounded-xl shadow-lg object-cover" />
+    </div>
+  )}
+  <div class={`flex-1 ${!image ? 'max-w-2xl' : ''}`}>
+    <h3 class="text-2xl font-bold text-geo-primary mb-4">{title}</h3>
+    <div class="text-gray-700 leading-relaxed space-y-3" set:html={description} />
+    {downloadUrl && (
+      <a
+        href={downloadUrl}
+        download
+        class="inline-flex items-center gap-2 mt-6 bg-geo-primary text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity"
+      >
+        <Download size={18} />
+        {downloadLabel ?? 'Download'}
+      </a>
+    )}
+  </div>
+</div>

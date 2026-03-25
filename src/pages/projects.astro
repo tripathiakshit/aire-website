@@ -1,0 +1,58 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import MapView from '../components/MapView.astro';
+import locationsData from '../data/locations.json';
+---
+
+<PageLayout
+  title="Projects — AI Resource Exploration"
+  description="AI Resource Exploration project locations spanning 59 mineral exploration sites across five continents."
+>
+  <!-- Page Hero -->
+  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Global Footprint</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Projects</h1>
+      <p class="text-slate-400 text-lg">
+        Mineral exploration experience spanning {locationsData.length} project locations across five continents.
+      </p>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="h-[400px] md:h-[600px] w-full">
+    <MapView />
+  </section>
+
+  <!-- Project List -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-bold text-geo-primary mb-8">Project Locations</h2>
+      <div class="overflow-x-auto rounded-xl shadow-md">
+        <table class="w-full bg-white text-sm">
+          <thead>
+            <tr class="bg-geo-primary text-white">
+              <th class="px-4 py-3 text-left font-semibold">#</th>
+              <th class="px-4 py-3 text-left font-semibold">Location</th>
+              <th class="px-4 py-3 text-left font-semibold">Commodity / Deposit Type</th>
+              <th class="px-4 py-3 text-left font-semibold hidden md:table-cell">Coordinates</th>
+            </tr>
+          </thead>
+          <tbody>
+            {locationsData.map((loc, i) => (
+              <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td class="px-4 py-3 text-gray-400 font-mono text-xs">{loc.id}</td>
+                <td class="px-4 py-3 font-medium text-geo-primary">{loc.name}</td>
+                <td class="px-4 py-3 text-gray-700">{loc.commodity}</td>
+                <td class="px-4 py-3 text-gray-400 font-mono text-xs hidden md:table-cell">
+                  {loc.lat.toFixed(4)}, {loc.lng.toFixed(4)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</PageLayout>

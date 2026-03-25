@@ -1,0 +1,209 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+
+const services = [
+  {
+    title: 'Mineral Reconnaissance',
+    description: 'Remote sensing and field verification-based geological mapping of large areas to identify prospective targets for further investigation.',
+    image: '/assets/geological_mapping-min.jpg',
+  },
+  {
+    title: 'GIS Integration',
+    description: 'Integrating data from multiple sources into a single unified database, enabling comprehensive spatial analysis across all exploration datasets.',
+    image: '/assets/geospatial.jpg',
+  },
+  {
+    title: 'Turnkey Exploration & Resource Modelling',
+    description: 'High-resolution mapping, sampling, and geophysics combined with predictive modelling and drill planning. Full drilling management including logging, sampling, QA-QC, cross sections, and resource models.',
+    image: '/assets/geostatistics-min.png',
+  },
+  {
+    title: 'Exploration Technologies',
+    description: 'Developing and deploying proprietary technology tools for efficient, AI-driven, and eco-friendly exploration — increasing process efficiency while reducing environmental impact.',
+    image: '/assets/data_interpretation-min.png',
+  },
+  {
+    title: 'Integrated Data Interpretation',
+    description: 'Proven proprietary technology for integrating historical data, known mineralization data, and geological and geophysical datasets for precise mineral targeting over large areas.',
+    image: '/assets/structural_modelling.png',
+  },
+  {
+    title: 'Mineral Intelligence',
+    description: 'Remote sensing and drone-based surveys of mining areas for change detection of toxic pollutants, illegal mining activities, and production monitoring.',
+    image: undefined,
+  },
+  {
+    title: 'Mineral Policy Matters',
+    description: 'Tracking policies and regulatory frameworks of countries that have successfully discovered and developed their mineral resources into productive mines.',
+    image: undefined,
+  },
+  {
+    title: 'Skill Development in Exploration',
+    description: 'Capacity building of clients\' in-house teams by embedding high-level geological expertise on site — accelerating team capabilities and exploration outcomes.',
+    image: undefined,
+  },
+];
+---
+
+<PageLayout
+  title="Services — AI Resource Exploration"
+  description="Comprehensive mineral exploration consulting services including mineral reconnaissance, GIS integration, turnkey exploration, resource modelling, and more."
+>
+  <!-- Page Hero -->
+  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">What We Offer</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Our Services</h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+        End-to-end mineral exploration consulting — from reconnaissance to resource estimation, and everything in between.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map(service => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            image={service.image}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Service Sections -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+
+      <!-- Mineral Reconnaissance -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="font-display text-2xl text-geo-primary mb-4">Mineral Reconnaissance</h2>
+          <ul class="list-disc list-inside text-gray-700 space-y-1.5 text-sm">
+            <li>Base mapping in Greenfield Exploration</li>
+            <li>Lithology and structure mapping at local and regional scale</li>
+            <li>Underground geological and structural mapping</li>
+            <li>Geochemical anomaly mapping based on assay data</li>
+            <li>Mapping alteration signatures relevant to the mineral of interest</li>
+            <li>Analysis and interpretation of multiple datasets for target generation</li>
+            <li>Establishing structural controls of mineralization in 3D</li>
+          </ul>
+        </div>
+        <div>
+          <img
+            src="/assets/geological_mapping-min.jpg"
+            alt="Mineral Reconnaissance — geological mapping"
+            class="rounded-xl shadow-lg w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <hr class="border-gray-200" />
+
+      <!-- Turnkey Exploration & Resource Modelling -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="order-2 md:order-1">
+          <img
+            src="/assets/geostatistics-min.png"
+            alt="Turnkey Exploration and Resource Modelling"
+            class="rounded-xl shadow-lg w-full object-cover"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="font-display text-2xl text-geo-primary mb-4">Turnkey Exploration &amp; Resource Modelling</h2>
+          <ul class="list-disc list-inside text-gray-700 space-y-1.5 text-sm">
+            <li>3D modelling of major structures, fracture zones, lithologies, ore volumes, and alteration zones</li>
+            <li>Converting the exploration drilling database into 3D models</li>
+            <li>Mineralization target generation by litho-structure pattern study in 3D</li>
+            <li>Modelling the distribution pattern of ore bodies</li>
+            <li>Resource modelling using geological, geochemical and geophysical data</li>
+            <li>3D block modelling for resource estimation</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="border-gray-200" />
+
+      <!-- GIS Integration -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="font-display text-2xl text-geo-primary mb-4">GIS Integration</h2>
+          <ul class="list-disc list-inside text-gray-700 space-y-1.5 text-sm">
+            <li>Dedicated team highly experienced in satellite data interpretation — including high-resolution and hyper-spectral image interpretation</li>
+            <li>Specialist capability in lithostructural interpretation combined with alteration and mineral mapping</li>
+            <li>Large portfolio covering a wide range of commodities in diverse geological environments</li>
+            <li>High-resolution imagery examination for geological mapping and mine planning</li>
+          </ul>
+        </div>
+        <div>
+          <img
+            src="/assets/geospatial.jpg"
+            alt="GIS Integration — geospatial analysis"
+            class="rounded-xl shadow-lg w-full object-cover"
+          />
+        </div>
+      </div>
+
+      <hr class="border-gray-200" />
+
+      <!-- Integrated Data Interpretation -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="order-2 md:order-1">
+          <img
+            src="/assets/data_interpretation-min.png"
+            alt="Integrated Data Interpretation"
+            class="rounded-xl shadow-lg w-full object-cover"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="font-display text-2xl text-geo-primary mb-4">Integrated Data Interpretation</h2>
+          <ul class="list-disc list-inside text-gray-700 space-y-1.5 text-sm">
+            <li>Processing and interpretation of aeromagnetic and radiometric data to understand mineralization controls</li>
+            <li>Integration of RS and geophysical datasets (2D and 3D) for target generation</li>
+            <li>Prioritization of exploration targets</li>
+            <li>Proprietary CAGE-IN technology for geological and geophysical data integration and enhanced interpretation</li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="border-gray-200" />
+
+      <!-- Skill Development in Exploration -->
+      <div>
+        <h2 class="font-display text-2xl text-geo-primary mb-4">Skill Development in Exploration</h2>
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          We build the capacity of clients' in-house teams by embedding high-level geological expertise directly on site. As part of this service, we have developed custom data entry tools with:
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-1.5 text-sm">
+          <li>HTML-based tools using CSS / PHP / JS</li>
+          <li>Dropdown lists defining permitted values to eliminate operator errors</li>
+          <li>Validation rules updated as data is entered</li>
+          <li>Operator access restricted to current working files</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-geo-slate text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Work With Us</p>
+      <h2 class="font-display text-4xl font-bold mb-4">Discuss Your Project</h2>
+      <p class="text-slate-400 mb-8">Contact us to find out how our services can advance your exploration program.</p>
+      <a
+        href="/contact"
+        class="inline-block bg-geo-gold text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</PageLayout>

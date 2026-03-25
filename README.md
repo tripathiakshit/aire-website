@@ -1,43 +1,68 @@
-# Astro Starter Kit: Minimal
+# AI Resource Exploration — Website
+[![Netlify Status](https://api.netlify.com/api/v1/badges/84c02aee-55c9-4e2c-931d-61380228d160/deploy-status)](https://app.netlify.com/projects/ai-resource-exploration/deploys)
+
+Marketing and informational website for AI Resource Exploration (AIRE), a mineral exploration consultancy. Built with Astro v6, Tailwind CSS v4, and MDX.
+
+## Tech Stack
+
+- **[Astro v6](https://astro.build)** — static site generator with file-based routing
+- **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first styling via the Vite plugin
+- **[@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/)** — MDX support for blog posts
+- **[Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/)** — interactive map on the contact page
+- **[PhotoSwipe](https://photoswipe.com)** — lightbox for the gallery page
+- **[Netlify Forms](https://docs.netlify.com/forms/setup/)** — contact form handling (no backend required)
+
+Node.js >= 22.12.0 required.
+
+## Commands
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install       # Install dependencies
+npm run dev       # Dev server at http://localhost:4321
+npm run build     # Build production site to ./dist/
+npm run preview   # Preview the production build locally
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```
+src/
+  pages/          # File-based routes (one file = one page)
+    index.astro
+    about.astro
+    services.astro
+    projects.astro
+    technologies.astro
+    publications.astro
+    case-studies.astro
+    cage-in.astro
+    gallery.astro
+    contact.astro
+    blog/
+      index.astro
+      [...slug].astro
+  content/
+    blog/           # Blog posts as .mdx files
+  components/       # Shared Astro components
+  layouts/          # Page layouts (BaseLayout, PageLayout)
+public/
+  assets/           # Images, PDFs, downloadable documents
+  robots.txt
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Adding Content
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+**Blog posts** — create a new `.mdx` file in `src/content/blog/`. The filename becomes the URL slug.
 
-Any static assets, like images, can be placed in the `public/` directory.
+**Static assets** — drop files in `public/assets/`. They're served at `/assets/filename`.
 
-## 🧞 Commands
+## Deployment (Netlify)
 
-All commands are run from the root of the project, from a terminal:
+The site deploys to Netlify. Build settings:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Setting | Value |
+|---|---|
+| Build command | `npm run build` |
+| Publish directory | `dist` |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**Contact form** — Netlify Forms is already configured (`data-netlify="true"` on the form in `src/pages/contact.astro`). Netlify detects and registers the form automatically at deploy time. Submissions appear under **Site → Forms** in the Netlify dashboard.

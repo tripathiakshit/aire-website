@@ -77,8 +77,13 @@ import PageLayout from '../layouts/PageLayout.astro';
         <!-- Contact Form -->
         <div class="bg-white rounded-xl shadow-md p-8 border border-slate-100">
           <h2 class="font-display text-xl text-gray-800 font-bold mb-6">Send a Message</h2>
-          <form name="Contact" method="POST" data-netlify="true" class="space-y-5">
+          <form name="Contact" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="space-y-5">
             <input type="hidden" name="form-name" value="Contact" />
+
+            <!-- Honeypot field — hidden from humans, bots fill it in and get silently discarded -->
+            <p class="hidden" aria-hidden="true">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p>
 
             <div>
               <label for="name" class="block text-sm font-medium text-gray-700 mb-1">
@@ -136,6 +141,9 @@ import PageLayout from '../layouts/PageLayout.astro';
                 class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-geo-primary focus:border-transparent outline-none transition resize-y"
               ></textarea>
             </div>
+
+            <!-- Netlify reCAPTCHA — rendered automatically by Netlify's JS injection -->
+            <div data-netlify-recaptcha="true"></div>
 
             <button
               type="submit"

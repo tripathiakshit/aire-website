@@ -6,26 +6,364 @@ import BlogCard from '../components/BlogCard.astro';
 const posts = (await getCollection('blog'))
   .filter(p => !p.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const publicationCategories = [
+  {
+    name: 'Peer-Reviewed Academic Publications',
+    items: [
+      {
+        title: 'Mineral Exploration as a Business — A Perspective from India',
+        venue: 'Journal of the Geological Society of India',
+        year: '2020',
+        description: 'This peer-reviewed paper presents a systemic argument that mineral exploration in India should be treated as a standalone, venture-capital-style business rather than a subsidiary function of the mining sector. Drawing on international models from Canada and Australia, it makes the case for policy reform and dedicated regulatory frameworks for junior exploration companies. Dr. Tripathi draws on his direct global exploration experience across 20+ countries to argue that a thriving exploration ecosystem is a prerequisite for India\'s resource security. This paper is widely cited in subsequent policy discussions within the Indian geological community.',
+        url: 'https://doi.org/10.1007/s12594-020-1413-4',
+      },
+      {
+        title: 'Fold Symmetry — A Quantitative Description',
+        venue: 'Journal of Structural Geology / ScienceDirect',
+        year: '1999',
+        authors: 'Tripathi & Gairola',
+        description: 'One of Dr. Tripathi\'s earliest peer-reviewed contributions, this paper proposes a quantitative method to classify fold symmetry using Fourier analysis of fold profiles. The \'degree of asymmetry\' (DA) framework introduced here — derived from the Fourier coefficients of the two limbs of a fold — provides a more nuanced and practical tool than binary symmetric/asymmetric classification. This foundational work has been cited extensively in structural geology literature worldwide, including studies on fold-thrust belts from the Zagros to the Himalayas.',
+        url: 'https://www.sciencedirect.com/science/article/abs/pii/S0191814199000668',
+      },
+    ],
+  },
+  {
+    name: 'AI & Technology — The CAGE-IN Methodology',
+    items: [
+      {
+        title: 'CAGE-IN: A Cosmic Leap in Mineral Exploration, Powered by AI',
+        venue: 'Quantum Earth Sciences Ltd. / Mineral Exploration Academy',
+        year: 'February 2024',
+        description: 'This flagship article introduces and explains CAGE-IN, Dr. Tripathi\'s groundbreaking AI-powered methodology for mineral exploration. Born from frustration with the limitations of conventional geophysical interpretation during gold exploration in Africa, CAGE-IN selectively masks interference in geophysical data and integrates layered geological inputs through a Bayesian \'exploration geologist\'s mind map\'. The article documents how CAGE-IN has tripled mineral resources, identified multi-million-tonne deposits in greenfield settings, and compressed discovery timelines. It presents CAGE-IN as a paradigm shift that fuses the art of geological intuition with the precision of machine learning.',
+        url: 'https://www.quantumearthscience.com/cage-in-mineral-exploration-powered-by-ai',
+      },
+      {
+        title: 'Hunting Porphyries: Unveiling the Secrets with Bayesian Inference',
+        venue: 'Quantum Earth Sciences Ltd. / Mineral Exploration Academy',
+        year: 'February 2024',
+        description: 'A detailed technical exposition on the application of Bayesian inference to porphyry copper-gold deposit exploration. The article explains how CAGE-IN integrates aeromagnetic data, airborne radiometrics, and satellite remote sensing into a probabilistic framework that continuously updates as new data is added. It makes the case that Bayesian \'subjectivity\' — the ability to incorporate prior geological knowledge — is not a weakness but a critical advantage over purely data-driven approaches. Porphyry deposits rich in copper, gold, and molybdenum are used as the primary case study throughout.',
+        url: 'https://www.quantumearthscience.com/hunting-porphyries-bayesian-inference',
+      },
+      {
+        title: 'Gold Discovery with CAGE-IN: Epithermal Insights (Case Study)',
+        venue: 'Quantum Earth Sciences Ltd.',
+        year: '2024',
+        description: 'This case study documents CAGE-IN\'s performance in epithermal gold systems, a deposit type where weak or \'quiet\' magnetic signatures are routinely overlooked by conventional linear data stretching. Dr. Tripathi demonstrates how CAGE-IN enhances radiometric datasets to unmask low-contrast gold-bearing zones previously hidden by high-contrast \'noise\'. The case study reveals new drill targets contiguous with a known epithermal gold mine, validating CAGE-IN\'s near-mine brownfield application. It highlights the \'High-Contrast Trap\' — a common industry failure mode — and positions CAGE-IN as its solution.',
+        url: 'https://www.quantumearthscience.com/epithermal-gold-exploration-with-cage-in',
+      },
+      {
+        title: 'Skarn Exploration with CAGE-IN: Silver–Gold Targets (Case Study)',
+        venue: 'Quantum Earth Sciences Ltd.',
+        year: '2024',
+        description: 'Focusing on a Silver-Gold Skarn deposit setting, this case study demonstrates how CAGE-IN processes Total Magnetic Intensity (TMI) data to identify near-mine targets that correlate precisely with known mineralised zones. Conventional geological mapping had failed to detect these additional targets. CAGE-IN\'s application not only confirmed the value of existing drill sites but also revealed entirely new exploration vectors adjacent to them. This document is part of Quantum Earth Sciences Ltd.\'s case study series and directly showcases Dr. Tripathi\'s CAGE-IN technology.',
+        url: 'https://www.quantumearthscience.com/skarn-exploration-with-cage-in',
+      },
+      {
+        title: 'Ni Bearing Ultramafic–Mafic Complex Exploration with CAGE-IN (Case Study)',
+        venue: 'Quantum Earth Sciences Ltd.',
+        year: '2024',
+        description: 'This case study addresses one of the more complex targets in exploration geology: Ni laterite and sulphide deposits hosted within ultramafic-mafic complexes. Dr. Tripathi\'s CAGE-IN technology is shown to isolate subtle geophysical signatures characteristic of nickel-bearing units that are otherwise indistinguishable from background geology. The study opens new exploration avenues within a known but under-exploited complex, demonstrating CAGE-IN\'s capacity to both de-risk existing projects and flag entirely new drill zones. This work is directly relevant to Dr. Tripathi\'s ongoing field work in the East African Nickel Belt.',
+        url: 'https://www.quantumearthscience.com/ni-bearing-ultramafic-mafic-complex-exploration-with-cage-in',
+      },
+      {
+        title: 'Porphyry Exploration with CAGE-IN: A Major +10 Moz Au Eq Discovery (Case Study)',
+        venue: 'Quantum Earth Sciences Ltd.',
+        year: '2024',
+        description: 'The most commercially significant of the CAGE-IN case studies, this document details how Dr. Tripathi\'s methodology led to the identification of a porphyry copper-gold target ultimately assessed at over 10 Moz gold equivalent. It describes how CAGE-IN processed multi-layer geophysical datasets to generate drill-ready targets with significantly reduced exploration risk. The study provides quantitative before/after comparisons between conventional interpretation and CAGE-IN output, showing CAGE-IN\'s capacity to transform data-rich but insight-poor exploration datasets into actionable, high-confidence targets.',
+        url: 'https://www.quantumearthscience.com/porphyry-exploration-with-cage-in',
+      },
+    ],
+  },
+  {
+    name: 'East African Nickel Belt — Exploration Series',
+    items: [
+      {
+        title: 'Exploration Challenges of Finding Large Nickel Deposits — Examples from East African Nickel Belt (Part 1)',
+        venue: 'Mineral Exploration Academy',
+        year: 'April 2025',
+        authors: 'Dr. Amit Tripathi & A.I. Vidushak',
+        description: 'Co-authored by Dr. Amit Tripathi and A.I. Vidushak, this two-part series draws directly from Dr. Tripathi\'s fieldwork experience exploring for nickel in the East African Nickel Belt (EANB). Part 1 sets out the critical challenges: the geological complexity of identifying large economic Ni deposits, the prevalence of low-grade lateritic profiles requiring large tonnage to be viable, and the difficulty of bridging between surface geochemistry and deep economic mineralisation. The article reflects directly on field lessons learned from real exploration campaigns and is closely tied to Dr. Tripathi\'s current work in Uganda, Tanzania, and neighbouring jurisdictions.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2025/04/30/exploration-challenges-of-finding-large-nickel-deposits-pitfalls-and-the-way-forward-examples-from-east-african-nickel-belt-part-1/',
+      },
+      {
+        title: 'Evolving Understanding of the East African Nickel Belt: Have We Found Its Limits? (Part 2)',
+        venue: 'Mineral Exploration Academy',
+        year: 'May 2025',
+        description: 'The second installment of the East African Nickel Belt series revisits the geological and economic boundaries of this significant metallogenic province. Dr. Tripathi reassesses prevailing resource models, questions whether grade continuity assumptions hold at depth, and proposes revised exploration vectors informed by his CAGE-IN methodology. The article also explores whether the belt\'s geographical and geological limits have been correctly defined, or whether significant tonnage remains unrecognised beneath cover. This is a forward-looking strategic contribution directly relevant to junior companies operating in the region.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2025/05/06/evolving-understanding-of-the-east-african-nickel-belt-have-we-found-its-limits-part-2/',
+      },
+    ],
+  },
+  {
+    name: 'Mineral Policy & Strategic Perspectives',
+    items: [
+      {
+        title: 'Uganda\'s $3.4 Billion Paradox: Can AI Offset Uganda\'s Mining Levy?',
+        venue: 'Mineral Exploration Academy',
+        year: 'October 2025',
+        description: 'One of Dr. Tripathi\'s most strategically significant recent pieces, this article examines the paradox facing Uganda: a country with compelling, under-explored mineral potential whose fiscal framework — specifically its 15% royalty levy — is perceived by investors as an above-ground risk that overshadows below-ground opportunity. Dr. Tripathi argues that the adoption of intelligent exploration technologies like CAGE-IN can structurally lower exploration costs and de-risk projects to the point where the fiscal burden becomes acceptable. This article is particularly relevant to Dr. Tripathi\'s active directorship at West Nile Nickel (Uganda) Limited.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2025/10/05/ugandas-3-4-billion-paradox-can-ai-offset-ugandas-mining-levy/',
+      },
+      {
+        title: 'Rare Earth Elements: India\'s Critical Strategic Deficiencies and Chinese Dominance — Problems and Solutions',
+        venue: 'Mineral Exploration Academy',
+        year: 'August 2020',
+        description: 'Authored directly by Dr. Amit Tripathi, this editorial examines China\'s dominant position in rare earth element (REE) production and processing and India\'s strategic vulnerability as a result. The article argues that India\'s resolute political leadership must urgently channel private-sector readiness into a structured national REE exploration program. Dr. Tripathi frames this as a matter of national security rather than mere resource economics. This piece was subsequently referenced and expanded in the Financial Express article on REE and strategic metals security, and cited in the Asia Centre Bangalore report on India\'s mineral security.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/08/04/rare-earth-elements-indias-critical-strategic-deficiencies-and-chinese-dominance-problems-and-solutions/',
+      },
+      {
+        title: 'Rare Earth Elements (REE) and Strategic Metals Security: How India\'s Best Way Forward Diverges from the Chinese Model',
+        venue: 'Financial Express (Defence)',
+        year: '2020',
+        description: 'Published in the Defence section of the Financial Express, this article expands the REE security argument to a national audience and draws explicitly on Dr. Tripathi\'s views and analysis. It argues that India\'s strategic metals security framework must diverge from China\'s state-controlled model and instead leverage private-sector exploration capital, international geological partnerships, and a reformed mineral licensing environment. Dr. Tripathi\'s contributions to this discourse are directly acknowledged and the article builds on the foundational arguments he presented on the Mineral Exploration Academy platform.',
+        url: 'https://www.financialexpress.com/business/defence-rare-earth-elements-ree-and-strategic-metals-security-how-the-best-way-forward-for-india-diverges-from-chinese-model-2226130/',
+      },
+      {
+        title: 'Indian Ocean Region as a Source of Critical Strategic Raw Materials',
+        venue: 'Mineral Exploration Academy',
+        year: 'August 2020',
+        description: 'Dr. Tripathi argues that India\'s dominant strategic position in the Indian Ocean Region (IOR) — combined with the region\'s mineral richness and investment-friendly governments — represents an under-exploited pathway to securing critical raw materials away from Chinese supply chain influence. The article makes a case for proactive Indian investment in IOR mineral jurisdictions, backed by state-level support and bilateral geological partnerships. It forms part of a coherent national security-oriented body of work published by Dr. Tripathi in mid-2020.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/08/07/indian-ocean-region-as-a-source-of-critical-strategic-raw-materials/',
+      },
+      {
+        title: 'White Paper Inputs for Mineral Exploration Policy',
+        venue: 'Mineral Exploration Academy',
+        year: 'June 2020',
+        description: 'This policy-facing document lays out specific legislative and regulatory inputs for reforming India\'s mineral exploration framework. Structured as white paper inputs rather than an opinion piece, it identifies the fundamental disconnect between the existing mining regulation regime (designed for large extractive companies) and the operational and financial realities of junior exploration companies. Dr. Tripathi draws on international comparators and proposes a separate regulatory tier for exploration, with lighter licensing obligations, ring-fenced exploration expenditure incentives, and expedited permitting.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/06/03/white-paper-inputs-for-mineral-exploration-policy/',
+      },
+      {
+        title: 'Mineral Exploration: A Startup Ecosystem',
+        venue: 'Mineral Exploration Academy',
+        year: 'June 2020',
+        description: 'Using a technology startup analogy, Dr. Tripathi argues that treating mineral exploration as a subset of mining is as counterproductive as forcing a one-man tech startup to comply with the infrastructure and financial requirements of Microsoft or TCS. The article draws a sharp distinction between the risk-tolerant, hypothesis-driven business model of exploration and the capital-intensive, production-oriented world of mining. It calls for a venture-capital-style policy ecosystem for exploration companies in India, including lighter-touch compliance and exit rights that allow junior companies to sell discoveries to larger operators.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/06/07/mineral-exploration-a-startup-ecosystem/',
+      },
+      {
+        title: 'Mineral Exploration Business Is the Way Forward',
+        venue: 'Mineral Exploration Academy',
+        year: 'June 2020',
+        description: 'Published as a companion to the white paper inputs piece, this editorial makes an affirmative case for adopting a business-oriented model for mineral exploration in India — rather than treating it as a government function or a precursor to PSU mining. Dr. Tripathi argues that India\'s widespread auction-based concession system has inadvertently suppressed private exploration by removing the ability to self-select target areas, and that this must be reversed. Dr. Tripathi\'s views here directly influenced industry submissions and were later cited in the Journal of the Geological Society of India (Pramod Kumar & Pandey, 2022).',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/06/03/mineral-exploration-business-is-the-way-forward/',
+      },
+    ],
+  },
+  {
+    name: 'Global Exploration Perspectives & Editorials',
+    items: [
+      {
+        title: 'Exploring Minerals in Latin America: Challenges of a Different Business Culture',
+        venue: 'Mineral Exploration Academy',
+        year: 'August 2020',
+        description: 'Drawing directly on his tenure as VP Exploration for Sunward Resources (Colombia), where his team discovered a 14 Moz Au-Cu porphyry, Dr. Tripathi offers a candid field-level analysis of the above-ground risks unique to Latin American mineral jurisdictions. The article distinguishes between the technically solvable below-ground risks (geology, resources, metallurgy) and the culturally and politically embedded above-ground risks (business culture, community relations, jurisdiction, infrastructure). It provides a seasoned explorer\'s framework for due diligence that is not found in standard investment-grade technical reports.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/08/13/exploring-minerals-in-latin-america-challenges-of-a-different-business-culture/',
+      },
+      {
+        title: 'Morocco: The Rising Star of African Mining',
+        venue: 'Mineral Exploration Academy',
+        year: 'September 2020',
+        description: 'Authored by Dr. Tripathi, this article moves beyond Morocco\'s well-known phosphate dominance to assess the country\'s emerging profile as a diversified African mining destination. It examines Morocco\'s governance improvements, infrastructure investment, and the geological potential for base and precious metals beyond phosphate. The article reflects Dr. Tripathi\'s broader African exploration experience and positions Morocco as a comparator jurisdiction for other African countries seeking to attract junior exploration capital.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/09/07/morocco-the-rising-star-of-african-mining/',
+      },
+      {
+        title: 'Geology Fraud: The Infamous Case of Bre-X and the Origin of the JORC Standard',
+        venue: 'Mineral Exploration Academy',
+        year: 'August 2020',
+        description: 'This educational editorial recounts the Bre-X mining scandal — the largest fraud in prospecting history — in which a Canadian junior company falsified gold resource data from Indonesia\'s Busang river, ultimately wiping out billions in shareholder value before collapse. Dr. Tripathi uses the case to explain how the JORC (and later NI 43-101) reporting standards emerged as direct regulatory responses to industry fraud, and to make the broader argument that ethics in geoscience is as fundamental as technical competence. The article is used as an educational resource within the Mineral Exploration Academy curriculum.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/08/23/geology-fraud-the-infamous-case-of-bre-x-and-the-origin-of-jorc-standard/',
+      },
+      {
+        title: 'Famous Personalities — Unknown Geologists (Part 1)',
+        venue: 'Mineral Exploration Academy',
+        year: 'August 2020',
+        description: 'Part of a recurring educational series authored by Dr. Tripathi, this article profiles Henry Thomas Colebrooke Voysey — the first geologist to produce a geological map of India — whose contributions were institutionally suppressed because of his medical rather than geology degree. Dr. Tripathi draws a parallel with D.N. Wadia, similarly overlooked within GSI despite his seminal contributions. The piece celebrates geoscientific pioneers whose work shaped the discipline without the formal recognition they deserved, and is written in a style accessible to students and professionals alike.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2020/08/28/famous-personalities-unknown-geologists-1/',
+      },
+    ],
+  },
+  {
+    name: 'Data Science & Modern Exploration Challenges',
+    items: [
+      {
+        title: 'The Legend of the Frankenstein Dataset: Why Your Prospectivity Map Looks Like a Patchwork Quilt',
+        venue: 'Mineral Exploration Academy',
+        year: 'December 2025',
+        description: 'In this colourful and technically grounded editorial, Dr. Tripathi addresses the industry-wide problem of \'legacy data assemblage\' — the practice of stitching together datasets of wildly disparate vintage, resolution, and quality to generate prospectivity maps that are internally inconsistent. Using vivid analogies (1985 paper maps where \'major faults are coffee stains\', 1998 aeromag \'with the sensitivity of a brick\'), he argues that poor data architecture is a primary reason why modern AI prospectivity tools underperform. The article directly advocates for CAGE-IN\'s selective masking approach as the correct engineering response to Frankenstein datasets.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2025/12/23/the-legend-of-the-frankenstein-dataset-why-your-prospectivity-map-looks-like-a-patchwork-quilt/',
+      },
+      {
+        title: 'The Whisper in a Jet Engine: Why Most Mineral Exploration Is Just Expensive Karaoke',
+        venue: 'Mineral Exploration Academy',
+        year: 'December 2025',
+        description: 'Dr. Tripathi\'s most recent published essay argues that the mineral exploration industry is awash with data but drowning in noise. The \'High-Contrast Trap\' — where large, loud geological features dominate standard geophysical visualisation and mask the subtle signatures of economically significant mineralisation — is presented as a systemic failure. The \'expensive karaoke\' metaphor refers to the industry\'s habit of processing the same publicly available datasets with the same generic tools and expecting different results. Dr. Tripathi positions CAGE-IN as the answer: a methodology that genuinely filters signal from noise rather than amplifying both equally.',
+        url: 'https://mineralexplorationacademy.wordpress.com/2025/12/22/the-whisper-in-a-jet-engine-why-most-mineral-exploration-is-just-expensive-karaoke/',
+      },
+    ],
+  },
+  {
+    name: 'Corporate & Industry References',
+    items: [
+      {
+        title: 'Radio Fuels Corp. — Corporate Profile: Dr. Amit Tripathi, Exploration Advisor',
+        venue: 'Radio Fuels Corp. (TSXV)',
+        year: '2022–Present',
+        description: 'Radio Fuels Corp., a TSX Venture-listed uranium and critical minerals company, prominently lists Dr. Amit Tripathi as a key exploration advisor on its corporate profile page. The profile credits him as Founder and Director of AI Resource Exploration (formerly MPXG Exploration), specialist in structural controls of mineralisation, and inventor of CAGE-IN. This corporate affiliation validates the commercial application of his geoscientific work and confirms his active involvement in publicly listed Canadian resource companies. The Eco Ridge uranium and rare earth project in Ontario is part of the company\'s flagship portfolio.',
+        url: 'https://radiofuels.ca/',
+      },
+      {
+        title: 'Captains of the Canadian Resource Industry — Stockhouse (Thom Calandra, September 2011)',
+        venue: 'Stockhouse Independent Reports',
+        year: 'September 2011',
+        description: 'Prominent financial journalist Thom Calandra profiled a cohort of Canadian junior resource company leaders, including figures associated with Sunward Resources — the company where Dr. Tripathi served as VP Exploration. The piece references the high-stakes, international nature of Canadian junior exploration at the height of the Colombia gold discovery cycle (2010–2012), a period during which Dr. Tripathi\'s team was instrumental in identifying the 14 Moz Au-Cu porphyry at the Titiribi Project. The article contextualises Dr. Tripathi\'s work within the broader landscape of Canadian capital markets and junior exploration.',
+        url: 'https://stockhouse.com/opinion/independent-reports/2011/09/16/captains-of-the-canadian-resource-industry',
+      },
+      {
+        title: 'Investment Case for Colombia Gold and Silver Prospectors — Stockhouse (Thom Calandra, September 2011)',
+        venue: 'Stockhouse Independent Reports',
+        year: 'September 2011',
+        description: 'This Calandra investment analysis covers multiple Colombia-focused junior explorers and includes Sunward Resources, where Dr. Tripathi led exploration. The report provides third-party validation of the geological significance of the discoveries being made in the Cauca region during that period. It directly acknowledges the scale of the gold-copper porphyry system being delineated under Dr. Tripathi\'s technical leadership, making it a historically important independent reference to his exploration work during this phase of his career.',
+        url: 'https://stockhouse.com/opinion/independent-reports/2011/09/06/investment-case-for-several-colombia-gold-silver-prospectors',
+      },
+      {
+        title: 'Two Promising Gold Juniors in Colombia\'s Cauca — Stockhouse (Thom Calandra, August 2011)',
+        venue: 'Stockhouse Independent Reports',
+        year: 'August 2011',
+        description: 'The earliest of the three Calandra pieces, this article identifies Sunward Resources and one other junior as the most compelling exploration stories in Colombia\'s Cauca region. Calandra\'s due diligence references the technical merit of the geological programme underway — the very programme led by Dr. Tripathi. It serves as a contemporaneous, independent, market-facing record of the professional recognition Dr. Tripathi\'s exploration team received during the 2011 Colombia gold exploration cycle.',
+        url: 'https://stockhouse.com/opinion/independent-reports/2011/08/31/two-promising-gold-juniors-in-colombia-s-cauca',
+      },
+      {
+        title: 'Seamless Mining Licenses Urged — Geonesis Magazine',
+        venue: 'Geonesis: Indian Mining and Exploration Updates',
+        year: 'August 2020',
+        description: 'This industry magazine article captures Dr. Tripathi\'s advocacy for seamless, integrated exploration-to-mining licensing in India — eliminating the administrative discontinuity between Prospecting Licenses and Mining Leases. He argues that this gap in the regulatory framework creates a disincentive for serious exploration capital, as companies cannot guarantee that a successful exploration outcome will automatically transition into a mining right. Dr. Tripathi\'s views are presented alongside those of other senior industry professionals in the August 2020 issue of Geonesis Magazine.',
+        url: 'https://www.scribd.com/document/489228593/Published-Aug-2020-mining-magazine',
+      },
+    ],
+  },
+  {
+    name: 'Academic Citations & Policy Reports',
+    items: [
+      {
+        title: 'Mineral Exploration Scenario in India: Prospect, Promise and Policy Reforms',
+        venue: 'Journal of the Geological Society of India (Pramod Kumar & Pandey)',
+        year: '2022',
+        description: 'This peer-reviewed paper in the Journal of the Geological Society of India explicitly cites Dr. Amit Tripathi\'s Mineral Exploration Academy policy discussion (September 2022) as a key reference in its analysis of India\'s exploration sector. Authored by former GSI officials Pramod Kumar and Pradeep Pandey, it validates Dr. Tripathi\'s policy positions on exploration licensing, the gap between Obvious Geological Potential (OGP) and actual exploration coverage, and the need for structural reform. The citation confirms that Dr. Tripathi\'s blog-format policy writing has entered the formal academic literature.',
+        url: 'https://link.springer.com/article/10.1007/s12594-022-2141-8',
+      },
+      {
+        title: 'Towards India\'s Mineral Security — Asia Centre Bangalore Report (Lt. Gen. C.A. Krishnan, Retd.)',
+        venue: 'Asia Centre Bangalore',
+        year: 'February 2022',
+        description: 'This strategic policy report by a retired senior Indian military officer examines India\'s mineral security vulnerability in the context of the Gondwana supercontinent framework and China\'s resource acquisition strategy. Dr. Tripathi\'s research and advocacy on Rare Earth Elements and India\'s critical mineral dependencies are referenced within the report\'s analysis. The document demonstrates the cross-disciplinary reach of Dr. Tripathi\'s work — from technical geoscience into national security and strategic affairs.',
+        url: 'https://asiacentrebangalore.org/wp-content/uploads/2022/02/Towards-Indias-Mineral-Security-by-Lt-Gen-CA-Krishnan-Retd-on-07-Feb-2022.pdf',
+      },
+    ],
+  },
+];
 ---
 
 <PageLayout
-  title="Publications — AI Resource Exploration"
-  description="Technical insights, research findings, and exploration innovations from the AI Resource Exploration team."
+  title="Blogs & Publications — AI Resource Exploration"
+  description="Peer-reviewed papers, technical articles, case studies, industry editorials, and blog posts by Dr. Amit Tripathi — 30 publications across 8 categories."
 >
   <!-- Page Hero -->
   <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
-      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Insights & Research</p>
-      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Publications</h1>
-      <p class="text-slate-400 text-lg">
-        Technical insights, research findings, and exploration innovations from our team.
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Research & Insights</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Blogs & Publications</h1>
+      <p class="text-slate-400 text-lg mb-4">
+        Peer-reviewed papers, technical case studies, industry editorials, and blog posts from three decades of international mineral exploration — 30 publications across 8 categories.
       </p>
+      <a
+        href="https://www.researchgate.net/profile/Amit_Tripathi21"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-geo-gold text-sm font-medium hover:text-amber-400 transition-colors"
+      >
+        ResearchGate profile →
+      </a>
     </div>
   </section>
 
-  <!-- Posts Grid -->
-  <section class="py-20 bg-white">
+  <!-- Tab Navigation -->
+  <section class="bg-white border-b border-slate-200 sticky top-0 z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-0" role="tablist">
+        <button
+          id="tab-publications"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-publications"
+          class="tab-btn px-6 py-4 text-sm font-semibold uppercase tracking-wider border-b-2 border-geo-primary text-geo-primary transition-colors"
+        >
+          Publications
+        </button>
+        <button
+          id="tab-blog"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-blog"
+          class="tab-btn px-6 py-4 text-sm font-semibold uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-geo-primary transition-colors"
+        >
+          Blog
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications Panel -->
+  <div id="panel-publications" role="tabpanel" aria-labelledby="tab-publications" class="tab-panel py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      {publicationCategories.map(category => (
+        <div>
+          <h2 class="font-display text-xl text-geo-primary font-semibold mb-8 pb-3 border-b-2 border-geo-secondary/40">
+            {category.name}
+          </h2>
+          <div class="space-y-8">
+            {category.items.map(pub => (
+              <div class="flex gap-5">
+                <div class="shrink-0 w-1 rounded-full bg-geo-gold/50 self-stretch"></div>
+                <div class="min-w-0">
+                  <p class="font-semibold text-geo-primary leading-snug mb-1">
+                    {pub.url ? (
+                      <a href={pub.url} target="_blank" rel="noopener noreferrer" class="hover:text-geo-gold transition-colors">
+                        {pub.title}
+                      </a>
+                    ) : pub.title}
+                  </p>
+                  <p class="text-slate-400 text-xs mb-1">
+                    {pub.venue}{pub.year ? ` · ${pub.year}` : ''}{pub.authors ? ` · ${pub.authors}` : ''}
+                  </p>
+                  <p class="text-slate-600 text-sm leading-relaxed mt-2">{pub.description}</p>
+                  {pub.url && (
+                    <a
+                      href={pub.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1.5 mt-3 text-geo-gold text-xs font-medium hover:text-amber-500 transition-colors"
+                    >
+                      Access / Download →
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- Access Notes -->
+      <div class="p-5 bg-slate-50 rounded-lg border border-slate-200 text-sm text-slate-500 leading-relaxed">
+        <p class="font-semibold text-slate-700 mb-2">Notes on Access</p>
+        <p>Peer-reviewed journal articles (Springer/JGSI) may require institutional or individual subscriptions for full-text access. All Mineral Exploration Academy blog posts and Quantum Earth Sciences case studies are freely accessible. Stockhouse articles are publicly available without registration. The Scribd document may require a Scribd account. The Financial Express article is publicly available. The Asia Centre Bangalore PDF is a direct open-access download.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Panel -->
+  <div id="panel-blog" role="tabpanel" aria-labelledby="tab-blog" class="tab-panel hidden py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {posts.length > 0 ? (
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -42,12 +380,12 @@ const posts = (await getCollection('blog'))
         </div>
       ) : (
         <div class="text-center py-20 text-gray-500">
-          <p class="text-xl font-medium mb-2">No publications yet</p>
-          <p class="text-sm">Check back soon for technical insights and research findings.</p>
+          <p class="text-xl font-medium mb-2">No blog posts yet</p>
+          <p class="text-sm">Check back soon for technical insights and field notes.</p>
         </div>
       )}
     </div>
-  </section>
+  </div>
 
   <!-- CTA -->
   <section class="py-20 bg-geo-slate text-white">
@@ -60,3 +398,28 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 </PageLayout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const panels = document.querySelectorAll<HTMLElement>('.tab-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('aria-controls')!;
+
+      tabs.forEach(t => {
+        t.setAttribute('aria-selected', 'false');
+        t.classList.remove('border-geo-primary', 'text-geo-primary');
+        t.classList.add('border-transparent', 'text-slate-500');
+      });
+
+      tab.setAttribute('aria-selected', 'true');
+      tab.classList.add('border-geo-primary', 'text-geo-primary');
+      tab.classList.remove('border-transparent', 'text-slate-500');
+
+      panels.forEach(panel => {
+        panel.id === target ? panel.classList.remove('hidden') : panel.classList.add('hidden');
+      });
+    });
+  });
+</script>

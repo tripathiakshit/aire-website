@@ -1,0 +1,68 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const team = [
+  { name: 'Dr. Amit Tripathi', role: 'Founder & Principal Consultant', detail: '26+ years multidisciplinary mineral exploration across five continents. Ph.D. Structural Geology, AusIMM member.' },
+  { name: 'Ankit Tripathi', role: 'General Manager', detail: 'Environmental Scientist and Business Management Specialist overseeing operations and client engagement.' },
+  { name: 'Mamadouba Yansane', role: 'Geology Specialist', detail: 'Instrumental in world-class iron ore reserves discovery; extensive West Africa project experience.' },
+  { name: 'Krishna Prasad', role: 'Geophysics Specialist', detail: '22 years of multi-commodity geophysical interpretation across major global exploration programs.' },
+  { name: 'Dr. Vikas Srivastava', role: 'Remote Sensing & GIS', detail: 'PhD-level expertise in satellite data interpretation and hyperspectral mineral mapping.' },
+  { name: 'Ibrahim Aouami', role: 'Senior Geologist', detail: 'Core team member in the 165+ Mlb uranium discovery in Niger; broad African exploration experience.' },
+  { name: 'N. Ganesh', role: 'Structural Geologist', detail: 'Specialist in structural controls on mineralisation and project-scale geological modelling.' },
+  { name: 'Niki Kiza Oliver', role: 'Geologist', detail: 'Broad experience across multiple gold exploration projects in Africa and beyond.' },
+  { name: 'Dolma Ray', role: 'Resource Modeller', detail: 'Specialist in 3D resource modelling and geostatistical analysis for compliant resource estimation.' },
+  { name: 'Prof. Bhabesh Sarkar', role: 'Advisor — Geostatistics & Modelling', detail: 'Academic and industry expert providing specialist advisory on geostatistical methods and resource modelling.' },
+  { name: 'Timothy Kwihangana', role: 'Country Director — Uganda', detail: 'Leads on-ground operations and stakeholder engagement for AIRE\'s Uganda projects.' },
+];
+---
+
+<PageLayout
+  title="Our Team — AI Resource Exploration"
+  description="Meet the AIRE team — specialist geologists, geophysicists, remote sensing experts, resource modellers, and advisors delivering world-class mineral exploration."
+>
+  <!-- Page Hero -->
+  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">The People Behind Our Work</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Our Team</h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+        AIRE engages a network of specialist geologists, geophysicists, remote sensing experts, and resource modellers — each bringing deep domain expertise to our clients' projects worldwide.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Grid -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {team.map(({ name, role, detail }) => {
+          const initials = name.split(' ').filter(w => !w.startsWith('(')).map(w => w[0]).join('').slice(0, 2).toUpperCase();
+          return (
+            <div class="flex gap-4 p-6 bg-white rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all">
+              <div class="shrink-0 w-12 h-12 rounded-full bg-geo-primary/10 flex items-center justify-center text-geo-primary font-bold text-sm">
+                {initials}
+              </div>
+              <div class="min-w-0">
+                <p class="font-semibold text-geo-primary text-sm">{name}</p>
+                <p class="text-geo-gold text-xs font-medium uppercase tracking-wide mb-2">{role}</p>
+                <p class="text-slate-500 text-sm leading-relaxed">{detail}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-geo-slate text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Work With Us</p>
+      <h2 class="font-display text-4xl font-bold mb-6">Ready to discuss your project?</h2>
+      <a href="/contact" class="inline-block bg-geo-gold text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</PageLayout>

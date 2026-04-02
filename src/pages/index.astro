@@ -87,6 +87,28 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
     </div>
   </section>
 
+  <!-- Publications strip -->
+  <section class="bg-white border-b border-slate-100 py-6">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 shrink-0">Research &amp; thought leadership</p>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          {['Peer-Reviewed Journals', 'International Mining Conferences', 'AI & Exploration Technology', 'Mineral Policy Briefings', 'Industry Newsletters'].map(label => (
+            <span class="text-xs text-slate-500 font-medium">{label}</span>
+          ))}
+        </div>
+        <a
+          href="https://www.airesourceexploration.com/publications/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="shrink-0 text-xs font-semibold text-geo-primary hover:text-geo-gold transition-colors uppercase tracking-wider whitespace-nowrap"
+        >
+          Browse 30+ publications →
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- Feature Highlights -->
   <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

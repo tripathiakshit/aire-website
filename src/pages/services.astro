@@ -11,6 +11,12 @@ import structuralModellingImg from '../assets/structural_modelling.png';
 
 const services = [
   {
+    title: 'AI-Driven Mineral Targeting with CAGE-IN Technology',
+    description: 'Proprietary AI-based re-interpretation of your existing geological, geochemical and geophysical data to generate precision mineral targets — shortening the exploration cycle from years to months.',
+    image: '/assets/cage-in_pic1-min.jpg',
+    href: '/cage-in',
+  },
+  {
     title: 'Mineral Reconnaissance',
     description: 'Remote sensing and field verification-based geological mapping of large areas to identify prospective targets for further investigation.',
     image: geologicalMappingImg,
@@ -78,6 +84,7 @@ const services = [
             title={service.title}
             description={service.description}
             image={service.image}
+            href={service.href}
           />
         ))}
       </div>

@@ -202,11 +202,240 @@ import PageLayout from '../layouts/PageLayout.astro';
     </div>
   </section>
 
-  <!-- 93% stat highlight -->
-  <section class="py-24 bg-geo-slate text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="font-display text-8xl md:text-9xl font-bold text-geo-gold leading-none mb-4">93%</p>
-      <p class="text-slate-300 text-sm font-semibold uppercase tracking-[0.3em]">Working Total Rating</p>
+  <!-- Technical Specifications -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">For Geophysicists & Survey Partners</p>
+        <h2 class="font-display text-3xl md:text-4xl text-geo-primary mb-4">Technical Specifications</h2>
+        <p class="text-slate-500 max-w-2xl leading-relaxed">Everything your technical team needs to evaluate CAGE-IN for integration into your survey workflow.</p>
+      </div>
+
+      <div class="space-y-3">
+
+        <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden" open>
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer hover:bg-slate-50 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+            <span class="font-semibold text-geo-primary">Accepted Input Data Types</span>
+            <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-6 border-t border-slate-100">
+            <p class="text-slate-600 text-sm leading-relaxed mt-4 mb-3">CAGE-IN is geophysical-method agnostic. Any dataset that can be expressed as gridded or point values can be processed, including:</p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-600">
+              {['Magnetics / TMI (X, Y, Z components)', 'Radiometrics (Total Count, U, Th, K)', 'Gravity', 'IP / Resistivity', 'EM (Time-domain and Frequency-domain)', 'MT (Magnetotellurics)', 'Satellite / Remote Sensing imagery', 'Geological maps and structural data', 'Geochemistry (soil, rock, drill hole)', 'Historical artisanal workings / known mineralisation'].map(item => (
+                <li class="flex items-start gap-2">
+                  <span class="text-geo-gold mt-1 shrink-0">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer hover:bg-slate-50 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+            <span class="font-semibold text-geo-primary">Input Format & Resolution Requirements</span>
+            <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-6 border-t border-slate-100">
+            <p class="text-slate-600 text-sm leading-relaxed mt-4 mb-3">CAGE-IN accepts data in any of the following standard geophysical formats:</p>
+            <ul class="space-y-2 text-sm text-slate-600 mb-4">
+              {['CSV / XYZ point files (X, Y, value columns)', 'Geosoft XYZ format', 'Geosoft .grd grid files', 'ASCII grid files'].map(item => (
+                <li class="flex items-start gap-2"><span class="text-geo-gold mt-1 shrink-0">→</span>{item}</li>
+              ))}
+            </ul>
+            <p class="text-slate-600 text-sm leading-relaxed"><strong class="text-slate-700">Grid spacing / scale:</strong> Any grid spacing or survey scale can be used — from regional reconnaissance to detailed deposit-scale grids. No minimum or maximum resolution is required; CAGE-IN adapts its processing to the data provided.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer hover:bg-slate-50 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+            <span class="font-semibold text-geo-primary">Output Deliverables</span>
+            <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-6 border-t border-slate-100">
+            <p class="text-slate-600 text-sm leading-relaxed mt-4 mb-3">Clients receive a complete interpretation package:</p>
+            <ul class="space-y-2 text-sm text-slate-600">
+              {[
+                'Enhanced geophysical maps showing CAGE-IN-processed datasets',
+                'Potential target areas with correlation analysis',
+                'Target point files for drill planning',
+                'Confidence classification of identified targets',
+                'Written interpretation report with geological context and recommendations',
+              ].map(item => (
+                <li class="flex items-start gap-2"><span class="text-geo-gold mt-1 shrink-0">→</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer hover:bg-slate-50 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+            <span class="font-semibold text-geo-primary">Output Formats & Software Compatibility</span>
+            <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-6 border-t border-slate-100">
+            <p class="text-slate-600 text-sm leading-relaxed mt-4 mb-3">All deliverables are provided in open GIS-compatible formats:</p>
+            <ul class="space-y-2 text-sm text-slate-600 mb-4">
+              {['.shp — Shapefile (vector targets, polygons)', '.gpkg — GeoPackage (preferred open format)', '.tif / .tiff — GeoTIFF (raster maps and enhanced grids)'].map(item => (
+                <li class="flex items-start gap-2"><span class="text-geo-gold mt-1 shrink-0">→</span>{item}</li>
+              ))}
+            </ul>
+            <p class="text-slate-600 text-sm leading-relaxed">These formats load natively into <strong class="text-slate-700">Oasis Montaj, ArcGIS, QGIS, Leapfrog, Micromine, GOCAD/SKUA</strong>, and any other GIS or geological modelling platform that supports standard vector/raster formats.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer hover:bg-slate-50 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+            <span class="font-semibold text-geo-primary">IP & Technology Protection</span>
+            <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-6 border-t border-slate-100">
+            <p class="text-slate-600 text-sm leading-relaxed mt-4 mb-3"><strong class="text-slate-700">Innovation Protected. Guarded Code. Unguarded Potential.</strong></p>
+            <p class="text-slate-600 text-sm leading-relaxed mb-3">We openly share the conceptual framework of CAGE-IN — its inputs, outputs, and the geological logic behind it. The actual working code and processing flowsheets are closely guarded as a company trade secret. We deliberately choose <em>not</em> to patent CAGE-IN in order to avoid public disclosure of our proprietary algorithms.</p>
+            <p class="text-slate-600 text-sm leading-relaxed">This means the processing power CAGE-IN brings to your projects remains exclusively in our hands — and exclusively yours to benefit from.</p>
+          </div>
+        </details>
+
+        <details class="group bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <summary class="flex items-center justify-between px-6 py-5 cursor-pointer hover:bg-slate-50 transition-colors [list-style:none] [&::-webkit-details-marker]:hidden">
+            <span class="font-semibold text-geo-primary">Data Security & Confidentiality</span>
+            <span class="text-geo-gold text-xl leading-none transition-transform duration-200 group-open:rotate-45">+</span>
+          </summary>
+          <div class="px-6 pb-6 border-t border-slate-100">
+            <p class="text-slate-600 text-sm leading-relaxed mt-4 mb-3">Your exploration data is your company's greatest asset. We treat it accordingly:</p>
+            <ul class="space-y-2 text-sm text-slate-600">
+              {[
+                'Mandatory Mutual NDA before any data is shared',
+                'All client data stored on corporate enterprise Dropbox — AES-256 encryption in transit and at rest',
+                'Access restricted on a strict need-to-know basis to team members assigned to your project',
+                'Client data is never co-mingled with other project data',
+                'Data retained only for the duration of the engagement unless otherwise agreed',
+              ].map(item => (
+                <li class="flex items-start gap-2"><span class="text-geo-gold mt-1 shrink-0">→</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sample Deliverables -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">What You Receive</p>
+        <h2 class="font-display text-3xl md:text-4xl text-geo-primary mb-4">Sample CAGE-IN Outputs</h2>
+        <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">Real results from completed projects — all anonymised. These images show typical CAGE-IN deliverables: enhanced geophysical maps with new targets identified against known mineralisation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div class="rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+          <div class="bg-slate-50 px-5 py-3 border-b border-slate-100">
+            <p class="text-xs font-semibold uppercase tracking-wider text-geo-primary">Before: Standard TMI — Skarn Deposit</p>
+            <p class="text-xs text-slate-400 mt-0.5">Conventional processing — known mineralisation only visible</p>
+          </div>
+          <img src="/assets/cage-in-samples/skarn-before.jpeg" alt="Standard TMI with known mineralisation areas — before CAGE-IN" class="w-full object-cover" loading="lazy" />
+        </div>
+        <div class="rounded-xl overflow-hidden border border-slate-100 shadow-sm">
+          <div class="bg-geo-primary/5 px-5 py-3 border-b border-slate-100">
+            <p class="text-xs font-semibold uppercase tracking-wider text-geo-primary">After: CAGE-IN Enhanced TMI — New Targets Identified</p>
+            <p class="text-xs text-slate-400 mt-0.5">CAGE-IN processing reveals additional mineralised zones</p>
+          </div>
+          <img src="/assets/cage-in-samples/skarn-after.jpeg" alt="CAGE-IN enhanced TMI with new mineralisation targets" class="w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="rounded-xl overflow-hidden border border-slate-100 shadow-sm max-w-3xl mx-auto">
+        <div class="bg-geo-primary/5 px-5 py-3 border-b border-slate-100">
+          <p class="text-xs font-semibold uppercase tracking-wider text-geo-primary">Greenfield Discovery: Ni Laterite Targets — East Africa</p>
+          <p class="text-xs text-slate-400 mt-0.5">CAGE-IN applied to aerogeophysics, remote sensing, topography, lithology and geomorphology — Ni resources taken from greenfield to resource in 2 years</p>
+        </div>
+        <img src="/assets/cage-in-samples/ni-laterite-targets.png" alt="CAGE-IN Ni laterite target generation — East Africa" class="w-full object-cover" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Survey Company Partnership -->
+  <section class="py-20 bg-geo-slate text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+
+        <!-- Left: pitch -->
+        <div>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">For Survey Companies</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">Add CAGE-IN to Your Survey Offering</h2>
+          <p class="text-slate-300 leading-relaxed mb-6">
+            Stop paying for interpretation technology you only need part of the time. CAGE-IN is available to geophysical survey companies as a value-add interpretation layer — delivered on a flexible, project-specific fee model that scales directly with your project's scope.
+          </p>
+          <ul class="space-y-3 text-slate-300 text-sm mb-8">
+            {[
+              'Pricing scales with survey area size, geological complexity, and data volume',
+              'Steeply discounted rates for long-term retainer arrangements',
+              'White-label or co-branded delivery available',
+              'Custom response within 2 working days of inquiry',
+            ].map(item => (
+              <li class="flex items-start gap-3"><span class="text-geo-gold mt-0.5 shrink-0">→</span>{item}</li>
+            ))}
+          </ul>
+          <div class="p-4 bg-white/5 rounded-xl border border-white/10 text-sm text-slate-400 leading-relaxed">
+            <strong class="text-white">Data protection guaranteed.</strong> All inquiries are covered by our standard Mutual NDA and data security protocols before any project data changes hands.
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div class="bg-white rounded-2xl p-8">
+          <p class="font-display text-xl text-geo-primary font-semibold mb-1">Request a Project-Specific Quote</p>
+          <p class="text-slate-500 text-sm mb-6">Tell us what you need — we'll get back to you with a tailored offer within 2 working days.</p>
+
+          <form
+            name="cage-in-partnership"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            enctype="multipart/form-data"
+            class="space-y-4"
+          >
+            <input type="hidden" name="form-name" value="cage-in-partnership" />
+            <input type="hidden" name="bot-field" class="hidden" />
+
+            <div>
+              <label for="project-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Project Name</label>
+              <input type="text" id="project-name" name="project-name" required placeholder="e.g. Copper Porphyry — Colombia" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary" />
+            </div>
+
+            <div>
+              <label for="company-website" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Company Website</label>
+              <input type="url" id="company-website" name="company-website" placeholder="https://yourcompany.com" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary" />
+            </div>
+
+            <div>
+              <label for="requirements" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Briefly Describe Your Requirements</label>
+              <textarea id="requirements" name="requirements" rows="4" required placeholder="Area size, 2D/3D needs, geological complexity, data types available, target commodity…" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary resize-none"></textarea>
+            </div>
+
+            <div>
+              <label for="data-specs" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Attach Data Specs / Technical Documents <span class="text-slate-400 font-normal normal-case">(optional)</span></label>
+              <input type="file" id="data-specs" name="data-specs" accept=".pdf,.doc,.docx,.xls,.xlsx,.zip,.csv,.txt" class="w-full text-sm text-slate-600 file:mr-3 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-geo-primary/10 file:text-geo-primary hover:file:bg-geo-primary/20 cursor-pointer" />
+            </div>
+
+            <div>
+              <label for="news-release" class="block text-xs font-semibold uppercase tracking-wider text-slate-600 mb-1.5">Attach NR / Resource Report <span class="text-slate-400 font-normal normal-case">(optional)</span></label>
+              <input type="file" id="news-release" name="news-release" accept=".pdf,.doc,.docx" class="w-full text-sm text-slate-600 file:mr-3 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-geo-primary/10 file:text-geo-primary hover:file:bg-geo-primary/20 cursor-pointer" />
+            </div>
+
+            <button type="submit" class="w-full bg-geo-gold text-white py-3 rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors mt-2">
+              Submit Inquiry
+            </button>
+
+            <p class="text-slate-400 text-xs text-center leading-relaxed">
+              🔒 Submitted securely to <strong>info@geoexplorationllc.com</strong>. All submissions are covered by our standard data security protocols and strict confidentiality.
+            </p>
+          </form>
+        </div>
+
+      </div>
     </div>
   </section>
 

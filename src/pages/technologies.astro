@@ -12,7 +12,7 @@ import drillDb2Img from '../assets/drill-database-corrections_pic2.png';
 
 <PageLayout
   title="Technologies — AI Resource Exploration"
-  description="Proprietary technologies developed by AI Resource Exploration: CAGE-IN, Gold Proxy Index, Drill Database Corrections, and Spectral Classification."
+  description="Proprietary technologies developed by AI Resource Exploration: CAGE-IN, Gold Proxy Index, and Drill Database Corrections."
 >
   <!-- Page Hero -->
   <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
@@ -53,11 +53,17 @@ import drillDb2Img from '../assets/drill-database-corrections_pic2.png';
       <!-- Gold Proxy Index -->
       <div>
         <TechCard
-          title="Gold Proxy Index"
+          title="Gold Proxy Index: Solving the Nugget Effect"
           description={`
-            <p class="mb-3">Coarse-free gold deposits are a delight for metallurgy and highly profitable — <strong>but</strong> gold nuggets have an erratic distribution and their point density gets very rare with increasing median grain size, making it virtually impossible to estimate grade by drilling.</p>
-            <p class="mb-3">Regular statistical requirements are to increase sample size multifold, which becomes unviable after a certain depth.</p>
-            <p>We have developed a statistical correlation model where the gold grade can be predicted using statistical models of structure, ore chemistry and pathfinders.</p>
+            <p class="mb-3">Coarse gold deposits are a mineral engineer's dream but an exploration geologist's nightmare. The extreme sampling challenges of the <strong>"nugget effect"</strong> — where erratic gold grain distribution makes grade estimation by drilling statistically unreliable — have long frustrated exploration teams and wasted drill budgets on excess infill campaigns.</p>
+            <p class="mb-3">To solve this, we developed the <strong>Gold Proxy Index</strong>: a methodology that maps and analyses the reliable structural, geological, analytical, and mathematical footprints that act as proxies for gold deposition. Rather than chasing gold directly, we model the system that concentrates it.</p>
+            <p class="mb-3">The result is a statistically defensible model that empowers your team to target and assess erratic gold mineralisation with significantly higher confidence — without blowing your entire budget on excess infill drilling.</p>
+            <ul class="list-disc list-inside space-y-1 text-sm">
+              <li>Applicable to coarse-gold and nuggety deposits of any style</li>
+              <li>Combines structural proximity, ore chemistry, and pathfinder element distributions</li>
+              <li>Produces a grade-proxy map your QP can use as input for resource reporting</li>
+              <li>Reduces infill drilling requirements while improving resource confidence category</li>
+            </ul>
           `}
           image={goldProxyImg}
           reversed={true}
@@ -87,35 +93,6 @@ import drillDb2Img from '../assets/drill-database-corrections_pic2.png';
         <div class="pb-12 -mt-4">
           <Image src={drillDb2Img} alt="QA/QC Tool" width={600} class="rounded-xl shadow-md max-w-lg mx-auto w-full object-cover" />
         </div>
-      </div>
-
-      <!-- Spectral Classification -->
-      <div>
-        <TechCard
-          title="Spectral Classification"
-          description={`
-            <p class="mb-3">Proprietary image classification technology uses spectral signatures to identify mineral prospects over very large areas.</p>
-            <ul class="list-disc list-inside space-y-1 text-sm mb-4">
-              <li>Works for regional prospect identification as well as high-resolution targeting</li>
-              <li>Perfect for shallow mineralization with subtle superficial spectral signatures</li>
-              <li>Successful in delineating targets for Cu-Au Porphyry, hydrothermal and lateritic mineralization</li>
-              <li>Works on the principle that mineralized bodies have identifiable spectral signatures that affect surface bodies and vegetation</li>
-            </ul>
-            <h4 class="font-semibold text-gray-800 mb-2">Exploration Applications</h4>
-            <ul class="list-disc list-inside space-y-1 text-sm mb-4">
-              <li>Potential mineral bearing areas within large prospects</li>
-              <li>Locate active, abandoned, and artisanal mining areas</li>
-            </ul>
-            <h4 class="font-semibold text-gray-800 mb-2">Regulatory Applications</h4>
-            <ul class="list-disc list-inside space-y-1 text-sm">
-              <li>Change in mining activity sites over time</li>
-              <li>Illegal mining activities or mining outside concession areas</li>
-            </ul>
-          `}
-          downloadUrl="/assets/downloads/20170808-GeoExploration_SpectralClassification-Web.pdf"
-          downloadLabel="Download Spectral Classification Presentation"
-          reversed={true}
-        />
       </div>
 
     </div>

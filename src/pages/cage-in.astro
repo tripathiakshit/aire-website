@@ -112,6 +112,41 @@ import PageLayout from '../layouts/PageLayout.astro';
     </div>
   </section>
 
+  <!-- Deposit Type & Commodity Applicability -->
+  <section class="py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10 text-center">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Where It Works</p>
+        <h2 class="font-display text-3xl md:text-4xl text-geo-primary mb-4">From Porphyry Copper to Graphite</h2>
+        <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          Rooted in theoretical geology, CAGE-IN is commodity-agnostic and built to adapt to any geological environment. Its track record already spans the world's most economically significant deposit types.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
+        {[
+          { type: 'Porphyry Cu-Au', validated: true },
+          { type: 'Skarn Au-Ag', validated: true },
+          { type: 'Epithermal Au', validated: true },
+          { type: 'Ni Laterite', validated: true },
+          { type: 'Orogenic Gold', validated: true },
+          { type: 'Intrusive-Related', validated: true },
+          { type: 'Graphite', validated: true },
+          { type: 'New Settings', validated: false },
+        ].map(item => (
+          <div class={`rounded-xl p-4 border text-center ${item.validated ? 'bg-white border-slate-100' : 'bg-white border-dashed border-slate-200'}`}>
+            <p class="font-semibold text-slate-800 text-sm">{item.type}</p>
+            <p class={`text-xs mt-1 ${item.validated ? 'text-geo-gold' : 'text-slate-400'}`}>
+              {item.validated ? 'Applied & validated' : 'Under active testing'}
+            </p>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-slate-500 text-sm leading-relaxed">
+        Not sure if CAGE-IN applies to your deposit type? <a href="/contact" class="text-geo-primary underline underline-offset-2 hover:text-geo-gold transition-colors">Ask us directly →</a>
+      </p>
+    </div>
+  </section>
+
   <!-- Cost Savings -->
   <section class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -321,6 +356,72 @@ import PageLayout from '../layouts/PageLayout.astro';
     </div>
   </section>
 
+  <!-- Collaborative Workflow -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Collaboration Model</p>
+        <h2 class="font-display text-3xl md:text-4xl text-geo-primary mb-4">How We Work With Your Team</h2>
+        <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          CAGE-IN augments your in-house geological team — it does not replace it. Here is exactly how a typical engagement unfolds, from first contact to final deliverable.
+        </p>
+      </div>
+      <ol class="relative border-l-2 border-geo-primary/20 ml-4 space-y-0">
+        {[
+          {
+            step: '01',
+            title: 'Mutual NDA & Scoping Call',
+            timing: '~2 working days',
+            detail: 'We begin with a mutual NDA and a scoping call with your geo team to understand your data inventory, project stage, and key geological questions. No data changes hands until this step is complete.',
+          },
+          {
+            step: '02',
+            title: 'Data Handover & Quality Assessment',
+            timing: '1–3 days',
+            detail: 'You share datasets via our secure enterprise Dropbox environment. We assess data quality, identify any preprocessing requirements, and confirm a firm delivery date.',
+          },
+          {
+            step: '03',
+            title: 'CAGE-IN Processing',
+            timing: '2–8 weeks',
+            detail: 'Our team processes your geophysical, geological, geochemical, and remote sensing data through the CAGE-IN workflow. Your team is not required to contribute time at this stage — we work independently.',
+          },
+          {
+            step: '04',
+            title: 'Draft Target Review With Your Geo Team',
+            timing: '1 week',
+            detail: "We present draft targets and preliminary interpretations to your geo team in a working session. Your team's project knowledge informs revisions to target ranking and geological interpretation before finalisation.",
+          },
+          {
+            step: '05',
+            title: 'Final Report Delivery',
+            timing: 'On confirmed date',
+            detail: 'We deliver the complete CAGE-IN report with all GIS-compatible data files, target coordinates, confidence classifications, and the written interpretation — structured to provide your QP with everything needed for compliant disclosure.',
+          },
+          {
+            step: '06',
+            title: 'Optional: Ongoing Support & Retainer',
+            timing: 'As needed',
+            detail: 'Retainer arrangements are available for iterative re-processing as new drill data comes in. QP sign-off support and news-release technical review are available as optional add-on services.',
+          },
+        ].map(item => (
+          <li class="pl-10 pb-10 relative last:pb-0">
+            <div class="absolute -left-4 top-0 w-8 h-8 rounded-full bg-geo-primary flex items-center justify-center shrink-0">
+              <span class="text-white text-xs font-bold">{item.step}</span>
+            </div>
+            <div class="flex items-start justify-between gap-4 flex-wrap">
+              <div class="flex-1 min-w-0">
+                <h3 class="font-semibold text-geo-primary mb-1">{item.title}</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">{item.detail}</p>
+              </div>
+              <span class="shrink-0 text-xs font-semibold text-geo-primary bg-geo-primary/10 px-3 py-1 rounded-full whitespace-nowrap self-start">{item.timing}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
   <!-- Turnaround Timeline -->
   <section class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -454,6 +555,57 @@ import PageLayout from '../layouts/PageLayout.astro';
               Schedule a Free 30-Min Call
             </a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Known Limitations -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+        <div>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Technical Transparency</p>
+          <h2 class="font-display text-3xl md:text-4xl text-geo-primary mb-6">The One Thing Every "Magical" AI Tool Tries to Hide</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            At our core, we believe a truly credible tool openly acknowledges its limits. CAGE-IN is fundamentally driven by the data on which it is based — the higher the resolution and quality of your input data, the more precise our interpretations become.
+          </p>
+          <p class="text-slate-600 leading-relaxed mb-8">
+            To maintain absolute technical integrity, every CAGE-IN report we deliver clearly defines the specific limitations of that interpretation and provides the necessary cautions for the reader. You will never receive a report that oversells certainty.
+          </p>
+          <a href="/cage-in-sample-report" class="inline-flex items-center gap-2 text-geo-gold font-semibold text-sm hover:text-amber-500 transition-colors">
+            Review a sample CAGE-IN report — including the Limitations section
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          </a>
+        </div>
+        <div class="space-y-3">
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-4">What We Always Document in Every Report</p>
+          {[
+            {
+              title: 'Data Resolution Constraints',
+              detail: 'We specify the resolution of every input dataset and its impact on target confidence and minimum detectable anomaly size.',
+            },
+            {
+              title: 'Coverage Gaps',
+              detail: 'Areas with single-dataset coverage or no coverage are mapped and flagged — targets in these zones carry a lower confidence tier.',
+            },
+            {
+              title: 'Geological Uncertainty',
+              detail: 'Where multiple geological models are plausible, we present each and explain how drilling can discriminate between them.',
+            },
+            {
+              title: 'Recommended Verification Steps',
+              detail: "Every target includes a recommended next step — from low-cost geochemical sampling to scout drilling — proportional to the target's confidence tier.",
+            },
+          ].map(item => (
+            <div class="flex gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
+              <span class="text-geo-gold mt-0.5 shrink-0">→</span>
+              <div>
+                <p class="font-semibold text-slate-800 text-sm mb-1">{item.title}</p>
+                <p class="text-slate-600 text-sm leading-relaxed">{item.detail}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

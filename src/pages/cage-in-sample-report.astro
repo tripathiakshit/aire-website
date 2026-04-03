@@ -1,0 +1,190 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+---
+
+<PageLayout
+  title="Sample CAGE-IN Report Structure — AI Resource Exploration"
+  description="See the structure and analytical depth of a real CAGE-IN engagement report — 18 chapters covering data integration, prospectivity modelling, target ranking, risk assessment, and limitations."
+>
+  <!-- Hero -->
+  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Deliverable Format</p>
+      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Sample CAGE-IN Report</h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+        This is the structure of a real CAGE-IN engagement report. All project names, values, and locations are fictitious — the methodology, depth, and limitations framework are genuine.
+      </p>
+    </div>
+  </section>
+
+  <!-- Disclaimer banner -->
+  <section class="bg-amber-50 border-b border-amber-100 py-4">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="text-amber-700 text-sm text-center leading-relaxed">
+        <strong>Demonstration document.</strong> All project names, company names, locations, numerical values, drill-hole identifiers, coordinates, and geophysical parameters are entirely fictitious and created solely to illustrate the structure, content, and analytical depth of a professional CAGE-IN report.
+      </p>
+    </div>
+  </section>
+
+  <!-- Report metadata -->
+  <section class="py-12 bg-white border-b border-slate-100">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        {[
+          { label: 'Report Type', value: 'Internal Technical Report' },
+          { label: 'Chapters', value: '18' },
+          { label: 'Figure List', value: '50+ figures' },
+          { label: 'Prepared By', value: 'AIRE Geosciences Division' },
+        ].map(item => (
+          <div class="text-center p-5 rounded-xl bg-slate-50 border border-slate-100">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1">{item.label}</p>
+            <p class="font-semibold text-geo-primary">{item.value}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-10">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Report Structure</p>
+        <h2 class="font-display text-3xl text-geo-primary mb-2">Table of Contents</h2>
+        <p class="text-slate-500 leading-relaxed">Every CAGE-IN engagement covers the same 18-chapter framework — adapted to your specific data inventory, deposit type, and geological questions.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {[
+          { num: '1', title: 'Executive Summary', highlight: true, note: 'Principal findings, dual-track value creation, target count' },
+          { num: '2', title: 'Introduction and Objectives', highlight: false, note: 'Study scope, previous work summary, exploration phases' },
+          { num: '3', title: 'Data Inventory and Quality Assessment', highlight: true, note: 'Drill-hole database, geophysics, remote sensing, structural mapping — all sources rated for quality' },
+          { num: '4', title: 'Remote Sensing Data Assessment', highlight: false, note: 'ASTER, Landsat 9, Sentinel-2; Pool A / Pool B reliability mapping' },
+          { num: '5', title: 'Geological Framework', highlight: false, note: 'Regional geology, lithostratigraphy, deposit-scale cross-sections, mineral system model' },
+          { num: '6', title: 'Lithological Controls on Mineralisation', highlight: true, note: 'Grade-by-unit analysis, structural-rheological traps, depth-grade profiles' },
+          { num: '7', title: 'Spectral Alteration Mapping', highlight: false, note: 'Potassic / phyllic / argillic / propylitic zonation, SWIR multi-index fusion, gossan mapping' },
+          { num: '8', title: 'Structural Controls on Mineralisation', highlight: true, note: 'Ore shoot plunge, fold repetition model, dilational jog fluid focussing, depth-to-source estimation' },
+          { num: '9', title: 'Geophysical Interpretation', highlight: false, note: 'Magnetic susceptibility inversion, gravity inversion, IP/resistivity sections, coincident anomaly analysis' },
+          { num: '10', title: 'Multi-Dataset Integration', highlight: true, note: 'Evidence Trinity model (Geophysics + Structure + Alteration/Geochemistry), 3D block model' },
+          { num: '11', title: 'Prospectivity Model', highlight: true, note: 'Grid-based scoring at configurable cell resolution, score validation histogram, sensitivity analysis' },
+          { num: '12', title: 'Exploration Targets', highlight: true, note: 'All targets ranked HIGH / MEDIUM / LOW; cross-sections, erosion level interpretation, drill-ready collar positions' },
+          { num: '13', title: 'Drilling Recommendations', highlight: false, note: 'Collar plans, hole design (RC + diamond tail), phased decision tree with go/no-go gates and cost estimates' },
+          { num: '14', title: 'Risk Assessment and Mitigation', highlight: false, note: 'Risk-reward matrix, counter-argument assessment per target, mitigation strategies' },
+          { num: '15', title: 'Limitations and Uncertainties', highlight: true, note: 'Data coverage gaps, resolution constraints, geological uncertainty statements — fully documented per target' },
+          { num: '16', title: 'Conclusions', highlight: false, note: 'Key findings, recommended exploration sequence, resource potential summary' },
+          { num: '17', title: 'References', highlight: false, note: 'Cited literature, data sources, contractor reports' },
+          { num: '18', title: 'Appendices', highlight: false, note: 'Full data tables, additional figures, QA/QC summaries' },
+        ].map(chapter => (
+          <div class={`flex gap-4 p-5 rounded-xl border ${chapter.highlight ? 'bg-geo-primary/5 border-geo-primary/20' : 'bg-slate-50 border-slate-100'}`}>
+            <span class="shrink-0 font-display text-2xl font-bold text-geo-primary/20 w-8 text-right leading-tight">{chapter.num}</span>
+            <div>
+              <p class={`font-semibold text-sm mb-1 ${chapter.highlight ? 'text-geo-primary' : 'text-slate-800'}`}>{chapter.title}</p>
+              <p class="text-xs text-slate-500 leading-relaxed">{chapter.note}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Executive Summary excerpt -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mb-8">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Sample Content</p>
+        <h2 class="font-display text-3xl text-geo-primary mb-2">Chapter 1 — Executive Summary (Excerpt)</h2>
+        <p class="text-slate-500 text-sm">The following illustrates the level of geological and analytical precision in a typical CAGE-IN executive summary. All values are fictitious.</p>
+      </div>
+      <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-8 space-y-5">
+        <p class="text-slate-600 leading-relaxed text-sm">
+          This CAGE-IN report presents a comprehensive multi-dataset interpretation integrating AI-driven 3D prospectivity mapping with spectral alteration analysis. The study integrates drill-hole geology, assay data, structural mapping, magnetic susceptibility inversion, gravity inversion, induced polarisation (IP), resistivity, analytical signal data, and remote sensing (ASTER L2A SWIR/TIR + Landsat 9 OLI/TIRS) across <em>[N]</em> elevation levels spanning <em>[depth range]</em> m of vertical extent.
+        </p>
+        <div>
+          <p class="font-semibold text-geo-primary text-sm mb-3">Principal Findings</p>
+          <ul class="space-y-2 text-sm text-slate-600">
+            {[
+              'Mineralisation is exclusively hosted in [Host Unit], with mean combined metal grades of [X]% versus [Y]% in the adjacent [Barren Unit]. This [Z]-fold grade contrast constitutes the fundamental lithological filter for targeting.',
+              'The primary near-mine grade predictor is proximity to concordant [Competent Unit] bodies, with grade peaking at [X]–[Y] m inboard of the [Host]–[Competent Unit] contact. These bodies acted as structural-rheological traps for remobilised sulphide.',
+              'Three parallel ore shoots are identified, separated by ~[X] m in the cross-strike direction, consistent with isoclinal fold repetition of the ore-hosting stratigraphy.',
+              'The gravity inversion records a peak density anomaly at [mRL X] ([+Y] mGal), bracketing the anomalous mass between approximately [mRL A] and [mRL B].',
+            ].map(finding => (
+              <li class="flex gap-3">
+                <span class="text-geo-gold shrink-0 mt-0.5">→</span>
+                <span>{finding}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+          <div class="p-4 rounded-xl bg-geo-primary/5 border border-geo-primary/15">
+            <p class="font-semibold text-geo-primary text-sm mb-2">Major New Discovery Targets</p>
+            <p class="text-slate-600 text-xs leading-relaxed">Concealed targets consistent with IRGS or Porphyry Cu-Au-Mo centres — the magmatic "engines" of the district.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-amber-50 border border-amber-100">
+            <p class="font-semibold text-amber-700 text-sm mb-2">Immediate Resource Expansion</p>
+            <p class="text-slate-600 text-xs leading-relaxed">Known mineralised structures continue further along strike and down dip, with near-surface targets beneath capping lithological units.</p>
+          </div>
+        </div>
+        <p class="text-xs text-slate-400 pt-2 border-t border-slate-100">
+          <strong class="text-slate-500">Evidence Trinity:</strong> Confidence based on spatial convergence of Geophysics, Geochemistry/Alteration, and Structural Geology. <em>[N]</em> priority exploration targets defined, ranked by geological confidence.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Limitations chapter callout -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Chapter 15</p>
+          <h2 class="font-display text-3xl text-geo-primary mb-4">Limitations & Uncertainties — Always Included</h2>
+          <p class="text-slate-600 leading-relaxed mb-4">
+            Chapter 15 is non-negotiable in every CAGE-IN report. We document data coverage gaps, resolution constraints, geological uncertainty, and recommended verification steps for every target. Your QP needs this section. Your board will respect it.
+          </p>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            The limitations chapter includes a data coverage gap map showing areas with full multi-dataset coverage versus single-dataset or no-coverage zones, with priority data acquisition zones highlighted for your next field programme.
+          </p>
+        </div>
+        <div class="space-y-3">
+          {[
+            { title: 'Data Resolution Constraints', detail: 'Every input dataset is rated for resolution and its impact on minimum detectable anomaly size is quantified.' },
+            { title: 'Coverage Gap Map', detail: 'Areas of single-dataset or no coverage are mapped; targets in these zones carry a lower confidence tier.' },
+            { title: 'Alternative Geological Models', detail: 'Where multiple geological interpretations are plausible, each is presented with discriminating drill tests specified.' },
+            { title: 'Recommended Verification Steps', detail: 'Every target has a proportional next step — from low-cost soil sampling to scout RC drilling — based on confidence tier.' },
+          ].map(item => (
+            <div class="flex gap-4 p-5 bg-slate-50 rounded-xl border border-slate-100">
+              <span class="text-geo-gold mt-0.5 shrink-0">→</span>
+              <div>
+                <p class="font-semibold text-slate-800 text-sm mb-1">{item.title}</p>
+                <p class="text-slate-600 text-sm leading-relaxed">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-geo-slate text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Ready to Proceed?</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Request a Report for Your Project</h2>
+      <p class="text-slate-400 mb-10 max-w-xl mx-auto leading-relaxed">
+        Submit your project details and we will get back to you with a scoping proposal and firm delivery timeline within 2 working days.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-block bg-geo-gold text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors">
+          Submit a Project Inquiry
+        </a>
+        <a href="/contact#cal-inline-embed" class="inline-block border border-white/30 text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-white/10 transition-colors">
+          Book a Free 30-Min Call
+        </a>
+      </div>
+    </div>
+  </section>
+
+</PageLayout>

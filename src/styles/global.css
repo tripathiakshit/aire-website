@@ -8,6 +8,7 @@
   --color-geo-alternate: #c8c7bf;
   --color-geo-gold: #c9a84c;
   --color-geo-slate: #1a2b3c;
+  --color-geo-deep: #0d1827;
 
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -66,6 +67,30 @@
 /* Sticky CTA bar */
 #sticky-cta-bar {
   will-change: transform;
+}
+
+/* Gradient text utilities — use on key headings over dark backgrounds */
+.text-gradient {
+  background: linear-gradient(135deg, #a5c1da 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.text-gradient-gold {
+  background: linear-gradient(135deg, #c9a84c 0%, #e8d48c 60%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dark card — semi-transparent on deep backgrounds */
+.card-dark {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.card-dark:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.15);
 }
 
 /* Hide scrollbars on overflow-x:auto reference bar */

@@ -422,6 +422,87 @@ import PageLayout from '../layouts/PageLayout.astro';
     </div>
   </section>
 
+  <!-- National Scale Applications -->
+  <section id="national-scale" class="py-20 bg-slate-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Government & Jurisdictional Programs</p>
+        <h2 class="font-display text-3xl md:text-4xl text-geo-primary mb-4">National-Scale Prospectivity Mapping</h2>
+        <p class="text-slate-500 max-w-3xl mx-auto leading-relaxed">
+          CAGE-IN scales from a single exploration licence to an entire national territory. For governments, geological surveys, and ministries of natural resources, AIRE deploys the same methodology across jurisdictions of 100,000 km² and beyond — converting existing national datasets into a ranked, investor-ready mineral intelligence system without requiring new data acquisition.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="font-semibold text-geo-primary mb-4 text-xs uppercase tracking-wider">What CAGE-IN Needs at National Scale</h3>
+          <ul class="space-y-2.5 text-sm text-slate-600">
+            {[
+              'National aeromagnetic and radiometric (K, U, Th) coverage — 100% aero-geophysical is sufficient to begin',
+              'Landsat, Sentinel-2, and ASTER remote sensing for alteration and structural lineament mapping',
+              'Existing geological maps for domain definition and constraint setup',
+              'Legacy exploration reports, drill databases, and mineral occurrence records',
+              'Geochemical data integrated as a weighted supplementary variable where available — not a prerequisite',
+            ].map(item => (
+              <li class="flex gap-2.5"><span class="text-geo-gold font-bold shrink-0">→</span><span>{item}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-slate-200">
+          <h3 class="font-semibold text-geo-primary mb-4 text-xs uppercase tracking-wider">What You Receive</h3>
+          <ul class="space-y-2.5 text-sm text-slate-600">
+            {[
+              '200+ probability-ranked mineral targets across priority commodity groups',
+              'National digital mineral atlas — integrated GIS platform, fully operational in QGIS',
+              'Investor prospect sheets for international conferences (PDAC, Mining Indaba)',
+              'Geochemical survey prioritisation maps directing field teams to highest-probability zones',
+              'Embedded training for 5–10 government geoscientists to independent operational competency',
+            ].map(item => (
+              <li class="flex gap-2.5"><span class="text-geo-gold font-bold shrink-0">→</span><span>{item}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
+        {[
+          { title: 'Data Sovereignty', body: 'All outputs vest exclusively in the government client from moment of acceptance. No ongoing license fee, subscription, or vendor dependency of any kind.' },
+          { title: 'Open Formats', body: 'All deliverables in SHP, GPKG, GeoTIFF, and other non-proprietary formats — compatible with QGIS, ArcGIS, and all industry-standard systems.' },
+          { title: 'Results-as-a-Service', body: 'Payment only on accepted, verified deliverables approved by the client\'s technical authority. AIRE bears all processing risk until acceptance.' },
+          { title: 'Standards Compliant', body: 'Outputs natively support NI 43-101, JORC, UNFC, CRIRSCO, and ECOWAS mineral policy frameworks.' },
+        ].map(item => (
+          <div class="bg-geo-primary/5 rounded-xl p-5 border border-geo-primary/10">
+            <h4 class="font-semibold text-geo-primary text-sm mb-2">{item.title}</h4>
+            <p class="text-slate-600 text-xs leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-white rounded-xl border border-slate-200 p-6 mb-8">
+        <h3 class="font-semibold text-geo-primary mb-5 text-sm uppercase tracking-wider">Typical Program Structure</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {[
+            { phase: 'Phase 1', title: 'Mobilisation & Data Compilation', duration: 'Months 1–5', desc: 'GIS database architecture, data quality assessment, geological domain definition, and block prioritisation confirmed with the geological survey.' },
+            { phase: 'Phase 2', title: 'Block-by-Block Processing', duration: 'Months 4–41', desc: 'Sequential CAGE-IN processing of all geographic blocks with parallel capacity building. Payment per accepted block prospectivity map.' },
+            { phase: 'Phase 3', title: 'Marketing & System Handover', duration: 'Months 39–42', desc: 'National investment prospectus, prospect sheets, GIS investor package, conference materials. Full platform handover to trained government staff.' },
+          ].map(p => (
+            <div class="p-4 rounded-lg bg-slate-50 border border-slate-100">
+              <span class="text-xs font-bold text-geo-gold uppercase tracking-wider">{p.phase}</span>
+              <h4 class="font-semibold text-slate-800 text-sm mt-1 mb-1">{p.title}</h4>
+              <p class="text-xs text-geo-primary font-medium mb-2">{p.duration}</p>
+              <p class="text-xs text-slate-500 leading-relaxed">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-slate-400 mt-4">Base timeline 42 months for national coverage; acceleration to 24–30 months available with parallel block processing. Program scope confirmed at inception.</p>
+      </div>
+
+      <div class="text-center">
+        <a href="/contact#government-enquiry" class="inline-block bg-geo-primary text-white px-8 py-3.5 rounded font-semibold text-sm uppercase tracking-wider hover:bg-geo-primary-dark transition-colors">Discuss a Government Program →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Turnaround Timeline -->
   <section class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

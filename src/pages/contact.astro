@@ -161,6 +161,81 @@ import PageLayout from '../layouts/PageLayout.astro';
     </div>
   </section>
 
+  <!-- Government & Institutional Enquiry -->
+  <section id="government-enquiry" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Geological Surveys & Ministries</p>
+        <h2 class="font-display text-3xl md:text-4xl text-geo-primary mb-4">Government & Institutional Enquiry</h2>
+        <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">
+          Planning a national or district-scale prospectivity program? Outline your program scope and funding context — we will respond with a tailored capability overview and suggest a technical scoping meeting.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 md:p-10">
+        <form
+          name="government-enquiry"
+          method="POST"
+          data-netlify="true"
+          class="space-y-6"
+        >
+          <input type="hidden" name="form-name" value="government-enquiry" />
+          <input type="hidden" name="bot-field" class="hidden" />
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="gov-name" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Name *</label>
+              <input type="text" id="gov-name" name="name" required maxlength="100" placeholder="Director / Dr. Jane Smith" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary" />
+            </div>
+            <div>
+              <label for="gov-email" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Email *</label>
+              <input type="email" id="gov-email" name="email" required maxlength="100" placeholder="you@ministry.gov" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="gov-institution" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Ministry / Institution *</label>
+              <input type="text" id="gov-institution" name="institution" required maxlength="150" placeholder="Ministry of Energy and Mineral Development" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary" />
+            </div>
+            <div>
+              <label for="gov-country" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Country / Jurisdiction *</label>
+              <input type="text" id="gov-country" name="country" required maxlength="100" placeholder="e.g. Uganda, Tanzania, Senegal" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary" />
+            </div>
+          </div>
+
+          <div>
+            <label for="gov-scope" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Program Scope *</label>
+            <textarea id="gov-scope" name="program-scope" rows="3" required maxlength="1000" placeholder="e.g. National prospectivity mapping, district-level reconnaissance, investment promotion — area size, priority commodities, data holdings available…" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary resize-none"></textarea>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="gov-funding" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Funding Source</label>
+              <select id="gov-funding" name="funding-source" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary bg-white">
+                <option value="">Select…</option>
+                <option>Own government budget</option>
+                <option>Bilateral development agency</option>
+                <option>World Bank / IDA</option>
+                <option>African Development Bank</option>
+                <option>Other multilateral</option>
+                <option>Not yet determined</option>
+              </select>
+            </div>
+            <div>
+              <label for="gov-timeline" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Expected Timeline</label>
+              <input type="text" id="gov-timeline" name="expected-timeline" maxlength="100" placeholder="e.g. Start Q3 2025, 3-year duration" class="w-full border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-geo-primary focus:ring-1 focus:ring-geo-primary" />
+            </div>
+          </div>
+
+          <button type="submit" class="w-full bg-geo-primary text-white py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-geo-primary-dark transition-colors">
+            Submit Government Enquiry →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
 </PageLayout>
 
 <script>

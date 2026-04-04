@@ -51,7 +51,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
           href="/contact"
           class="w-full sm:w-auto px-8 py-4 rounded bg-geo-gold text-white font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors text-center"
         >
-          Submit Your Project
+          Let's Discuss a Project — No Commitments
         </a>
       </div>
     </div>
@@ -91,7 +91,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   <section class="bg-white border-b border-slate-100 py-3">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-[11px] text-slate-400 uppercase tracking-[0.2em]">
-        Reports on public record: &nbsp;GoviEx Uranium Ltd. · Sunward Resources Ltd. · Condoto Platinum Ltd. · Ticker Trax · 321Gold
+        Public Domain Information: &nbsp;GoviEx Uranium · Sunward Resources Ltd. · Condoto Platinum Ltd. · Mineral Exploration Academy · Ticker Trax · 321Gold
       </p>
     </div>
   </section>
@@ -139,7 +139,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        <div class="flex-1 p-8 flex flex-col justify-between border-t-2 sm:border-t-0 sm:border-l-2 border-transparent group-hover:border-geo-gold transition-colors duration-300">
+        <div class="flex-1 p-6 sm:p-8 flex flex-col justify-between border-t-2 sm:border-t-0 sm:border-l-2 border-transparent group-hover:border-geo-gold transition-colors duration-300">
           <div>
             <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-2">Proprietary AI Technology</p>
             <h3 class="font-display text-2xl md:text-3xl text-geo-primary font-semibold mb-3 leading-snug">AI-Driven Mineral Targeting — CAGE-IN</h3>
@@ -151,8 +151,9 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
         </div>
       </a>
 
-      <!-- Remaining 9 services grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" data-reveal>
+      <!-- Remaining 9 services — mobile: horizontal scroll snap · sm+: grid -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4
+                  sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-5 sm:snap-none" data-reveal>
         {[
           {
             title: 'Investor Project Evaluation',
@@ -209,7 +210,9 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
             href: '/contact',
           },
         ].map(s => (
-          <ServiceCard title={s.title} description={s.description} image={s.image} href={s.href} />
+          <div class="flex-none w-[82vw] max-w-[310px] snap-start sm:w-auto sm:flex-initial sm:max-w-none">
+            <ServiceCard title={s.title} description={s.description} image={s.image} href={s.href} />
+          </div>
         ))}
       </div>
 

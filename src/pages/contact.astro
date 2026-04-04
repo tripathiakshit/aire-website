@@ -19,62 +19,12 @@ import PageLayout from '../layouts/PageLayout.astro';
   </section>
 
   <!-- Project Inquiry Section -->
-  <section class="py-16 bg-geo-slate text-white">
+  <section class="py-12 md:py-16 bg-geo-slate text-white">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
 
-        <!-- Left: Contact info + pitch -->
-        <div>
-          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Project Inquiry</p>
-          <h2 class="font-display text-3xl md:text-4xl font-bold mb-6 leading-tight">Tell Us About Your Project</h2>
-          <p class="text-slate-300 leading-relaxed mb-6">
-            Whether you need end-to-end exploration consulting, a CAGE-IN re-interpretation using your existing geological, geochemical and geophysical data, a compliant resource report, or a specific technical expertise consultation — we'll review your inquiry and respond within 2 working days with a tailored proposal. We are happy to <a href="#cal-inline-embed" class="text-geo-gold underline underline-offset-2 hover:text-amber-400 transition-colors">schedule a call</a> to discuss your projects.
-          </p>
-          <ul class="space-y-3 text-slate-300 text-sm mb-10">
-            {[
-              'Pricing scales with project scope, geological complexity, and data volume',
-              'Steeply discounted rates for long-term retainer arrangements',
-              'NI 43-101 and JORC compliant reporting available',
-              'Custom response within 2 working days of inquiry',
-            ].map(item => (
-              <li class="flex items-start gap-3"><span class="text-geo-gold mt-0.5 shrink-0">→</span>{item}</li>
-            ))}
-          </ul>
-
-          <!-- Office Cards -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-            <div class="p-5 rounded-xl border border-white/10 bg-white/5">
-              <h3 class="font-semibold text-geo-gold mb-2 text-xs uppercase tracking-wider">Branch Office</h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-3">
-                24 Rue Loiselle<br />
-                Les Coteaux, QC<br />
-                Canada J7X 0A9
-              </p>
-              <a href="mailto:info@geoexplorationllc.com" class="text-geo-gold text-sm font-medium hover:text-amber-400 transition-colors break-all">
-                info@geoexplorationllc.com
-              </a>
-            </div>
-            <div class="p-5 rounded-xl border border-white/10 bg-white/5">
-              <h3 class="font-semibold text-geo-gold mb-2 text-xs uppercase tracking-wider">Head Office</h3>
-              <p class="text-slate-300 text-sm leading-relaxed mb-3">
-                1310 Amethyst<br />
-                My Home Jewel Apartments<br />
-                Miyapur, Hyderabad<br />
-                India 500049
-              </p>
-              <a href="mailto:info@geoexplorationllc.com" class="text-geo-gold text-sm font-medium hover:text-amber-400 transition-colors break-all">
-                info@geoexplorationllc.com
-              </a>
-            </div>
-          </div>
-
-          <div class="p-4 bg-white/5 rounded-xl border border-white/10 text-sm text-slate-400 leading-relaxed">
-            <strong class="text-white">Data protection guaranteed.</strong> All inquiries are covered by our standard Mutual NDA and data security protocols before any project data changes hands.
-          </div>
-        </div>
-
-        <!-- Right: Project inquiry form -->
-        <div class="bg-white rounded-2xl p-8">
+        <!-- Right: Project inquiry form — ORDER FIRST on mobile -->
+        <div class="order-1 lg:order-2 bg-white rounded-2xl p-5 sm:p-8">
           <p class="font-display text-xl text-geo-primary font-semibold mb-1">Submit a Project Inquiry</p>
           <p class="text-slate-500 text-sm mb-4">Tell us what you need — we'll get back to you with a tailored offer within 2 working days.</p>
 
@@ -149,12 +99,68 @@ import PageLayout from '../layouts/PageLayout.astro';
           </form>
         </div>
 
+        <!-- Left: Contact info + pitch — ORDER SECOND on mobile -->
+        <div class="order-2 lg:order-1">
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Project Inquiry</p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold mb-5 leading-tight">Tell Us About Your Project</h2>
+          <p class="text-slate-300 leading-relaxed mb-5 text-sm md:text-base">
+            Whether you need end-to-end exploration consulting, a CAGE-IN re-interpretation, a compliant resource report, or specific technical expertise — we'll review your inquiry and respond within 2 working days with a tailored proposal. We are happy to <a href="#cal-inline-embed" class="text-geo-gold underline underline-offset-2 hover:text-amber-400 transition-colors">schedule a call</a> to discuss your projects.
+          </p>
+          <ul class="space-y-2.5 text-slate-300 text-sm mb-8">
+            {[
+              'Pricing scales with project scope, geological complexity, and data volume',
+              'Steeply discounted rates for long-term retainer arrangements',
+              'NI 43-101 and JORC compliant reporting available',
+              'Custom response within 2 working days of inquiry',
+            ].map(item => (
+              <li class="flex items-start gap-3"><span class="text-geo-gold mt-0.5 shrink-0">→</span>{item}</li>
+            ))}
+          </ul>
+
+          <!-- Office Cards — hidden on mobile to reduce scroll -->
+          <div class="hidden sm:grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+            <div class="p-5 rounded-xl border border-white/10 bg-white/5">
+              <h3 class="font-semibold text-geo-gold mb-2 text-xs uppercase tracking-wider">Branch Office</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                24 Rue Loiselle<br />
+                Les Coteaux, QC<br />
+                Canada J7X 0A9
+              </p>
+              <a href="mailto:info@geoexplorationllc.com" class="text-geo-gold text-sm font-medium hover:text-amber-400 transition-colors break-all">
+                info@geoexplorationllc.com
+              </a>
+            </div>
+            <div class="p-5 rounded-xl border border-white/10 bg-white/5">
+              <h3 class="font-semibold text-geo-gold mb-2 text-xs uppercase tracking-wider">Head Office</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-3">
+                1310 Amethyst, My Home Jewel<br />
+                Miyapur, Hyderabad<br />
+                India 500049
+              </p>
+              <a href="mailto:info@geoexplorationllc.com" class="text-geo-gold text-sm font-medium hover:text-amber-400 transition-colors break-all">
+                info@geoexplorationllc.com
+              </a>
+            </div>
+          </div>
+
+          <!-- Email visible on mobile only -->
+          <div class="sm:hidden mb-5">
+            <a href="mailto:info@geoexplorationllc.com" class="flex items-center gap-2 text-geo-gold text-sm font-medium">
+              ✉ info@geoexplorationllc.com
+            </a>
+          </div>
+
+          <div class="p-4 bg-white/5 rounded-xl border border-white/10 text-sm text-slate-400 leading-relaxed">
+            <strong class="text-white">Data protection guaranteed.</strong> All inquiries are covered by our standard Mutual NDA and data security protocols before any project data changes hands.
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- Schedule a Discovery Call -->
-  <section class="py-20 bg-white">
+  <section class="py-12 md:py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Prefer to Talk First?</p>
@@ -170,7 +176,7 @@ import PageLayout from '../layouts/PageLayout.astro';
   </section>
 
   <!-- Government & Institutional Enquiry -->
-  <section id="government-enquiry" class="py-20 bg-slate-50 border-t border-slate-200">
+  <section id="government-enquiry" class="py-12 md:py-20 bg-slate-50 border-t border-slate-200">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10">
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-3">Geological Surveys & Ministries</p>

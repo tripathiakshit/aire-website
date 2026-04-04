@@ -30,7 +30,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
       class="absolute inset-0 w-full h-full object-cover object-center"
     />
     <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(7,31,61,0.72) 0%, rgba(7,31,61,0.55) 100%);"></div>
-    <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    <div class="hero-breathe absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
     <div class="relative z-10 text-center text-white px-6 max-w-5xl mx-auto">
       <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-5">Global Experts in Advanced Mineral Exploration</p>
@@ -51,7 +51,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
           href="/contact"
           class="w-full sm:w-auto px-8 py-4 rounded bg-geo-gold text-white font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors text-center"
         >
-          Contact Us
+          Submit Your Project
         </a>
       </div>
     </div>
@@ -68,22 +68,31 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         <div>
-          <p class="font-display text-5xl font-bold text-geo-gold">30+</p>
+          <p class="font-display text-5xl font-bold text-geo-gold" data-count-to="30" data-count-suffix="+">30+</p>
           <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Years Experience</p>
         </div>
         <div>
-          <p class="font-display text-5xl font-bold text-geo-gold">20+</p>
+          <p class="font-display text-5xl font-bold text-geo-gold" data-count-to="20" data-count-suffix="+">20+</p>
           <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Countries</p>
         </div>
         <div>
-          <p class="font-display text-5xl font-bold text-geo-gold">60+</p>
+          <p class="font-display text-5xl font-bold text-geo-gold" data-count-to="60" data-count-suffix="+">60+</p>
           <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Projects</p>
         </div>
         <div>
-          <p class="font-display text-5xl font-bold text-geo-gold">22+</p>
+          <p class="font-display text-5xl font-bold text-geo-gold" data-count-to="22" data-count-suffix="+">22+</p>
           <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Publications</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Referenced In bar -->
+  <section class="bg-white border-b border-slate-100 py-3">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-[11px] text-slate-400 uppercase tracking-[0.2em]">
+        Reports on public record: &nbsp;GoviEx Uranium Ltd. · Sunward Resources Ltd. · Condoto Platinum Ltd. · Ticker Trax · 321Gold
+      </p>
     </div>
   </section>
 
@@ -147,7 +156,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   <!-- Core Services -->
   <section class="py-24 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
+      <div class="text-center mb-14" data-reveal>
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">What We Do</p>
         <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Our Core Services Drive Global Discovery</h2>
         <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
@@ -188,10 +197,20 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
     </div>
   </section>
 
+  <!-- Third-party recognition quote strip -->
+  <section class="py-12 bg-slate-50 border-y border-slate-200" data-reveal>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-display text-xl md:text-2xl text-geo-primary italic leading-relaxed mb-4">
+        "Internationally recognised and referenced in gold, diamond, and iron ore exploration works."
+      </p>
+      <p class="text-xs text-slate-400 uppercase tracking-widest">— Referenced by Ticker Trax (Thom Calandra) and 321Gold (Bob Moriarty)</p>
+    </div>
+  </section>
+
   <!-- Trusted Expertise -->
   <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
+      <div class="text-center mb-14" data-reveal>
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Why Choose Us</p>
         <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Trusted Expertise in Every Layer of the Earth</h2>
       </div>
@@ -241,7 +260,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Competitive Advantage</p>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3" data-reveal>Competitive Advantage</p>
           <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-6 leading-tight">Proprietary<br />Technologies</h2>
           <p class="text-slate-600 text-lg leading-relaxed mb-4">
             AI Resource Exploration has developed a suite of proprietary technologies that go beyond conventional exploration methods. Our CAGE-IN system, Gold Proxy Index, and Spectral Classification tools give clients a decisive edge.
@@ -393,18 +412,18 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
           </div>
         </div>
         <div>
-          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">The Expert Behind the Work</p>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3" data-reveal>The Expert Behind the Work</p>
           <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-6 leading-tight">Dr. Amit Tripathi</h2>
           <p class="text-slate-600 leading-relaxed mb-4">
-            Dr. Tripathi brings over 26 years of multidisciplinary experience across mineral exploration, mine planning, and geological consultancy. His work spans five continents and more than 15 countries.
+            Dr. Tripathi brings over 30 years of multidisciplinary experience across mineral exploration, mine planning, and geological consultancy. His work spans five continents and more than 20 countries.
           </p>
           <p class="text-slate-500 leading-relaxed mb-8">
             A member of AusIMM and holder of a Ph.D. in Structural Geology, Dr. Tripathi has authored one book and published 22+ scientific research papers in national and international journals.
           </p>
           <div class="flex flex-wrap gap-6 mb-8">
             {[
-              { num: '26+', label: 'Years Experience' },
-              { num: '15+', label: 'Countries' },
+              { num: '30+', label: 'Years Experience' },
+              { num: '20+', label: 'Countries' },
               { num: '22+', label: 'Publications' },
             ].map(({ num, label }) => (
               <div class="text-center">

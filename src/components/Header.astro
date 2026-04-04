@@ -69,8 +69,8 @@ function isActive(href: string) {
     </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+  <!-- Mobile Menu (height animated via CSS in global.css) -->
+  <div id="mobile-menu" class="lg:hidden border-t border-gray-100 bg-white">
     <nav class="px-4 py-3 flex flex-col gap-1">
       {navLinks.map(link => (
         <a
@@ -94,6 +94,20 @@ function isActive(href: string) {
   </div>
 </header>
 
+<!-- Sticky bottom CTA — slides up after scrolling 600px (hidden on /contact) -->
+<div
+  id="sticky-cta-bar"
+  class="fixed bottom-0 inset-x-0 z-40 bg-geo-gold text-white py-3 px-4 flex items-center justify-center gap-3 sm:gap-5 text-sm font-semibold shadow-lg translate-y-full transition-transform duration-300"
+  role="complementary"
+  aria-label="Project inquiry prompt"
+>
+  <span class="hidden sm:inline text-white/90">Have a project in mind?</span>
+  <a href="/contact" class="underline underline-offset-2 hover:text-white/80 transition-colors whitespace-nowrap">Submit a brief →</a>
+  <span class="text-white/40" aria-hidden="true">·</span>
+  <a href="/contact#cal-inline-embed" class="underline underline-offset-2 hover:text-white/80 transition-colors whitespace-nowrap">Schedule a call →</a>
+  <button id="dismiss-sticky-cta" aria-label="Dismiss" class="ml-2 sm:ml-4 text-white/60 hover:text-white transition-colors text-base leading-none flex-shrink-0">✕</button>
+</div>
+
 <script>
   const header = document.getElementById('site-header');
   const toggle = document.getElementById('mobile-menu-toggle');
@@ -101,26 +115,49 @@ function isActive(href: string) {
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
 
+  // Header shadow on scroll
   window.addEventListener('scroll', () => {
     if (window.scrollY > 10) {
       header?.classList.replace('shadow-sm', 'shadow-md');
     } else {
       header?.classList.replace('shadow-md', 'shadow-sm');
     }
-  });
+  }, { passive: true });
 
+  // Mobile menu toggle — uses CSS max-height transition (see global.css)
   toggle?.addEventListener('click', () => {
-    const isOpen = !menu?.classList.contains('hidden');
+    const isOpen = menu?.classList.contains('open');
     if (isOpen) {
-      menu?.classList.add('hidden');
+      menu?.classList.remove('open');
       iconOpen?.classList.remove('hidden');
       iconClose?.classList.add('hidden');
       toggle.setAttribute('aria-expanded', 'false');
     } else {
-      menu?.classList.remove('hidden');
+      menu?.classList.add('open');
       iconOpen?.classList.add('hidden');
       iconClose?.classList.remove('hidden');
       toggle.setAttribute('aria-expanded', 'true');
     }
   });
+
+  // Sticky CTA bar
+  const stickyCta = document.getElementById('sticky-cta-bar');
+  const dismissBtn = document.getElementById('dismiss-sticky-cta');
+  const isContactPage = window.location.pathname.startsWith('/contact');
+  const dismissed = sessionStorage.getItem('sticky-cta-dismissed');
+
+  if (stickyCta && !isContactPage && !dismissed) {
+    let shown = false;
+    window.addEventListener('scroll', () => {
+      if (!shown && window.scrollY > 600) {
+        stickyCta.classList.remove('translate-y-full');
+        shown = true;
+      }
+    }, { passive: true });
+
+    dismissBtn?.addEventListener('click', () => {
+      stickyCta.classList.add('translate-y-full');
+      sessionStorage.setItem('sticky-cta-dismissed', '1');
+    });
+  }
 </script>

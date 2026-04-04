@@ -21,18 +21,23 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   <!-- Stats Row -->
   <section class="bg-geo-primary text-white py-10">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        {[
-          { num: '30+', label: 'Years Experience' },
-          { num: '20+', label: 'Countries' },
-          { num: '22+', label: 'Publications' },
-          { num: 'Ph.D.', label: 'Structural Geology' },
-        ].map(({ num, label }) => (
-          <div>
-            <p class="font-display text-4xl md:text-5xl font-bold text-geo-gold">{num}</p>
-            <p class="text-blue-200/70 text-xs uppercase tracking-[0.15em] mt-2">{label}</p>
-          </div>
-        ))}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" data-reveal>
+        <div>
+          <p class="font-display text-4xl md:text-5xl font-bold text-geo-gold" data-count-to="30" data-count-suffix="+">30+</p>
+          <p class="text-blue-200/70 text-xs uppercase tracking-[0.15em] mt-2">Years Experience</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl md:text-5xl font-bold text-geo-gold" data-count-to="20" data-count-suffix="+">20+</p>
+          <p class="text-blue-200/70 text-xs uppercase tracking-[0.15em] mt-2">Countries</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl md:text-5xl font-bold text-geo-gold" data-count-to="22" data-count-suffix="+">22+</p>
+          <p class="text-blue-200/70 text-xs uppercase tracking-[0.15em] mt-2">Publications</p>
+        </div>
+        <div>
+          <p class="font-display text-4xl md:text-5xl font-bold text-geo-gold">Ph.D.</p>
+          <p class="text-blue-200/70 text-xs uppercase tracking-[0.15em] mt-2">Structural Geology</p>
+        </div>
       </div>
     </div>
   </section>

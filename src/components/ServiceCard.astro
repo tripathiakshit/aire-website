@@ -13,7 +13,7 @@ const { title, description, image, href } = Astro.props;
 const Tag = href ? 'a' : 'div';
 ---
 
-<Tag href={href} class={`group bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col${href ? ' cursor-pointer' : ''}`}>
+<Tag href={href} class={`group card-dark rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-black/30 transition-all duration-300 flex flex-col${href ? ' cursor-pointer' : ''}`}>
   {image ? (
     <div class="h-48 overflow-hidden">
       {typeof image === 'string' ? (
@@ -32,15 +32,15 @@ const Tag = href ? 'a' : 'div';
       )}
     </div>
   ) : (
-    <div class="h-48 bg-gradient-to-br from-geo-primary/10 to-geo-secondary/30 flex items-center justify-center">
-      <div class="w-12 h-12 rounded-full bg-geo-primary/10 flex items-center justify-center">
-        <div class="w-5 h-5 rounded-full bg-geo-primary/30"></div>
+    <div class="h-48 bg-gradient-to-br from-geo-primary/20 to-geo-secondary/15 flex items-center justify-center">
+      <div class="w-12 h-12 rounded-full bg-geo-primary/20 flex items-center justify-center">
+        <div class="w-5 h-5 rounded-full bg-geo-secondary/40"></div>
       </div>
     </div>
   )}
   <div class="p-6 flex flex-col flex-1 border-t-2 border-transparent group-hover:border-geo-gold transition-colors duration-300">
-    <h3 class="font-display text-geo-primary text-lg font-semibold mb-2 leading-snug">{title}</h3>
-    <p class="text-slate-500 text-sm leading-relaxed flex-1">{description}</p>
+    <h3 class="font-display text-white text-lg font-semibold mb-2 leading-snug">{title}</h3>
+    <p class="text-slate-400 text-sm leading-relaxed flex-1">{description}</p>
     {href && (
       <p class="mt-3 text-geo-gold text-xs font-semibold uppercase tracking-wider">Learn more →</p>
     )}

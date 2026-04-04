@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import PageLayout from '../layouts/PageLayout.astro';
-import ServiceCard from '../components/ServiceCard.astro';
 
 import heroImg from '../assets/hero-min.jpg';
 import geologicalMappingImg from '../assets/geological_mapping-min.jpg';
@@ -11,6 +10,11 @@ import cageInImg from '../assets/cage-in_pic1-min.jpg';
 import goldProxyImg from '../assets/gold-proxy-index_pic1.png';
 import drillDbImg from '../assets/drill-database-corrections_pic1-min.png';
 import dataInterpretationImg from '../assets/data_interpretation-min.png';
+import structuralModellingImg from '../assets/structural_modelling.png';
+import mineralIntelligenceImg from '../assets/mineral-intelligence.png';
+import governmentProgramsImg from '../assets/government-programs.png';
+import skillDevelopmentImg from '../assets/skill-development.png';
+import investorEvalImg from '../assets/investor-project-eval.png';
 import amitTripathiImg from '../assets/amit_tripathi.jpg';
 ---
 
@@ -42,7 +46,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
         <a
-          href="/services"
+          href="#services"
           class="w-full sm:w-auto px-8 py-4 rounded border-2 border-white/60 text-white font-medium text-sm uppercase tracking-wider hover:bg-white hover:text-geo-primary transition-all duration-200 text-center"
         >
           Our Services
@@ -119,7 +123,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   </section>
 
   <!-- Services -->
-  <section class="py-12 md:py-20 bg-geo-deep">
+  <section id="services" class="py-12 md:py-20 bg-geo-deep">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10" data-reveal>
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">What We Do</p>
@@ -151,79 +155,161 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
         </div>
       </a>
 
-      <!-- Remaining 9 services — mobile: horizontal scroll snap · sm+: grid -->
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4
-                  sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-5 sm:snap-none" data-reveal>
-        {[
-          {
-            title: 'Investor Project Evaluation',
-            description: 'Independent technical assessment for investors and fund managers. QP-signed compliant reports under NI 43-101, JORC, or equivalent standards.',
-            image: undefined,
-            href: '/contact',
-          },
-          {
-            title: 'Government & National Programs',
-            description: 'National-scale prospectivity mapping delivering 200+ ranked targets from existing datasets — packaged as investor-ready materials to attract exploration FDI.',
-            image: undefined,
-            href: '/cage-in#national-scale',
-          },
-          {
-            title: 'Turnkey Exploration & Resource Modelling',
-            description: 'High-resolution mapping, sampling, geophysics, drill planning, logging, QA-QC, cross sections, and full compliant resource models.',
-            image: geostatisticsImg,
-            href: '/contact',
-          },
-          {
-            title: 'Integrated Data Interpretation',
-            description: 'Integrating historical, geological and geophysical datasets using CAGE-IN for precise mineral targeting over large areas.',
-            image: dataInterpretationImg,
-            href: '/contact',
-          },
-          {
-            title: 'Mineral Reconnaissance',
-            description: 'Remote sensing and field verification-based geological mapping to identify prospective targets across large greenfield areas.',
-            image: geologicalMappingImg,
-            href: '/contact',
-          },
-          {
-            title: 'GIS Integration',
-            description: 'Unified spatial database combining geophysical, geochemical, and remote sensing data for comprehensive exploration analysis.',
-            image: geospatialImg,
-            href: '/contact',
-          },
-          {
-            title: 'Exploration Technologies',
-            description: 'Proprietary AI-driven tools for efficient, eco-friendly exploration — increasing process efficiency and reducing environmental impact.',
-            image: undefined,
-            href: '/contact',
-          },
-          {
-            title: 'Mineral Intelligence',
-            description: 'Drone and remote sensing surveys of mining areas for change detection of toxic pollutants, illegal mining activities, and production monitoring.',
-            image: undefined,
-            href: '/contact',
-          },
-          {
-            title: 'Skill Development in Exploration',
-            description: 'Capacity building by embedding high-level geological expertise on site — accelerating team capabilities and exploration outcomes.',
-            image: undefined,
-            href: '/contact',
-          },
-        ].map(s => (
-          <div class="flex-none w-[82vw] max-w-[310px] snap-start sm:w-auto sm:flex-initial sm:max-w-none">
-            <ServiceCard title={s.title} description={s.description} image={s.image} href={s.href} />
-          </div>
-        ))}
-      </div>
+      <!-- Detailed service sections -->
+      <div class="max-w-5xl mx-auto mt-12 space-y-16">
 
-      <div class="text-center mt-8">
-        <a
-          href="/services"
-          class="inline-flex items-center gap-2 text-geo-secondary font-semibold text-sm uppercase tracking-wider hover:text-geo-gold transition-colors"
-        >
-          Full service details
-          <span class="text-geo-gold">→</span>
-        </a>
+        <!-- Mineral Reconnaissance -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div>
+            <h3 class="font-display text-2xl text-white mb-3">Mineral Reconnaissance</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">Remote sensing and field verification-based geological mapping of large areas to identify prospective targets for further investigation.</p>
+            <ul class="list-disc list-inside text-slate-300 space-y-1.5 text-sm">
+              <li>Base mapping in Greenfield Exploration</li>
+              <li>Lithology and structure mapping at local and regional scale</li>
+              <li>Underground geological and structural mapping</li>
+              <li>Geochemical anomaly mapping based on assay data</li>
+              <li>Mapping alteration signatures relevant to the mineral of interest</li>
+              <li>Analysis and interpretation of multiple datasets for target generation</li>
+              <li>Establishing structural controls of mineralization in 3D</li>
+            </ul>
+          </div>
+          <div>
+            <Image src={geologicalMappingImg} alt="Mineral Reconnaissance — geological mapping" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+        </div>
+
+        <hr class="border-white/10" />
+
+        <!-- GIS Integration -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div class="order-2 md:order-1">
+            <Image src={geospatialImg} alt="GIS Integration — geospatial analysis" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+          <div class="order-1 md:order-2">
+            <h3 class="font-display text-2xl text-white mb-3">GIS Integration</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">Integrating data from multiple sources into a single unified database, enabling comprehensive spatial analysis across all exploration datasets.</p>
+            <ul class="list-disc list-inside text-slate-300 space-y-1.5 text-sm">
+              <li>Dedicated team highly experienced in satellite data interpretation — including high-resolution and hyper-spectral image interpretation</li>
+              <li>Specialist capability in lithostructural interpretation combined with alteration and mineral mapping</li>
+              <li>Large portfolio covering a wide range of commodities in diverse geological environments</li>
+              <li>High-resolution imagery examination for geological mapping and mine planning</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="border-white/10" />
+
+        <!-- Turnkey Exploration & Resource Modelling -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div>
+            <h3 class="font-display text-2xl text-white mb-3">Turnkey Exploration &amp; Resource Modelling</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">High-resolution mapping, sampling, and geophysics combined with predictive modelling and drill planning. Full drilling management including logging, sampling, QA-QC, cross sections, and resource models.</p>
+            <ul class="list-disc list-inside text-slate-300 space-y-1.5 text-sm">
+              <li>3D modelling of major structures, fracture zones, lithologies, ore volumes, and alteration zones</li>
+              <li>Converting the exploration drilling database into 3D models</li>
+              <li>Mineralization target generation by litho-structure pattern study in 3D</li>
+              <li>Modelling the distribution pattern of ore bodies</li>
+              <li>Resource modelling using geological, geochemical and geophysical data</li>
+              <li>3D block modelling for resource estimation</li>
+            </ul>
+          </div>
+          <div>
+            <Image src={geostatisticsImg} alt="Turnkey Exploration and Resource Modelling" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+        </div>
+
+        <hr class="border-white/10" />
+
+        <!-- Exploration Technologies -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div class="order-2 md:order-1">
+            <Image src={dataInterpretationImg} alt="Exploration Technologies" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+          <div class="order-1 md:order-2">
+            <h3 class="font-display text-2xl text-white mb-3">Exploration Technologies</h3>
+            <p class="text-slate-300 leading-relaxed">Developing and deploying proprietary technology tools for efficient, AI-driven, and eco-friendly exploration — increasing process efficiency while reducing environmental impact.</p>
+          </div>
+        </div>
+
+        <hr class="border-white/10" />
+
+        <!-- Integrated Data Interpretation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div>
+            <h3 class="font-display text-2xl text-white mb-3">Integrated Data Interpretation</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">Proven proprietary technology for integrating historical data, known mineralization data, and geological and geophysical datasets for precise mineral targeting over large areas.</p>
+            <ul class="list-disc list-inside text-slate-300 space-y-1.5 text-sm">
+              <li>Processing and interpretation of aeromagnetic and radiometric data to understand mineralization controls</li>
+              <li>Integration of RS and geophysical datasets (2D and 3D) for target generation</li>
+              <li>Prioritization of exploration targets</li>
+              <li>Proprietary CAGE-IN technology for geological and geophysical data integration and enhanced interpretation</li>
+            </ul>
+          </div>
+          <div>
+            <Image src={structuralModellingImg} alt="Integrated Data Interpretation" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+        </div>
+
+        <hr class="border-white/10" />
+
+        <!-- Mineral Intelligence -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div class="order-2 md:order-1">
+            <Image src={mineralIntelligenceImg} alt="Mineral Intelligence" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+          <div class="order-1 md:order-2">
+            <h3 class="font-display text-2xl text-white mb-3">Mineral Intelligence</h3>
+            <p class="text-slate-300 leading-relaxed">Remote sensing and drone-based surveys of mining areas for change detection of toxic pollutants, illegal mining activities, and production monitoring.</p>
+          </div>
+        </div>
+
+        <hr class="border-white/10" />
+
+        <!-- Government & National Programs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div>
+            <h3 class="font-display text-2xl text-white mb-3">Government &amp; National Programs</h3>
+            <p class="text-slate-300 leading-relaxed mb-4">National-scale prospectivity mapping for geological surveys, ministries, and governments. CAGE-IN converts existing aeromagnetic, radiometric, and remote sensing datasets into 200+ ranked mineral targets — packaged as investor-ready prospectus materials to attract exploration FDI.</p>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">Results-as-a-Service: payment only on accepted deliverables. Includes embedded capacity building for government geoscientists and full data sovereignty.</p>
+            <a href="/cage-in#national-scale" class="inline-flex items-center gap-1.5 text-geo-gold text-xs font-semibold uppercase tracking-wider hover:text-amber-400 transition-colors">Learn more about national-scale programs →</a>
+          </div>
+          <div>
+            <Image src={governmentProgramsImg} alt="Government and National Programs" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+        </div>
+
+        <hr class="border-white/10" />
+
+        <!-- Skill Development in Exploration -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div class="order-2 md:order-1">
+            <Image src={skillDevelopmentImg} alt="Skill Development in Exploration" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+          <div class="order-1 md:order-2">
+            <h3 class="font-display text-2xl text-white mb-3">Skill Development in Exploration</h3>
+            <p class="text-slate-300 mb-4 leading-relaxed">We build the capacity of clients' in-house teams by embedding high-level geological expertise directly on site. As part of this service, we have developed custom data entry tools with:</p>
+            <ul class="list-disc list-inside text-slate-300 space-y-1.5 text-sm">
+              <li>HTML-based tools using CSS / PHP / JS</li>
+              <li>Dropdown lists defining permitted values to eliminate operator errors</li>
+              <li>Validation rules updated as data is entered</li>
+              <li>Operator access restricted to current working files</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="border-white/10" />
+
+        <!-- Investor Project Evaluation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center" data-reveal>
+          <div>
+            <h3 class="font-display text-2xl text-white mb-3">Investor Project Evaluation</h3>
+            <p class="text-slate-300 leading-relaxed">Independent technical assessment of mineral exploration projects for investors, family offices, and fund managers. CAGE-IN outputs provide the evidentiary basis for QP-signed compliant reports under NI 43-101, JORC, or equivalent standards — suitable for investor presentations, board papers, and funding decisions.</p>
+          </div>
+          <div>
+            <Image src={investorEvalImg} alt="Investor Project Evaluation" width={600} class="rounded-xl shadow-lg w-full object-cover" />
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

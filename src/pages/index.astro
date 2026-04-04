@@ -19,7 +19,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   description="AI Resource Exploration specializes in high-impact mineral exploration services backed by industry-leading technology and proven global experience."
 >
   <!-- Hero -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
     <Image
       src={heroImg}
       alt=""
@@ -118,79 +118,107 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
     </div>
   </section>
 
-  <!-- Feature Highlights -->
-  <section class="py-20 bg-white">
+  <!-- Services -->
+  <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div class="flex flex-col items-center text-center gap-4">
-          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-geo-primary font-semibold">Strategic Exploration Planning</h3>
-          <p class="text-slate-500 leading-relaxed">We develop and execute end-to-end exploration strategies tailored to your project goals and geological context.</p>
-        </div>
-        <div class="flex flex-col items-center text-center gap-4">
-          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-geo-primary font-semibold">AI-Based Optimization</h3>
-          <p class="text-slate-500 leading-relaxed">CAGE-IN helps us optimize your mineral exploration plan, targeted drilling, and risk management with data-driven precision.</p>
-        </div>
-        <div class="flex flex-col items-center text-center gap-4">
-          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-geo-primary font-semibold">Global Mineral Investment Insights</h3>
-          <p class="text-slate-500 leading-relaxed">We connect investors to international mining opportunities by assessing geological value and project viability worldwide.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Services -->
-  <section class="py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14" data-reveal>
+      <div class="text-center mb-10" data-reveal>
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">What We Do</p>
-        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Our Core Services Drive Global Discovery</h2>
+        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Our Services</h2>
         <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
-          We deliver specialized solutions to meet the growing needs of the mineral exploration and geoscience industry.
+          From national-scale prospectivity mapping to single-asset investor reports — purpose-built for every stage of exploration.
         </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <ServiceCard
-          title="Exploration Planning & Strategy"
-          description="End-to-end exploration strategy development combining geophysical, geochemical, and remote sensing data to target high-potential zones."
-          image={geologicalMappingImg}
-        />
-        <ServiceCard
-          title="Geophysical Surveys & Mapping"
-          description="Comprehensive geophysical survey design and execution, delivering detailed subsurface imaging across varied geological terrains."
-          image={geospatialImg}
-        />
-        <ServiceCard
-          title="Geochemical Sampling & Analysis"
-          description="Rigorous sampling programs and laboratory analysis to identify geochemical anomalies and vectoring toward mineralization."
-          image={geostatisticsImg}
-        />
-        <ServiceCard
-          title="Drilling Program Design & Support"
-          description="From drill pad siting to program supervision, we ensure safe, efficient, and productive drilling operations."
-          image={cageInImg}
-        />
+
+      <!-- CAGE-IN featured card -->
+      <a href="/cage-in" class="group flex flex-col sm:flex-row overflow-hidden rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 mb-6 bg-white" data-reveal>
+        <div class="sm:w-2/5 h-52 sm:h-auto overflow-hidden flex-shrink-0">
+          <Image
+            src={cageInImg}
+            alt="CAGE-IN — AI-Driven Mineral Targeting"
+            width={600}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="flex-1 p-8 flex flex-col justify-between border-t-2 sm:border-t-0 sm:border-l-2 border-transparent group-hover:border-geo-gold transition-colors duration-300">
+          <div>
+            <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-2">Proprietary AI Technology</p>
+            <h3 class="font-display text-2xl md:text-3xl text-geo-primary font-semibold mb-3 leading-snug">AI-Driven Mineral Targeting — CAGE-IN</h3>
+            <p class="text-slate-500 leading-relaxed max-w-xl">
+              Proprietary AI re-interpretation of your existing geological, geochemical, and geophysical data to generate precision mineral targets — shortening the exploration cycle from years to months.
+            </p>
+          </div>
+          <p class="mt-5 text-geo-gold text-sm font-semibold uppercase tracking-wider">Explore CAGE-IN in depth →</p>
+        </div>
+      </a>
+
+      <!-- Remaining 9 services grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" data-reveal>
+        {[
+          {
+            title: 'Investor Project Evaluation',
+            description: 'Independent technical assessment for investors and fund managers. QP-signed compliant reports under NI 43-101, JORC, or equivalent standards.',
+            image: undefined,
+            href: '/contact',
+          },
+          {
+            title: 'Government & National Programs',
+            description: 'National-scale prospectivity mapping delivering 200+ ranked targets from existing datasets — packaged as investor-ready materials to attract exploration FDI.',
+            image: undefined,
+            href: '/cage-in#national-scale',
+          },
+          {
+            title: 'Turnkey Exploration & Resource Modelling',
+            description: 'High-resolution mapping, sampling, geophysics, drill planning, logging, QA-QC, cross sections, and full compliant resource models.',
+            image: geostatisticsImg,
+            href: '/contact',
+          },
+          {
+            title: 'Integrated Data Interpretation',
+            description: 'Integrating historical, geological and geophysical datasets using CAGE-IN for precise mineral targeting over large areas.',
+            image: dataInterpretationImg,
+            href: '/contact',
+          },
+          {
+            title: 'Mineral Reconnaissance',
+            description: 'Remote sensing and field verification-based geological mapping to identify prospective targets across large greenfield areas.',
+            image: geologicalMappingImg,
+            href: '/contact',
+          },
+          {
+            title: 'GIS Integration',
+            description: 'Unified spatial database combining geophysical, geochemical, and remote sensing data for comprehensive exploration analysis.',
+            image: geospatialImg,
+            href: '/contact',
+          },
+          {
+            title: 'Exploration Technologies',
+            description: 'Proprietary AI-driven tools for efficient, eco-friendly exploration — increasing process efficiency and reducing environmental impact.',
+            image: undefined,
+            href: '/contact',
+          },
+          {
+            title: 'Mineral Intelligence',
+            description: 'Drone and remote sensing surveys of mining areas for change detection of toxic pollutants, illegal mining activities, and production monitoring.',
+            image: undefined,
+            href: '/contact',
+          },
+          {
+            title: 'Skill Development in Exploration',
+            description: 'Capacity building by embedding high-level geological expertise on site — accelerating team capabilities and exploration outcomes.',
+            image: undefined,
+            href: '/contact',
+          },
+        ].map(s => (
+          <ServiceCard title={s.title} description={s.description} image={s.image} href={s.href} />
+        ))}
       </div>
-      <div class="text-center mt-12">
+
+      <div class="text-center mt-8">
         <a
           href="/services"
           class="inline-flex items-center gap-2 text-geo-primary font-semibold text-sm uppercase tracking-wider hover:text-geo-gold transition-colors"
         >
-          More Services
+          Full service details
           <span class="text-geo-gold">→</span>
         </a>
       </div>
@@ -198,7 +226,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   </section>
 
   <!-- Third-party recognition quote strip -->
-  <section class="py-12 bg-slate-50 border-y border-slate-200" data-reveal>
+  <section class="py-12 bg-white border-y border-slate-200" data-reveal>
     <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
       <p class="font-display text-xl md:text-2xl text-geo-primary italic leading-relaxed mb-4">
         "Internationally recognised and referenced in gold, diamond, and iron ore exploration works."

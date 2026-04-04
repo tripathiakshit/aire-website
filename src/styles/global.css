@@ -25,3 +25,54 @@
     font-family: var(--font-display);
   }
 }
+
+/* Scroll reveal animations */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Hero background breathing pulse */
+@keyframes hero-breathe {
+  0%, 100% { opacity: 0.04; }
+  50% { opacity: 0.08; }
+}
+.hero-breathe {
+  animation: hero-breathe 8s ease-in-out infinite;
+}
+
+/* Mobile menu slide animation */
+#mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+}
+#mobile-menu.open {
+  max-height: 520px;
+}
+
+/* Sticky CTA bar */
+#sticky-cta-bar {
+  will-change: transform;
+}
+
+/* Hide scrollbars on overflow-x:auto reference bar */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

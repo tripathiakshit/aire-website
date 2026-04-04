@@ -92,14 +92,18 @@ const services = [
   <!-- Services Grid -->
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Mobile: horizontal scroll snap · md+: grid -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4
+                  md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:gap-6 md:pb-0 md:mx-0 md:px-0 md:snap-none">
         {services.map(service => (
-          <ServiceCard
-            title={service.title}
-            description={service.description}
-            image={service.image}
-            href={service.href}
-          />
+          <div class="flex-none w-[78vw] max-w-[320px] snap-start md:w-auto md:flex-initial md:max-w-none">
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              image={service.image}
+              href={service.href}
+            />
+          </div>
         ))}
       </div>
     </div>

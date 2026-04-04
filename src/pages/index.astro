@@ -19,7 +19,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   description="AI Resource Exploration specializes in high-impact mineral exploration services backed by industry-leading technology and proven global experience."
 >
   <!-- Hero -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
     <Image
       src={heroImg}
       alt=""
@@ -30,7 +30,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
       class="absolute inset-0 w-full h-full object-cover object-center"
     />
     <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(7,31,61,0.72) 0%, rgba(7,31,61,0.55) 100%);"></div>
-    <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
+    <div class="hero-breathe absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 60px 60px;"></div>
 
     <div class="relative z-10 text-center text-white px-6 max-w-5xl mx-auto">
       <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-5">Global Experts in Advanced Mineral Exploration</p>
@@ -51,7 +51,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
           href="/contact"
           class="w-full sm:w-auto px-8 py-4 rounded bg-geo-gold text-white font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors text-center"
         >
-          Contact Us
+          Let's Discuss a Project — No Commitments
         </a>
       </div>
     </div>
@@ -64,26 +64,35 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   </section>
 
   <!-- Stats bar -->
-  <section class="bg-geo-slate text-white py-10">
+  <section class="bg-geo-slate text-white py-8 md:py-10">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
         <div>
-          <p class="font-display text-5xl font-bold text-geo-gold">30+</p>
+          <p class="font-display text-5xl font-bold text-geo-gold" data-count-to="30" data-count-suffix="+">30+</p>
           <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Years Experience</p>
         </div>
         <div>
-          <p class="font-display text-5xl font-bold text-geo-gold">20+</p>
+          <p class="font-display text-5xl font-bold text-geo-gold" data-count-to="20" data-count-suffix="+">20+</p>
           <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Countries</p>
         </div>
         <div>
-          <p class="font-display text-5xl font-bold text-geo-gold">60+</p>
+          <p class="font-display text-5xl font-bold text-geo-gold" data-count-to="60" data-count-suffix="+">60+</p>
           <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Projects</p>
         </div>
         <div>
-          <p class="font-display text-5xl font-bold text-geo-gold">22+</p>
+          <p class="font-display text-5xl font-bold text-geo-gold" data-count-to="22" data-count-suffix="+">22+</p>
           <p class="text-slate-400 text-xs uppercase tracking-[0.15em] mt-2">Publications</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Referenced In bar -->
+  <section class="bg-white border-b border-slate-100 py-2.5 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-[10px] text-slate-400 uppercase tracking-[0.15em] whitespace-nowrap overflow-x-auto scrollbar-none">
+        Public Domain Information: &nbsp;GoviEx Uranium &middot; Sunward Resources Ltd. &middot; Condoto Platinum Ltd. &middot; Mineral Exploration Academy &middot; Ticker Trax &middot; 321Gold
+      </p>
     </div>
   </section>
 
@@ -109,139 +118,180 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
     </div>
   </section>
 
-  <!-- Feature Highlights -->
-  <section class="py-20 bg-white">
+  <!-- Services -->
+  <section class="py-12 md:py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div class="flex flex-col items-center text-center gap-4">
-          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-geo-primary font-semibold">Strategic Exploration Planning</h3>
-          <p class="text-slate-500 leading-relaxed">We develop and execute end-to-end exploration strategies tailored to your project goals and geological context.</p>
-        </div>
-        <div class="flex flex-col items-center text-center gap-4">
-          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-geo-primary font-semibold">AI-Based Optimization</h3>
-          <p class="text-slate-500 leading-relaxed">CAGE-IN helps us optimize your mineral exploration plan, targeted drilling, and risk management with data-driven precision.</p>
-        </div>
-        <div class="flex flex-col items-center text-center gap-4">
-          <div class="w-16 h-16 rounded-full bg-geo-primary/10 flex items-center justify-center">
-            <svg class="w-8 h-8 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
-            </svg>
-          </div>
-          <h3 class="font-display text-xl text-geo-primary font-semibold">Global Mineral Investment Insights</h3>
-          <p class="text-slate-500 leading-relaxed">We connect investors to international mining opportunities by assessing geological value and project viability worldwide.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Services -->
-  <section class="py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
+      <div class="text-center mb-10" data-reveal>
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">What We Do</p>
-        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Our Core Services Drive Global Discovery</h2>
+        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Our Services</h2>
         <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
-          We deliver specialized solutions to meet the growing needs of the mineral exploration and geoscience industry.
+          From national-scale prospectivity mapping to single-asset investor reports — purpose-built for every stage of exploration.
         </p>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <ServiceCard
-          title="Exploration Planning & Strategy"
-          description="End-to-end exploration strategy development combining geophysical, geochemical, and remote sensing data to target high-potential zones."
-          image={geologicalMappingImg}
-        />
-        <ServiceCard
-          title="Geophysical Surveys & Mapping"
-          description="Comprehensive geophysical survey design and execution, delivering detailed subsurface imaging across varied geological terrains."
-          image={geospatialImg}
-        />
-        <ServiceCard
-          title="Geochemical Sampling & Analysis"
-          description="Rigorous sampling programs and laboratory analysis to identify geochemical anomalies and vectoring toward mineralization."
-          image={geostatisticsImg}
-        />
-        <ServiceCard
-          title="Drilling Program Design & Support"
-          description="From drill pad siting to program supervision, we ensure safe, efficient, and productive drilling operations."
-          image={cageInImg}
-        />
+
+      <!-- CAGE-IN featured card -->
+      <a href="/cage-in" class="group flex flex-col sm:flex-row overflow-hidden rounded-2xl border border-slate-200 hover:shadow-xl transition-all duration-300 mb-6 bg-white" data-reveal>
+        <div class="sm:w-2/5 h-52 sm:h-auto overflow-hidden flex-shrink-0">
+          <Image
+            src={cageInImg}
+            alt="CAGE-IN — AI-Driven Mineral Targeting"
+            width={600}
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="flex-1 p-6 sm:p-8 flex flex-col justify-between border-t-2 sm:border-t-0 sm:border-l-2 border-transparent group-hover:border-geo-gold transition-colors duration-300">
+          <div>
+            <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-2">Proprietary AI Technology</p>
+            <h3 class="font-display text-2xl md:text-3xl text-geo-primary font-semibold mb-3 leading-snug">AI-Driven Mineral Targeting — CAGE-IN</h3>
+            <p class="text-slate-500 leading-relaxed max-w-xl">
+              Proprietary AI re-interpretation of your existing geological, geochemical, and geophysical data to generate precision mineral targets — shortening the exploration cycle from years to months.
+            </p>
+          </div>
+          <p class="mt-5 text-geo-gold text-sm font-semibold uppercase tracking-wider">Explore CAGE-IN in depth →</p>
+        </div>
+      </a>
+
+      <!-- Remaining 9 services — mobile: horizontal scroll snap · sm+: grid -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4
+                  sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-5 sm:snap-none" data-reveal>
+        {[
+          {
+            title: 'Investor Project Evaluation',
+            description: 'Independent technical assessment for investors and fund managers. QP-signed compliant reports under NI 43-101, JORC, or equivalent standards.',
+            image: undefined,
+            href: '/contact',
+          },
+          {
+            title: 'Government & National Programs',
+            description: 'National-scale prospectivity mapping delivering 200+ ranked targets from existing datasets — packaged as investor-ready materials to attract exploration FDI.',
+            image: undefined,
+            href: '/cage-in#national-scale',
+          },
+          {
+            title: 'Turnkey Exploration & Resource Modelling',
+            description: 'High-resolution mapping, sampling, geophysics, drill planning, logging, QA-QC, cross sections, and full compliant resource models.',
+            image: geostatisticsImg,
+            href: '/contact',
+          },
+          {
+            title: 'Integrated Data Interpretation',
+            description: 'Integrating historical, geological and geophysical datasets using CAGE-IN for precise mineral targeting over large areas.',
+            image: dataInterpretationImg,
+            href: '/contact',
+          },
+          {
+            title: 'Mineral Reconnaissance',
+            description: 'Remote sensing and field verification-based geological mapping to identify prospective targets across large greenfield areas.',
+            image: geologicalMappingImg,
+            href: '/contact',
+          },
+          {
+            title: 'GIS Integration',
+            description: 'Unified spatial database combining geophysical, geochemical, and remote sensing data for comprehensive exploration analysis.',
+            image: geospatialImg,
+            href: '/contact',
+          },
+          {
+            title: 'Exploration Technologies',
+            description: 'Proprietary AI-driven tools for efficient, eco-friendly exploration — increasing process efficiency and reducing environmental impact.',
+            image: undefined,
+            href: '/contact',
+          },
+          {
+            title: 'Mineral Intelligence',
+            description: 'Drone and remote sensing surveys of mining areas for change detection of toxic pollutants, illegal mining activities, and production monitoring.',
+            image: undefined,
+            href: '/contact',
+          },
+          {
+            title: 'Skill Development in Exploration',
+            description: 'Capacity building by embedding high-level geological expertise on site — accelerating team capabilities and exploration outcomes.',
+            image: undefined,
+            href: '/contact',
+          },
+        ].map(s => (
+          <div class="flex-none w-[82vw] max-w-[310px] snap-start sm:w-auto sm:flex-initial sm:max-w-none">
+            <ServiceCard title={s.title} description={s.description} image={s.image} href={s.href} />
+          </div>
+        ))}
       </div>
-      <div class="text-center mt-12">
+
+      <div class="text-center mt-8">
         <a
           href="/services"
           class="inline-flex items-center gap-2 text-geo-primary font-semibold text-sm uppercase tracking-wider hover:text-geo-gold transition-colors"
         >
-          More Services
+          Full service details
           <span class="text-geo-gold">→</span>
         </a>
       </div>
     </div>
   </section>
 
+  <!-- Third-party recognition quote strip -->
+  <section class="py-8 md:py-12 bg-white border-y border-slate-200" data-reveal>
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <p class="font-display text-xl md:text-2xl text-geo-primary italic leading-relaxed mb-4">
+        "Internationally recognised and referenced in gold, diamond, and iron ore exploration works."
+      </p>
+      <p class="text-xs text-slate-400 uppercase tracking-widest">— Referenced by Ticker Trax (Thom Calandra) and 321Gold (Bob Moriarty)</p>
+    </div>
+  </section>
+
   <!-- Trusted Expertise -->
-  <section class="py-24 bg-white">
+  <section class="py-12 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
+      <div class="text-center mb-8 md:mb-12" data-reveal>
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Why Choose Us</p>
-        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Trusted Expertise in Every Layer of the Earth</h2>
+        <h2 class="font-display text-3xl md:text-5xl text-geo-primary mb-4">Trusted Expertise in Every Layer of the Earth</h2>
       </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="flex flex-col gap-4 p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
-          <div class="w-12 h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+        <div class="flex flex-col gap-3 p-4 md:p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
+          <div class="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
             <svg class="w-6 h-6 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 class="font-display text-lg text-geo-primary font-semibold">Expert-Led Geoscience Teams</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">Our team consists of seasoned geologists, geophysicists, and data scientists with decades of combined field experience.</p>
+          <h3 class="font-display text-sm md:text-lg text-geo-primary font-semibold leading-snug">Expert-Led Geoscience Teams</h3>
+          <p class="hidden md:block text-slate-500 text-sm leading-relaxed">Our team consists of seasoned geologists, geophysicists, and data scientists with decades of combined field experience.</p>
         </div>
-        <div class="flex flex-col gap-4 p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
-          <div class="w-12 h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
+        <div class="flex flex-col gap-3 p-4 md:p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
+          <div class="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
             <svg class="w-6 h-6 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </div>
-          <h3 class="font-display text-lg text-geo-primary font-semibold">Cutting-Edge Technologies</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">We deploy the latest geophysical tools, geospatial data platforms, and proprietary AI-powered systems like CAGE-IN.</p>
+          <h3 class="font-display text-sm md:text-lg text-geo-primary font-semibold leading-snug">Cutting-Edge Technologies</h3>
+          <p class="hidden md:block text-slate-500 text-sm leading-relaxed">We deploy the latest geophysical tools, geospatial data platforms, and proprietary AI-powered systems like CAGE-IN.</p>
         </div>
-        <div class="flex flex-col gap-4 p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
-          <div class="w-12 h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
+        <div class="flex flex-col gap-3 p-4 md:p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
+          <div class="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
             <svg class="w-6 h-6 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
             </svg>
           </div>
-          <h3 class="font-display text-lg text-geo-primary font-semibold">Global Field Experience</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">From North America to Africa, our projects span varied geological terrains and regulatory environments across 15+ countries.</p>
+          <h3 class="font-display text-sm md:text-lg text-geo-primary font-semibold leading-snug">Global Field Experience</h3>
+          <p class="hidden md:block text-slate-500 text-sm leading-relaxed">From North America to Africa, our projects span varied geological terrains and regulatory environments across 15+ countries.</p>
         </div>
-        <div class="flex flex-col gap-4 p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
-          <div class="w-12 h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
+        <div class="flex flex-col gap-3 p-4 md:p-6 rounded-xl border border-slate-100 hover:border-geo-gold/30 hover:shadow-md transition-all duration-200">
+          <div class="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-geo-primary/10 flex items-center justify-center">
             <svg class="w-6 h-6 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
             </svg>
           </div>
-          <h3 class="font-display text-lg text-geo-primary font-semibold">End-to-End Project Support</h3>
-          <p class="text-slate-500 text-sm leading-relaxed">We manage all stages — from planning and permitting to execution and reporting — ensuring seamless project delivery.</p>
+          <h3 class="font-display text-sm md:text-lg text-geo-primary font-semibold leading-snug">End-to-End Project Support</h3>
+          <p class="hidden md:block text-slate-500 text-sm leading-relaxed">We manage all stages — from planning and permitting to execution and reporting — ensuring seamless project delivery.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Technologies Section -->
-  <section class="py-24 bg-slate-50">
+  <section class="py-12 md:py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Competitive Advantage</p>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3" data-reveal>Competitive Advantage</p>
           <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-6 leading-tight">Proprietary<br />Technologies</h2>
           <p class="text-slate-600 text-lg leading-relaxed mb-4">
             AI Resource Exploration has developed a suite of proprietary technologies that go beyond conventional exploration methods. Our CAGE-IN system, Gold Proxy Index, and Spectral Classification tools give clients a decisive edge.
@@ -267,40 +317,42 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   </section>
 
   <!-- Driving Smarter Exploration -->
-  <section class="py-24 bg-white">
+  <section class="py-12 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
+      <div class="text-center mb-8 md:mb-12" data-reveal>
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Proven Solutions</p>
-        <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-4">Driving Smarter Exploration with Proven Solutions</h2>
-        <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
-          Our success is measured by how well we solve complex mineral discovery challenges. Here are key solutions we've implemented to transform exploration outcomes worldwide.
+        <h2 class="font-display text-3xl md:text-5xl text-geo-primary mb-4">Proven Solutions in Action</h2>
+        <p class="text-slate-500 max-w-xl mx-auto leading-relaxed text-sm md:text-base">
+          Key results we've delivered across exploration programs worldwide.
         </p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
-          <div class="overflow-hidden h-52">
+      <!-- mobile: horizontal scroll snap · md+: grid -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4
+                  md:grid md:grid-cols-3 md:overflow-visible md:gap-6 md:pb-0 md:mx-0 md:px-0 md:snap-none">
+        <div class="flex-none w-[78vw] max-w-[300px] snap-start md:w-auto md:flex-initial md:max-w-none group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="overflow-hidden h-44 md:h-52">
             <Image src={geologicalMappingImg} alt="Strategic Exploration Planning" width={600} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           </div>
-          <div class="p-6">
-            <h3 class="font-display text-xl text-geo-primary font-semibold mb-3">Strategic Exploration Planning</h3>
+          <div class="p-4 md:p-6">
+            <h3 class="font-display text-lg md:text-xl text-geo-primary font-semibold mb-2">Strategic Exploration Planning</h3>
             <p class="text-slate-500 text-sm leading-relaxed">We tailor exploration programs based on geophysical, geochemical, and remote sensing data to target high-potential zones.</p>
           </div>
         </div>
-        <div class="group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
-          <div class="overflow-hidden h-52">
+        <div class="flex-none w-[78vw] max-w-[300px] snap-start md:w-auto md:flex-initial md:max-w-none group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="overflow-hidden h-44 md:h-52">
             <Image src={cageInImg} alt="Efficient Drilling Campaigns" width={600} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           </div>
-          <div class="p-6">
-            <h3 class="font-display text-xl text-geo-primary font-semibold mb-3">Efficient Drilling Campaigns</h3>
+          <div class="p-4 md:p-6">
+            <h3 class="font-display text-lg md:text-xl text-geo-primary font-semibold mb-2">Efficient Drilling Campaigns</h3>
             <p class="text-slate-500 text-sm leading-relaxed">From drill pad siting to program supervision, we ensure safe, efficient, and productive drilling operations.</p>
           </div>
         </div>
-        <div class="group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
-          <div class="overflow-hidden h-52">
+        <div class="flex-none w-[78vw] max-w-[300px] snap-start md:w-auto md:flex-initial md:max-w-none group overflow-hidden rounded-xl border border-slate-100 hover:shadow-lg transition-shadow duration-300">
+          <div class="overflow-hidden h-44 md:h-52">
             <Image src={geostatisticsImg} alt="Resource Modeling & Estimation" width={600} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
           </div>
-          <div class="p-6">
-            <h3 class="font-display text-xl text-geo-primary font-semibold mb-3">Resource Modeling & Estimation</h3>
+          <div class="p-4 md:p-6">
+            <h3 class="font-display text-lg md:text-xl text-geo-primary font-semibold mb-2">Resource Modeling & Estimation</h3>
             <p class="text-slate-500 text-sm leading-relaxed">We leverage 3D modeling and geostatistical techniques to define resources with maximum confidence.</p>
           </div>
         </div>
@@ -309,7 +361,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   </section>
 
   <!-- Guiding Principles -->
-  <section class="py-24 bg-geo-slate text-white">
+  <section class="py-12 md:py-20 bg-geo-slate text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
@@ -377,43 +429,46 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   </section>
 
   <!-- About Preview -->
-  <section class="py-24 bg-white">
+  <section class="py-12 md:py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="flex justify-center lg:justify-start">
+      <!-- Mobile: compact horizontal card · lg: two-column -->
+      <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+        <!-- Photo: inline on mobile, standalone on desktop -->
+        <div class="flex justify-center lg:justify-start mb-6 lg:mb-0">
           <div class="relative">
-            <div class="absolute -inset-4 rounded-full bg-geo-secondary/20"></div>
+            <div class="absolute -inset-3 rounded-full bg-geo-secondary/20 hidden lg:block"></div>
             <Image
               src={amitTripathiImg}
               alt="Dr. Amit Tripathi"
               width={288}
-              class="relative w-56 h-56 sm:w-72 sm:h-72 rounded-full object-cover shadow-2xl border-4 border-white"
+              class="relative w-28 h-28 sm:w-40 sm:h-40 lg:w-72 lg:h-72 rounded-full object-cover shadow-xl border-4 border-white"
             />
-            <div class="absolute -bottom-2 -right-2 w-20 h-20 rounded-full bg-geo-gold/20 border-2 border-geo-gold/40"></div>
+            <div class="absolute -bottom-2 -right-2 w-10 h-10 lg:w-20 lg:h-20 rounded-full bg-geo-gold/20 border-2 border-geo-gold/40"></div>
           </div>
         </div>
         <div>
-          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">The Expert Behind the Work</p>
-          <h2 class="font-display text-4xl md:text-5xl text-geo-primary mb-6 leading-tight">Dr. Amit Tripathi</h2>
-          <p class="text-slate-600 leading-relaxed mb-4">
-            Dr. Tripathi brings over 26 years of multidisciplinary experience across mineral exploration, mine planning, and geological consultancy. His work spans five continents and more than 15 countries.
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-2" data-reveal>The Expert Behind the Work</p>
+          <h2 class="font-display text-3xl md:text-5xl text-geo-primary mb-4 leading-tight">Dr. Amit Tripathi</h2>
+          <p class="text-slate-600 leading-relaxed mb-3 text-sm md:text-base">
+            Dr. Tripathi brings over 30 years of multidisciplinary experience across mineral exploration, mine planning, and geological consultancy — spanning five continents and more than 20 countries.
           </p>
-          <p class="text-slate-500 leading-relaxed mb-8">
+          <p class="text-slate-500 leading-relaxed mb-6 text-sm hidden sm:block">
             A member of AusIMM and holder of a Ph.D. in Structural Geology, Dr. Tripathi has authored one book and published 22+ scientific research papers in national and international journals.
           </p>
-          <div class="flex flex-wrap gap-6 mb-8">
+          <!-- Stats: 3 inline on mobile -->
+          <div class="flex gap-6 mb-6">
             {[
-              { num: '26+', label: 'Years Experience' },
-              { num: '15+', label: 'Countries' },
+              { num: '30+', label: 'Yrs Exp.' },
+              { num: '20+', label: 'Countries' },
               { num: '22+', label: 'Publications' },
             ].map(({ num, label }) => (
               <div class="text-center">
-                <p class="font-display text-4xl font-bold text-geo-gold">{num}</p>
-                <p class="text-slate-400 text-xs uppercase tracking-wider mt-1">{label}</p>
+                <p class="font-display text-3xl md:text-4xl font-bold text-geo-gold">{num}</p>
+                <p class="text-slate-400 text-[10px] uppercase tracking-wider mt-1">{label}</p>
               </div>
             ))}
           </div>
-          <a href="/about" class="text-geo-primary font-semibold text-sm uppercase tracking-wider hover:text-geo-gold transition-colors">
+          <a href="/about" class="inline-flex items-center gap-2 bg-geo-primary text-white px-6 py-3 rounded font-semibold text-sm uppercase tracking-wider hover:bg-geo-primary-dark transition-colors">
             Read full biography →
           </a>
         </div>
@@ -422,7 +477,7 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
   </section>
 
   <!-- CTA Banner -->
-  <section class="py-24 bg-geo-slate text-white relative overflow-hidden">
+  <section class="py-14 md:py-24 bg-geo-slate text-white relative overflow-hidden">
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Work With Us</p>

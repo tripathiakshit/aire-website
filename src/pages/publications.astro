@@ -364,9 +364,10 @@ const publicationCategories = [
 
   <!-- Blog Panel -->
   <div id="panel-blog" role="tabpanel" aria-labelledby="tab-blog" class="tab-panel hidden py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {posts.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {posts.length > 0 && (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {posts.map(post => (
             <BlogCard
               title={post.data.title}
@@ -378,12 +379,53 @@ const publicationCategories = [
             />
           ))}
         </div>
-      ) : (
-        <div class="text-center py-20 text-slate-400">
-          <p class="text-lg font-medium mb-2 text-slate-600">Blog posts coming soon</p>
-          <p class="text-sm leading-relaxed max-w-md mx-auto">Dr. Tripathi's technical articles, field notes, and industry commentary are published at the <a href="https://www.airesourceexploration.com/publications/" target="_blank" rel="noopener noreferrer" class="text-geo-primary hover:underline">AIRE publications portal</a> and on the Mineral Exploration Academy platform.</p>
-        </div>
       )}
+
+      <!-- External articles — Mineral Exploration Academy -->
+      <div class="flex items-center gap-4 mb-8">
+        <h2 class="font-display text-xl text-geo-primary font-semibold whitespace-nowrap">Mineral Exploration Academy — Editorials</h2>
+        <div class="h-px flex-1 bg-geo-secondary/40"></div>
+        <a href="https://mineralexplorationacademy.wordpress.com/editorials/" target="_blank" rel="noopener noreferrer" class="shrink-0 text-xs font-semibold text-geo-gold hover:text-amber-500 transition-colors uppercase tracking-wider whitespace-nowrap">View all →</a>
+      </div>
+
+      <div class="space-y-3">
+        {[
+          { title: 'The Legend of the Frankenstein Dataset: Why Your Prospectivity Map Looks Like a Patchwork Quilt!', year: 'Dec 2025', url: 'https://mineralexplorationacademy.wordpress.com/2025/12/23/the-legend-of-the-frankenstein-dataset-why-your-prospectivity-map-looks-like-a-patchwork-quilt/' },
+          { title: 'The Whisper in a Jet Engine: Why Most Mineral Exploration is Just Expensive Karaoke', year: 'Dec 2025', url: 'https://mineralexplorationacademy.wordpress.com/2025/12/22/the-whisper-in-a-jet-engine-why-most-mineral-exploration-is-just-expensive-karaoke/' },
+          { title: "Uganda's $3.4 Billion Paradox: Can AI offset Uganda's Mining Levy?", year: 'Oct 2025', url: 'https://mineralexplorationacademy.wordpress.com/2025/10/05/ugandas-3-4-billion-paradox-can-ai-offset-ugandas-mining-levy/' },
+          { title: 'Evolving Understanding of the East African Nickel Belt — Have We Found Its Limits? (Part 2)', year: 'May 2025', url: 'https://mineralexplorationacademy.wordpress.com/2025/05/06/evolving-understanding-of-the-east-african-nickel-belt-have-we-found-its-limits-part-2/' },
+          { title: 'Exploration Challenges of Finding Large Nickel Deposits — Examples from the East African Nickel Belt (Part 1)', year: 'Apr 2025', url: 'https://mineralexplorationacademy.wordpress.com/2025/04/30/exploration-challenges-of-finding-large-nickel-deposits-pitfalls-and-the-way-forward-examples-from-east-african-nickel-belt-part-1/' },
+          { title: 'CAGE-IN: A Cosmic Leap in Mineral Exploration, Powered by AI', year: 'Feb 2024', url: 'https://mineralexplorationacademy.wordpress.com/2024/02/06/cage-in-a-cosmic-leap-in-mineral-exploration-powered-by-ai/' },
+          { title: 'Hunting Porphyries: Unveiling the Secrets with Bayesian Inference!', year: 'Feb 2024', url: 'https://mineralexplorationacademy.wordpress.com/2024/02/06/hunting-porphyries-unveiling-the-secrets-with-bayesian-inference/' },
+          { title: 'Educating Future Citizens of India', year: 'May 2022', url: 'https://mineralexplorationacademy.wordpress.com/2022/05/25/educating-future-citizens-of-india/' },
+          { title: 'Morocco: The Rising Star of African Mining', year: 'Sep 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/09/07/morocco-the-rising-star-of-african-mining/' },
+          { title: 'Famous Personalities – Unknown Geologists (Part 1)', year: 'Aug 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/08/28/famous-personalities-unknown-geologists-1/' },
+          { title: 'Geology Fraud: The Infamous Case of Bre-X and the Origin of JORC Standard', year: 'Aug 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/08/23/geology-fraud-the-infamous-case-of-bre-x-and-the-origin-of-jorc-standard/' },
+          { title: 'Exploring Minerals in Latin America: Challenges of a Different Business Culture', year: 'Aug 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/08/13/exploring-minerals-in-latin-america-challenges-of-a-different-business-culture/' },
+          { title: 'Indian Ocean Region as a Source of Critical Strategic Raw Materials', year: 'Aug 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/08/07/indian-ocean-region-as-a-source-of-critical-strategic-raw-materials/' },
+          { title: 'Role of CO₂ in the Formation of Gold Bearing Ores', year: 'Aug 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/08/05/role-of-co2-in-the-formation-of-gold-bearing-ores/' },
+          { title: "Rare Earth Elements: India's Critical Strategic Deficiencies and Chinese Dominance — Problems and Solutions", year: 'Aug 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/08/04/rare-earth-elements-indias-critical-strategic-deficiencies-and-chinese-dominance-problems-and-solutions/' },
+          { title: 'Opinion by Sri Pramod Kumar, fmr Addl Director AMD: on "Mineral System" Based Classification of Deposits', year: 'Jul 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/07/02/opinion-by-sri-pramod-kumar-fmr-addl-director-amd-on-mineral-system-based-classification-of-deposits/' },
+          { title: 'Opinion by Dr. V. Ganesan, fmr Director GSI: on "Mineral System" Based Deposit Classification for Earth Mapping Resources', year: 'Jul 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/07/02/opinion-by-dr-v-ganesan-fmr-director-geological-survey-of-india-on-mineral-system-based-deposit-classification-for-earth-mapping-resources/' },
+          { title: 'Q: What Happens When We Exploit All the Mineral Resources?', year: 'Jul 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/07/01/q-what-happens-when-we-exploit-all-the-mineral-resources-what-happens-when-deposits-around-the-world-start-depleting/' },
+          { title: 'Unlocking Explosive Growth with Rural Employment and Rapid Industrialization', year: 'Jun 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/06/10/unlocking-explosive-growth-with-rural-employment-and-rapid-industrialization/' },
+          { title: 'Chinese Dominance over Rare Earth Elements and India\'s Critical Dependencies', year: 'Jun 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/06/09/chinese-dominance-over-rare-earth-elements-and-indias-critical-dependencies/' },
+          { title: 'Mineral Exploration — A Startup Ecosystem', year: 'Jun 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/06/07/mineral-exploration-a-startup-ecosystem/' },
+          { title: 'White Paper Inputs for Mineral Exploration Policy', year: 'Jun 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/06/03/white-paper-inputs-for-mineral-exploration-policy/' },
+          { title: 'Mineral Exploration Business Is the Way Forward', year: 'Jun 2020', url: 'https://mineralexplorationacademy.wordpress.com/2020/06/03/mineral-exploration-business-is-the-way-forward/' },
+        ].map(article => (
+          <a
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-start justify-between gap-4 group px-4 py-3.5 rounded-lg border border-slate-100 hover:border-geo-secondary/50 hover:bg-slate-50 transition-all duration-150"
+          >
+            <span class="text-sm font-medium text-slate-700 group-hover:text-geo-primary transition-colors leading-snug">{article.title}</span>
+            <span class="shrink-0 text-xs text-slate-400 mt-0.5 whitespace-nowrap">{article.year} →</span>
+          </a>
+        ))}
+      </div>
+
     </div>
   </div>
 

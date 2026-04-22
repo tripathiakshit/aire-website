@@ -301,6 +301,15 @@ const publicationCategories = [
           Publications
         </button>
         <button
+          id="tab-latest"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-latest"
+          class="tab-btn px-6 py-4 text-sm font-semibold uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-geo-primary transition-colors"
+        >
+          Latest
+        </button>
+        <button
           id="tab-blog"
           role="tab"
           aria-selected="false"
@@ -359,6 +368,121 @@ const publicationCategories = [
         <p class="font-semibold text-slate-700 mb-2">Notes on Access</p>
         <p>Peer-reviewed journal articles (Springer/JGSI) may require institutional or individual subscriptions for full-text access. All Mineral Exploration Academy blog posts and Quantum Earth Sciences case studies are freely accessible. Stockhouse articles are publicly available without registration. The Scribd document may require a Scribd account. The Financial Express article is publicly available. The Asia Centre Bangalore PDF is a direct open-access download.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- Latest Panel -->
+  <div id="panel-latest" role="tabpanel" aria-labelledby="tab-latest" class="tab-panel hidden py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+
+      <!-- News Item: Graphano Energy -->
+      <article class="border border-slate-200 rounded-xl overflow-hidden hover:border-geo-gold/30 hover:shadow-md transition-all">
+        <div class="p-6 sm:p-8">
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-400 mb-3">
+            <time datetime="2026-04-09" class="font-semibold text-geo-gold">April 9, 2026</time>
+            <span>·</span>
+            <span>Québec, Canada</span>
+            <span>·</span>
+            <span>Graphite · Battery Metals</span>
+          </div>
+          <h2 class="font-display text-xl sm:text-2xl font-bold text-geo-primary leading-snug mb-3">
+            AIRE Engaged by Graphano Energy to Advance Black Pearl Graphite Project in Québec
+          </h2>
+          <p class="text-slate-600 text-sm leading-relaxed mb-1">
+            AI Resource Exploration has been retained by Graphano Energy Ltd. (TSXV: GEL) to deploy CAGE-IN technology across the Black Pearl project — integrating airborne geophysical, geological, and historical datasets to refine and prioritize drill-ready graphite targets.
+          </p>
+          <button
+            class="news-toggle mt-4 inline-flex items-center gap-1.5 text-geo-gold text-sm font-semibold hover:text-amber-500 transition-colors cursor-pointer"
+            aria-expanded="false"
+          >
+            <span class="toggle-label">Read More</span>
+            <svg class="toggle-icon w-4 h-4 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div class="news-body hidden mt-6 space-y-6 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-6">
+            <p>
+              AI Resource Exploration (AIRE) is pleased to announce its engagement by Graphano Energy Ltd. (TSXV: GEL | FSE: 97G0 | OTC Pink: GELEF) to support the advancement of the company's Black Pearl graphite project located in Québec, Canada. AIRE's mandate is to apply its proprietary CAGE-IN technology to integrate geophysical, geological, and historical exploration datasets, with the objective of delineating and ranking the most prospective zones ahead of ground follow-up and first-phase drilling.
+            </p>
+            <p>
+              Graphano's recent airborne geophysical surveys — including magnetic and time-domain electromagnetic (TDEM) data — have identified multiple discrete conductive zones along a strike length exceeding six kilometres. These conductors represent priority targets for graphite mineralization, and the complexity and scale of the dataset make it an ideal candidate for CAGE-IN's multi-layer integration framework.
+            </p>
+
+            <blockquote class="border-l-4 border-geo-gold pl-5 py-2 italic text-slate-500">
+              <p>"The identification of multiple conductors over a significant strike length is highly encouraging. By incorporating advanced data-driven analysis, we aim to efficiently prioritize the most prospective targets and deploy our field programs with greater precision."</p>
+              <footer class="mt-2 not-italic text-xs font-semibold text-slate-700">— Dr. Luisa Moreno, Chief Executive Officer, Graphano Energy Ltd.</footer>
+            </blockquote>
+
+            <div>
+              <h3 class="font-display text-lg font-bold text-geo-primary mb-2">Why CAGE-IN for Black Pearl</h3>
+              <p>
+                The Black Pearl project presents a multi-conductor geophysical environment across a laterally extensive trend — precisely the setting where conventional processing falls short. Standard geophysical gridding does not account for geological domain boundaries, which can distort anomaly geometry and produce misleading target geometries. CAGE-IN resolves this by imposing geological constraints directly onto the geophysical data, ensuring that processing occurs strictly within appropriate geological domains.
+              </p>
+              <p class="mt-3">
+                For graphite — a conductive mineral whose signature can be masked or blended by surrounding lithologies — this geological constraint is critical to distinguishing true mineralization from geophysical artefacts. CAGE-IN's ability to enhance subtle anomaly contrast, combined with its multi-dataset relational scanning, allows AIRE to define high-confidence targets that a conventional workflow would miss or misrank.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg font-bold text-geo-primary mb-3">CAGE-IN at Black Pearl</h3>
+              <p class="text-xs text-slate-400 uppercase tracking-wider mb-4">Constrained Area Gridding for Enhanced Interpretation · Graphite — Applied & Validated</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <p class="font-semibold text-geo-primary text-sm mb-1">→ Multi-Dataset Integration</p>
+                  <p class="text-xs text-slate-500">Airborne magnetics, TDEM, geological mapping, and historical records unified within a single constrained interpretation framework.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <p class="font-semibold text-geo-primary text-sm mb-1">→ Geologically Constrained Gridding</p>
+                  <p class="text-xs text-slate-500">Processing confined strictly within geological domain boundaries — eliminating cross-domain distortion of conductive signatures.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <p class="font-semibold text-geo-primary text-sm mb-1">→ Enhanced Anomaly Contrast</p>
+                  <p class="text-xs text-slate-500">Subtle conductors invisible in standard processing are surfaced and ranked by confidence tier for ground verification.</p>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-lg border border-slate-100">
+                  <p class="font-semibold text-geo-primary text-sm mb-1">→ Drill-Ready Target Package</p>
+                  <p class="text-xs text-slate-500">Outputs include GIS-compatible target coordinates, confidence classifications, and written geological context for QP disclosure.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg font-bold text-geo-primary mb-2">Scope of Work</h3>
+              <p>AIRE's work program at Black Pearl will encompass the following activities in support of Graphano's upcoming ground exploration season:</p>
+              <ul class="mt-3 space-y-2 list-none">
+                <li class="flex gap-2"><span class="text-geo-gold font-bold">•</span><span>Integration of airborne magnetic and TDEM datasets within a CAGE-IN geological constraint framework</span></li>
+                <li class="flex gap-2"><span class="text-geo-gold font-bold">•</span><span>Enhancement of geophysical contrast to isolate discrete conductive zones along the six-kilometre trend</span></li>
+                <li class="flex gap-2"><span class="text-geo-gold font-bold">•</span><span>Cross-referencing of geophysical targets against historical exploration records and geological mapping</span></li>
+                <li class="flex gap-2"><span class="text-geo-gold font-bold">•</span><span>Generation of ranked, confidence-classified drill and ground-follow-up targets</span></li>
+                <li class="flex gap-2"><span class="text-geo-gold font-bold">•</span><span>Delivery of a complete CAGE-IN report with GIS-compatible outputs for use by Graphano's Qualified Person</span></li>
+              </ul>
+              <p class="mt-3">
+                Ground activities planned by Graphano — including prospecting, geological mapping, stripping, trenching, channel and grab sampling, and ground geophysical surveys — will be informed directly by AIRE's target prioritization ahead of first-phase drilling.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="font-display text-lg font-bold text-geo-primary mb-2">Significance of the Project</h3>
+              <p>
+                Graphite is a designated critical mineral and a foundational material for lithium-ion battery anodes, fuel cell components, and a range of advanced energy technologies. The Black Pearl project sits within a historically active graphite region of Québec — a jurisdiction with established infrastructure, a strong exploration track record, and proximity to Canada's only currently producing graphite mine.
+              </p>
+              <p class="mt-3">
+                AIRE views this engagement as an opportunity to demonstrate CAGE-IN's applicability to battery-metal graphite targets at meaningful scale. With seasonal conditions improving and ground exploration scheduled to commence in the coming weeks, AIRE is proceeding with data integration and expects to deliver its target prioritization report on a timeline aligned with Graphano's field program.
+              </p>
+            </div>
+
+            <div class="pt-2">
+              <a
+                href="https://graphano.com/graphano-provides-spring-exploration-program-update/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 text-geo-gold text-sm font-semibold hover:text-amber-500 transition-colors"
+              >
+                View Graphano Energy's announcement →
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 
@@ -462,6 +586,28 @@ const publicationCategories = [
       panels.forEach(panel => {
         panel.id === target ? panel.classList.remove('hidden') : panel.classList.add('hidden');
       });
+    });
+  });
+
+  // News expand/collapse toggles
+  document.querySelectorAll<HTMLButtonElement>('.news-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const body = btn.nextElementSibling as HTMLElement;
+      const label = btn.querySelector('.toggle-label') as HTMLElement;
+      const icon = btn.querySelector('.toggle-icon') as HTMLElement;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      if (isOpen) {
+        body.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        label.textContent = 'Read More';
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        body.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        label.textContent = 'Show Less';
+        icon.style.transform = 'rotate(180deg)';
+      }
     });
   });
 </script>

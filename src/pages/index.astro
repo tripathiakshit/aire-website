@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import { Handshake } from 'lucide-astro';
 import PageLayout from '../layouts/PageLayout.astro';
 
 import heroImg from '../assets/hero-min.jpg';
@@ -133,26 +134,59 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
       </div>
 
       <!-- CAGE-IN featured card -->
-      <a href="/cage-in" class="group flex flex-col sm:flex-row overflow-hidden rounded-2xl border border-white/10 hover:border-geo-gold/60 hover:shadow-xl hover:shadow-black/30 transition-all duration-300 mb-6 bg-white/5" data-reveal>
-        <div class="sm:w-2/5 h-52 sm:h-auto overflow-hidden flex-shrink-0">
-          <Image
-            src={cageInImg}
-            alt="CAGE-IN — AI-Driven Mineral Targeting"
-            width={600}
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-        <div class="flex-1 p-6 sm:p-8 flex flex-col justify-between border-t-2 sm:border-t-0 sm:border-l-2 border-transparent group-hover:border-geo-gold transition-colors duration-300">
-          <div>
-            <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-2">Proprietary AI Technology</p>
-            <h3 class="font-display text-2xl md:text-3xl text-white font-semibold mb-3 leading-snug">AI-Driven Mineral Targeting — CAGE-IN</h3>
-            <p class="text-slate-400 leading-relaxed max-w-xl">
-              Proprietary AI re-interpretation of your existing geological, geochemical, and geophysical data to generate precision mineral targets — shortening the exploration cycle from years to months.
-            </p>
+      <div
+        id="cage-in-feature-card"
+        class="group flex flex-col overflow-hidden rounded-2xl border border-white/10 hover:border-geo-gold/60 hover:shadow-xl hover:shadow-black/30 transition-all duration-300 mb-6 bg-white/5 cursor-pointer"
+        data-href="/technologies/cage-in"
+        role="link"
+        tabindex="0"
+        aria-label="AI-Driven Mineral Targeting — CAGE-IN"
+        data-reveal
+      >
+        <div class="flex flex-col sm:flex-row">
+          <div class="sm:w-2/5 h-52 sm:h-auto overflow-hidden flex-shrink-0">
+            <Image
+              src={cageInImg}
+              alt="CAGE-IN — AI-Driven Mineral Targeting"
+              width={600}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
-          <p class="mt-5 text-geo-gold text-sm font-semibold uppercase tracking-wider">Explore CAGE-IN in depth →</p>
+          <div class="flex-1 p-6 sm:p-8 sm:pb-6 flex flex-col justify-between border-t-2 sm:border-t-0 sm:border-l-2 border-transparent group-hover:border-geo-gold transition-colors duration-300">
+            <div>
+              <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-2">Proprietary AI Technology</p>
+              <h3 class="font-display text-2xl md:text-3xl text-white font-semibold mb-3 leading-snug">AI-Driven Mineral Targeting — CAGE-IN</h3>
+              <p class="text-slate-400 leading-relaxed max-w-xl">
+                Proprietary AI re-interpretation of your existing geological, geochemical, and geophysical data to generate precision mineral targets — shortening the exploration cycle from years to months.
+              </p>
+            </div>
+          </div>
         </div>
-      </a>
+
+        <!-- Dual-audience strip -->
+        <div class="border-t border-white/10 grid grid-cols-1 sm:grid-cols-2">
+          <a
+            href="/contact"
+            class="block px-7 py-5 hover:bg-white/5 transition-colors sm:border-r border-white/10"
+            onclick="event.stopPropagation()"
+          >
+            <p class="text-slate-400 text-[10px] font-semibold uppercase tracking-[0.18em] mb-1.5">For Mining Companies</p>
+            <p class="text-white text-sm leading-snug">
+              Engage us to run it on your data <span class="text-geo-gold">→</span>
+            </p>
+          </a>
+          <a
+            href="/technologies"
+            class="block px-7 py-5 hover:bg-white/5 transition-colors border-t sm:border-t-0 border-white/10"
+            onclick="event.stopPropagation()"
+          >
+            <p class="text-slate-400 text-[10px] font-semibold uppercase tracking-[0.18em] mb-1.5">For Fellow Consultants</p>
+            <p class="text-white text-sm leading-snug">
+              Licence the stack, deliver under your brand <span class="text-geo-gold">→</span>
+            </p>
+          </a>
+        </div>
+      </div>
 
       <!-- Detailed service sections -->
       <div class="max-w-5xl mx-auto mt-12 space-y-16">
@@ -348,12 +382,10 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
         </div>
         <div class="flex flex-col gap-3 p-4 md:p-6 rounded-xl border border-white/8 hover:border-geo-gold/50 hover:bg-white/5 transition-all duration-200">
           <div class="w-9 h-9 md:w-12 md:h-12 rounded-lg bg-geo-primary/20 flex items-center justify-center">
-            <svg class="w-6 h-6 text-geo-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
-            </svg>
+            <Handshake class="w-6 h-6 text-geo-secondary" />
           </div>
-          <h3 class="font-display text-sm md:text-lg text-white font-semibold leading-snug">End-to-End Project Support</h3>
-          <p class="hidden md:block text-slate-400 text-sm leading-relaxed">We manage all stages — from planning and permitting to execution and reporting — ensuring seamless project delivery.</p>
+          <h3 class="font-display text-sm md:text-lg text-white font-semibold leading-snug">Built for Partnership</h3>
+          <p class="hidden md:block text-slate-400 text-sm leading-relaxed">We collaborate with consultancies and in-house teams under white-label, embedded-licence, and joint-engagement models. Your client relationship stays yours.</p>
         </div>
       </div>
     </div>
@@ -585,4 +617,23 @@ import amitTripathiImg from '../assets/amit_tripathi.jpg';
     </div>
   </section>
 </PageLayout>
+
+<script>
+  // CAGE-IN feature card: navigate on outer click; inner anchors handle themselves
+  const card = document.getElementById('cage-in-feature-card');
+  const href = card?.getAttribute('data-href');
+  if (card && href) {
+    card.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('a')) return;
+      window.location.href = href;
+    });
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = href;
+      }
+    });
+  }
+</script>
                                                                     

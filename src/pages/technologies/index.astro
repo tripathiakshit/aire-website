@@ -1,0 +1,183 @@
+---
+import { Image } from 'astro:assets';
+import { Handshake, GraduationCap, RefreshCw, ShieldCheck } from 'lucide-astro';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+import cageInImg from '../../assets/cage-in_pic1-min.jpg';
+import structuralModellingImg from '../../assets/structural_modelling.png';
+import geospatialImg from '../../assets/geospatial.jpg';
+import aiGeoImg from '../../assets/ai-geo-identifying-prospects.png';
+
+const products = [
+  {
+    slug: 'cage-in',
+    name: 'CAGE-IN Mineral Prospectivity',
+    short: 'CAGE-IN',
+    tagline: 'AI-driven mineral targeting from the data you already own.',
+    eyebrow: 'Flagship · AI Prospectivity',
+    status: 'In testing',
+    statusKind: 'gold' as const,
+    img: cageInImg,
+  },
+  {
+    slug: 'bhumi3dmapper',
+    name: 'Bhumi3DMapper',
+    short: 'Bhumi3DMapper',
+    tagline: '3D mineral prospectivity for working geologists — no command line, no Python team.',
+    eyebrow: 'Production · 3D Prospectivity',
+    status: 'Production ready',
+    statusKind: 'green' as const,
+    img: structuralModellingImg,
+  },
+  {
+    slug: 'batch-gis-loader',
+    name: 'Batch GIS File Loader',
+    short: 'Batch GIS Loader',
+    tagline: 'Turn legacy data rooms into a working QGIS project in minutes.',
+    eyebrow: 'Production · Data Ingestion',
+    status: 'Production ready',
+    statusKind: 'green' as const,
+    img: geospatialImg,
+  },
+  {
+    slug: 'varahmihir',
+    name: 'Varahmihir',
+    short: 'Varahmihir',
+    tagline: 'AI research extraordinaire — before you spend a rupee in the field.',
+    eyebrow: 'In Development · AI Researcher',
+    status: 'In development',
+    statusKind: 'gold' as const,
+    img: aiGeoImg,
+  },
+];
+
+const partnerCards = [
+  { Icon: Handshake,     title: 'White-label friendly',  body: 'Use our tools, deliver under your brand. Reseller and embedded-licence terms available.' },
+  { Icon: GraduationCap, title: 'Training included',     body: 'We onboard your team on the geological reasoning behind every model — not just the buttons.' },
+  { Icon: RefreshCw,     title: 'Ongoing model updates', body: 'As the peer-reviewed literature evolves, the reasoning inside CAGE-IN updates with it. You inherit those improvements.' },
+  { Icon: ShieldCheck,   title: 'Data stays yours',      body: 'Full data sovereignty. We process on your infrastructure or ours — you choose. Nothing leaves your control.' },
+];
+---
+
+<PageLayout
+  title="Technologies — AI Resource Exploration"
+  description="Proprietary AI and GIS tools built by exploration consultants, licensed to consultancies and in-house teams worldwide."
+>
+  <!-- Hero band -->
+  <section class="bg-geo-slate text-white py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-5">For Exploration Consultants &amp; Geoscience Teams</p>
+      <h1 class="font-display text-4xl sm:text-5xl md:text-6xl text-white leading-[1.08] mb-6">
+        Tools built by exploration consultants — for exploration consultants.
+      </h1>
+      <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-prose mx-auto mb-5">
+        Every tool below was built in-house to solve a problem we kept hitting on client engagements. We use them on our own work — and we license them to fellow consultants and in-house exploration teams who want to deliver the same quality of output to their clients.
+      </p>
+      <p class="text-slate-300 italic text-base md:text-lg max-w-prose mx-auto">
+        We are not here to compete with you. We are here to make your next deliverable land sharper than your last.
+      </p>
+    </div>
+  </section>
+
+  <!-- Product grid -->
+  <section class="py-12 md:py-20 bg-geo-deep">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-reveal>
+        {products.map(p => (
+          <a
+            href={`/technologies/${p.slug}`}
+            class="group flex flex-col overflow-hidden rounded-2xl border border-white/10 hover:border-geo-gold/60 hover:shadow-xl hover:shadow-black/30 transition-all duration-300 bg-white/5"
+          >
+            <div class="relative h-52 overflow-hidden">
+              <Image
+                src={p.img}
+                alt={p.name}
+                width={800}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class={`absolute top-3 left-3 px-3 py-1 bg-geo-deep/85 border text-[10px] font-semibold uppercase tracking-[0.15em] rounded ${p.statusKind === 'green' ? 'border-emerald-400/60 text-emerald-300' : 'border-geo-gold/60 text-geo-gold'}`}>
+                {p.status}
+              </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <p class="text-geo-gold text-[10px] font-semibold uppercase tracking-[0.25em] mb-2">{p.eyebrow}</p>
+              <h3 class="font-display text-xl md:text-2xl text-white font-semibold mb-3 leading-snug">{p.name}</h3>
+              <p class="text-slate-300 leading-relaxed text-sm mb-5 flex-1">{p.tagline}</p>
+              <p class="text-geo-gold text-xs font-semibold uppercase tracking-wider">Read the case →</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Roadmap callout -->
+      <div class="border border-dashed border-white/15 rounded-xl p-8 text-center bg-white/[0.02] mt-8" data-reveal>
+        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Roadmap</p>
+        <h3 class="font-display text-2xl md:text-3xl text-white mb-3">More tools in development</h3>
+        <p class="text-slate-400 leading-relaxed max-w-prose mx-auto">
+          Ensemble Geochem Prospectivity, NafaSell sales follow-up, and additional commodity-specific solvers are queued. Engage us early to influence the roadmap and access pre-release builds.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partner pitch -->
+  <section class="py-12 md:py-20 bg-geo-slate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+        <div data-reveal>
+          <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">For Fellow Consultants</p>
+          <h2 class="font-display text-3xl md:text-5xl text-white mb-6 leading-tight">
+            Your clients get better deliverables. You keep the relationship.
+          </h2>
+          <p class="text-slate-300 leading-relaxed mb-4">
+            Most of these tools were born in the field, on real exploration programs, alongside geologists like you. We are not chasing your clients — we are giving you the leverage to deliver work that wins repeat business.
+          </p>
+          <p class="text-slate-400 leading-relaxed text-sm">
+            Licence the stack, embed it in your workflow, and put your name on the output. We support you behind the scenes; your client never has to know we exist unless you want them to.
+          </p>
+        </div>
+
+        <div class="space-y-4" data-reveal>
+          {partnerCards.map(({ Icon, title, body }) => (
+            <div class="flex gap-4 p-5 rounded-xl border border-white/10 bg-white/[0.03]">
+              <div class="w-[38px] h-[38px] shrink-0 rounded-lg bg-geo-gold/15 text-geo-gold flex items-center justify-center">
+                <Icon size={20} />
+              </div>
+              <div>
+                <h3 class="font-display text-lg text-white font-semibold mb-1 leading-snug">{title}</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">{body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Consultation CTA -->
+  <section class="py-14 md:py-24 bg-geo-slate text-white relative overflow-hidden border-t border-white/5">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
+    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-reveal>
+      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Free Consultation</p>
+      <h2 class="font-display text-3xl md:text-5xl text-white mb-6 leading-tight">Curious which of our tools fits your practice?</h2>
+      <p class="text-slate-300 text-base md:text-lg leading-relaxed max-w-md mx-auto mb-8">
+        Book a 30-minute discovery call with Dr. Amit Tripathi. We will look at what you are delivering today, where these tools could give you leverage, and how a partnership could work — at no cost.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
+        <a
+          href="/contact"
+          class="w-full sm:w-auto px-8 py-3.5 rounded bg-geo-gold text-white font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors"
+        >
+          Book a Free Consultation →
+        </a>
+        <a
+          href="/contact"
+          class="w-full sm:w-auto px-8 py-3.5 rounded border border-white/20 text-white/80 font-medium text-sm hover:bg-white/10 transition-colors"
+        >
+          Email us a brief instead
+        </a>
+      </div>
+      <p class="text-slate-500 text-[10px] uppercase tracking-widest">No commitments · White-label terms available · 48-hour reply</p>
+    </div>
+  </section>
+</PageLayout>

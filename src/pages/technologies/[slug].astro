@@ -1,12 +1,16 @@
 ---
 import { Image } from 'astro:assets';
-import { Lock } from 'lucide-astro';
 import PageLayout from '../../layouts/PageLayout.astro';
 
 import cageInImg from '../../assets/cage-in_pic1-min.jpg';
 import structuralModellingImg from '../../assets/structural_modelling.png';
 import geospatialImg from '../../assets/geospatial.jpg';
 import aiGeoImg from '../../assets/ai-geo-identifying-prospects.png';
+
+import cageInLanding from '../../assets/cage-in-landing.png';
+import bhumi3dLanding from '../../assets/bhumi3dmapper-landing.jpg';
+import batchGisLanding from '../../assets/batch-gis-loader-landing.png';
+import varahmihirLanding from '../../assets/varahmihir-landing.png';
 
 const PRODUCTS = {
   'cage-in': {
@@ -17,6 +21,7 @@ const PRODUCTS = {
     status: 'In testing',
     statusKind: 'gold' as const,
     img: cageInImg,
+    landingImg: cageInLanding,
     problemHeadline: "Your legacy data is worth millions. Re-interpreting it shouldn't take years.",
     problemBody: 'Most exploration companies and geological surveys sit on decades of satellite imagery, geochemistry, geophysics, and drill data that cost tens of millions to acquire. Manual re-interpretation across modern AI methods takes a 3–5 person team six to twelve months per project. The commodity cycle does not wait that long.',
     solutionBullets: [
@@ -41,6 +46,7 @@ const PRODUCTS = {
     status: 'Production ready',
     statusKind: 'green' as const,
     img: structuralModellingImg,
+    landingImg: bhumi3dLanding,
     problemHeadline: "Modern 3D prospectivity scoring shouldn't require hiring a Python team.",
     problemBody: 'Multi-criterion 3D prospectivity modelling — the kind that integrates litho-structural patterns, alteration signatures, gravity gradients, magnetics, and known mineralisation envelopes — has historically meant a 6–8 week engagement with geostatisticians and a custom code pipeline per deposit. Most exploration teams have geologists, not software engineers.',
     solutionBullets: [
@@ -64,6 +70,7 @@ const PRODUCTS = {
     status: 'Production ready',
     statusKind: 'green' as const,
     img: geospatialImg,
+    landingImg: batchGisLanding,
     problemHeadline: 'Inheriting a project means inheriting a data graveyard.',
     problemBody: 'Take over an exploration project, an M&A target, or a government data dump and you get tens of thousands of files — shapefiles, GeoPackages, GeoTIFFs, KMLs, DXFs — buried across dozens of legacy folder structures. Loading them into QGIS by hand costs analyst-weeks, breaks on broken files, and you still miss things.',
     solutionBullets: [
@@ -87,6 +94,7 @@ const PRODUCTS = {
     status: 'In development',
     statusKind: 'gold' as const,
     img: aiGeoImg,
+    landingImg: varahmihirLanding,
     problemHeadline: "You don't know what's already been published about your area. Until it's too expensive to care.",
     problemBody: 'Every exploration program starts with the same blind spot: what has anyone — survey agencies, academics, prior license holders, junior miners — already learned about this ground? The work exists in public-domain reports, mineral occurrence databases, and academic papers, but pulling it together takes a senior analyst three to four weeks per project and is rarely exhaustive. By the time the brief is in, the field crew is mobilised.',
     solutionBullets: [
@@ -122,8 +130,6 @@ if (!product) {
 const otherProducts = Object.entries(PRODUCTS)
   .filter(([s]) => s !== slug)
   .map(([s, p]) => ({ slug: s, ...p }));
-
-const isVarahmihir = slug === 'varahmihir';
 ---
 
 <PageLayout
@@ -222,28 +228,17 @@ const isVarahmihir = slug === 'varahmihir';
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10" data-reveal>
         <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">The Landing Page</p>
-        <h2 class="font-display text-3xl md:text-5xl text-white leading-tight">
-          {isVarahmihir ? 'Preview coming with v1 release.' : 'See it for yourself.'}
-        </h2>
+        <h2 class="font-display text-3xl md:text-5xl text-white leading-tight">See it for yourself.</h2>
       </div>
 
-      {isVarahmihir ? (
-        <div class="border border-dashed border-white/15 rounded-xl p-12 md:p-16 text-center bg-white/[0.02] max-w-2xl mx-auto" data-reveal>
-          <div class="inline-flex w-14 h-14 rounded-full bg-geo-gold/10 text-geo-gold items-center justify-center mb-5">
-            <Lock size={24} />
-          </div>
-          <p class="text-slate-500 italic">Pre-release — engage us for early access.</p>
-        </div>
-      ) : (
-        <div data-reveal>
-          <Image
-            src={product.img}
-            alt={`${product.name} preview`}
-            width={1600}
-            class="rounded-2xl shadow-2xl shadow-black/40 w-full object-cover border border-white/10"
-          />
-        </div>
-      )}
+      <div data-reveal>
+        <Image
+          src={product.landingImg}
+          alt={`${product.name} landing page`}
+          width={1800}
+          class="rounded-2xl shadow-2xl shadow-black/40 w-full object-contain border border-white/10 bg-white/5"
+        />
+      </div>
     </div>
   </section>
 

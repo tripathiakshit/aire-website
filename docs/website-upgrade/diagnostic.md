@@ -76,11 +76,11 @@ Phase 1 adds nothing here — `/for` is intentionally not surfaced in the footer
 | Field | Detail |
 |---|---|
 | Site today | One of 4 cards on `/technologies`; dedicated page at `/technologies/cage-in` with Problem / What we built / Inputs / Outputs / Deployment + 1 landing screenshot |
-| Codebase | `AiRE-QGIS-PluginRepository\CAGE-IN-MineralProspectivity-vQ3.44`; public stable v1.0.0 (codename Garuda, April 2026); 220+ regression test suite; multi-method architecture (Method A WLC + 12 deposit models + 12-veto consistency engine; Method B Random Forest with spatial-block cross-validation; Ensemble Fusion via Dempster-Shafer) |
+| Codebase | `AiRE-QGIS-PluginRepository\CAGE-IN-MineralProspectivity-vQ3.44`; public stable v1.0.0 (codename Garud, April 2026); 220+ regression test suite; multi-method architecture (Method A WLC + 12 deposit models + 12-veto consistency engine; Method B Random Forest with spatial-block cross-validation; Ensemble Fusion via Dempster-Shafer) |
 | Circle 1 publishable | Multi-method architecture named; 6 sensor families (ASTER / Landsat 8-9 / Sentinel-2 / EMIT L2A-L2B / PALSAR SAR / EnMAP); 21 spectral indices + 28 composites counted; 6 evidence families named; performance (GPU-tiled CuPy, Numba 13.6× speedup, 2–5 min per 1,000 km²); 12 deposit-model categories named; cross-validation references (Nevada / Titiribi / Rajasthan / Uganda); output specification (composite score raster, anomaly polygons in GeoPackage, 3 probability surfaces, Conflict Map, RGB composites, Crosta PCA images); peer-reviewed methodology citations (Lowell & Guilbert 1970; Singer et al. 2008; Osinowo et al. 2021; Crosta et al. 2003; Rajendran & Nasir 2017; Drury & Hunt 1988; Serwa & Elbialy 2021; full list to confirm from codebase before publish) |
 | Circle 2/3 — never publish | JSON weight values; 12-veto rules in implementation form; Method B feature engineering; Dempster-Shafer math specifics; reasoning flowsheet decision graph; normalisation parameters; Claude prompt template; module/file paths; internal version v3.1.10 |
 | Audience relevance | Government (primary — pairs with `/for/government`); Commercial-explorer (secondary); Consultancy partners (tertiary) |
-| Recommendation | **Deep zone** in Phase 1. Add sections: How it Works · Sensors & Indices · Deposit Models · Performance · Validation · Living Methodology / AI-Backed Fluid Software · Methodology Citations. Update current Problem/Solution structure to flow into the new sections. Add forward-looking subsumption note about Garuda CAGE-IN Mineral Prospectivity Mapper. |
+| Recommendation | **Deep zone** in Phase 1. Add sections: How it Works · Sensors & Indices · Deposit Models · Performance · Validation · Living Methodology / AI-Backed Fluid Software · Methodology Citations. Update current Problem/Solution structure to flow into the new sections. Add forward-looking subsumption note about Garud CAGE-IN Mineral Prospectivity Mapper. |
 
 ### Product 2 — Bhumi3DMapper
 
@@ -155,7 +155,7 @@ Phase 1 adds nothing here — `/for` is intentionally not surfaced in the footer
 
 ### Items deliberately NOT on the site
 
-- **CAGE-IN Geophysical Prospectivity** (v1.0.0 production-stable on disk) — subsumed into forthcoming Garuda CAGE-IN Mineral Prospectivity Mapper per your direction.
+- **CAGE-IN Geophysical Prospectivity** (v1.0.0 production-stable on disk) — subsumed into forthcoming Garud CAGE-IN Mineral Prospectivity Mapper per your direction.
 - **CAGE-IN Alteration Prospectivity Mapper** (v0.6.0) — subsumed.
 - **CAGE-IN Geochemical Parsing** (v0.3.0) — subsumed.
 - **Ensemble Geochemical Prospectivity** (v1.0.0 production-stable) — subsumed. **Today's hub Roadmap callout incorrectly lists this as "queued" — must be corrected in the pre-Phase-1 patch.**
@@ -259,7 +259,7 @@ Small follow-up PR before any Phase 1 page work. Five changes:
 
 ### A.5.1 Remove "Ensemble Geochem Prospectivity" from the Roadmap callout
 
-Today's hub Roadmap callout reads: "Ensemble Geochem Prospectivity, NafaSell sales follow-up, and additional commodity-specific solvers are queued." Ensemble Geochem is **production-stable (v1.0.0)** and is being subsumed into Garuda — not "queued."
+Today's hub Roadmap callout reads: "Ensemble Geochem Prospectivity, NafaSell sales follow-up, and additional commodity-specific solvers are queued." Ensemble Geochem is **production-stable (v1.0.0)** and is being subsumed into Garud — not "queued."
 
 **Recommendation:** Restructure the Roadmap callout into a forward-looking subsumption note (see A.5.5) OR delete the callout entirely. Cleaner if deleted — the subsumption note on the CAGE-IN card carries the message.
 
@@ -329,7 +329,7 @@ Each service card links to `/contact?intent=service` for now; dedicated pages de
 
 Add a short strip below the CAGE-IN card body (similar visual treatment to the dual-audience strip on the homepage CAGE-IN feature card, but informational rather than navigational):
 
-> **CAGE-IN is consolidating.** Multiple AiRE tools — geophysical, alteration, geochemical, and ensemble methods — are being unified into a forthcoming expanded product, **Garuda CAGE-IN Mineral Prospectivity Mapper**. Built as AI-backed fluid software: the reasoning evolves as the geoscience literature evolves.
+> **CAGE-IN is consolidating.** Multiple AiRE tools — geophysical, alteration, geochemical, and ensemble methods — are being unified into a forthcoming expanded product, **Garud CAGE-IN Mineral Prospectivity Mapper**. Built as AI-backed fluid software: the reasoning evolves as the geoscience literature evolves.
 
 Circle 1 only. No mechanism details. No internal version numbers.
 

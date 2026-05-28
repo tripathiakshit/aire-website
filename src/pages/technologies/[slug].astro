@@ -2,44 +2,18 @@
 import { Image } from 'astro:assets';
 import PageLayout from '../../layouts/PageLayout.astro';
 
-import cageInImg from '../../assets/cage-in_pic1-min.jpg';
 import structuralModellingImg from '../../assets/structural_modelling.png';
 import geospatialImg from '../../assets/geospatial.jpg';
 import aiGeoImg from '../../assets/ai-geo-identifying-prospects.png';
 
-import cageInLanding from '../../assets/cage-in-landing.png';
 import bhumi3dLanding from '../../assets/bhumi3dmapper-landing.jpg';
 import batchGisLanding from '../../assets/batch-gis-loader-landing.png';
 import varahmihirLanding from '../../assets/varahmihir-landing.png';
 // OmniMiner placeholder — reusing existing satellite/Landsat asset until a dedicated landing screenshot is supplied
 import omniminerImg from '../../assets/ai-geo-identifying-prospects.png';
 
+// cage-in is handled by the static src/pages/technologies/cage-in.astro page
 const PRODUCTS = {
-  'cage-in': {
-    name: 'CAGE-IN Mineral Prospectivity',
-    short: 'CAGE-IN',
-    tagline: 'AI-driven mineral targeting from the data you already own.',
-    eyebrow: 'Flagship · AI Prospectivity',
-    status: 'In testing',
-    statusKind: 'gold' as const,
-    img: cageInImg,
-    landingImg: cageInLanding,
-    problemHeadline: "Your legacy data is worth millions. Re-interpreting it shouldn't take years.",
-    problemBody: 'Most exploration companies and geological surveys sit on decades of satellite imagery, geochemistry, geophysics, and drill data that cost tens of millions to acquire. Manual re-interpretation across modern AI methods takes a 3–5 person team six to twelve months per project. The commodity cycle does not wait that long.',
-    solutionBullets: [
-      'Integrates satellite imagery with structural geology, lithology, aerogeophysics, and geochemistry — all in one pipeline',
-      "Reasoning flowsheet built from experienced geologists' actual thought processes, enriched by peer-reviewed publications",
-      'Geological logic stays current — new research feeds back into the model as the literature evolves',
-      'Supports ASTER, Landsat 8/9, Sentinel-2, and EMIT L2A/L2B with automatic cloud, SWIR, and metadata discovery',
-      'AoI-driven clipping integrated with your QGIS polygons, so processing scales to budget',
-      'Outputs are prospectus-ready: ranked targets with confidence scoring, packaged for FDI attraction',
-    ],
-    outcome: 'A ranked portfolio of 200+ targets in weeks, not years — reasoned the way a senior exploration geologist would, then scaled across an entire license area.',
-    inputs: 'Satellite imagery (ASTER, Landsat 8/9, Sentinel-2, EMIT L2A/L2B) · Structural geology · Lithology maps · Aerogeophysical surveys · Geochemistry · QGIS AoI polygon',
-    outputs: 'Ranked target portfolio with confidence scoring · QGIS-loaded layers with symbology · Prospectus-ready maps',
-    version: 'v0.8.0',
-    deployment: 'QGIS Processing plugin',
-  },
   'bhumi3dmapper': {
     name: 'Bhumi3DMapper',
     short: 'Bhumi3DMapper',
@@ -137,8 +111,8 @@ const PRODUCTS = {
 };
 
 export function getStaticPaths() {
+  // cage-in is handled by the static src/pages/technologies/cage-in.astro page
   return [
-    { params: { slug: 'cage-in' } },
     { params: { slug: 'bhumi3dmapper' } },
     { params: { slug: 'batch-gis-loader' } },
     { params: { slug: 'omniminer' } },

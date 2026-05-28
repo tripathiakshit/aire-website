@@ -8,6 +8,15 @@ import structuralModellingImg from '../../assets/structural_modelling.png';
 import geospatialImg from '../../assets/geospatial.jpg';
 import aiGeoImg from '../../assets/ai-geo-identifying-prospects.png';
 
+// OmniMiner placeholder image — reusing existing satellite/Landsat asset until a dedicated screenshot is supplied
+import omniminerImg from '../../assets/ai-geo-identifying-prospects.png';
+
+// Service card thumbnails (existing assets in src/assets/)
+import goldProxyImg from '../../assets/gold-proxy-index_pic1.png';
+import drillDbImg from '../../assets/drill-database-corrections_pic1-min.png';
+// Spectral Classification thumbnail — synthesised from existing CAGE-IN imagery per diagnostic A.3
+import spectralImg from '../../assets/mineral-intelligence.png';
+
 const products = [
   {
     slug: 'cage-in',
@@ -18,6 +27,7 @@ const products = [
     status: 'In testing',
     statusKind: 'gold' as const,
     img: cageInImg,
+    subsumptionNote: 'Multiple AiRE tools — geophysical, alteration, geochemical and ensemble methods — are being unified into a forthcoming expanded product, Garuda CAGE-IN Mineral Prospectivity Mapper. Built as AI-backed fluid software: the reasoning evolves as the geoscience literature evolves.',
   },
   {
     slug: 'bhumi3dmapper',
@@ -40,6 +50,16 @@ const products = [
     img: geospatialImg,
   },
   {
+    slug: 'omniminer',
+    name: 'OmniMiner',
+    short: 'OmniMiner',
+    tagline: 'Regional mineral reconnaissance from satellite imagery — spectral analysis for working geologists.',
+    eyebrow: 'In Development · Regional Reconnaissance',
+    status: 'In development',
+    statusKind: 'gold' as const,
+    img: omniminerImg,
+  },
+  {
     slug: 'varahmihir',
     name: 'Varahmihir',
     short: 'Varahmihir',
@@ -48,6 +68,24 @@ const products = [
     status: 'In development',
     statusKind: 'gold' as const,
     img: aiGeoImg,
+  },
+];
+
+const services = [
+  {
+    name: 'Gold Proxy Index',
+    tagline: 'Methodology for coarse-gold deposit grade estimation — solves the nugget effect using structural, geochemical and analytical proxies.',
+    img: goldProxyImg,
+  },
+  {
+    name: 'Drill Database QA-QC',
+    tagline: 'Multi-level corrections that clean drilling databases of data-entry errors — validation rules, multi-element averaging, and flagged deviations for supervisor review.',
+    img: drillDbImg,
+  },
+  {
+    name: 'Spectral Classification',
+    tagline: 'Hyper- and multispectral classification of mineral prospects across large regions — alteration footprints, lithological mapping and target ranking from satellite signatures.',
+    img: spectralImg,
   },
 ];
 
@@ -102,26 +140,61 @@ const partnerCards = [
             <div class="p-6 flex flex-col flex-1">
               <p class="text-geo-gold text-[10px] font-semibold uppercase tracking-[0.25em] mb-2">{p.eyebrow}</p>
               <h3 class="font-display text-xl md:text-2xl text-white font-semibold mb-3 leading-snug">{p.name}</h3>
-              <p class="text-slate-300 leading-relaxed text-sm mb-5 flex-1">{p.tagline}</p>
-              <p class="text-geo-gold text-xs font-semibold uppercase tracking-wider">Read the case →</p>
+              <p class="text-slate-300 leading-relaxed text-sm mb-4 flex-1">{p.tagline}</p>
+              {p.subsumptionNote && (
+                <p class="text-slate-400 italic text-xs leading-relaxed mb-4 pl-3 border-l-2 border-geo-gold/40">
+                  {p.subsumptionNote}
+                </p>
+              )}
+              <p class="text-geo-gold text-xs font-semibold uppercase tracking-wider mt-auto">Read the case →</p>
             </div>
           </a>
         ))}
       </div>
+    </div>
+  </section>
 
-      <!-- Roadmap callout -->
-      <div class="border border-dashed border-white/15 rounded-xl p-8 text-center bg-white/[0.02] mt-8" data-reveal>
-        <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-3">Roadmap</p>
-        <h3 class="font-display text-2xl md:text-3xl text-white mb-3">More tools in development</h3>
-        <p class="text-slate-400 leading-relaxed max-w-prose mx-auto">
-          Ensemble Geochem Prospectivity, NafaSell sales follow-up, and additional commodity-specific solvers are queued. Engage us early to influence the roadmap and access pre-release builds.
+  <!-- Services section -->
+  <section class="py-12 md:py-20 bg-geo-slate border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10" data-reveal>
+        <p class="text-geo-secondary text-xs font-semibold uppercase tracking-[0.25em] mb-3">Services in Active Delivery</p>
+        <h2 class="font-display text-3xl md:text-5xl text-white mb-4 leading-tight">Methodologies you can engage today</h2>
+        <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-prose mx-auto">
+          Three current revenue lines where the methodology is in use across client engagements. Products are in the pipeline for each — engage now to influence how they ship.
         </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-reveal>
+        {services.map(s => (
+          <a
+            href="/contact"
+            class="group card-dark rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-black/30 transition-all duration-300 flex flex-col"
+          >
+            <div class="h-44 overflow-hidden">
+              <Image
+                src={s.img}
+                alt={s.name}
+                width={600}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6 flex flex-col flex-1 border-t-2 border-transparent group-hover:border-geo-secondary transition-colors duration-300">
+              <span class="inline-block self-start px-2.5 py-1 bg-geo-secondary/15 text-geo-secondary text-[10px] font-semibold uppercase tracking-[0.15em] rounded mb-3">
+                Service · Product in pipeline
+              </span>
+              <h3 class="font-display text-lg md:text-xl text-white font-semibold mb-2 leading-snug">{s.name}</h3>
+              <p class="text-slate-400 text-sm leading-relaxed flex-1">{s.tagline}</p>
+              <p class="mt-4 text-geo-secondary text-xs font-semibold uppercase tracking-wider">Discuss an engagement →</p>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Partner pitch -->
-  <section class="py-12 md:py-20 bg-geo-slate">
+  <section class="py-12 md:py-20 bg-geo-deep">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
         <div data-reveal>

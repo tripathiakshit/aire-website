@@ -11,6 +11,8 @@ import cageInLanding from '../../assets/cage-in-landing.png';
 import bhumi3dLanding from '../../assets/bhumi3dmapper-landing.jpg';
 import batchGisLanding from '../../assets/batch-gis-loader-landing.png';
 import varahmihirLanding from '../../assets/varahmihir-landing.png';
+// OmniMiner placeholder — reusing existing satellite/Landsat asset until a dedicated landing screenshot is supplied
+import omniminerImg from '../../assets/ai-geo-identifying-prospects.png';
 
 const PRODUCTS = {
   'cage-in': {
@@ -86,6 +88,29 @@ const PRODUCTS = {
     version: 'v1.0',
     deployment: 'QGIS plugin · QGIS 3.40+',
   },
+  'omniminer': {
+    name: 'OmniMiner',
+    short: 'OmniMiner',
+    tagline: 'Regional mineral reconnaissance from satellite imagery — spectral analysis for working geologists.',
+    eyebrow: 'In Development · Regional Reconnaissance',
+    status: 'In development',
+    statusKind: 'gold' as const,
+    img: omniminerImg,
+    landingImg: omniminerImg,
+    problemHeadline: 'Regional reconnaissance over thousands of square kilometres should not require a remote-sensing PhD.',
+    problemBody: 'Mineral reconnaissance over greenfield blocks usually starts with weeks of pre-processing Landsat, Sentinel and ASTER imagery — atmospheric correction, band-ratio computation, mineral indices, classification. A solo geologist with a QGIS license cannot keep pace. OmniMiner closes that gap with a user-friendly interface to the same techniques.',
+    solutionBullets: [
+      'Spectral analysis pipelines for Landsat 8/9 and Sentinel-2 imagery built directly into QGIS',
+      'Mineral identification via established band-ratio and PCA techniques — no Python notebook required',
+      'Designed for greenfield reconnaissance — entire blocks at a time, not single AOIs',
+      'Output as QGIS-loaded raster + classified vector layers, ready for further interpretation',
+    ],
+    outcome: 'A regional reconnaissance map in days, not weeks. Built for the field geologist who needs spectral analysis without becoming a remote-sensing specialist.',
+    inputs: 'Landsat 8/9 imagery · Sentinel-2 imagery · Optional ASTER · Block-scale AoI polygon',
+    outputs: 'Mineral classification rasters · Band-ratio composites · QGIS-loaded layers with symbology',
+    version: 'In development',
+    deployment: 'QGIS plugin · marked "Under Development" in repo',
+  },
   'varahmihir': {
     name: 'Varahmihir',
     short: 'Varahmihir',
@@ -116,6 +141,7 @@ export function getStaticPaths() {
     { params: { slug: 'cage-in' } },
     { params: { slug: 'bhumi3dmapper' } },
     { params: { slug: 'batch-gis-loader' } },
+    { params: { slug: 'omniminer' } },
     { params: { slug: 'varahmihir' } },
   ];
 }

@@ -88,3 +88,9 @@ The form in `src/pages/contact.astro` uses `data-netlify="true"`. Netlify detect
 ### Navigation
 
 Nav links are defined as a plain array in `src/components/Header.astro`. To add or remove pages from the nav, edit that array. The active link is highlighted by comparing `Astro.url.pathname` against each `href`.
+
+---
+
+## AiRE Elite Team integration
+
+@import E:\MPXG Exploration Dropbox\amit tripathi\1MPXGExploration\HR-MPXG\AiTeam-2-Personas\.claude\CLAUDE.md

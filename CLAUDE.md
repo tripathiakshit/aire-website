@@ -2,6 +2,89 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Working in this repo — ground rules (read before making any change)
+
+This is a **live marketing website** maintained by a non-technical owner who relies on you to
+keep the site and its build healthy. The rules below are not optional polish — they are how you
+avoid taking the published site down or destroying its history. Follow them on every task.
+
+### `main` is protected — always work on a branch
+
+- **Never commit or push directly to `main`.** The `main` branch auto-deploys to production via
+  Netlify (see the deploy badge in `README.md`). **Merging to `main` = publishing the change live.**
+- For **every** change the owner asks for, start fresh from up-to-date `main` and create a new branch:
+  ```sh
+  git checkout main && git pull
+  git checkout -b descriptive-branch-name   # e.g. update-team-bios, fix-contact-typo
+  ```
+- Make all edits and commits on that branch. Use clear, plain-language commit messages.
+- When the work is ready: run the build (see below), then **push the branch and open a pull request**
+  (`gh pr create`). Netlify builds a **Deploy Preview** for the PR — share that preview link so the
+  owner can see the change on a real URL before it goes live.
+- **Do not merge to `main` yourself.** Only merge after the owner has reviewed the preview and
+  explicitly confirms they want it published.
+- **Never** run destructive or history-rewriting git commands (`git reset --hard`, `git push --force`,
+  `git rebase` on shared branches, `git clean -fdx`, deleting branches) unless the owner explicitly
+  asks and understands the consequence. When in doubt, stop and explain instead of acting.
+
+### Never wipe or re-scaffold the project
+
+- **Do not** run `npm create astro`, delete `src/`, or replace the existing structure with a fresh
+  template "to start clean." Always make changes *inside* the existing project.
+- **Do not delete or rewrite the load-bearing config files** unless that is specifically the task:
+  `astro.config.mjs`, `package.json`, `package-lock.json`, `tsconfig.json`,
+  `src/content.config.ts`, `src/styles/global.css`, `.gitignore`, `.env.example`. These keep the
+  build reproducible and the deploy working.
+- Reuse what already exists — layouts (`PageLayout`, `BaseLayout`), components in `src/components/`,
+  and the `geo-*` theme tokens — instead of introducing parallel systems that do the same thing.
+
+### One canonical file per thing — no version names in filenames
+
+- **Git already tracks versions** via branches and commit history, so files must never carry a
+  version, date, or variant in their name. **Wrong:** `V5Layout.astro`, `Layout-new.astro`,
+  `Header2.astro`, `index-final.astro`, `about-copy.astro`.
+- To change something, **edit the existing file in place** (or create the single, correctly-named
+  file). If the old version needs to be recoverable, that is what the branch and commit history are
+  for — not a duplicate file left in the tree.
+
+### Porting in external code — make it Astro-native
+
+When bringing in markup, a template, a Figma/HTML export, or a snippet from another site, **translate
+it into this project's stack** rather than dropping it in as-is:
+
+- **Components & pages:** convert markup into `.astro` files. Reusable pieces go in
+  `src/components/`; full pages go in `src/pages/` (the filename becomes the route). Wrap pages in
+  `PageLayout` so they inherit the shared header, footer, and `<head>`/meta — never ship a standalone
+  `<html>` document.
+- **Styling:** restyle with **Tailwind utility classes** and the existing theme tokens
+  (`geo-primary`, `geo-gold`, `font-display`, etc.). Do **not** add another CSS framework (Bootstrap,
+  etc.) or paste large bespoke stylesheets. If a genuinely new design token is needed, add it to
+  `@theme` in `src/styles/global.css`.
+- **Assets:** put images, PDFs, and downloads in `public/assets/` and reference them by path
+  (`/assets/filename`), or use Astro's `astro:assets` pipeline for optimized images. Do not hot-link
+  external URLs or paste base64 blobs into the markup.
+- **Dependencies:** prefer libraries already in `package.json`. Avoid adding heavy dependencies or
+  raw `<script>` tags when a Tailwind/Astro-native approach works. If a new dependency is truly
+  needed, install it with `npm install` (which updates `package-lock.json`) — never hand-edit
+  `package.json` versions.
+- **Match the conventions** of the files already in the same folder (naming, structure, formatting).
+
+### Always verify the build before finishing
+
+- Run `npm run build` before considering any change done. **A broken build breaks the Netlify deploy**,
+  so the build must pass on the branch. Optionally run `npm run dev` to eyeball the change locally.
+- Do **not** change Netlify deploy settings, the contact form's `data-netlify="true"` attribute
+  (see `src/pages/contact.astro`), or the deploy badge in `README.md` — these wire the site to its
+  hosting and form handling.
+- Never commit secrets or a real `.env` file (only `.env.example` is tracked).
+
+### Working with a non-technical owner
+
+- Explain what you did in plain language: which branch you created, how to preview it, and that it
+  only goes live once it's merged to `main`.
+- Keep changes small and focused, with one logical change per branch/PR where practical.
+- If a request is ambiguous or a step could risk the live site, **ask first** rather than guessing.
+
 ## Commands
 
 ```sh
@@ -53,15 +136,18 @@ Defined in `src/styles/global.css` via `@theme`. Use these custom color/font cla
 
 ### Blog (Content Collections)
 
-Blog posts live in `src/content/blog/` as `.mdx` files. There is no `content/config.ts` — the collection is inferred. Frontmatter schema in use:
+Blog posts live in `src/content/blog/` as `.mdx` files. The collection and its frontmatter schema
+are defined in `src/content.config.ts` using a Zod schema — update that file if you need to add or
+change a frontmatter field. Schema in use:
 
 ```yaml
-title: string
-description: string
-pubDate: date
-tags: string[]
-draft: boolean
-image: string  # optional, path to hero image
+title: string          # required
+description: string    # required
+pubDate: date          # required
+updatedDate: date      # optional
+tags: string[]         # optional
+image: string          # optional, path to hero image
+draft: boolean         # optional, defaults to false
 ```
 
 The dynamic route `src/pages/blog/[...slug].astro` generates one page per post using `getCollection('blog')`. Blog prose is rendered with `@tailwindcss/typography` (`prose` classes).

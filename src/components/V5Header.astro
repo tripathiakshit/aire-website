@@ -1,0 +1,24 @@
+---
+const path = Astro.url.pathname;
+const links = [
+  { href: '/technology', label: 'Technology' },
+  { href: '/case-studies', label: 'Case Studies' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/council', label: 'AiRE Council' },
+  { href: '/methodology', label: 'Methodology' },
+];
+const isActive = (h: string) => (h === '/' ? path === '/' : path.startsWith(h));
+---
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="/"><span class="word">Ai<span class="dot">R</span>E</span> <small>AI Resource Exploration</small></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      {links.map((l) => (
+        <a href={l.href} class={isActive(l.href) ? 'active' : ''}>{l.label}</a>
+      ))}
+      <a class="btn btn-gold nav-cta" href="/engage">Get the 48-Hour Prospect Brief</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>

@@ -1,212 +1,129 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
-import PageLayout from '../layouts/PageLayout.astro';
-
-import case1aImg from '../assets/case1-1-2.jpg';
-import case1bImg from '../assets/case1-2.jpg';
-import case2aImg from '../assets/case2-1.png';
-import case2bImg from '../assets/case2-2.png';
-import case3aImg from '../assets/case3-1.png';
-import case3bImg from '../assets/case3-2.png';
-import case4aImg from '../assets/case4-1-1.png';
-import case4bImg from '../assets/case4-2.png';
-
-const caseStudies: Array<{
-  number: string;
-  type: string;
-  images: Array<{ src: ImageMetadata; alt: string }>;
-  before: string;
-  after: string;
-  bg: string;
-  timeline?: Array<{ marker: string; event: string }>;
-}> = [
-  {
-    number: '01',
-    type: 'Copper-Gold Porphyry',
-    images: [
-      { src: case1aImg, alt: 'Copper-Gold Porphyry — site overview' },
-      { src: case1bImg, alt: 'Copper-Gold Porphyry — drill results' },
-    ],
-    before: 'Gold production dating back to the 1920s. Over 3 million ounces of gold produced from manto-type, fault-vein-hosted, and disconformity-related high-grade underground ore bodies. In the 2000s a gold-copper porphyry was found just west of the old gold mine and a resource drilling program started. About 3 Moz Au-eq resources were identified by 2010.',
-    after:  'The project database was reanalyzed using CAGE-IN technology. The study successfully identified additional porphyries and drill targets. Within two years the resources more than tripled to over 12.8 Moz Au-eq — equivalent to over $3.5 billion in-situ gold value at 2025 prices.',
-    bg: 'bg-white',
-    timeline: [
-      { marker: 'Q3 2009', event: 'Project acquired' },
-      { marker: 'Q1 2010', event: 'Exploration programme started' },
-      { marker: 'Q4 2010', event: 'CAGE-IN introduced' },
-      { marker: 'Q3 2011', event: 'Maiden resource of 11.7 Moz Au-eq declared' },
-      { marker: '2012', event: 'Resource upgraded to over 13 Moz Au-eq' },
-    ],
-  },
-  {
-    number: '02',
-    type: 'Skarn Deposit',
-    images: [
-      { src: case2aImg, alt: 'Skarn Deposit — geophysics before CAGE-IN' },
-      { src: case2bImg, alt: 'Skarn Deposit — targets after CAGE-IN' },
-    ],
-    before: 'Operating gold-silver mine in a skarn adjacent to a granitic intrusive. Geophysical signatures of mineralization were very weak and could not be used to identify or expand mineralization trends.',
-    after:  'CAGE-IN technology successfully defined the mineralization signature by combining multiple layers of data. Mineralization signatures became visible in geophysics and new similar signatures were identified NW of the existing mine, providing immediate drill targets for brownfield resource expansion.',
-    bg: 'bg-slate-50',
-  },
-  {
-    number: '03',
-    type: 'Epithermal Gold',
-    images: [
-      { src: case3aImg, alt: 'Epithermal Gold — indistinguishable signatures before' },
-      { src: case3bImg, alt: 'Epithermal Gold — defined signatures after CAGE-IN' },
-    ],
-    before: 'Operating epithermal gold mine had indistinguishable geophysical signatures — no contrast between ore and waste. The weak contrast could not be used to identify or expand mineralization trends.',
-    after:  'CAGE-IN technology successfully defined the mineralization signature combining multiple layers of data. Mineralization signatures became visible in geophysics and new similar signatures were identified along strike of the existing mine, providing immediate drill targets for brownfield resource expansion.',
-    bg: 'bg-white',
-  },
-  {
-    number: '04',
-    type: 'Greenfield Nickel Laterite',
-    images: [
-      { src: case4aImg, alt: 'Greenfield Nickel Laterite — regional dataset' },
-      { src: case4bImg, alt: 'Greenfield Nickel Laterite — identified targets' },
-    ],
-    before: 'Reconnaissance for nickel laterite was to be conducted over 1,000 km² with no previous history of nickel mining or mineralization. Available datasets were regional geophysical surveys and remote sensing data.',
-    after:  'Using CAGE-IN, multiple geological datasets were analyzed together. Theoretical geological concepts were applied and nickel targets were defined per metallogenic theory. Several Ni targets were identified, field-checked, and rapidly developed into drill targets. The area is still being explored but several interesting drill intercepts and resource zones have already been identified.',
-    bg: 'bg-slate-50',
-    timeline: [
-      { marker: 'Q2 2021', event: 'CAGE-IN introduced; regional data analysed' },
-      { marker: 'Q3 2022', event: 'Resource report completed — multi-million tonne Ni discovery' },
-    ],
-  },
-];
+import V5Layout from '../layouts/V5Layout.astro';
+const title = "Case Studies - with vs without CAGE-IN, on real ground | AiRE";
+const description = "Documented AiRE case studies: the conventional read versus what CAGE-IN found, on real Copper-Gold Porphyry, Greenfield Nickel, Skarn and Epithermal Gold programs - sanitized for confidentiality, with blind-validation proof.";
+const bodyHtml = "\n\n<main>\n<section class=\"page-hero\">\n  <div class=\"wrap hero-grid\">\n    <div>\n      <p class=\"eyebrow\">Case studies</p>\n      <h1>Documented, sanitized, real.</h1>\n      <p class=\"lead\">See what CAGE-IN found on real programs - the conventional read, then the targets it surfaced. Each headline case locks to centre as you scroll. Project names, locations and owners are removed for confidentiality; the methods and outcomes are exactly as delivered.</p>\n    </div>\n    <figure class=\"hero-vis cs-hero-vid\">\n      <video data-defer-src=\"/v5/images/deposit3d_rotation_drilling.mp4\" poster=\"/v5/images/deposit3d_rotation_drilling_poster.jpg\"\n             muted loop playsinline preload=\"metadata\"\n             aria-label=\"Rotating 3D deposit model with drill traces\"></video>\n      <figcaption>Every engagement ends in an interactive 3D model your whole board can open.</figcaption>\n    </figure>\n  </div>\n</section>\n\n<!-- ===================== HEADLINER 1 \u00b7 PORPHYRY \u00b7 image LEFT / text RIGHT ===================== -->\n<section class=\"scrub-track\" data-mode=\"wipe\">\n  <div class=\"scrub-sticky\">\n    <div class=\"scrub-inner\">\n      <div class=\"scrub-imgcol\">\n        <div class=\"scrub-frame porph\">\n          <span class=\"scrub-badge\">Same magnetics \u00b7 scroll to reveal</span>\n          <img class=\"scrub-before\" src=\"/v5/images/case1-1.jpg\" alt=\"Magnetic survey before CAGE-IN - one porphyry centre resolved\">\n          <img class=\"scrub-after\"  src=\"/v5/images/case1-2.jpg\" alt=\"Same magnetics after CAGE-IN - known porphyry plus multiple new ranked targets\" style=\"clip-path:inset(0 100% 0 0)\">\n          <span class=\"scrub-corner scrub-corner-l\">Without</span>\n          <span class=\"scrub-corner scrub-corner-r\">With CAGE-IN</span>\n          <div class=\"scrub-divider\" style=\"left:0%\"><span class=\"scrub-knob\" aria-hidden=\"true\">\u27fa</span></div>\n        </div>\n      </div>\n      <div class=\"scrub-text\">\n        <p class=\"cs-caseflag\">Headline case \u00b7 Copper-Gold Porphyry</p>\n        <h2>The same survey, re-read from one centre to a cluster of targets.</h2>\n        <p class=\"scrub-read\">Conventional interpretation of the airborne magnetics resolved <b>one known Porphyry centre</b> - the rest of the survey read as noise.</p>\n        <div class=\"scrub-reveal\">\n          <p class=\"scrub-read-after\">Re-read by CAGE-IN, the same data resolves that centre <b>plus a cluster of new, ranked Porphyry targets</b> around it.</p>\n          <a class=\"scrub-link\" href=\"/v5/eldorado-atlantis-3d.html\" target=\"_blank\" rel=\"noopener\">Fly the 3D model of this system \u2192</a>\n          <div class=\"scrub-payoff\">\n            <div class=\"scrub-metric\"><b>~3 \u2192 12.8+</b><span>Moz Au-eq \u00b7 resource before \u2192 after re-analysis</span></div>\n            <div class=\"scrub-metric\"><b>~US$3.5B</b><span>in-situ Gold value at 2025 prices</span></div>\n          </div>\n        </div>\n        <p class=\"scrub-micro\">Client confidential - no client, project or location disclosed. Resource figures as independently reported.</p>\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- ===================== HEADLINER 2 \u00b7 NICKEL \u00b7 image RIGHT / text LEFT ===================== -->\n<section class=\"scrub-track img-right\" data-mode=\"wipe\">\n  <div class=\"scrub-sticky\">\n    <div class=\"scrub-inner\">\n      <div class=\"scrub-imgcol\">\n        <div class=\"scrub-frame ni\">\n          <span class=\"scrub-badge\">Same region \u00b7 scroll to reveal</span>\n          <img class=\"scrub-before\" src=\"/v5/images/case4-1.png\" alt=\"Regional nickel datasets alone - no clear targets\">\n          <img class=\"scrub-after\"  src=\"/v5/images/case4-2.png\" alt=\"CAGE-IN integration - discrete nickel targets identified and ranked\" style=\"clip-path:inset(0 100% 0 0)\">\n          <span class=\"scrub-corner scrub-corner-l\">Without</span>\n          <span class=\"scrub-corner scrub-corner-r\">With CAGE-IN</span>\n          <div class=\"scrub-divider\" style=\"left:0%\"><span class=\"scrub-knob\" aria-hidden=\"true\">\u27fa</span></div>\n        </div>\n      </div>\n      <div class=\"scrub-text\">\n        <p class=\"cs-caseflag\">Headline case \u00b7 Greenfield Nickel</p>\n        <h2>Regional data alone found nothing. Integrated, it found a discovery.</h2>\n        <p class=\"scrub-read\">Regional datasets, read on their own, gave <b>no clear targets</b> across greenfield ground with no prior drilling.</p>\n        <div class=\"scrub-reveal\">\n          <p class=\"scrub-read-after\">Fused by CAGE-IN, the same data <b>identified, ranked and drill-confirmed</b> discrete Nickel targets - carried from raw archives to the rig.</p>\n          <div class=\"scrub-payoff\">\n            <div class=\"scrub-metric\"><b>Multi-Mt</b><span>Nickel discovery \u00b7 greenfield, no prior drilling</span></div>\n            <div class=\"scrub-metric\"><b>Drill-confirmed</b><span>targets, raw archives to the rig</span></div>\n          </div>\n        </div>\n        <p class=\"scrub-micro\">Client confidential - no client, project or location disclosed.</p>\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- ===================== FLAGSHIP STATS ===================== -->\n<section class=\"section\">\n  <div class=\"wrap\">\n    <div class=\"section-head\"><p class=\"eyebrow\">The flagship Nickel program, by the numbers</p></div>\n    <div class=\"case-stats\">\n      <div class=\"case-stat\"><div class=\"num\">308</div><div class=\"lbl\">ranked target polygons</div></div>\n      <div class=\"case-stat\"><div class=\"num\">13</div><div class=\"lbl\">evidence layers scored together</div></div>\n      <div class=\"case-stat\"><div class=\"num\">167</div><div class=\"lbl\">geochemical analytes integrated</div></div>\n      <div class=\"case-stat\"><div class=\"num\">100%</div><div class=\"lbl\">of evidence gaps disclosed, none hidden</div></div>\n    </div>\n  </div>\n</section>\n\n<!-- ===================== SUPPORTING ROW \u00b7 SKARN + EPITHERMAL ===================== -->\n<section class=\"section section-alt\">\n  <div class=\"wrap\">\n    <div class=\"section-head\">\n      <p class=\"eyebrow\">More of the record</p>\n      <h2>Same engine, more deposit styles.</h2>\n      <p class=\"lead\">Two further programs where CAGE-IN turned a weak or ambiguous signature into a defined, drillable target. Drag each slider to compare.</p>\n    </div>\n\n    <div class=\"sup-case\">\n      <div class=\"sup-slider\">\n        <div class=\"cmp-slider-frame skarn\">\n          <img class=\"cmp-after-img\"  src=\"/v5/images/case2-2.png\" alt=\"Skarn mineralization defined by CAGE-IN, with new signatures NW of the mine\">\n          <img class=\"cmp-before-img\" src=\"/v5/images/case2-1.png\" alt=\"Skarn before CAGE-IN - very weak geophysical signature\" style=\"clip-path:inset(0 50% 0 0)\">\n          <span class=\"cmp-corner cmp-corner-l\">Without</span>\n          <span class=\"cmp-corner cmp-corner-r\">With CAGE-IN</span>\n          <div class=\"cmp-divider\" style=\"left:50%\"><span class=\"cmp-knob\" aria-hidden=\"true\">\u27fa</span></div>\n          <input class=\"cmp-range\" type=\"range\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"Drag to compare the skarn signature without and with CAGE-IN\">\n        </div>\n      </div>\n      <div class=\"sup-copy\">\n        <p class=\"cs-caseflag\">Skarn \u00b7 Gold-Silver</p>\n        <h3>A signature too weak to use, made drillable.</h3>\n        <p class=\"ba\"><span class=\"lbl\">Without CAGE-IN</span>Operating Gold-Silver mine in a Skarn adjacent to a granitic intrusive. Geophysical signatures of mineralization were very weak and could not be used to identify or expand mineralization trends.</p>\n        <p class=\"ba after\"><span class=\"lbl\">With CAGE-IN</span>CAGE-IN defined the mineralization signature by combining multiple layers of data. Signatures became visible in geophysics, and new similar signatures were identified NW of the existing mine - immediate drill targets for brownfield resource expansion.</p>\n      </div>\n    </div>\n\n    <div class=\"sup-case flip\">\n      <div class=\"sup-slider\">\n        <div class=\"cmp-slider-frame epi\">\n          <img class=\"cmp-after-img\"  src=\"/v5/images/case3-2.png\" alt=\"Epithermal target defined by CAGE-IN, with new signatures along strike\">\n          <img class=\"cmp-before-img\" src=\"/v5/images/case3-1.png\" alt=\"Epithermal before CAGE-IN - indistinguishable signature\" style=\"clip-path:inset(0 50% 0 0)\">\n          <span class=\"cmp-corner cmp-corner-l\">Without</span>\n          <span class=\"cmp-corner cmp-corner-r\">With CAGE-IN</span>\n          <div class=\"cmp-divider\" style=\"left:50%\"><span class=\"cmp-knob\" aria-hidden=\"true\">\u27fa</span></div>\n          <input class=\"cmp-range\" type=\"range\" min=\"0\" max=\"100\" value=\"50\" aria-label=\"Drag to compare the epithermal signature without and with CAGE-IN\">\n        </div>\n      </div>\n      <div class=\"sup-copy\">\n        <p class=\"cs-caseflag\">Epithermal Gold</p>\n        <h3>No contrast between ore and waste - until there was.</h3>\n        <p class=\"ba\"><span class=\"lbl\">Without CAGE-IN</span>Operating Epithermal Gold mine had indistinguishable geophysical signatures - no contrast between ore and waste. The weak contrast could not be used to identify or expand mineralization trends.</p>\n        <p class=\"ba after\"><span class=\"lbl\">With CAGE-IN</span>CAGE-IN defined the mineralization signature by combining multiple layers of data. Signatures became visible in geophysics, and new similar signatures were identified along strike of the existing mine - immediate drill targets for brownfield resource expansion.</p>\n      </div>\n    </div>\n  </div>\n</section>\n\n<!-- ===================== BLIND VALIDATION ===================== -->\n<section class=\"section\">\n  <div class=\"wrap\">\n    <div class=\"section-head\">\n      <p class=\"eyebrow\">Blind validation</p>\n      <h2>We prove it on the known before we trust it on the unknown.</h2>\n      <p class=\"lead\">Run blind over mature districts, with no training on the answer, CAGE-IN re-found what decades of drilling had already confirmed. If it can recover the known, you can trust it where nothing is proven yet.</p>\n    </div>\n    <div class=\"case-mini-grid\">\n      <article class=\"case-mini\">\n        <span class=\"case-flag\">Blind validation</span>\n        <h3>Carlin-type Gold district</h3>\n        <p>Run blind over a mature Gold district, the multi-evidence scoring independently recovered the known district footprint - no leakage, no tuning to the answer.</p>\n      </article>\n      <article class=\"case-mini\">\n        <span class=\"case-flag\">Regional scale</span>\n        <h3>Precambrian Craton, Polymetallic</h3>\n        <p>Multi-evidence prospectivity across a Craton-scale search space - the platform at regional reconnaissance scale, turning a national dataset into a ranked map in days.</p>\n      </article>\n    </div>\n  </div>\n</section>\n\n<!-- ===================== 3D VIEWER CTA ===================== -->\n<section class=\"section section-alt\">\n  <div class=\"wrap\">\n    <div class=\"fly-cta\">\n      <a class=\"btn btn-line\" href=\"/v5/viewer.html\">Fly the 3D deposit demo <span class=\"arr\">\u2192</span></a>\n      <p class=\"micro\">Instant interactive 3D viewer \u00b7 no login \u00b7 runs in your browser, even offline</p>\n    </div>\n    <p class=\"disclaimer\">Case results are presented in sanitized form for methodology illustration, with project-owner consent where applicable. Nothing on this page constitutes disclosure of exploration results under NI 43-101 or the JORC Code, and no economic potential is implied.</p>\n  </div>\n</section>\n\n<section class=\"cta-band\">\n  <div class=\"wrap\">\n    <h2>The next documented result could be your ground.</h2>\n    <p>Every engagement starts with a 48-hour Prospect Brief - your data, the full council, a fixed price.</p>\n    <a class=\"btn btn-gold\" href=\"/engage\">Get the 48-Hour Prospect Brief <span class=\"arr\">\u2192</span></a>\n  </div>\n</section>\n</main>\n\n<div class=\"spine-band\"><div class=\"wrap\"><p class=\"spine\">Proven on real ground - <span class=\"hl\">conventional read in, CAGE-IN outcome out.</span></p></div></div>\n\n";
 ---
+<V5Layout title={title} description={description}>
+<style is:global>
 
-<PageLayout
-  title="Case Studies — AI Resource Exploration"
-  description="Real-world results showing how CAGE-IN technology has transformed mineral exploration outcomes, tripling resource estimates and identifying new targets."
->
+/* ===== case studies · pinned scroll reveal + manual sliders (.scrub-* / .cmp-* / .sup-*) ===== */
+.cs-hero-vid video { width:100%; display:block; aspect-ratio:4/3; border-radius:var(--radius); border:1px solid var(--line); background:var(--ink); box-shadow:var(--shadow-1); }
+.cs-hero-vid figcaption { font-size:.8rem; color:var(--text-soft); font-style:italic; margin-top:.55rem; }
 
-  <!-- Page Hero -->
-  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Real-World Results</p>
-      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Case Studies</h1>
-      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
-        How CAGE-IN technology has transformed mineral exploration outcomes for our clients.
-      </p>
-    </div>
-  </section>
+.scrub-track { position:relative; height:230vh; }
+.scrub-sticky { position:sticky; top:0; min-height:100vh; display:flex; align-items:center; }
+.scrub-inner { width:min(1200px,92vw); margin:0 auto; display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(2rem,5vw,4.5rem); align-items:center; }
 
-  <!-- Confidentiality note -->
-  <section class="bg-white border-b border-slate-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex gap-5 items-start">
-      <div class="shrink-0 mt-0.5 w-9 h-9 rounded-full bg-geo-primary/10 flex items-center justify-center">
-        <svg class="w-4 h-4 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-      </div>
-      <div>
-        <p class="font-semibold text-geo-primary text-sm mb-1">Why We Cannot Name Our Clients</p>
-        <p class="text-slate-500 text-sm leading-relaxed">
-          All clients are covered by mandatory mutual NDAs. We do not disclose company names, project names, or jurisdictions without explicit written consent — this is the same confidentiality we would extend to your data. The outcomes described below are real; the identities are protected. For due diligence purposes, we can arrange a reference call with past clients who have agreed to speak confidentially. <a href="/contact" class="text-geo-primary underline underline-offset-2 hover:text-geo-gold transition-colors">Contact us to request a reference call →</a>
-        </p>
-      </div>
-    </div>
-  </section>
+.scrub-frame { position:relative; height:80vh; width:auto; max-width:100%; margin:0 auto;
+  border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--ink); box-shadow:var(--shadow-2); }
+.scrub-frame.porph { aspect-ratio:787/966; }
+.scrub-frame.ni    { aspect-ratio:671/1126; }
+.scrub-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.scrub-after { will-change:clip-path; }
+.scrub-badge { position:absolute; top:10px; left:10px; z-index:4; font-size:.66rem; font-weight:600; color:#fff;
+  background:rgba(16,32,43,.72); border:1px solid rgba(255,255,255,.18); padding:.28em .66em; border-radius:999px; backdrop-filter:blur(3px); }
+.scrub-corner { position:absolute; bottom:10px; z-index:4; font-size:.66rem; font-weight:700; letter-spacing:.06em;
+  text-transform:uppercase; color:#fff; background:rgba(16,32,43,.72); padding:.26em .66em; border-radius:999px; }
+.scrub-corner-l { left:10px; } .scrub-corner-r { right:10px; }
+.scrub-divider { position:absolute; top:0; bottom:0; left:0; width:2px; background:var(--gold); transform:translateX(-1px); z-index:5; pointer-events:none; }
+.scrub-knob { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:34px; height:34px; border-radius:50%;
+  background:var(--gold); color:#10202b; display:flex; align-items:center; justify-content:center; font-size:.95rem; box-shadow:var(--shadow-2); }
 
-  <!-- Case Studies -->
-  {caseStudies.map((study) => (
-    <section class={`${study.bg} py-16 md:py-20`}>
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+.scrub-text { max-width:46ch; }
+.scrub-text .cs-caseflag { font-size:.74rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--copper); }
+.scrub-text h2 { font-size:clamp(1.9rem,3vw,2.8rem); margin-top:.4rem; }
+.scrub-read { font-size:1.08rem; color:var(--text); line-height:1.65; margin-top:1.1rem; }
+.scrub-read b { color:var(--copper-deep); }
+.scrub-reveal { margin-top:1rem; opacity:0; transform:translateY(14px); }
+.scrub-read-after { font-size:1.08rem; color:var(--text); line-height:1.65; }
+.scrub-read-after b { color:var(--copper-deep); }
+.scrub-link { display:inline-block; margin-top:.7rem; font-size:1.05rem; font-weight:700; color:var(--royal); border-bottom:2px solid currentColor; }
+.scrub-payoff { display:flex; flex-wrap:wrap; gap:1.2rem 2.4rem; margin-top:1.4rem; }
+.scrub-metric b { display:block; font-family:var(--font-display); font-size:2.1rem; font-weight:600; color:var(--gold-deep); line-height:1.05; }
+html[data-theme="dark"] .scrub-metric b { color:var(--gold-soft); }
+.scrub-metric span { font-size:.78rem; color:var(--text-soft); }
+.scrub-micro { margin-top:.9rem; font-size:.74rem; font-style:italic; color:var(--text-soft); }
 
-        <!-- Case header -->
-        <div class="flex items-center gap-5 mb-10">
-          <span class="font-display text-6xl font-bold text-geo-primary/10 leading-none select-none">{study.number}</span>
-          <div>
-            <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-1">Case Study {study.number}</p>
-            <h2 class="font-display text-2xl sm:text-3xl font-bold text-geo-slate">{study.type}</h2>
-          </div>
-        </div>
+.scrub-track.img-right .scrub-text  { order:1; }
+.scrub-track.img-right .scrub-imgcol { order:2; }
 
-        <!-- Two-column layout: narrative left, images right -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+/* supporting row · manual before/after sliders */
+.sup-case { display:grid; grid-template-columns:1.25fr 1fr; gap:clamp(1.6rem,4vw,3rem); align-items:center; margin-top:2.6rem; }
+.sup-case.flip .sup-slider { order:2; } .sup-case.flip .sup-copy { order:1; }
+.sup-copy .cs-caseflag { font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--copper); }
+.sup-copy h3 { font-size:1.35rem; margin-top:.3rem; }
+.sup-copy .ba { margin-top:.85rem; font-size:.92rem; line-height:1.55; color:var(--text); }
+.sup-copy .ba .lbl { display:block; font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--copper-deep); margin-bottom:.15rem; }
+.cmp-slider-frame { position:relative; width:100%; border-radius:var(--radius); overflow:hidden; border:1px solid var(--line); background:var(--ink); box-shadow:var(--shadow-1); }
+.cmp-slider-frame.skarn { aspect-ratio:1370/484; }
+.cmp-slider-frame.epi   { aspect-ratio:989/643; }
+.cmp-slider-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.cmp-corner { position:absolute; bottom:10px; z-index:4; font-size:.64rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:#fff; background:rgba(16,32,43,.72); padding:.24em .6em; border-radius:999px; }
+.cmp-corner-l { left:10px; } .cmp-corner-r { right:10px; }
+.cmp-divider { position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--gold); transform:translateX(-1px); z-index:4; pointer-events:none; }
+.cmp-knob { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:32px; height:32px; border-radius:50%; background:var(--gold); color:#10202b; display:flex; align-items:center; justify-content:center; font-size:.9rem; box-shadow:var(--shadow-2); }
+.cmp-range { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:ew-resize; z-index:5; }
 
-          <!-- Narrative -->
-          <div class="space-y-6">
+@media (max-width:900px){
+  .scrub-inner { grid-template-columns:1fr; gap:1.4rem; }
+  .scrub-track.img-right .scrub-text { order:2; } .scrub-track.img-right .scrub-imgcol { order:1; }
+  .scrub-frame { height:46vh; }
+  .scrub-text h2 { font-size:1.5rem; }
+  .sup-case { grid-template-columns:1fr; }
+  .sup-case.flip .sup-slider { order:1; } .sup-case.flip .sup-copy { order:2; }
+}
+@media (prefers-reduced-motion: reduce){
+  .scrub-track { height:auto; }
+  .scrub-sticky { position:static; min-height:0; padding:2.5rem 0; }
+  .scrub-reveal { opacity:1 !important; transform:none !important; }
+}
 
-            <!-- Before -->
-            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div class="inline-flex items-center gap-2 mb-3">
-                <span class="bg-geo-slate text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">Before CAGE-IN</span>
-              </div>
-              <p class="text-slate-600 leading-relaxed text-sm">{study.before}</p>
-            </div>
+</style>
+<Fragment set:html={bodyHtml} />
+<script is:inline>
 
-            <!-- After -->
-            <div class="rounded-xl border border-geo-gold/30 bg-amber-50 p-6 shadow-sm">
-              <div class="inline-flex items-center gap-2 mb-3">
-                <span class="bg-geo-gold text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">After CAGE-IN</span>
-              </div>
-              <p class="text-slate-700 leading-relaxed text-sm">{study.after}</p>
-            </div>
+(function(){
+  var tracks=[].slice.call(document.querySelectorAll('.scrub-track'));
+  if(!tracks.length) return;
+  function apply(t,p){
+    var after=t.querySelector('.scrub-after'), div=t.querySelector('.scrub-divider');
+    var cl=t.querySelector('.scrub-corner-l'), cr=t.querySelector('.scrub-corner-r');
+    var rv=t.querySelector('.scrub-reveal');
+    after.style.clipPath='inset(0 '+((1-p)*100).toFixed(2)+'% 0 0)';
+    if(div) div.style.left=(p*100).toFixed(2)+'%';
+    if(cl) cl.style.opacity=(1-p*0.8).toFixed(2);
+    if(cr) cr.style.opacity=(0.2+p*0.8).toFixed(2);
+    if(rv){ var r=Math.max(0,Math.min(1,(p-0.2)/0.55)); rv.style.opacity=r.toFixed(2); rv.style.transform='translateY('+((1-r)*14).toFixed(1)+'px)'; }
+  }
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){ tracks.forEach(function(t){ apply(t,1); }); return; }
+  function update(){
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    tracks.forEach(function(t){
+      var r=t.getBoundingClientRect();
+      var span=t.offsetHeight - vh;
+      var prog = span>0 ? (-r.top)/span : 0;
+      var p = Math.max(0, Math.min(1, prog/0.85));
+      apply(t, p);
+    });
+  }
+  var ticking=false;
+  function onScroll(){ if(ticking)return; ticking=true; requestAnimationFrame(function(){ update(); ticking=false; }); }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  update();
+})();
 
-            {study.timeline && (
-              <div class="rounded-xl border border-geo-primary/20 bg-geo-primary/5 p-6">
-                <p class="text-xs font-semibold uppercase tracking-wider text-geo-primary mb-4">Project Timeline</p>
-                <ol class="relative border-l border-geo-primary/20 space-y-4 ml-2">
-                  {study.timeline.map((step) => (
-                    <li class="pl-5">
-                      <span class="absolute -left-[7px] mt-1 w-3.5 h-3.5 rounded-full border-2 border-geo-primary bg-white"></span>
-                      <p class="text-xs font-semibold text-geo-primary">{step.marker}</p>
-                      <p class="text-sm text-slate-600">{step.event}</p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            )}
+/* supporting row — manual drag sliders */
+(function(){
+  document.querySelectorAll('.cmp-slider-frame').forEach(function(f){
+    var range=f.querySelector('.cmp-range'), before=f.querySelector('.cmp-before-img'), div=f.querySelector('.cmp-divider');
+    function upd(){ var v=+range.value; before.style.clipPath='inset(0 '+(100-v)+'% 0 0)'; if(div) div.style.left=v+'%'; }
+    range.addEventListener('input', upd); upd();
+  });
+})();
 
-          </div>
-
-          <!-- Images -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {study.images.map((img) => (
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={500}
-                class="w-full h-52 object-cover rounded-xl shadow-md"
-              />
-            ))}
-          </div>
-
-        </div>
-      </div>
-    </section>
-  ))}
-
-  <!-- CTA -->
-  <section class="py-20 bg-geo-slate text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">See It In Action</p>
-      <h2 class="font-display text-4xl font-bold mb-4">Ready to Transform Your Exploration?</h2>
-      <p class="text-slate-400 mb-10 max-w-xl mx-auto">
-        Learn how CAGE-IN technology works or get in touch to discuss your project.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/cage-in"
-          class="inline-block bg-geo-gold text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors"
-        >
-          Explore CAGE-IN
-        </a>
-        <a
-          href="/contact"
-          class="inline-block border border-white/30 text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-white/10 transition-colors"
-        >
-          Contact Us
-        </a>
-      </div>
-    </div>
-  </section>
-
-</PageLayout>
+</script>
+</V5Layout>

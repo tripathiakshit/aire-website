@@ -1,0 +1,396 @@
+---
+import V5Layout from '../layouts/V5Layout.astro';
+const title = "The AiRE Council - Agentic AI and human geologists, working as one team | AiRE";
+const description = "AiRE is led by senior exploration geologists with multi-decade discovery records across five continents, working with a disciplined agentic-AI process - a gated accountability chain where a named senior geologist signs every verdict. Click any member for a detailed intro.";
+const bodyHtml = "\n<main>\n\n  <!-- ============ INTRO BAND ============ -->\n  <section class=\"page-hero\">\n    <div class=\"wrap\">\n      <p class=\"eyebrow\">The AiRE Council</p>\n      <h1>Decades of discovery behind every target.</h1>\n      <p class=\"lead\">AiRE is led by senior exploration geologists with multi-decade records of real discovery across five continents. Dr. Amit Tripathi governs the process, and a named, qualified senior geologist signs every verdict - in person, every time. AI gives them tireless reach - scoring, citing and stress-testing every target before it ships - but the judgment, and the signature, are always theirs. The model shows its work; your geologist makes the call.</p>\n      <p class=\"ts-tagline\">The signature is always human.</p>\n    </div>\n  </section>\n\n  <!-- ============ THE HUMAN BENCH ============ -->\n  <section class=\"section\">\n    <div class=\"wrap\">\n      <div class=\"section-head\">\n        <p class=\"eyebrow\">The human bench</p>\n        <h2>The named specialists behind every gate.</h2>\n        <p class=\"lead ts-bench-intro\">These are the people whose judgment and discovery record sit behind every gate below. The bench spans five continents, with on-the-ground leads in AiRE's actual operating regions - Guinea, Niger, DR Congo and Uganda.</p>\n      </div>\n\n      <div class=\"ts-bench-groups\">\n\n        <div class=\"ts-bench-group span-2 reveal\">\n          <p class=\"ts-bench-tag\">Economic geology &amp; standards</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"vn-vasudev\">Dr. V.N. Vasudev</span>\n              <span class=\"ts-cr\">Economic Geology - 45-year veteran; discovered multiple +1 Moz gold deposits.</span>\n              <span class=\"ts-loc\">India</span>\n              <span class=\"sig-chip\">Signs at G4</span>\n            </div>\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"bhabesh-sarkar\">Prof. Bhabesh C. Sarkar</span>\n              <span class=\"ts-cr\">Resource Evaluation &amp; Geostatistics - IIT Bombay professor; 45+ years; 128+ publications.</span>\n              <span class=\"ts-loc\">India</span>\n              <span class=\"sig-chip\">Signs at G4</span>\n            </div>\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"roisin-goodman\">Roisin Goodman</span>\n              <span class=\"ts-cr\">Exploration - 36 years; NI 43-101 compliance specialist.</span>\n              <span class=\"ts-loc\">Ireland</span>\n              <span class=\"sig-chip\">Signs at G4</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ts-bench-group reveal\">\n          <p class=\"ts-bench-tag\">Geophysics</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"krishna-prasad\">Krishna Prasad</span>\n              <span class=\"ts-cr\">Geophysics - 22 years; EM, gravity, seismic methods.</span>\n              <span class=\"ts-loc\">India</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ts-bench-group reveal\">\n          <p class=\"ts-bench-tag\">Remote sensing &amp; GIS</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"vikas-srivastava\">Dr. Vikas Srivastava</span>\n              <span class=\"ts-cr\">Remote Sensing &amp; GIS - 14 years.</span>\n              <span class=\"ts-loc\">India</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ts-bench-group reveal\">\n          <p class=\"ts-bench-tag\">Structural geology</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"n-ganesh\">N. Ganesh</span>\n              <span class=\"ts-cr\">Structural Geology - structural mineralization controls.</span>\n              <span class=\"ts-loc\">India</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ts-bench-group reveal\">\n          <p class=\"ts-bench-tag\">Resource modeling</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"dolma-ray\">Dolma Ray</span>\n              <span class=\"ts-cr\">Resource Modeling - 3D modeling &amp; geostatistics.</span>\n              <span class=\"ts-loc\">India</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ts-bench-group span-2 reveal\">\n          <p class=\"ts-bench-tag\">Field discovery &amp; exploration</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"mamadouba-yansane\">Mamadouba Yansane</span>\n              <span class=\"ts-cr\">Geology - 23 years; explored major iron-ore deposits.</span>\n              <span class=\"ts-loc\">Guinea</span>\n            </div>\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"chris-ainsworth\">Chris Ainsworth</span>\n              <span class=\"ts-cr\">Exploration - 33 years in African mining; led a major bauxite exploration program.</span>\n              <span class=\"ts-loc\">South Africa</span>\n              <span class=\"sig-chip\">Signs at G4</span>\n            </div>\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"richard-hornsey\">Richard Hornsey</span>\n              <span class=\"ts-cr\">Ni-Platinum Exploration - sulphide &amp; PGM economic geologist; Lonmin veteran.</span>\n              <span class=\"ts-loc\">South Africa</span>\n              <span class=\"sig-chip\">Signs at G4</span>\n            </div>\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"niki-kiza-oliver\">Niki Kiza Oliver</span>\n              <span class=\"ts-cr\">Geology - gold exploration across Africa.</span>\n              <span class=\"ts-loc\">DR Congo</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ts-bench-group reveal\">\n          <p class=\"ts-bench-tag\">Mining</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"aps-chandi\">A.P.S. Chandi</span>\n              <span class=\"ts-cr\">Mining - 34 years underground mining; Mine Manager's Certificate.</span>\n              <span class=\"ts-loc\">India</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ts-bench-group reveal\">\n          <p class=\"ts-bench-tag\">Senior geology</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"ibrahim-aouami\">Ibrahim Aouami</span>\n              <span class=\"ts-cr\">Senior Geologist - 17 years; uranium &amp; laterite exploration.</span>\n              <span class=\"ts-loc\">Niger</span>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"ts-bench-group span-2 reveal\">\n          <p class=\"ts-bench-tag\">Operations &amp; country leadership</p>\n          <div class=\"ts-people\">\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"timothy-kwihangana\">Timothy Kwihangana</span>\n              <span class=\"ts-cr\">Country Director, Uganda - on-ground operations lead.</span>\n              <span class=\"ts-loc\">Uganda</span>\n            </div>\n            <div class=\"ts-person\">\n              <span class=\"ts-nm\" data-member=\"ankit-tripathi\">Ankit Tripathi</span>\n              <span class=\"ts-cr\">General Manager - environmental scientist; operations &amp; client engagement.</span>\n              <span class=\"ts-loc\">AiRE</span>\n            </div>\n          </div>\n        </div>\n\n      </div>\n    </div>\n  </section>\n\n  <!-- ============ THE ACCOUNTABILITY SPINE ============ -->\n  <section class=\"section section-alt\">\n    <div class=\"wrap-narrow\">\n      <div class=\"section-head\">\n        <p class=\"eyebrow\">The accountability spine</p>\n        <h2>A target passes through every gate, or it does not ship.</h2>\n        <p class=\"lead ts-spine-intro\">Read top to bottom. Beneath each gate, an agentic-AI process does the tireless, gated labour; where it matters most, a named human signs the verdict on top. The technology is inseparable from the people it serves - and the chain ends at a gate with no AI in it at all.</p>\n      </div>\n\n      <p class=\"ts-calibration-note\">The broader human disciplines - geophysics, remote sensing, structural geology, resource modeling and field discovery - calibrate the evidence the platform scores and the deposit models it is run against. Their authority is what makes the gated process credible in the first place.</p>\n\n      <div class=\"ts-spine\">\n\n        <!-- G1 -->\n        <div class=\"ts-node\">\n          <details class=\"ts-gate\">\n            <summary>\n              <div class=\"ts-gate-head\">\n                <span class=\"ts-gate-id\">G1</span>\n                <span class=\"ts-gate-name\">Specification</span>\n                <span class=\"ts-toggle\" aria-hidden=\"true\">Detail</span>\n                <span class=\"ts-gate-sub\">The brief is turned into binary, testable acceptance criteria before a line of code runs.</span>\n              </div>\n            </summary>\n            <div class=\"ts-labour\">\n              <p class=\"ts-labour-label\">AI labour at this gate</p>\n              <div class=\"ts-seats\">\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"specification-lead\">Specification Lead</span>\n                  <span class=\"ts-seat-cap\">Turns the brief into binary, testable acceptance criteria - an intent is never accepted as a requirement.</span>\n                </div>\n              </div>\n            </div>\n          </details>\n        </div>\n\n        <!-- G2 -->\n        <div class=\"ts-node\">\n          <details class=\"ts-gate\">\n            <summary>\n              <div class=\"ts-gate-head\">\n                <span class=\"ts-gate-id\">G2</span>\n                <span class=\"ts-gate-name\">Code quality</span>\n                <span class=\"ts-toggle\" aria-hidden=\"true\">Detail</span>\n                <span class=\"ts-gate-sub\">Every conclusion is attacked before it is trusted, behind a wall of over 220 regression tests - so every release reproduces the same answer on the same data.</span>\n              </div>\n            </summary>\n            <div class=\"ts-labour\">\n              <p class=\"ts-labour-label\">AI labour at this gate</p>\n              <div class=\"ts-seats\">\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"qa-security\">QA &amp; Security Lead</span>\n                  <span class=\"ts-seat-cap\">Tries to make every conclusion fail; author of the 220+ regression-test wall. No defect escapes twice.</span>\n                </div>\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"lead-developer\">Lead Developer</span>\n                  <span class=\"ts-seat-cap\">Builds the platform and its modules to the signed specification - clean, tested, maintainable.</span>\n                </div>\n              </div>\n            </div>\n          </details>\n        </div>\n\n        <!-- G2.5 -->\n        <div class=\"ts-node\">\n          <details class=\"ts-gate\">\n            <summary>\n              <div class=\"ts-gate-head\">\n                <span class=\"ts-gate-id\">G2.5</span>\n                <span class=\"ts-gate-name\">Integration</span>\n                <span class=\"ts-toggle\" aria-hidden=\"true\">Detail</span>\n                <span class=\"ts-gate-sub\">Correctness at the seams, where individual unit tests fall silent.</span>\n              </div>\n            </summary>\n            <div class=\"ts-labour\">\n              <p class=\"ts-labour-label\">AI labour at this gate</p>\n              <div class=\"ts-seats\">\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"integration-lead\">Integration Lead</span>\n                  <span class=\"ts-seat-cap\">Demonstrable correctness at the seams between data sources - \"the data looks reasonable\" is not an answer.</span>\n                </div>\n              </div>\n            </div>\n          </details>\n        </div>\n\n        <!-- G3 - the human-signed gate -->\n        <div class=\"ts-node\">\n          <details class=\"ts-gate\" open>\n            <summary>\n              <div class=\"ts-gate-head\">\n                <span class=\"ts-gate-id\">G3</span>\n                <span class=\"ts-gate-name\">Domain review - geology &amp; literature</span>\n                <span class=\"ts-toggle\" aria-hidden=\"true\">Detail</span>\n                <span class=\"ts-gate-sub\">No weight ships without its citation. This verdict is signed by named human economic geologists.</span>\n              </div>\n            </summary>\n            <div class=\"ts-signoff\">\n              <p class=\"ts-signoff-label\">Human sign-off - the verdict is theirs</p>\n              <div class=\"ts-signers\">\n                <div class=\"ts-signer\">\n                  <span class=\"ts-s-nm\" data-member=\"vn-vasudev\">Dr. V.N. Vasudev</span>\n                  <span class=\"ts-s-cr\">Economic Geology - 45-year veteran; discovered multiple +1 Moz gold deposits.</span>\n                </div>\n                <div class=\"ts-signer\">\n                  <span class=\"ts-s-nm\" data-member=\"bhabesh-sarkar\">Prof. Bhabesh C. Sarkar</span>\n                  <span class=\"ts-s-cr\">Resource Evaluation &amp; Geostatistics - IIT Bombay professor; 128+ publications.</span>\n                </div>\n                <div class=\"ts-signer\">\n                  <span class=\"ts-s-nm\" data-member=\"roisin-goodman\">Roisin Goodman</span>\n                  <span class=\"ts-s-cr\">Exploration - 36 years; NI 43-101 compliance specialist.</span>\n                </div>\n              </div>\n            </div>\n            <div class=\"ts-labour\">\n              <p class=\"ts-labour-label\">AI labour beneath the sign-off</p>\n              <div class=\"ts-seats\">\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"chief-geoscientist\">Chief Geoscientist</span>\n                  <span class=\"ts-seat-cap\">Holds every conclusion to a mineral-systems frame - economic geologist's discipline at machine recall.</span>\n                </div>\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"literature-standards\">Literature &amp; Standards Lead</span>\n                  <span class=\"ts-seat-cap\">No weight ships without its citation; enforces NI 43-101 / JORC standards and citation discipline.</span>\n                </div>\n              </div>\n            </div>\n          </details>\n        </div>\n\n        <!-- G3.5 / G3.6 -->\n        <div class=\"ts-node\">\n          <details class=\"ts-gate\">\n            <summary>\n              <div class=\"ts-gate-head\">\n                <span class=\"ts-gate-id\">G3.5 &middot; G3.6</span>\n                <span class=\"ts-gate-name\">Market fit &amp; operational readiness</span>\n                <span class=\"ts-toggle\" aria-hidden=\"true\">Detail</span>\n                <span class=\"ts-gate-sub\">The client-facing artifact is reviewed, and the run is checked for reproducibility.</span>\n              </div>\n            </summary>\n            <div class=\"ts-labour\">\n              <p class=\"ts-labour-label\">AI labour at these gates</p>\n              <div class=\"ts-seats\">\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"market-cultural-fit\">Market &amp; Cultural-Fit Lead</span>\n                  <span class=\"ts-seat-cap\">Reviews the client-facing artifact for how it will land - the right framing for the right audience. (G3.5)</span>\n                </div>\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"devops-reliability\">DevOps &amp; Reliability Lead</span>\n                  <span class=\"ts-seat-cap\">Confirms the run is reproducible - a result that cannot be re-run is not a result. (G3.6)</span>\n                </div>\n              </div>\n            </div>\n          </details>\n        </div>\n\n        <!-- G-Final -->\n        <div class=\"ts-node\">\n          <details class=\"ts-gate\">\n            <summary>\n              <div class=\"ts-gate-head\">\n                <span class=\"ts-gate-id\" style=\"color:var(--gold-deep);background:rgba(181,138,31,.1);border-color:rgba(181,138,31,.33);\">G-Final</span>\n                <span class=\"ts-gate-name\">Adversarial audit</span>\n                <span class=\"ts-toggle\" aria-hidden=\"true\">Detail</span>\n                <span class=\"ts-gate-sub\">The last gate before yours. Every conclusion is stress-tested for false positives.</span>\n              </div>\n            </summary>\n            <div class=\"ts-labour\">\n              <p class=\"ts-labour-label\">AI labour at this gate</p>\n              <div class=\"ts-seats\">\n                <div class=\"ts-seat\">\n                  <span class=\"ts-seat-role\" data-member=\"adversarial-auditor\">The Adversarial Auditor</span>\n                  <span class=\"ts-seat-cap\">\"The 13th.\" Stress-tests every conclusion for false positives - the last gate before the client's. Approval is earned and rare.</span>\n                </div>\n              </div>\n            </div>\n          </details>\n        </div>\n\n        <!-- G4 - terminal, AI-empty, dark climax -->\n        <div class=\"ts-node ts-final\">\n          <div class=\"ts-g4\">\n            <div class=\"ts-g4-head\">\n              <span class=\"ts-g4-id\">G4</span>\n              <span class=\"ts-g4-name\">Acceptance.</span>\n            </div>\n            <p style=\"color:var(--text-inv-soft);margin-top:.8rem;max-width:40em;\">No AI sits at this gate. You and a named senior geologist, explicit, always.</p>\n            <div class=\"ts-g4-who\">\n              <div class=\"ts-g4-party\">\n                <p class=\"ts-p-role\">The client</p>\n                <p class=\"ts-p-nm\">You</p>\n                <p class=\"ts-p-cr\">Acceptance is explicit. Nothing advances on assumption.</p>\n              </div>\n              <div class=\"ts-g4-party\">\n                <p class=\"ts-p-role\">Your signatory</p>\n                <p class=\"ts-p-cr\">Your report is signed by a named, qualified senior geologist. Six of our bench are senior enough to put their name on a client-facing deliverable at G4:</p>\n                <div class=\"ts-g4-bench\">\n                  <div class=\"ts-g4-signer\">\n                    <span class=\"ts-g4-s-role\">Founder &amp; Principal</span>\n                    <span class=\"ts-g4-s-nm\" data-member=\"amit-tripathi\">Dr. Amit Tripathi</span>\n                    <span class=\"ts-g4-s-cr\">Exploration geologist, 30 years across 20+ countries; PhD Structural Geology.</span>\n                  </div>\n                  <div class=\"ts-g4-signer\">\n                    <span class=\"ts-g4-s-role\">Economic Geology</span>\n                    <span class=\"ts-g4-s-nm\" data-member=\"vn-vasudev\">Dr. V.N. Vasudev</span>\n                    <span class=\"ts-g4-s-cr\">45-year veteran; multiple +1 Moz gold discoveries.</span>\n                  </div>\n                  <div class=\"ts-g4-signer\">\n                    <span class=\"ts-g4-s-role\">Resource Evaluation &amp; Geostatistics</span>\n                    <span class=\"ts-g4-s-nm\" data-member=\"bhabesh-sarkar\">Prof. Bhabesh C. Sarkar</span>\n                    <span class=\"ts-g4-s-cr\">IIT; 45+ years; 128+ publications.</span>\n                  </div>\n                  <div class=\"ts-g4-signer\">\n                    <span class=\"ts-g4-s-role\">Exploration</span>\n                    <span class=\"ts-g4-s-nm\" data-member=\"chris-ainsworth\">Chris Ainsworth</span>\n                    <span class=\"ts-g4-s-cr\">33 years; led a major bauxite exploration program.</span>\n                  </div>\n                  <div class=\"ts-g4-signer\">\n                    <span class=\"ts-g4-s-role\">Exploration</span>\n                    <span class=\"ts-g4-s-nm\" data-member=\"roisin-goodman\">Roisin Goodman</span>\n                    <span class=\"ts-g4-s-cr\">36 years; NI 43-101 compliance specialist.</span>\n                  </div>\n                  <div class=\"ts-g4-signer\">\n                    <span class=\"ts-g4-s-role\">Ni-Platinum Exploration</span>\n                    <span class=\"ts-g4-s-nm\" data-member=\"richard-hornsey\">Richard Hornsey</span>\n                    <span class=\"ts-g4-s-cr\">Sulphide &amp; PGM economic geologist; Lonmin veteran.</span>\n                  </div>\n                </div>\n              </div>\n            </div>\n            <p class=\"ts-g4-cadence\">The council advises; a geologist signs; silence is never approval.</p>\n          </div>\n        </div>\n\n      </div>\n\n      <!-- closing CTA -->\n      <div class=\"ts-close\">\n        <a class=\"btn btn-gold\" href=\"/engage\">Get the 48-Hour Prospect Brief <span class=\"arr\">&rarr;</span></a>\n        <div class=\"ts-close-link\">\n          <a class=\"textlink\" href=\"/methodology\">See the methodology behind every gate &rarr;</a>\n        </div>\n      </div>\n\n    </div>\n  </section>\n\n</main>\n\n<div class=\"spine-band\"><div class=\"wrap\"><p class=\"spine\">We don&rsquo;t add to your data pile - we <span class=\"hl\">resolve it into a ranked drill decision you can sign and defend.</span></p></div></div>\n\n";
+---
+<V5Layout title={title} description={description}>
+<style is:global>
+
+/* ====================================================================
+   team-spine.html - prototype-specific layout only.
+   Reuses style.css tokens + components. New classes are namespaced
+   .ts-* so they never collide with the shared system.
+   Copper  -> gate-ids + seat-role labels (domain voice)
+   Gold    -> G4 node + G-Final chip + the one CTA only (rare)
+   Royal   -> the closing textlink only
+   ==================================================================== */
+
+/* ---------- intro tagline ---------- */
+.ts-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  color: var(--copper-deep);
+  margin-top: 1.4rem;
+}
+
+/* ---------- the human bench ---------- */
+.ts-bench-intro { max-width: 50em; margin-bottom: 2.4rem; }
+.ts-bench-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.3rem;
+}
+.ts-bench-group {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.5rem 1.6rem;
+  box-shadow: var(--shadow-1);
+}
+.ts-bench-group.span-2 { grid-column: 1 / -1; }
+.ts-bench-tag {                 /* COPPER · discipline label */
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 1.1rem;
+}
+.ts-people {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem 1.4rem;
+}
+.ts-bench-group:not(.span-2) .ts-people { grid-template-columns: 1fr; }
+.ts-person .ts-nm {
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  color: var(--ink);
+  line-height: 1.25;
+  display: block;
+}
+.ts-person .ts-cr {
+  font-size: .82rem;
+  color: var(--text-soft);
+  line-height: 1.45;
+  display: block;
+  margin-top: .12em;
+}
+.ts-person .ts-loc {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--copper-deep);
+  display: block;
+  margin-top: .25em;
+}
+.sig-chip{display:inline-block;margin-top:.45rem;font-size:.6rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--copper-deep);border:1px solid var(--copper);border-radius:999px;padding:.18em .75em;align-self:flex-start;}
+
+/* ---------- the spine ---------- */
+.ts-spine-intro { max-width: 50em; margin-bottom: 1.2rem; }
+.ts-calibration-note {
+  max-width: 52em;
+  font-size: .9rem;
+  color: var(--text-soft);
+  border-left: 3px solid var(--copper);
+  padding: .2em 0 .2em 1.2em;
+  margin: 1.6rem 0 2.8rem;
+}
+
+.ts-spine {
+  position: relative;
+  margin: 0;
+  padding-left: 2.6rem;       /* room for the rail + node markers */
+}
+/* the connecting rail running down the left */
+.ts-spine::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: .6rem;
+  bottom: 2.2rem;             /* stops just inside the G4 node */
+  width: 2px;
+  background: linear-gradient(var(--line), var(--copper) 12%, var(--copper) 88%, var(--ink));
+}
+
+.ts-node { position: relative; margin-bottom: 1.4rem; }
+.ts-node:last-child { margin-bottom: 0; }
+
+/* the marker dot on the rail */
+.ts-node::before {
+  content: "";
+  position: absolute;
+  left: -2.6rem;
+  top: 1.7rem;
+  width: 24px;
+  height: 24px;
+  margin-left: 0;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--copper);
+  box-shadow: 0 0 0 4px var(--bg);
+  z-index: 2;
+}
+.ts-node.ts-final::before {
+  border-color: var(--gold);
+  background: var(--ink);
+}
+
+/* gate card - built from scratch, echoes the .gate look stacked */
+.ts-gate {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+.ts-gate > summary { list-style: none; cursor: pointer; }
+.ts-gate > summary::-webkit-details-marker { display: none; }
+.ts-gate > summary:focus-visible {
+  outline: 3px solid rgba(154,86,48,.4);
+  outline-offset: 2px;
+}
+
+.ts-gate-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding: 1.4rem 1.6rem;
+}
+.ts-gate-id {                  /* COPPER · gate id pill */
+  flex: 0 0 auto;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--copper);
+  background: rgba(154,86,48,.08);
+  border: 1px solid rgba(154,86,48,.22);
+  padding: .35em .85em;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.ts-gate-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.28rem;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.ts-gate-sub {
+  flex-basis: 100%;
+  font-size: .9rem;
+  color: var(--text-soft);
+  margin-top: .15rem;
+}
+.ts-toggle {                   /* the expand affordance */
+  margin-left: auto;
+  flex: 0 0 auto;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  align-self: center;
+}
+.ts-toggle::after { content: " +"; }
+.ts-gate[open] .ts-toggle::after { content: " -"; }
+
+/* human sign-off band (strongest at G3) */
+.ts-signoff {
+  margin: 0 1.6rem;
+  padding: 1.2rem 0 1.3rem;
+  border-top: 1px solid var(--line);
+}
+.ts-signoff-label {            /* COPPER · who signs */
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+  margin-bottom: .9rem;
+}
+.ts-signers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.ts-signer .ts-s-nm {
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  color: var(--ink);
+  display: block;
+  line-height: 1.25;
+}
+.ts-signer .ts-s-cr {
+  font-size: .8rem;
+  color: var(--text-soft);
+  display: block;
+  margin-top: .1em;
+}
+
+/* the AI labour band beneath the gate */
+.ts-labour {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--line);
+  padding: 1.2rem 1.6rem 1.3rem;
+}
+.ts-labour-label {             /* quiet framing */
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: .9rem;
+}
+.ts-seats { display: grid; gap: .9rem; }
+.ts-seat { display: flex; gap: .75em; align-items: baseline; }
+.ts-seat .ts-seat-role {       /* COPPER · seat role label */
+  flex: 0 0 auto;
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: var(--copper);
+  min-width: 13.5em;
+}
+.ts-seat .ts-seat-cap {
+  font-size: .88rem;
+  color: var(--text-soft);
+  line-height: 1.45;
+}
+
+/* ---------- the terminal G4 node ---------- */
+.ts-g4 {
+  background: var(--ink);
+  color: var(--text-inv);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-2);
+  padding: 2.2rem 2rem 2.3rem;
+}
+.ts-g4-head { display: flex; align-items: baseline; gap: 1em; flex-wrap: wrap; }
+.ts-g4-id {                    /* GOLD · the gate that matters */
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--gold-soft);
+  border: 1px solid rgba(227,196,101,.4);
+  padding: .35em .85em;
+  border-radius: 999px;
+}
+.ts-g4-name {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.55rem;
+  color: #f5f2e8;
+  line-height: 1.15;
+}
+.ts-g4-who {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+}
+.ts-g4-party .ts-p-role {      /* GOLD-soft role label, dark card */
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  margin-bottom: .4rem;
+}
+.ts-g4-party .ts-p-nm {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  color: #f5f2e8;
+  line-height: 1.25;
+}
+.ts-g4-party .ts-p-cr {
+  font-size: .84rem;
+  color: var(--text-inv-soft);
+  margin-top: .2em;
+}
+.ts-g4-cadence {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.45;
+  color: var(--gold-soft);
+  margin-top: 1.7rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line-dark);
+}
+/* G4 signatory bench - six senior signers on the dark card */
+.ts-g4-bench {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1.6rem;
+  margin-top: 1rem;
+}
+.ts-g4-signer .ts-g4-s-role {   /* GOLD-soft role label, dark card */
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-soft);
+  display: block;
+  margin-bottom: .2rem;
+}
+.ts-g4-signer .ts-g4-s-nm {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: #f5f2e8;
+  line-height: 1.25;
+  display: block;
+}
+.ts-g4-signer .ts-g4-s-cr {
+  font-size: .82rem;
+  color: var(--text-inv-soft);
+  line-height: 1.45;
+  display: block;
+  margin-top: .15em;
+}
+
+/* ---------- closing CTA ---------- */
+.ts-close { text-align: center; margin-top: 3.4rem; }
+.ts-close .btn { font-size: 1.05rem; padding: 1.05em 2.4em; }
+.ts-close .ts-close-link { margin-top: 1.3rem; }
+
+/* ---------- clickable intro affordance ---------- */
+[data-member] { cursor: pointer; }
+[data-member]::after {
+  content: "+";
+  display: inline-block;
+  margin-left: .35em;
+  font-family: var(--font-ui, inherit);
+  font-weight: 600;
+  font-size: .62em;
+  line-height: 1;
+  vertical-align: super;
+  color: var(--copper);
+  opacity: .55;
+  transition: opacity .15s ease;
+}
+[data-member]:hover::after,
+[data-member]:focus-visible::after { opacity: 1; }
+[data-member]:focus-visible {
+  outline: 2px solid rgba(154,86,48,.45);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1020px) {
+  .ts-signers { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  .ts-bench-groups { grid-template-columns: 1fr; }
+  .ts-people, .ts-bench-group.span-2 .ts-people { grid-template-columns: 1fr; }
+  .ts-signers, .ts-g4-who, .ts-g4-bench { grid-template-columns: 1fr; }
+  .ts-spine { padding-left: 2rem; }
+  .ts-spine::before { left: 8px; }
+  .ts-node::before { left: -2rem; width: 20px; height: 20px; top: 1.5rem; }
+  .ts-gate-head { padding: 1.2rem 1.2rem; }
+  .ts-signoff { margin: 0 1.2rem; }
+  .ts-labour { padding: 1.1rem 1.2rem 1.2rem; }
+  .ts-seat { flex-direction: column; gap: .15em; }
+  .ts-seat .ts-seat-role { min-width: 0; }
+  .ts-g4 { padding: 1.8rem 1.4rem; }
+}
+
+</style>
+<Fragment set:html={bodyHtml} />
+<script is:inline src="/v5/js/team-intros.js"></script>
+</V5Layout>

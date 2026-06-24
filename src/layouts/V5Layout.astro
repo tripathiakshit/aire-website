@@ -1,0 +1,47 @@
+---
+// V5 design-system layout — standalone document (does NOT use BaseLayout/Tailwind).
+// Imports the ported V5 stylesheet + local fonts, sets up dark mode (no-flash),
+// and wires the shared V5 behaviour script (nav, reveal, deferred media, theme toggle).
+import '../styles/v5-fonts.css';
+import '../styles/v5.css';
+import V5Header from '../components/V5Header.astro';
+import V5Footer from '../components/V5Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  /** optional extra <body> class */
+  bodyClass?: string;
+}
+const { title, description, bodyClass = '' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- no-flash theme: set data-theme before paint -->
+  <script is:inline>
+    document.documentElement.classList.add("js");
+    (function(){try{var t=localStorage.getItem("aire-theme");if(!t)t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content={description} />
+  <meta name="generator" content={Astro.generator} />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="/assets/AIRE-logo-long.jpg" />
+  <!-- Favicons (existing public assets) -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" href="/favicon.ico" />
+  <title>{title}</title>
+</head>
+<body class={bodyClass}>
+  <V5Header />
+  <slot />
+  <V5Footer />
+  <!-- shared V5 behaviour: mobile nav, scroll-reveal, deferred media, dark-mode toggle -->
+  <script is:inline src="/v5/js/main.js"></script>
+</body>
+</html>

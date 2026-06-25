@@ -1,0 +1,55 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const features = [
+  { ic: '◧', h: 'Portfolio-wide prospectivity review', p: 'We run the datasets behind each holding through CAGE-IN and return a comparable, evidence-traced prospectivity read across the whole book — one standard, applied to every asset.' },
+  { ic: '⚖', h: 'Asset ranking & technical risk', p: "Holdings ranked on technical merit, with the coverage disclosure naming exactly what each project's data could not test — so the risk is on the page, not buried in a footnote." },
+  { ic: '◈', h: 'Where CAGE-IN adds the most', p: 'We flag the assets most likely to benefit from a full CAGE-IN run — where re-reading the data could grow a resource, define new targets, or de-risk the next raise.' },
+];
+const review = [
+  { h: 'The technical datasets', p: 'Geophysics, geochemistry, drilling, imagery and reports across the assets you hold or are evaluating — in whatever state they exist.' },
+  { h: 'Independent and conflict-free', p: 'AiRE holds no position in your assets. The read is a technical opinion, not a promotion — the same discipline we apply to our own programs, with every weight cited and every gap named.' },
+  { h: 'Confidential by default', p: 'NDA first; data rooms, not email attachments. Nothing appears in our materials without written consent, and credentials never live in our code or outputs.' },
+];
+---
+
+<PageLayout
+  title="For Investors & Financial Institutions — rank your portfolio on technical merit | AiRE"
+  description="Independent, evidence-traced prospectivity review for investors, funds and lenders: rank the exploration assets you hold on technical merit, see where the risk sits, and find which would benefit most from a CAGE-IN run. White-label available."
+>
+  <section class="py-14 md:py-20">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">/investor · for investors &amp; financial institutions</p>
+      <h1 class="mt-3 max-w-4xl font-fraunces text-4xl font-medium leading-[1.1] text-ink sm:text-5xl dark:text-canvas">Rank the technical merit of every asset in your portfolio.</h1>
+      <p class="v5-lead mt-5 max-w-3xl">AiRE gives investors, funds and lenders an independent, evidence-traced read on the exploration assets they hold or are weighing — which ground is genuinely prospective, where the technical risk actually sits, and which projects would gain the most from a CAGE-IN run.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">The problem we solve</p>
+      <h2 class="v5-h2 mt-2">Exploration risk you&rsquo;re carrying, but can&rsquo;t see.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">Portfolios get ranked by promoters&rsquo; decks, not by independent technical evidence. AiRE re-reads the data underneath each asset — the same multi-evidence, literature-cited engine behind every AiRE result — and tells you what the rocks actually support.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {features.map((f) => (<div class="v5-card" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">{f.ic}</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">{f.h}</h3><p class="mt-2 text-sm text-text-soft">{f.p}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto w-[min(860px,90vw)]">
+      <p class="v5-eyebrow">What we review</p>
+      <h2 class="v5-h2 mt-2">Bring us the data room. We read what the deck won&rsquo;t tell you.</h2>
+      <div class="mt-8 space-y-6">
+        {review.map((s) => (<div data-reveal><h3 class="font-fraunces text-lg text-ink dark:text-canvas">{s.h}</h3><p class="mt-1.5 text-sm text-text-soft">{s.p}</p></div>))}
+      </div>
+      <div class="mt-8 rounded-xl border border-line bg-canvas-alt p-5 text-sm text-text-soft dark:border-ink-2 dark:bg-ink-2">
+        <b class="text-ink dark:text-canvas">White-label &amp; QP licensing.</b> Where you need the analysis to carry your own brand — or a Qualified Person&rsquo;s sign-off — AiRE runs white-label: the methodology is documented generically, and the deliverable is yours alone.
+      </div>
+      <div class="mt-10 flex flex-col items-center gap-2">
+        <a class="v5-btn-gold" href="/contact#cal-inline-embed">Talk through your portfolio <span aria-hidden="true">→</span></a>
+        <p class="text-xs text-text-soft">A confidential, independent technical read — under NDA</p>
+      </div>
+    </div>
+  </section>
+</PageLayout>

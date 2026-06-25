@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Dark mode keyed to the data-theme attribute (set pre-paint in BaseLayout) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 @theme {
   --color-geo-primary: #0c498e;
   --color-geo-primary-dark: #071f3d;
@@ -10,7 +13,25 @@
   --color-geo-slate: #1a2b3c;
   --color-geo-deep: #0d1827;
 
+  /* V5 "branded-house" redesign palette (CAGE-IN) — used by the redesigned pages.
+     royal hyperlink hue reuses geo-primary (#0c498e). */
+  --color-ink: #10202b;        /* dark panels, footer, heading ink */
+  --color-ink-2: #162a37;
+  --color-copper: #9a5630;     /* domain labels / eyebrows */
+  --color-copper-deep: #7a4324;
+  --color-copper-soft: #d3935f;
+  --color-cage-gold: #b58a1f;  /* CTA / accent (distinct from geo-gold) */
+  --color-cage-gold-deep: #94701a;
+  --color-cage-gold-soft: #e3c465;
+  --color-canvas: #fdfbf7;     /* warm ivory page background */
+  --color-canvas-alt: #f5f0e6;
+  --color-surface: #ffffff;    /* card surface (flips dark) */
+  --color-line: #e7e4da;
+  --color-ink-text: #1a1a1a;   /* body text */
+  --color-text-soft: #5b6a73;
+
   --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-fraunces: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -100,4 +121,28 @@
 }
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+/* ===================================================================
+   V5 "branded-house" redesign — page background + brand component
+   utilities (Tailwind @apply; mirrors the existing .text-gradient /
+   .card-dark pattern in this file). Used by the redesigned pages.
+   =================================================================== */
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink-text);
+}
+[data-theme="dark"] body {
+  background: #0e181d;
+  color: #d4dce0;
+}
+
+@layer components {
+  .v5-eyebrow { @apply text-xs font-bold uppercase tracking-[0.22em] text-copper dark:text-copper-soft; }
+  .v5-lead    { @apply text-lg leading-relaxed text-text-soft; }
+  .v5-h2      { @apply font-fraunces text-3xl font-medium leading-tight text-ink md:text-4xl dark:text-canvas; }
+  .v5-btn-gold { @apply inline-flex items-center justify-center gap-2 rounded-md bg-cage-gold px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-cage-gold-deep; }
+  .v5-btn-line { @apply inline-flex items-center justify-center gap-2 rounded-md border border-line px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-copper dark:border-ink-2 dark:text-canvas; }
+  .v5-link    { @apply font-semibold text-geo-primary underline-offset-2 hover:underline dark:text-geo-secondary; }
+  .v5-card    { @apply rounded-xl border border-line bg-surface p-6 shadow-sm transition-colors dark:border-ink-2 dark:bg-ink-2; }
 }

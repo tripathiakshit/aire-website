@@ -1,162 +1,133 @@
 ---
-import { Menu, X } from 'lucide-astro';
+import { Menu, X, Sun, Moon } from 'lucide-astro';
 
 const pathname = Astro.url.pathname;
-
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/technologies', label: 'Technologies' },
-  { href: '/for', label: 'For' },
-  { href: '/projects', label: 'Projects' },
+  { href: '/technology', label: 'Technology' },
   { href: '/case-studies', label: 'Case Studies' },
-  { href: '/team', label: 'Team' },
-  { href: '/publications', label: 'Blogs & Publications' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/council', label: 'AiRE Council' },
+  { href: '/methodology', label: 'Methodology' },
 ];
-
-function isActive(href: string) {
-  if (href === '/') return pathname === '/';
-  return pathname.startsWith(href);
-}
+const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 ---
 
-<header id="site-header" class="sticky top-0 z-50 bg-geo-slate shadow-md shadow-black/30 transition-shadow duration-300">
-  <!-- Gold accent stripe -->
-  <div class="h-1 bg-geo-gold"></div>
-
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-18 py-3">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-3 shrink-0">
-        <img src="/assets/AIRE-logo-long.jpg" alt="AI Resource Exploration Logo" class="h-9 lg:h-11 w-[220px] sm:w-auto object-contain object-left" width="1181" height="147" />
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-1">
-        {navLinks.map(link => (
-          <a
-            href={link.href}
-            class={`px-3 py-2 text-sm font-medium tracking-wide transition-colors ${
-              isActive(link.href)
-                ? 'text-geo-secondary'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            {link.label}
-          </a>
-        ))}
-        <a
-          href="/contact"
-          class={`ml-3 px-5 py-2.5 text-sm font-semibold rounded transition-colors ${
-            isActive('/contact')
-              ? 'bg-geo-primary text-white'
-              : 'bg-geo-gold text-white hover:bg-amber-500'
-          }`}
-        >
-          Contact
-        </a>
-      </nav>
-
-      <!-- Mobile hamburger -->
-      <button
-        id="mobile-menu-toggle"
-        aria-label="Toggle mobile menu"
-        aria-expanded="false"
-        class="lg:hidden p-2 rounded text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+<header
+  id="site-header"
+  class="sticky top-0 z-50 border-b border-line bg-canvas/90 backdrop-blur-md transition-shadow dark:border-ink-2 dark:bg-ink/90"
+>
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+    <!-- Brand wordmark -->
+    <a href="/" class="flex items-baseline gap-2 shrink-0">
+      <span class="font-fraunces text-2xl font-semibold tracking-tight text-ink dark:text-canvas"
+        >Ai<span class="text-cage-gold">R</span>E</span
       >
-        <span id="menu-icon-open"><Menu size={22} /></span>
-        <span id="menu-icon-close" class="hidden"><X size={22} /></span>
-      </button>
-    </div>
-  </div>
+      <span class="hidden text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-text-soft sm:inline"
+        >AI Resource Exploration</span
+      >
+    </a>
 
-  <!-- Mobile Menu (height animated via CSS in global.css) -->
-  <div id="mobile-menu" class="lg:hidden border-t border-white/10 bg-geo-slate">
-    <nav class="px-4 py-3 flex flex-col gap-1">
-      {navLinks.map(link => (
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+      {navLinks.map((link) => (
         <a
           href={link.href}
-          class={`px-3 py-2.5 text-sm font-medium tracking-wide transition-colors rounded ${
+          class={`px-3 py-2 text-sm font-medium transition-colors ${
             isActive(link.href)
-              ? 'text-geo-secondary bg-white/10'
-              : 'text-slate-300 hover:text-white hover:bg-white/5'
+              ? 'text-copper dark:text-copper-soft'
+              : 'text-text-soft hover:text-ink dark:hover:text-canvas'
           }`}
         >
           {link.label}
         </a>
       ))}
       <a
-        href="/contact"
-        class={`mt-2 px-4 py-3 text-sm font-semibold text-white text-center rounded transition-colors ${isActive('/contact') ? 'bg-geo-primary' : 'bg-geo-gold hover:bg-amber-500'}`}
+        href="/engage"
+        class="ml-2 rounded-md bg-cage-gold px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-cage-gold-deep"
       >
-        Contact
+        Get the 48-Hour Prospect Brief
+      </a>
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        class="ml-2 inline-flex h-9 w-9 items-center justify-center rounded-md border border-line text-text-soft transition-colors hover:border-copper hover:text-ink dark:border-ink-2 dark:hover:text-canvas"
+      >
+        <span class="hidden dark:inline"><Sun size={17} /></span>
+        <span class="inline dark:hidden"><Moon size={17} /></span>
+      </button>
+    </nav>
+
+    <!-- Mobile controls -->
+    <div class="flex items-center gap-1 lg:hidden">
+      <button
+        id="theme-toggle-mobile"
+        type="button"
+        aria-label="Toggle dark mode"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-md border border-line text-text-soft dark:border-ink-2"
+      >
+        <span class="hidden dark:inline"><Sun size={17} /></span>
+        <span class="inline dark:hidden"><Moon size={17} /></span>
+      </button>
+      <button
+        id="mobile-menu-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-md text-ink hover:bg-canvas-alt dark:text-canvas dark:hover:bg-ink-2"
+      >
+        <span id="menu-icon-open"><Menu size={20} /></span>
+        <span id="menu-icon-close" class="hidden"><X size={20} /></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu (height animated via global.css) -->
+  <div id="mobile-menu" class="border-t border-line bg-canvas lg:hidden dark:border-ink-2 dark:bg-ink">
+    <nav class="flex flex-col gap-1 px-4 py-3" aria-label="Mobile">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`rounded px-3 py-2.5 text-sm font-medium ${
+            isActive(link.href) ? 'bg-canvas-alt text-copper dark:bg-ink-2' : 'text-text-soft hover:text-ink dark:hover:text-canvas'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/engage" class="mt-2 rounded-md bg-cage-gold px-4 py-3 text-center text-sm font-semibold text-white">
+        Get the 48-Hour Prospect Brief
       </a>
     </nav>
   </div>
 </header>
 
-<!-- Sticky bottom CTA — slides up after scrolling 600px (hidden on /contact) -->
-<div
-  id="sticky-cta-bar"
-  class="fixed bottom-0 inset-x-0 z-40 bg-geo-gold text-geo-primary-dark py-2.5 sm:py-3 px-3 sm:px-6 flex items-center justify-center gap-3 sm:gap-6 shadow-2xl translate-y-full transition-transform duration-300"
-  role="complementary"
-  aria-label="Project inquiry prompt"
->
-  <span class="hidden sm:inline text-geo-primary-dark text-sm font-bold">Have a project in mind?</span>
-  <a href="/contact" class="px-4 py-1.5 rounded bg-geo-primary-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-geo-primary transition-colors whitespace-nowrap shadow-sm">Submit a Brief</a>
-  <a href="/contact#cal-inline-embed" class="px-4 py-1.5 rounded border-2 border-geo-primary-dark text-geo-primary-dark font-bold text-xs uppercase tracking-wider hover:bg-geo-primary-dark hover:text-white transition-colors whitespace-nowrap">Schedule a Call</a>
-  <button id="dismiss-sticky-cta" aria-label="Dismiss" class="absolute right-3 top-1/2 -translate-y-1/2 text-geo-primary-dark/60 hover:text-geo-primary-dark transition-colors text-sm leading-none font-bold">✕</button>
-</div>
-
 <script>
+  // Header scroll shadow
   const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('shadow-md', window.scrollY > 8);
+  }, { passive: true });
+
+  // Mobile menu
   const toggle = document.getElementById('mobile-menu-toggle');
   const menu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
-
-  // Header shadow on scroll
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      header?.classList.add('shadow-lg');
-    } else {
-      header?.classList.remove('shadow-lg');
-    }
-  }, { passive: true });
-
-  // Mobile menu toggle — uses CSS max-height transition (see global.css)
   toggle?.addEventListener('click', () => {
-    const isOpen = menu?.classList.contains('open');
-    if (isOpen) {
-      menu?.classList.remove('open');
-      iconOpen?.classList.remove('hidden');
-      iconClose?.classList.add('hidden');
-      toggle.setAttribute('aria-expanded', 'false');
-    } else {
-      menu?.classList.add('open');
-      iconOpen?.classList.add('hidden');
-      iconClose?.classList.remove('hidden');
-      toggle.setAttribute('aria-expanded', 'true');
-    }
+    const open = menu?.classList.toggle('open');
+    iconOpen?.classList.toggle('hidden', !!open);
+    iconClose?.classList.toggle('hidden', !open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  // Sticky CTA bar
-  const stickyCta = document.getElementById('sticky-cta-bar');
-  const dismissBtn = document.getElementById('dismiss-sticky-cta');
-  const isContactPage = window.location.pathname.startsWith('/contact');
-  const dismissed = sessionStorage.getItem('sticky-cta-dismissed');
-
-  if (stickyCta && !isContactPage && !dismissed) {
-    let shown = false;
-    window.addEventListener('scroll', () => {
-      if (!shown && window.scrollY > 600) {
-        stickyCta.classList.remove('translate-y-full');
-        shown = true;
-      }
-    }, { passive: true });
-
-    dismissBtn?.addEventListener('click', () => {
-      stickyCta.classList.add('translate-y-full');
-      sessionStorage.setItem('sticky-cta-dismissed', '1');
-    });
+  // Dark-mode toggle (persisted; data-theme on <html>)
+  function flipTheme() {
+    const root = document.documentElement;
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('aire-theme', next); } catch (e) {}
   }
+  document.getElementById('theme-toggle')?.addEventListener('click', flipTheme);
+  document.getElementById('theme-toggle-mobile')?.addEventListener('click', flipTheme);
 </script>

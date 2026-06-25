@@ -1,0 +1,81 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const features = [
+  { h: 'All your evidence, one verdict', p: 'Satellite alteration mapping, magnetics, radiometrics, geochemistry and historical drilling — scored together by twelve literature-calibrated deposit models, not interpreted in silos.' },
+  { h: 'Weeks, not field seasons', p: "A full-tenement targeting run on existing data takes weeks. The processing itself runs at 2-5 minutes per 100 km². The slow part is the rigour, and that's the part you want slow." },
+  { h: 'Built for your investors too', p: 'Deliverables arrive prospectus-ready: maps with cited methods, 3D models your board can fly through, and disclosure language your QP will accept.' },
+];
+const tiers = [
+  { h: 'Prospect Brief', price: 'US$1,999', turn: '48-hour turnaround', items: ['Data inventory & quality assessment', 'Applicable deposit-model framework', 'Preliminary prospectivity read', 'Fixed-price scope for a full run'], cta: 'Start here', feature: false },
+  { h: 'Project Intelligence', price: 'from US$14,999', turn: 'Delivered in weeks', items: ['Full CAGE-IN multi-evidence run', 'One deposit-model family, up to ~100 km²', 'Ranked targets + score rasters + sections', 'Interactive 3D deposit/terrain viewer', 'Coverage & confidence disclosure'], cta: 'Scope my project', feature: true },
+  { h: 'Portfolio Program', price: 'from US$69,999', turn: 'Multi-tenement · ongoing', items: ['Multiple tenements & deposit models', 'Full AiRE Council engagement', 'Quarterly re-scoring as science updates', 'Drill-program support & target iteration'], cta: 'Talk portfolios', feature: false },
+];
+const need = [
+  { h: 'Whatever exists — in any state', p: 'Drill databases, geochem sheets, geophysics grids, old consultant reports, GIS projects. Messy is normal; the data-quality review is part of the job, and problems are reported to you, not silently patched.' },
+  { h: 'Your target concept, if you have one', p: "If you believe it's an orogenic gold system, we'll test that — and we'll also tell you if the evidence votes for something else." },
+  { h: 'Confidentiality, by default', p: 'Your data stays yours. NDAs welcome. Nothing appears in our public materials without written consent — and credentials never live in our code or outputs.' },
+];
+---
+
+<PageLayout
+  title="For Explorers — Where to drill next, and what it costs | AiRE"
+  description="Turn the exploration data you already paid for into your next drill program. Fixed-scope AI targeting for miners and juniors — from a 48-hour Prospect Brief to full portfolio programs."
+>
+  <section class="py-14 md:py-20">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">/explorer · for miners &amp; juniors</p>
+      <h1 class="mt-3 max-w-4xl font-fraunces text-4xl font-medium leading-[1.1] text-ink sm:text-5xl dark:text-canvas">Your next drill program is hiding in data you already paid for.</h1>
+      <p class="v5-lead mt-5 max-w-3xl">Most juniors are sitting on years of surveys, geochemistry and imagery that were interpreted once and shelved. AiRE re-reads all of it — together, against current deposit science — and returns ranked targets you can take to the board, the market and the rig.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">The problem we solve</p>
+      <h2 class="v5-h2 mt-2">Every dollar you spend on drilling is a bet on an interpretation.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">AiRE makes that interpretation multi-evidence, literature-current, independently audited — and honest about its own blind spots. You see exactly which evidence supports each target, and exactly what your data could not test.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {features.map((f) => (<div class="v5-card" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">◈</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">{f.h}</h3><p class="mt-2 text-sm text-text-soft">{f.p}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Engagement tiers</p>
+      <h2 class="v5-h2 mt-2">Start at $1,999. Scale when the geology earns it.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">No discovery-call roulette. Three fixed shapes of engagement, each with a defined deliverable.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {tiers.map((t) => (
+          <article class={`flex flex-col rounded-xl border bg-surface p-6 shadow-sm dark:bg-ink-2 ${t.feature ? 'border-cage-gold dark:border-cage-gold/70' : 'border-line dark:border-ink-2'}`} data-reveal>
+            {t.feature && <span class="mb-2 self-start rounded-full bg-cage-gold/15 px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-cage-gold-deep dark:text-cage-gold-soft">Most engaged</span>}
+            <h3 class="font-fraunces text-xl text-ink dark:text-canvas">{t.h}</h3>
+            <p class="mt-1 font-fraunces text-2xl font-semibold text-cage-gold-deep dark:text-cage-gold-soft">{t.price}</p>
+            <p class="text-xs text-text-soft">{t.turn}</p>
+            <ul class="mt-4 flex-1 space-y-2 text-sm text-text-soft">
+              {t.items.map((i) => (<li class="flex gap-2"><span class="text-copper dark:text-copper-soft">·</span>{i}</li>))}
+            </ul>
+            <a class={`mt-5 ${t.feature ? 'v5-btn-gold' : 'v5-btn-line'}`} href="/engage">{t.cta}</a>
+          </article>
+        ))}
+      </div>
+      <p class="mt-6 text-xs italic text-text-soft">Pricing is indicative and confirmed in the fixed-price scope that accompanies every Prospect Brief. Complex data conditions are priced before work begins — never discovered after.</p>
+      <p class="mt-2 text-xs italic text-text-soft">Consulting on a project for a client? AiRE runs <b class="text-ink dark:text-canvas">white-label</b> — your brand and your sign-off, our targeting engine behind the deliverable.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(860px,90vw)]">
+      <p class="v5-eyebrow">What we need from you</p>
+      <h2 class="v5-h2 mt-2">If you can export it, we can score it.</h2>
+      <div class="mt-8 space-y-6">
+        {need.map((s) => (<div data-reveal><h3 class="font-fraunces text-lg text-ink dark:text-canvas">{s.h}</h3><p class="mt-1.5 text-sm text-text-soft">{s.p}</p></div>))}
+      </div>
+      <div class="mt-10 flex flex-col items-center gap-2">
+        <a class="v5-btn-gold" href="/engage">Get the 48-Hour Prospect Brief <span aria-hidden="true">→</span></a>
+        <p class="text-xs text-text-soft">US$1,999 · 48 hours · the beginning of every AiRE engagement</p>
+      </div>
+    </div>
+  </section>
+</PageLayout>

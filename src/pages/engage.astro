@@ -1,0 +1,88 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const steps = [
+  { when: 'Day 0 · Paper first', h: 'Mutual NDA execution', p: 'Ours or yours — we execute whichever confidentiality text your team prefers before any data moves. Confidentiality is the first deliverable.' },
+  { when: 'Day 0 · Secure handover', h: 'Data-room handshake', p: 'Share a secure access link — SharePoint, Box, AWS or your existing virtual data room. No email attachments, no payload limits. Project outline and commodity focus come with it — even rough.' },
+  { when: 'Hours 0-48', h: 'The council works', p: "Data inventory and quality assessment · which of the twelve deposit models apply to your geology · a preliminary prospectivity framework · what your data can support today and what it can't." },
+  { when: 'Hour 48', h: 'You receive the Prospect Brief', p: "A written assessment with a fixed-price, fixed-scope proposal for the full run. If the honest answer is “your data can’t support this yet,” the brief says that — and tells you the cheapest path to fixing it." },
+  { when: 'Weeks, not seasons', h: 'The full engagement', p: 'On go-ahead: the complete CAGE-IN run, ranked targets, maps, sections, 3D viewer and coverage disclosure — through every council gate, ending at G4: your explicit acceptance.' },
+];
+const spec = ['Data inventory + a quality grade for each dataset you hold.', 'Which of the 12 deposit models fit your geology — and why.', 'A preliminary ranked prospectivity read on the ground.', 'A coverage map: what your data CAN and CANNOT light up.', 'A fixed-scope, fixed-price proposal for the full run.', 'A one-click link to book the call.'];
+const wins = ['Is this ground worth a drill budget?', 'Where, specifically, would the evidence put the first targets?', 'How sure can we be — what scored weight-mass backs it?', "What’s missing, and what would it cost to light it up?"];
+---
+
+<PageLayout
+  title="Engage — Start with a 48-hour Prospect Brief | AiRE"
+  description="Every AiRE engagement starts the same way: a US$1,999, 48-hour Prospect Brief — data inventory, deposit-model framework, preliminary prospectivity read and a fixed-price scope."
+>
+  <section class="py-14 md:py-20">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Engage</p>
+      <h1 class="mt-3 font-fraunces text-4xl font-medium leading-[1.1] text-ink sm:text-5xl dark:text-canvas">Start small. Start fast. Judge us on output.</h1>
+      <p class="v5-lead mt-5 max-w-3xl">No open-ended discovery calls. Every AiRE engagement — miner, government or investor — begins with the same low-risk first transaction: the 48-hour Prospect Brief. You get a tangible deliverable; we both learn whether the full engagement is worth it.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">The Prospect Brief · US$1,999 · 48 hours</p>
+      <h2 class="v5-h2 mt-2">The first deliverable, not the first meeting.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">Scoped on your ground — your tenement, your data inventory — not a canned demo.</p>
+      <div class="mt-8 space-y-5">
+        {steps.map((s) => (
+          <div class="v5-card flex flex-col gap-1 md:flex-row md:gap-6" data-reveal>
+            <p class="shrink-0 font-fraunces text-sm font-semibold text-copper md:w-44 dark:text-copper-soft">{s.when}</p>
+            <div><h3 class="font-fraunces text-lg text-ink dark:text-canvas">{s.h}</h3><p class="mt-1.5 text-sm text-text-soft">{s.p}</p></div>
+          </div>
+        ))}
+      </div>
+      <p class="mt-6 text-xs italic text-text-soft">Full-engagement pricing is indicative by pathway — see <a class="v5-link" href="/explorer">explorer</a>, <a class="v5-link" href="/government">government</a> and <a class="v5-link" href="/investor">investor</a> — and is confirmed in your brief before any commitment.</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto grid w-[min(1140px,90vw)] items-center gap-10 md:grid-cols-2">
+      <div>
+        <p class="v5-eyebrow">The deliverable</p>
+        <h2 class="v5-h2 mt-2">What lands in your inbox at hour 48.</h2>
+        <ol class="mt-6 space-y-3">
+          {spec.map((s, i) => (<li class="flex gap-3 text-sm text-text-soft"><span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ink text-xs font-bold text-cage-gold-soft">{i + 1}</span>{s}</li>))}
+        </ol>
+      </div>
+      <figure class="overflow-hidden rounded-xl border border-line dark:border-ink-2" data-reveal>
+        <svg viewBox="0 0 560 270" xmlns="http://www.w3.org/2000/svg" class="block w-full" role="img" aria-label="Sample evidence coverage disclosure chart">
+          <rect width="560" height="270" fill="#10202b"></rect>
+          <g font-family="Inter,sans-serif" font-size="10.5">
+            <text x="40" y="46" fill="#9fb0b8" font-weight="700" letter-spacing="1.4">EVIDENCE COVERAGE — DISCLOSED PER RUN</text>
+            <text x="40" y="80" fill="#c7d2d7">alteration spectral suite</text><rect x="230" y="70" width="240" height="12" rx="6" fill="#9a5630"></rect><text x="480" y="80" fill="#8aa0ad">active</text>
+            <text x="40" y="108" fill="#c7d2d7">magnetics + radiometrics</text><rect x="230" y="98" width="240" height="12" rx="6" fill="#9a5630"></rect><text x="480" y="108" fill="#8aa0ad">active</text>
+            <text x="40" y="136" fill="#c7d2d7">geochemistry (multi-element)</text><rect x="230" y="126" width="186" height="12" rx="6" fill="#b58a1f"></rect><text x="480" y="136" fill="#e3c465">partial</text>
+            <text x="40" y="164" fill="#8a9aa3">EM conductivity</text><rect x="230" y="154" width="240" height="12" rx="6" fill="#22333d"></rect><text x="480" y="164" fill="#7e919b">dark · no input data</text>
+            <text x="40" y="192" fill="#8a9aa3">structural / lithology map</text><rect x="230" y="182" width="240" height="12" rx="6" fill="#22333d"></rect><text x="480" y="192" fill="#7e919b">dark · absent</text>
+            <text x="40" y="238" fill="#7e919b">weight-mass scored: <tspan fill="#e3c465" font-weight="700">78%</tspan> — the remaining 22% is named, not hidden</text>
+          </g>
+        </svg>
+        <figcaption class="bg-surface px-4 py-2 text-xs italic text-text-soft dark:bg-ink-2">Sample coverage page (redacted) — every brief states what the data could not see.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-canvas-alt py-16 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <h2 class="v5-h2">What makes the brief a win — you decide.</h2>
+      <div class="mt-6 grid gap-4 sm:grid-cols-2">
+        {wins.map((q) => (<div class="rounded-lg border border-line bg-surface px-5 py-4 font-fraunces text-ink dark:border-ink-2 dark:bg-ink-2 dark:text-canvas" data-reveal>{q}</div>))}
+      </div>
+      <p class="mt-6 max-w-3xl text-sm text-text-soft">You judge the brief on one thing: is the ranked read defensible against your own knowledge of the ground? Success criteria are agreed in writing before the clock starts.</p>
+    </div>
+  </section>
+
+  <section class="bg-ink py-16 text-center text-canvas md:py-20">
+    <div class="mx-auto w-[min(860px,90vw)]">
+      <h2 class="font-fraunces text-3xl font-medium md:text-4xl">Request your Prospect Brief.</h2>
+      <p class="mt-3 text-canvas/70">Submissions go straight to Dr. Tripathi — no mailing lists, no drip campaigns.</p>
+      <a class="v5-btn-gold mt-6" href="/contact">Start the conversation <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</PageLayout>

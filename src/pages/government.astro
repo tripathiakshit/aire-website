@@ -1,0 +1,63 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const features = [
+  { ic: '⛨', h: 'Data sovereignty, literally', p: 'The platform deploys as desktop software on your infrastructure. National geoscience data never leaves your control — no cloud upload, no foreign servers, no exceptions.' },
+  { ic: '⛏', h: 'Legacy data becomes an asset', p: 'Decades of survey archives — geophysics, geochemistry, mapping — are re-read together against current deposit science. The cheapest exploration is the data you already own.' },
+  { ic: '⚖', h: 'Block allocation, informed', p: 'Rank ground before you license it. Multi-evidence prospectivity gives licensing rounds and block allocation a defensible technical basis.' },
+];
+const phases = [
+  { when: 'Months 1-2', h: 'Baseline data audit', p: 'Inventory and quality assessment of national datasets — what exists, what is usable, what gaps matter. Delivered as a published, citable audit.' },
+  { when: 'Months 2-6', h: 'Regional prospectivity scan', p: 'Country- or province-scale multi-evidence scoring across the commodity systems that matter to your mineral policy. Satellite coverage fills where ground data is thin.' },
+  { when: 'Months 6-12', h: 'District targeting', p: 'Priority districts re-scored at higher resolution with full deposit-model treatment, producing ranked target portfolios for licensing or state exploration.' },
+  { when: 'Throughout', h: 'Capacity transfer', p: 'Your geologists work inside the system from month one — structured training, documented workflows, and a skills-development track record we have run for national agencies before. The capability stays when the contract ends.' },
+];
+---
+
+<PageLayout
+  title="For Governments, Sovereign Wealth & Development Banks — Sovereign exploration intelligence | AiRE"
+  description="Technology-led national exploration programs: regional prospectivity mapping that de-risks exploration and draws investment, with skills transfer and full data sovereignty. Defensible budgets, auditable methods."
+>
+  <section class="py-14 md:py-20">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">/government · for governments, sovereign wealth &amp; development banks</p>
+      <h1 class="mt-3 max-w-4xl font-fraunces text-4xl font-medium leading-[1.1] text-ink sm:text-5xl dark:text-canvas">National-scale targeting. Sovereign data. Local capability that outlasts the contract.</h1>
+      <p class="v5-lead mt-5 max-w-3xl">AiRE builds technology-led exploration programs for geological surveys, ministries, sovereign wealth funds and development banks — regional and national prospectivity mapping over your existing datasets that de-risks exploration and draws investment into your critical and strategic minerals, with the methods documented, the budgets defensible, and your own geologists trained to run the system when we leave.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Why programs choose AiRE</p>
+      <h2 class="v5-h2 mt-2">Auditable methods are fundable methods.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">A ministry must defend its exploration budget to a parliament, not a shareholder. Every AiRE output traces each score to named evidence layers and published literature — so your program review answers itself.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {features.map((f) => (<div class="v5-card" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">{f.ic}</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">{f.h}</h3><p class="mt-2 text-sm text-text-soft">{f.p}</p></div>))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Program structure</p>
+      <h2 class="v5-h2 mt-2">Four phases. Capability transfers in all of them.</h2>
+      <div class="mt-8 space-y-6">
+        {phases.map((p) => (
+          <div class="v5-card flex flex-col gap-1 md:flex-row md:gap-6" data-reveal>
+            <p class="shrink-0 font-fraunces text-sm font-semibold text-copper md:w-32 dark:text-copper-soft">{p.when}</p>
+            <div><h3 class="font-fraunces text-lg text-ink dark:text-canvas">{p.h}</h3><p class="mt-1.5 text-sm text-text-soft">{p.p}</p></div>
+          </div>
+        ))}
+      </div>
+      <p class="mt-6 text-xs italic text-text-soft">Programs are structured to tender requirements — typically multi-year, milestone-based, with deliverables and training quotas contractually defined.</p>
+    </div>
+  </section>
+
+  <section class="bg-ink py-16 text-center text-canvas md:py-20">
+    <div class="mx-auto w-[min(860px,90vw)]">
+      <h2 class="font-fraunces text-3xl font-medium md:text-4xl">Begin with a pilot district.</h2>
+      <p class="mt-3 text-canvas/70">The fastest way to evaluate AiRE is a bounded pilot: one district, your existing data, full methodology disclosure. Judge the program on its output.</p>
+      <a class="v5-btn-gold mt-6" href="/engage">Discuss a pilot program <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</PageLayout>

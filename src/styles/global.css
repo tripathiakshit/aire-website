@@ -122,3 +122,27 @@
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
+/* ===================================================================
+   V5 "branded-house" redesign — page background + brand component
+   utilities (Tailwind @apply; mirrors the existing .text-gradient /
+   .card-dark pattern in this file). Used by the redesigned pages.
+   =================================================================== */
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink-text);
+}
+[data-theme="dark"] body {
+  background: #0e181d;
+  color: #d4dce0;
+}
+
+@layer components {
+  .v5-eyebrow { @apply text-xs font-bold uppercase tracking-[0.22em] text-copper dark:text-copper-soft; }
+  .v5-lead    { @apply text-lg leading-relaxed text-text-soft; }
+  .v5-h2      { @apply font-fraunces text-3xl font-medium leading-tight text-ink md:text-4xl dark:text-canvas; }
+  .v5-btn-gold { @apply inline-flex items-center justify-center gap-2 rounded-md bg-cage-gold px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-cage-gold-deep; }
+  .v5-btn-line { @apply inline-flex items-center justify-center gap-2 rounded-md border border-line px-5 py-3 text-sm font-semibold text-ink transition-colors hover:border-copper dark:border-ink-2 dark:text-canvas; }
+  .v5-link    { @apply font-semibold text-geo-primary underline-offset-2 hover:underline dark:text-geo-secondary; }
+  .v5-card    { @apply rounded-xl border border-line bg-surface p-6 shadow-sm transition-colors dark:border-ink-2 dark:bg-ink-2; }
+}

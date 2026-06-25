@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add("js");(function(){try{var t=localStorage.getItem("aire-theme");if(!t)t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 3D Deposit Demo - AiRE Viewer</title>
+<meta name="description" content="Instant interactive 3D deposit viewer - fly through a demonstration orebody in your browser. Illustrative data, no login, no install, works offline.">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  /* Light page band; the embedded viewer is a dark WebGL canvas living in an
+     isolated iframe (it sets its own fixed layout - must not run inline). */
+  .viewer-shell { background: var(--bg-alt); border-bottom: 1px solid var(--line); }
+  .viewer-stage { width: min(1140px, 94vw); margin: 2.4rem auto 3rem; }
+  .viewer-stage iframe {
+    display: block;
+    width: 100%;
+    height: 78vh;
+    min-height: 600px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--ink);
+    box-shadow: var(--shadow-2);
+  }
+  .viewer-bar { display: flex; justify-content: space-between; align-items: center; gap: 1em; flex-wrap: wrap; margin-top: .9rem; }
+  .vb-note { font-size: .82rem; color: var(--text-soft); letter-spacing: .03em; }
+  .viewer-launch { display: none; margin: 1.2rem auto 0; }
+  .viewer-keys { display: flex; gap: .6em; flex-wrap: wrap; margin-top: 1rem; }
+  .viewer-keys span {
+    font-family: ui-monospace, Consolas, monospace;
+    font-size: .76rem;
+    color: var(--text-soft);
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: .35em .8em;
+    background: #fff;
+  }
+  /* Small screens: a short inline frame is useless for a fly-through -
+     replace it with a tap-to-launch button that opens the demo full screen. */
+  @media (max-width: 680px) {
+    .viewer-stage iframe, .viewer-bar { display: none; }
+    .viewer-launch { display: inline-flex; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><span class="word">Ai<span class="dot">R</span>E</span> <small>AI Resource Exploration</small></a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="technology.html">Technology</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="projects.html">Projects</a>
+      <a href="publications.html">Publications</a>
+      <a href="council.html">AiRE Council</a>
+      <a href="methodology.html">Methodology</a>
+      <a class="btn btn-gold nav-cta" href="engage.html">Get the 48-Hour Prospect Brief</a>
+    </nav>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main>
+  <div class="viewer-shell">
+    <div class="viewer-stage">
+      <p class="eyebrow" style="margin:0 0 .8rem">Interactive · no login · offline-capable</p>
+      <!-- OPAQUE STATIC ASSET: eldorado-atlantis-3d.html - a self-contained
+           Three.js/WebGL viewer WITH the alteration-zone group (everything inlined,
+           runs offline). Never edit its internals; to update the demo, replace the file.
+           Isolated in an iframe because the app sets its own fixed full-screen layout. -->
+      <iframe id="depositViewer" src="eldorado-atlantis-3d.html"
+              title="Interactive 3D deposit viewer"
+              loading="lazy"
+              allow="fullscreen; pointer-lock"></iframe>
+      <div class="viewer-bar">
+        <span class="vb-note">Interactive demonstration model · illustrative data · click the model first, then drive it - it&rsquo;s best full screen.</span>
+        <button class="btn btn-line" id="vwFullscreen" type="button">Open full screen</button>
+      </div>
+      <a class="btn btn-gold viewer-launch" href="eldorado-atlantis-3d.html" target="_blank" rel="noopener">Launch the 3D viewer <span class="arr">→</span></a>
+      <div class="viewer-keys">
+        <span>drag - orbit</span><span>scroll - zoom</span><span>WASD - fly</span><span>C - clip plane</span><span>1-6 - camera presets</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap-narrow">
+      <p class="eyebrow">Why this matters</p>
+      <h2>If a board member can fly through it, a board member can fund it.</h2>
+      <p class="lead" style="margin-top:1em">Exploration geology is three-dimensional; investor communication usually isn&rsquo;t. AiRE deposit viewers close that gap - every drill intercept, the modeled orebody and its untested extensions, in a file you can email. It opens on a laptop in a boardroom with no Wi-Fi, on a tablet at a conference, anywhere a decision gets made.</p>
+      <div class="feature-cols">
+        <div class="feature reveal"><div class="f-ic">1</div><h3>One file, zero friction</h3><p>The complete model - geometry, grades, basemap - ships as a single self-contained HTML file. No installs, no licenses, no server.</p></div>
+        <div class="feature reveal"><div class="f-ic">2</div><h3>Built from your drill database</h3><p>Collars, surveys, assays and modeled surfaces are read directly from your data - desurveyed, validated and rendered with full fidelity.</p></div>
+        <div class="feature reveal"><div class="f-ic">3</div><h3>Honest by design</h3><p>Data-supported geometry and interpreted projections are visually distinct, with disclosure language built in - your QP stays comfortable.</p></div>
+      </div>
+      <div class="fly-cta">
+        <a class="btn btn-gold" href="engage.html">Get a viewer for your deposit <span class="arr">→</span></a>
+        <p class="micro">Typical turnaround: days, not months - built from a clean drill database.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-base" style="border-top:0;padding-top:0">
+      <span>© 2026 AI Resource Exploration Private Limited (AiRE).</span>
+      <span><a href="index.html">← Back to home</a> &middot; <a class="textlink" href="contact.html#book-call">Book a call</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function () {
+  var btn = document.getElementById('vwFullscreen');
+  var frame = document.getElementById('depositViewer');
+  if (btn && frame) {
+    btn.addEventListener('click', function () {
+      var rq = frame.requestFullscreen || frame.webkitRequestFullscreen || frame.msRequestFullscreen;
+      if (rq) { rq.call(frame); }
+      try { frame.contentWindow.focus(); } catch (e) { /* cross-origin guard; same-origin here */ }
+    });
+  }
+})();
+</script>
+</body>
+</html>

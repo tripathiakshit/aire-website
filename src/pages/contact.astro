@@ -1,157 +1,74 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
-// Shared input styling (V5 palette, dark-mode aware)
-const inp = 'w-full rounded-lg border border-line bg-surface px-4 py-2.5 text-sm text-ink focus:border-copper focus:outline-none focus:ring-1 focus:ring-copper dark:border-ink-2 dark:bg-ink dark:text-canvas';
-const lbl = 'mb-1.5 block text-xs font-semibold uppercase tracking-wider text-text-soft';
+
+// External intake endpoints (Google Calendar appointment scheduler + Google Form)
+const SCHEDULER_URL = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ20nIPf8pxPqOw63IdBsaFnXHofP4_FtCx0v4bSWFiSztjr4p6gOcFo-xFIINByGhYQs0-bGjAO';
+const ENQUIRY_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSeFNPr0-H4ky-NaOKsGm2IuuN0wi9w0SYhTsu8GZ2wKBZ5Rlw/viewform';
 ---
 
 <PageLayout
   title="Contact — Start the conversation | AiRE"
-  description="Contact AiRE: submit a project inquiry, send a government enquiry, or book a 30-minute discovery call directly with Dr. Amit Tripathi."
+  description="Contact AiRE: book a 30-minute discovery call directly with Dr. Amit Tripathi, or send your project through our secure enquiry form for a tailored response within two working days."
 >
   <!-- HERO -->
   <section class="py-14 md:py-20">
     <div class="mx-auto w-[min(1140px,90vw)]">
       <p class="v5-eyebrow">Contact</p>
       <h1 class="mt-3 font-fraunces text-4xl font-medium leading-[1.1] text-ink sm:text-5xl dark:text-canvas">Start the conversation.</h1>
-      <p class="v5-lead mt-5 max-w-3xl">Submit a project inquiry and we&rsquo;ll come back with a tailored response within two working days — or skip straight to booking a discovery call with Dr.&nbsp;Amit Tripathi. NDA first, always; data rooms, not email attachments.</p>
+      <p class="v5-lead mt-5 max-w-3xl">Tell us what you need and we&rsquo;ll come back with a tailored response within two working days — or book a discovery call with Dr.&nbsp;Amit Tripathi directly. NDA first, always; data rooms, not email attachments.</p>
     </div>
   </section>
 
-  <!-- PROJECT INQUIRY -->
+  <!-- TWO WAYS IN -->
   <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
-    <div class="mx-auto grid w-[min(1140px,90vw)] items-start gap-10 lg:grid-cols-2">
-      <!-- Info -->
-      <div class="order-2 lg:order-1">
-        <p class="v5-eyebrow">Project inquiry</p>
-        <h2 class="v5-h2 mt-2">Tell us about your project.</h2>
-        <p class="mt-4 text-text-soft">Whether you need a CAGE-IN re-interpretation, a compliant resource report, or specific technical expertise — we&rsquo;ll review your inquiry and respond within two working days. Prefer to talk first? <a class="v5-link" href="#cal-inline-embed">Schedule a call</a>.</p>
-        <ul class="mt-6 space-y-2.5 text-sm text-text-soft">
-          {['Pricing scales with project scope, geological complexity, and data volume', 'Steeply discounted rates for long-term retainer arrangements', 'NI 43-101 and JORC compliant reporting available', 'Custom response within 2 working days of inquiry'].map((i) => (
-            <li class="flex items-start gap-2"><span class="mt-0.5 shrink-0 text-copper dark:text-copper-soft">→</span>{i}</li>
-          ))}
-        </ul>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2">
-          <div class="v5-card">
-            <h3 class="text-xs font-semibold uppercase tracking-wider text-copper dark:text-copper-soft">Head office</h3>
-            <p class="mt-2 text-sm text-text-soft">1310 Amethyst, My Home Jewel,<br />Miyapur, Hyderabad 500049, India</p>
-          </div>
-          <div class="v5-card">
-            <h3 class="text-xs font-semibold uppercase tracking-wider text-copper dark:text-copper-soft">Branch office</h3>
-            <p class="mt-2 text-sm text-text-soft">24 Rue Loiselle, Les Coteaux,<br />QC J7X 0A9, Canada</p>
-          </div>
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <div class="grid gap-5 md:grid-cols-2">
+        <!-- Book a discovery call -->
+        <article id="book-call" class="flex flex-col rounded-2xl border border-cage-gold bg-surface p-7 shadow-sm sm:p-9 dark:border-cage-gold/60 dark:bg-ink-2" data-reveal>
+          <p class="text-xs font-semibold uppercase tracking-wider text-copper dark:text-copper-soft">Book a discovery call</p>
+          <h2 class="mt-2 font-fraunces text-2xl text-ink dark:text-canvas">A 30-minute call with Dr.&nbsp;Amit Tripathi</h2>
+          <p class="mt-3 flex-1 text-sm text-text-soft">Schedule 30 minutes directly with the founder — bring your messiest folder, and we&rsquo;ll tell you honestly whether your data can support an AiRE run.</p>
+          <a class="v5-btn-gold mt-6 self-start" href={SCHEDULER_URL} target="_blank" rel="noopener">Open the scheduler <span aria-hidden="true">→</span></a>
+        </article>
+
+        <!-- Send your project -->
+        <article class="flex flex-col rounded-2xl border border-line bg-surface p-7 shadow-sm sm:p-9 dark:border-ink-2 dark:bg-ink-2" data-reveal>
+          <p class="text-xs font-semibold uppercase tracking-wider text-copper dark:text-copper-soft">Send your project</p>
+          <h2 class="mt-2 font-fraunces text-2xl text-ink dark:text-canvas">Tell us what you need</h2>
+          <p class="mt-3 flex-1 text-sm text-text-soft">Share your project and data situation through our secure enquiry form. It goes straight to Dr.&nbsp;Tripathi — no mailing lists, no drip campaigns.</p>
+          <a class="v5-btn-line mt-6 self-start" href={ENQUIRY_FORM_URL} target="_blank" rel="noopener">Open the enquiry form <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+
+      <!-- Contact details -->
+      <div class="mt-8 grid gap-6 border-t border-line pt-8 sm:grid-cols-3 dark:border-ink-2">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-copper dark:text-copper-soft">Direct</p>
+          <p class="mt-2 text-sm text-text-soft">
+            <span class="font-semibold text-ink dark:text-canvas">Dr. Amit Tripathi</span><br />
+            Principal Consultant &amp; Founder<br />
+            <a class="v5-link" href="mailto:info@geoexplorationllc.com">info@geoexplorationllc.com</a><br />
+            <a class="v5-link" href="https://www.linkedin.com/in/amit-tripathi-b7a5567/" target="_blank" rel="noopener">LinkedIn &rarr;</a>
+          </p>
         </div>
-        <a href="mailto:info@geoexplorationllc.com" class="mt-4 inline-block v5-link text-sm">info@geoexplorationllc.com</a>
-      </div>
-
-      <!-- Netlify form (backend preserved) -->
-      <div class="order-1 rounded-2xl border border-line bg-surface p-5 shadow-sm sm:p-8 lg:order-2 dark:border-ink-2 dark:bg-ink-2">
-        <p class="font-fraunces text-xl font-semibold text-ink dark:text-canvas">Submit a project inquiry</p>
-        <p class="mt-1 text-sm text-text-soft">It goes straight to Dr. Tripathi — no mailing lists, no drip campaigns.</p>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" class="mt-4 space-y-4">
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="bot-field" class="hidden" />
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div><label for="name" class={lbl}>Your Name *</label><input type="text" id="name" name="name" required maxlength="100" placeholder="Dr. Jane Smith" class={inp} /></div>
-            <div><label for="email" class={lbl}>Email Address *</label><input type="email" id="email" name="email" required maxlength="100" placeholder="you@company.com" class={inp} /></div>
-          </div>
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div><label for="phone" class={lbl}>Phone (optional)</label><input type="tel" id="phone" name="phone" maxlength="20" placeholder="+1 514 000 0000" class={inp} /></div>
-            <div><label for="company-website" class={lbl}>Company Website (optional)</label><input type="url" id="company-website" name="company-website" placeholder="https://yourcompany.com" class={inp} /></div>
-          </div>
-          <div><label for="project-name" class={lbl}>Project Name *</label><input type="text" id="project-name" name="project-name" required placeholder="e.g. Copper Porphyry — Colombia" class={inp} /></div>
-          <div><label for="requirements" class={lbl}>Describe Your Requirements *</label><textarea id="requirements" name="requirements" rows="4" required maxlength="2000" placeholder="Area size, geological setting, data types available, target commodity, stage of exploration…" class={inp + ' resize-none'}></textarea></div>
-          <div><label for="data-specs" class={lbl}>Attach Data Specs / Technical Documents (optional)</label><input type="file" id="data-specs" name="data-specs" accept=".pdf,.doc,.docx,.xls,.xlsx,.zip,.csv,.txt" class="w-full cursor-pointer text-sm text-text-soft file:mr-3 file:rounded file:border-0 file:bg-copper/10 file:px-4 file:py-2 file:text-xs file:font-semibold file:text-copper hover:file:bg-copper/20" /></div>
-          <button type="submit" class="v5-btn-gold mt-2 w-full">Submit Inquiry</button>
-          <p class="text-center text-xs leading-relaxed text-text-soft">🔒 Submitted securely to <strong class="text-ink dark:text-canvas">info@geoexplorationllc.com</strong> under our standard confidentiality protocols.</p>
-        </form>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-copper dark:text-copper-soft">Head office</p>
+          <p class="mt-2 text-sm text-text-soft">1310 Amethyst, My Home Jewel,<br />Miyapur, Hyderabad 500049, India</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-copper dark:text-copper-soft">Branch office</p>
+          <p class="mt-2 text-sm text-text-soft">24 Rue Loiselle, Les Coteaux,<br />QC J7X 0A9, Canada</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- DISCOVERY CALL (cal.com embed) -->
-  <section class="py-16 md:py-24">
-    <div class="mx-auto w-[min(1000px,90vw)]">
-      <div class="text-center">
-        <p class="v5-eyebrow">Prefer to talk first?</p>
-        <h2 class="v5-h2 mt-2">Book a discovery call.</h2>
-        <p class="v5-lead mx-auto mt-4 max-w-xl">Schedule a 30-minute call directly with Dr.&nbsp;Amit Tripathi — bring your messiest folder, and we&rsquo;ll tell you honestly whether your data can support an AiRE run.</p>
-      </div>
-      <div id="cal-inline-embed" class="mt-8 min-h-[600px] overflow-hidden rounded-2xl border border-line dark:border-ink-2"></div>
-    </div>
-  </section>
-
-  <!-- GOVERNMENT ENQUIRY (Netlify form preserved) -->
-  <section id="government-enquiry" class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+  <!-- PROSPECT BRIEF CTA -->
+  <section class="bg-ink py-16 text-center text-canvas md:py-20">
     <div class="mx-auto w-[min(860px,90vw)]">
-      <div class="text-center">
-        <p class="v5-eyebrow">Geological surveys &amp; ministries</p>
-        <h2 class="v5-h2 mt-2">Government &amp; institutional enquiry.</h2>
-        <p class="v5-lead mx-auto mt-4 max-w-2xl">Planning a national or district-scale prospectivity program? Outline your scope and funding context — we will respond with a tailored capability overview and a suggested technical scoping meeting.</p>
-      </div>
-      <div class="mt-8 rounded-2xl border border-line bg-surface p-6 shadow-sm md:p-10 dark:border-ink-2 dark:bg-ink-2">
-        <form name="government-enquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
-          <input type="hidden" name="form-name" value="government-enquiry" />
-          <input type="hidden" name="bot-field" class="hidden" />
-          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <div><label for="gov-name" class={lbl}>Name *</label><input type="text" id="gov-name" name="name" required maxlength="100" placeholder="Director / Dr. Jane Smith" class={inp} /></div>
-            <div><label for="gov-email" class={lbl}>Email *</label><input type="email" id="gov-email" name="email" required maxlength="100" placeholder="you@ministry.gov" class={inp} /></div>
-          </div>
-          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <div><label for="gov-institution" class={lbl}>Ministry / Institution *</label><input type="text" id="gov-institution" name="institution" required maxlength="150" placeholder="Ministry of Energy and Mineral Development" class={inp} /></div>
-            <div><label for="gov-country" class={lbl}>Country / Jurisdiction *</label><input type="text" id="gov-country" name="country" required maxlength="100" placeholder="e.g. Uganda, Tanzania, Senegal" class={inp} /></div>
-          </div>
-          <div><label for="gov-scope" class={lbl}>Program Scope *</label><textarea id="gov-scope" name="program-scope" rows="3" required maxlength="1000" placeholder="National prospectivity mapping, district reconnaissance — area size, priority commodities, data holdings…" class={inp + ' resize-none'}></textarea></div>
-          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            <div><label for="gov-funding" class={lbl}>Funding Source</label>
-              <select id="gov-funding" name="funding-source" class={inp}>
-                <option value="">Select…</option>
-                <option>Own government budget</option>
-                <option>Bilateral development agency</option>
-                <option>World Bank / IDA</option>
-                <option>African Development Bank</option>
-                <option>Other multilateral</option>
-                <option>Not yet determined</option>
-              </select>
-            </div>
-            <div><label for="gov-timeline" class={lbl}>Expected Timeline</label><input type="text" id="gov-timeline" name="expected-timeline" maxlength="100" placeholder="e.g. Start Q3 2025, 3-year duration" class={inp} /></div>
-          </div>
-          <button type="submit" class="v5-btn-line w-full">Submit Government Enquiry →</button>
-        </form>
-      </div>
+      <h2 class="font-fraunces text-3xl font-medium md:text-4xl">Or start with the Prospect Brief.</h2>
+      <p class="mt-3 text-canvas/70">Your data, the full council, a fixed price — a documented read on your ground in 48 hours.</p>
+      <a class="v5-btn-gold mt-6" href="/engage">Get the 48-Hour Prospect Brief <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </PageLayout>
-
-<script>
-  // Cal.com inline embed (handle preserved) — theme synced to the site's dark/light mode
-  (function (C, A, L) {
-    let p = function (a, ar) { a.q.push(ar); };
-    let d = C.document;
-    C.Cal = C.Cal || function () {
-      let cal = C.Cal; let ar = arguments;
-      if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; }
-      if (ar[0] === L) {
-        const api = function () { p(api, arguments); };
-        const namespace = ar[1]; api.q = api.q || [];
-        if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar);
-        return;
-      }
-      p(cal, ar);
-    };
-  })(window, 'https://app.cal.com/embed/embed.js', 'init');
-
-  const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-  Cal('init', 'aire-discovery', { origin: 'https://cal.com' });
-  Cal.ns['aire-discovery']('inline', {
-    elementOrSelector: '#cal-inline-embed',
-    config: { layout: 'month_view', theme },
-    calLink: 'dr-amit-tripathi',
-  });
-  Cal.ns['aire-discovery']('ui', { theme, cssVarsPerTheme: { light: { 'cal-brand': '#0c498e' }, dark: { 'cal-brand': '#6fb2ea' } }, hideEventTypeDetails: false, layout: 'month_view' });
-
-  new MutationObserver(() => {
-    const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-    try { Cal.ns['aire-discovery']('ui', { theme: t }); } catch (e) {}
-  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-</script>

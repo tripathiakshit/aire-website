@@ -14,9 +14,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://geoexplo
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- no-flash dark mode: set data-theme before first paint -->
+    <!-- no-flash theme: light is the default; only honour an explicit user choice -->
     <script is:inline>
-      (function(){try{var t=localStorage.getItem("aire-theme");if(!t)t=(window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)?"dark":"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
+      (function(){try{var t=localStorage.getItem("aire-theme")||"light";document.documentElement.setAttribute("data-theme",t);}catch(e){}})();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description" content={description} />

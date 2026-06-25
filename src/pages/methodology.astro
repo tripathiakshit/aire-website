@@ -1,0 +1,81 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const steps = [
+  { h: 'The literature watch', p: "The council's literature seat monitors peer-reviewed publication across economic geology — journals first, then quality-assessed gray literature from the major geological surveys. Relevance and credibility are scored separately; predatory sources are excluded outright." },
+  { h: 'Dual domain review', p: 'A proposed model change is reviewed twice — once for the geology (does this criterion genuinely discriminate?), once for the citation (does the source actually support this weight?). Either reviewer can veto.' },
+  { h: 'Ratification & locking', p: 'Accepted changes are versioned and cryptographically hash-locked, with the previous weights preserved in the audit trail. A model can always answer: what changed, when, on whose evidence?' },
+  { h: 'Regression-guarded release', p: "Every model update passes the full automated test wall — 220+ regression tests — before it can touch a client run, so every release reproduces the same answer on the same data. Science evolves; rigour doesn't relax." },
+];
+const promises = [
+  { n: '①', h: 'No weight without citation', p: "Every parameter in every deposit model carries its published source. If the science can't be cited, the weight doesn't ship — there are no folklore numbers in the engine." },
+  { n: '②', h: 'Coverage disclosure, every run', p: "Each score states what fraction of the deposit model's evidence your data could actually test — and names the dark layers with reasons: no input data, capability gap, or data-quality reject. A high score on thin evidence is flagged as exactly that." },
+  { n: '③', h: 'Consistency vetoes', p: "A criterion-based veto filter kills geologically incoherent scores before they reach your map. High numbers that violate the deposit model's own logic don't survive." },
+  { n: '④', h: 'Reproducibility on demand', p: 'Every run emits a machine-readable record of its inputs, parameters, model versions and software state. Six months later, your QP can ask &ldquo;how exactly was this produced?&rdquo; — and get a complete answer.' },
+];
+---
+
+<PageLayout
+  title="Living Methodology — Models that move with the science | AiRE"
+  description="AiRE's Living Methodology: deposit models calibrated to peer-reviewed literature and updated as the science advances — with cited weights, consistency vetoes, coverage disclosure and per-run reproducibility."
+>
+  <!-- HERO -->
+  <section class="py-14 md:py-20">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Living Methodology</p>
+      <h1 class="mt-3 max-w-4xl font-fraunces text-4xl font-medium leading-[1.1] text-ink sm:text-5xl dark:text-canvas">Most exploration software is frozen at the day it shipped. Ours reads the literature.</h1>
+      <p class="v5-lead mt-5 max-w-3xl">Ore-deposit science moves monthly — new geochronology, new alteration vectors, new exploration criteria, published and peer-reviewed. AiRE&rsquo;s deposit models are maintained as living, versioned scientific documents that absorb that progress. When you score your ground with AiRE, you score it against today&rsquo;s understanding — not the understanding from whenever your software vendor last released.</p>
+    </div>
+  </section>
+
+  <!-- HOW A MODEL STAYS ALIVE -->
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">How a model stays alive</p>
+      <h2 class="v5-h2 mt-2">From journal page to scoring engine — with a paper trail.</h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {steps.map((s, i) => (
+          <div class="v5-card flex gap-4" data-reveal>
+            <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border-2 border-copper font-fraunces text-sm font-semibold text-copper dark:border-copper-soft dark:text-copper-soft">{i + 1}</div>
+            <div>
+              <h3 class="font-fraunces text-lg text-ink dark:text-canvas">{s.h}</h3>
+              <p class="mt-1.5 text-sm text-text-soft">{s.p}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HONESTY ARCHITECTURE -->
+  <section class="py-16 md:py-24">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">The honesty architecture</p>
+      <h2 class="v5-h2 mt-2">Four promises every AiRE deliverable keeps.</h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {promises.map((p) => (
+          <div class="v5-card" data-reveal>
+            <div class="flex h-9 w-9 items-center justify-center rounded-md bg-ink text-lg text-cage-gold-soft">{p.n}</div>
+            <h3 class="mt-3 font-fraunces text-lg text-ink dark:text-canvas">{p.h}</h3>
+            <p class="mt-2 text-sm text-text-soft" set:html={p.p}></p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-14">
+        <p class="v5-eyebrow">Evidence discipline</p>
+        <h2 class="v5-h2 mt-2">When sources disagree, rank them — don&rsquo;t average them.</h2>
+        <p class="v5-lead mt-4 max-w-3xl">AiRE operates a written authority ranking for conflicting evidence: direct field observation outranks modeled surfaces; peer-reviewed literature outranks company reports; measured geometry outranks statistical inference. Conflicts are resolved by rank and recorded — never silently blended.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-ink py-16 text-center text-canvas md:py-20">
+    <div class="mx-auto w-[min(860px,90vw)]">
+      <h2 class="font-fraunces text-3xl font-medium md:text-4xl">Score your ground against today&rsquo;s science.</h2>
+      <p class="mt-3 text-canvas/70">And re-score it next year, when the science has moved — that&rsquo;s the point.</p>
+      <a class="v5-btn-gold mt-6" href="/engage">Get the 48-Hour Prospect Brief <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</PageLayout>

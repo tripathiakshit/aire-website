@@ -1,212 +1,231 @@
 ---
-import { Image } from 'astro:assets';
-import type { ImageMetadata } from 'astro';
 import PageLayout from '../layouts/PageLayout.astro';
 
-import case1aImg from '../assets/case1-1-2.jpg';
-import case1bImg from '../assets/case1-2.jpg';
-import case2aImg from '../assets/case2-1.png';
-import case2bImg from '../assets/case2-2.png';
-import case3aImg from '../assets/case3-1.png';
-import case3bImg from '../assets/case3-2.png';
-import case4aImg from '../assets/case4-1-1.png';
-import case4bImg from '../assets/case4-2.png';
-
-const caseStudies: Array<{
-  number: string;
-  type: string;
-  images: Array<{ src: ImageMetadata; alt: string }>;
-  before: string;
-  after: string;
-  bg: string;
-  timeline?: Array<{ marker: string; event: string }>;
-}> = [
-  {
-    number: '01',
-    type: 'Copper-Gold Porphyry',
-    images: [
-      { src: case1aImg, alt: 'Copper-Gold Porphyry — site overview' },
-      { src: case1bImg, alt: 'Copper-Gold Porphyry — drill results' },
-    ],
-    before: 'Gold production dating back to the 1920s. Over 3 million ounces of gold produced from manto-type, fault-vein-hosted, and disconformity-related high-grade underground ore bodies. In the 2000s a gold-copper porphyry was found just west of the old gold mine and a resource drilling program started. About 3 Moz Au-eq resources were identified by 2010.',
-    after:  'The project database was reanalyzed using CAGE-IN technology. The study successfully identified additional porphyries and drill targets. Within two years the resources more than tripled to over 12.8 Moz Au-eq — equivalent to over $3.5 billion in-situ gold value at 2025 prices.',
-    bg: 'bg-white',
-    timeline: [
-      { marker: 'Q3 2009', event: 'Project acquired' },
-      { marker: 'Q1 2010', event: 'Exploration programme started' },
-      { marker: 'Q4 2010', event: 'CAGE-IN introduced' },
-      { marker: 'Q3 2011', event: 'Maiden resource of 11.7 Moz Au-eq declared' },
-      { marker: '2012', event: 'Resource upgraded to over 13 Moz Au-eq' },
-    ],
-  },
-  {
-    number: '02',
-    type: 'Skarn Deposit',
-    images: [
-      { src: case2aImg, alt: 'Skarn Deposit — geophysics before CAGE-IN' },
-      { src: case2bImg, alt: 'Skarn Deposit — targets after CAGE-IN' },
-    ],
-    before: 'Operating gold-silver mine in a skarn adjacent to a granitic intrusive. Geophysical signatures of mineralization were very weak and could not be used to identify or expand mineralization trends.',
-    after:  'CAGE-IN technology successfully defined the mineralization signature by combining multiple layers of data. Mineralization signatures became visible in geophysics and new similar signatures were identified NW of the existing mine, providing immediate drill targets for brownfield resource expansion.',
-    bg: 'bg-slate-50',
-  },
-  {
-    number: '03',
-    type: 'Epithermal Gold',
-    images: [
-      { src: case3aImg, alt: 'Epithermal Gold — indistinguishable signatures before' },
-      { src: case3bImg, alt: 'Epithermal Gold — defined signatures after CAGE-IN' },
-    ],
-    before: 'Operating epithermal gold mine had indistinguishable geophysical signatures — no contrast between ore and waste. The weak contrast could not be used to identify or expand mineralization trends.',
-    after:  'CAGE-IN technology successfully defined the mineralization signature combining multiple layers of data. Mineralization signatures became visible in geophysics and new similar signatures were identified along strike of the existing mine, providing immediate drill targets for brownfield resource expansion.',
-    bg: 'bg-white',
-  },
-  {
-    number: '04',
-    type: 'Greenfield Nickel Laterite',
-    images: [
-      { src: case4aImg, alt: 'Greenfield Nickel Laterite — regional dataset' },
-      { src: case4bImg, alt: 'Greenfield Nickel Laterite — identified targets' },
-    ],
-    before: 'Reconnaissance for nickel laterite was to be conducted over 1,000 km² with no previous history of nickel mining or mineralization. Available datasets were regional geophysical surveys and remote sensing data.',
-    after:  'Using CAGE-IN, multiple geological datasets were analyzed together. Theoretical geological concepts were applied and nickel targets were defined per metallogenic theory. Several Ni targets were identified, field-checked, and rapidly developed into drill targets. The area is still being explored but several interesting drill intercepts and resource zones have already been identified.',
-    bg: 'bg-slate-50',
-    timeline: [
-      { marker: 'Q2 2021', event: 'CAGE-IN introduced; regional data analysed' },
-      { marker: 'Q3 2022', event: 'Resource report completed — multi-million tonne Ni discovery' },
-    ],
-  },
+const stats = [
+  { n: '308', l: 'ranked target polygons' },
+  { n: '13', l: 'evidence layers scored together' },
+  { n: '167', l: 'geochemical analytes integrated' },
+  { n: '100%', l: 'of evidence gaps disclosed, none hidden' },
+];
+const blind = [
+  { flag: 'Blind validation', h: 'Carlin-type Gold district', p: 'Run blind over a mature Gold district, the multi-evidence scoring independently recovered the known district footprint — no leakage, no tuning to the answer.' },
+  { flag: 'Regional scale', h: 'Precambrian Craton, Polymetallic', p: 'Multi-evidence prospectivity across a Craton-scale search space — the platform at regional reconnaissance scale, turning a national dataset into a ranked map in days.' },
 ];
 ---
 
 <PageLayout
-  title="Case Studies — AI Resource Exploration"
-  description="Real-world results showing how CAGE-IN technology has transformed mineral exploration outcomes, tripling resource estimates and identifying new targets."
+  title="Case Studies — with vs without CAGE-IN, on real ground | AiRE"
+  description="Documented AiRE case studies: the conventional read versus what CAGE-IN found, on real Copper-Gold Porphyry, Greenfield Nickel, Skarn and Epithermal Gold programs — sanitized for confidentiality, with blind-validation proof."
 >
-
-  <!-- Page Hero -->
-  <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">Real-World Results</p>
-      <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Case Studies</h1>
-      <p class="text-slate-400 text-lg max-w-2xl mx-auto">
-        How CAGE-IN technology has transformed mineral exploration outcomes for our clients.
-      </p>
-    </div>
-  </section>
-
-  <!-- Confidentiality note -->
-  <section class="bg-white border-b border-slate-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex gap-5 items-start">
-      <div class="shrink-0 mt-0.5 w-9 h-9 rounded-full bg-geo-primary/10 flex items-center justify-center">
-        <svg class="w-4 h-4 text-geo-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-        </svg>
-      </div>
+  <!-- HERO -->
+  <section class="py-14 md:py-20">
+    <div class="mx-auto grid w-[min(1140px,90vw)] items-center gap-10 md:grid-cols-2">
       <div>
-        <p class="font-semibold text-geo-primary text-sm mb-1">Why We Cannot Name Our Clients</p>
-        <p class="text-slate-500 text-sm leading-relaxed">
-          All clients are covered by mandatory mutual NDAs. We do not disclose company names, project names, or jurisdictions without explicit written consent — this is the same confidentiality we would extend to your data. The outcomes described below are real; the identities are protected. For due diligence purposes, we can arrange a reference call with past clients who have agreed to speak confidentially. <a href="/contact" class="text-geo-primary underline underline-offset-2 hover:text-geo-gold transition-colors">Contact us to request a reference call →</a>
-        </p>
+        <p class="v5-eyebrow">Case studies</p>
+        <h1 class="mt-3 font-fraunces text-4xl font-medium leading-[1.1] text-ink sm:text-5xl dark:text-canvas">Documented, sanitized, real.</h1>
+        <p class="v5-lead mt-5">See what CAGE-IN found on real programs — the conventional read, then the targets it surfaced. Each headline case locks to centre as you scroll. Project names, locations and owners are removed for confidentiality; the methods and outcomes are exactly as delivered.</p>
+      </div>
+      <figure data-reveal class="overflow-hidden rounded-xl border border-line dark:border-ink-2">
+        <video src="/assets/deposit3d_rotation_drilling.mp4" poster="/assets/deposit3d_rotation_drilling_poster.jpg" muted loop playsinline preload="metadata" class="block aspect-[4/3] w-full bg-ink object-cover" aria-label="Rotating 3D deposit model with drill traces"></video>
+        <figcaption class="bg-surface px-4 py-2 text-xs italic text-text-soft dark:bg-ink-2">Every engagement ends in an interactive 3D model your whole board can open.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- HEADLINER 1 · PORPHYRY (image left / text right) -->
+  <section class="relative h-[230vh]" data-scrub>
+    <div class="sticky top-0 flex min-h-screen items-center py-10">
+      <div class="mx-auto grid w-[min(1200px,92vw)] items-center gap-8 md:grid-cols-2">
+        <div class="order-1">
+          <div class="scrub-frame relative mx-auto overflow-hidden rounded-xl border border-line bg-ink shadow-lg dark:border-ink-2" style="aspect-ratio:787/966;max-height:78vh">
+            <img class="absolute inset-0 h-full w-full object-cover" src="/assets/case1-1.jpg" alt="Magnetic survey before CAGE-IN — one porphyry centre" />
+            <img class="scrub-after absolute inset-0 h-full w-full object-cover" src="/assets/case1-2.jpg" alt="Same magnetics after CAGE-IN — known porphyry plus new ranked targets" style="clip-path:inset(0 100% 0 0)" />
+            <span class="scrub-corner-l absolute bottom-2 left-2 rounded-full bg-ink/70 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-white">Without</span>
+            <span class="scrub-corner-r absolute bottom-2 right-2 rounded-full bg-ink/70 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-white">With CAGE-IN</span>
+            <div class="scrub-divider absolute inset-y-0 w-0.5 bg-cage-gold" style="left:0%"></div>
+          </div>
+        </div>
+        <div class="order-2 max-w-prose">
+          <p class="v5-eyebrow">Headline case · Copper-Gold Porphyry</p>
+          <h2 class="v5-h2 mt-2">The same survey, re-read from one centre to a cluster of targets.</h2>
+          <p class="mt-4 text-lg text-text-soft">Conventional interpretation of the airborne magnetics resolved <b class="text-copper-deep dark:text-copper-soft">one known Porphyry centre</b> — the rest of the survey read as noise.</p>
+          <div class="scrub-reveal mt-4" style="opacity:0;transform:translateY(14px)">
+            <p class="text-lg text-text-soft">Re-read by CAGE-IN, the same data resolves that centre <b class="text-copper-deep dark:text-copper-soft">plus a cluster of new, ranked Porphyry targets</b> around it.</p>
+            <a class="mt-3 inline-block border-b-2 border-current text-lg font-bold text-geo-primary dark:text-geo-secondary" href="/eldorado-atlantis-3d.html" target="_blank" rel="noopener">Fly the 3D model of this system →</a>
+            <div class="mt-5 flex flex-wrap gap-x-10 gap-y-3">
+              <div><div class="font-fraunces text-3xl font-semibold text-cage-gold-deep dark:text-cage-gold-soft">~3 → 12.8+</div><div class="text-xs text-text-soft">Moz Au-eq · resource before → after re-analysis</div></div>
+              <div><div class="font-fraunces text-3xl font-semibold text-cage-gold-deep dark:text-cage-gold-soft">~US$3.5B</div><div class="text-xs text-text-soft">in-situ Gold value at 2025 prices</div></div>
+            </div>
+          </div>
+          <p class="mt-5 text-xs italic text-text-soft">Client confidential — no client, project or location disclosed. Resource figures as independently reported.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Case Studies -->
-  {caseStudies.map((study) => (
-    <section class={`${study.bg} py-16 md:py-20`}>
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        <!-- Case header -->
-        <div class="flex items-center gap-5 mb-10">
-          <span class="font-display text-6xl font-bold text-geo-primary/10 leading-none select-none">{study.number}</span>
-          <div>
-            <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.25em] mb-1">Case Study {study.number}</p>
-            <h2 class="font-display text-2xl sm:text-3xl font-bold text-geo-slate">{study.type}</h2>
+  <!-- HEADLINER 2 · NICKEL (image right / text left) -->
+  <section class="relative h-[230vh]" data-scrub>
+    <div class="sticky top-0 flex min-h-screen items-center py-10">
+      <div class="mx-auto grid w-[min(1200px,92vw)] items-center gap-8 md:grid-cols-2">
+        <div class="order-2">
+          <div class="scrub-frame relative mx-auto overflow-hidden rounded-xl border border-line bg-ink shadow-lg dark:border-ink-2" style="aspect-ratio:671/1126;max-height:78vh">
+            <img class="absolute inset-0 h-full w-full object-cover" src="/assets/case4-1.png" alt="Regional nickel datasets alone — no clear targets" />
+            <img class="scrub-after absolute inset-0 h-full w-full object-cover" src="/assets/case4-2.png" alt="CAGE-IN integration — discrete nickel targets identified and ranked" style="clip-path:inset(0 100% 0 0)" />
+            <span class="scrub-corner-l absolute bottom-2 left-2 rounded-full bg-ink/70 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-white">Without</span>
+            <span class="scrub-corner-r absolute bottom-2 right-2 rounded-full bg-ink/70 px-2 py-0.5 text-[0.6rem] font-bold uppercase tracking-wide text-white">With CAGE-IN</span>
+            <div class="scrub-divider absolute inset-y-0 w-0.5 bg-cage-gold" style="left:0%"></div>
           </div>
         </div>
-
-        <!-- Two-column layout: narrative left, images right -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-
-          <!-- Narrative -->
-          <div class="space-y-6">
-
-            <!-- Before -->
-            <div class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div class="inline-flex items-center gap-2 mb-3">
-                <span class="bg-geo-slate text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">Before CAGE-IN</span>
-              </div>
-              <p class="text-slate-600 leading-relaxed text-sm">{study.before}</p>
+        <div class="order-1 max-w-prose">
+          <p class="v5-eyebrow">Headline case · Greenfield Nickel</p>
+          <h2 class="v5-h2 mt-2">Regional data alone found nothing. Integrated, it found a discovery.</h2>
+          <p class="mt-4 text-lg text-text-soft">Regional datasets, read on their own, gave <b class="text-copper-deep dark:text-copper-soft">no clear targets</b> across greenfield ground with no prior drilling.</p>
+          <div class="scrub-reveal mt-4" style="opacity:0;transform:translateY(14px)">
+            <p class="text-lg text-text-soft">Fused by CAGE-IN, the same data <b class="text-copper-deep dark:text-copper-soft">identified, ranked and drill-confirmed</b> discrete Nickel targets — carried from raw archives to the rig.</p>
+            <div class="mt-5 flex flex-wrap gap-x-10 gap-y-3">
+              <div><div class="font-fraunces text-3xl font-semibold text-cage-gold-deep dark:text-cage-gold-soft">Multi-Mt</div><div class="text-xs text-text-soft">Nickel discovery · greenfield, no prior drilling</div></div>
+              <div><div class="font-fraunces text-3xl font-semibold text-cage-gold-deep dark:text-cage-gold-soft">Drill-confirmed</div><div class="text-xs text-text-soft">targets, raw archives to the rig</div></div>
             </div>
-
-            <!-- After -->
-            <div class="rounded-xl border border-geo-gold/30 bg-amber-50 p-6 shadow-sm">
-              <div class="inline-flex items-center gap-2 mb-3">
-                <span class="bg-geo-gold text-white text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full">After CAGE-IN</span>
-              </div>
-              <p class="text-slate-700 leading-relaxed text-sm">{study.after}</p>
-            </div>
-
-            {study.timeline && (
-              <div class="rounded-xl border border-geo-primary/20 bg-geo-primary/5 p-6">
-                <p class="text-xs font-semibold uppercase tracking-wider text-geo-primary mb-4">Project Timeline</p>
-                <ol class="relative border-l border-geo-primary/20 space-y-4 ml-2">
-                  {study.timeline.map((step) => (
-                    <li class="pl-5">
-                      <span class="absolute -left-[7px] mt-1 w-3.5 h-3.5 rounded-full border-2 border-geo-primary bg-white"></span>
-                      <p class="text-xs font-semibold text-geo-primary">{step.marker}</p>
-                      <p class="text-sm text-slate-600">{step.event}</p>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            )}
-
           </div>
-
-          <!-- Images -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {study.images.map((img) => (
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={500}
-                class="w-full h-52 object-cover rounded-xl shadow-md"
-              />
-            ))}
-          </div>
-
+          <p class="mt-5 text-xs italic text-text-soft">Client confidential — no client, project or location disclosed.</p>
         </div>
-      </div>
-    </section>
-  ))}
-
-  <!-- CTA -->
-  <section class="py-20 bg-geo-slate text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
-    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-geo-gold text-xs font-semibold uppercase tracking-[0.3em] mb-4">See It In Action</p>
-      <h2 class="font-display text-4xl font-bold mb-4">Ready to Transform Your Exploration?</h2>
-      <p class="text-slate-400 mb-10 max-w-xl mx-auto">
-        Learn how CAGE-IN technology works or get in touch to discuss your project.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/cage-in"
-          class="inline-block bg-geo-gold text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-amber-500 transition-colors"
-        >
-          Explore CAGE-IN
-        </a>
-        <a
-          href="/contact"
-          class="inline-block border border-white/30 text-white px-10 py-4 rounded font-semibold text-sm uppercase tracking-wider hover:bg-white/10 transition-colors"
-        >
-          Contact Us
-        </a>
       </div>
     </div>
   </section>
 
+  <!-- FLAGSHIP STATS -->
+  <section class="py-14">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow text-center">The flagship Nickel program, by the numbers</p>
+      <div class="mt-6 grid grid-cols-2 gap-6 md:grid-cols-4">
+        {stats.map((s) => (
+          <div class="text-center"><div class="font-fraunces text-4xl font-semibold text-cage-gold-deep dark:text-cage-gold-soft">{s.n}</div><div class="mt-1 text-sm text-text-soft">{s.l}</div></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORTING ROW · sliders -->
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">More of the record</p>
+      <h2 class="v5-h2 mt-2">Same engine, more deposit styles.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">Two further programs where CAGE-IN turned a weak or ambiguous signature into a defined, drillable target. Drag each slider to compare.</p>
+
+      <div class="mt-10 grid items-center gap-8 md:grid-cols-[1.25fr_1fr]">
+        <div class="cmp-slider relative overflow-hidden rounded-xl border border-line bg-ink shadow-sm dark:border-ink-2" style="aspect-ratio:1370/484">
+          <img class="absolute inset-0 h-full w-full object-cover" src="/assets/case2-2.png" alt="Skarn mineralization defined by CAGE-IN" />
+          <img class="cmp-before absolute inset-0 h-full w-full object-cover" src="/assets/case2-1.png" alt="Skarn before CAGE-IN — weak signature" style="clip-path:inset(0 50% 0 0)" />
+          <div class="cmp-div absolute inset-y-0 w-0.5 bg-cage-gold" style="left:50%"></div>
+          <input type="range" min="0" max="100" value="50" class="absolute inset-0 m-0 h-full w-full cursor-ew-resize opacity-0" aria-label="Compare skarn without/with CAGE-IN" />
+        </div>
+        <div>
+          <p class="v5-eyebrow">Skarn · Gold-Silver</p>
+          <h3 class="mt-1 font-fraunces text-xl text-ink dark:text-canvas">A signature too weak to use, made drillable.</h3>
+          <p class="mt-3 text-sm text-text-soft"><span class="block text-xs font-bold uppercase tracking-wide text-copper-deep dark:text-copper-soft">Without CAGE-IN</span>Operating Gold-Silver mine in a Skarn adjacent to a granitic intrusive. Geophysical signatures of mineralization were very weak and could not be used to identify or expand mineralization trends.</p>
+          <p class="mt-3 text-sm text-text-soft"><span class="block text-xs font-bold uppercase tracking-wide text-copper-deep dark:text-copper-soft">With CAGE-IN</span>CAGE-IN defined the mineralization signature by combining multiple layers of data. Signatures became visible in geophysics, and new similar signatures were identified NW of the existing mine — immediate drill targets for brownfield resource expansion.</p>
+        </div>
+      </div>
+
+      <div class="mt-12 grid items-center gap-8 md:grid-cols-[1fr_1.25fr]">
+        <div class="order-2 md:order-1">
+          <p class="v5-eyebrow">Epithermal Gold</p>
+          <h3 class="mt-1 font-fraunces text-xl text-ink dark:text-canvas">No contrast between ore and waste — until there was.</h3>
+          <p class="mt-3 text-sm text-text-soft"><span class="block text-xs font-bold uppercase tracking-wide text-copper-deep dark:text-copper-soft">Without CAGE-IN</span>Operating Epithermal Gold mine had indistinguishable geophysical signatures — no contrast between ore and waste. The weak contrast could not be used to identify or expand mineralization trends.</p>
+          <p class="mt-3 text-sm text-text-soft"><span class="block text-xs font-bold uppercase tracking-wide text-copper-deep dark:text-copper-soft">With CAGE-IN</span>CAGE-IN defined the mineralization signature by combining multiple layers of data. Signatures became visible in geophysics, and new similar signatures were identified along strike of the existing mine — immediate drill targets for brownfield resource expansion.</p>
+        </div>
+        <div class="cmp-slider relative order-1 overflow-hidden rounded-xl border border-line bg-ink shadow-sm md:order-2 dark:border-ink-2" style="aspect-ratio:989/643">
+          <img class="absolute inset-0 h-full w-full object-cover" src="/assets/case3-2.png" alt="Epithermal target defined by CAGE-IN" />
+          <img class="cmp-before absolute inset-0 h-full w-full object-cover" src="/assets/case3-1.png" alt="Epithermal before CAGE-IN — indistinct signature" style="clip-path:inset(0 50% 0 0)" />
+          <div class="cmp-div absolute inset-y-0 w-0.5 bg-cage-gold" style="left:50%"></div>
+          <input type="range" min="0" max="100" value="50" class="absolute inset-0 m-0 h-full w-full cursor-ew-resize opacity-0" aria-label="Compare epithermal without/with CAGE-IN" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLIND VALIDATION -->
+  <section class="py-16 md:py-24">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Blind validation</p>
+      <h2 class="v5-h2 mt-2">We prove it on the known before we trust it on the unknown.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">Run blind over mature districts, with no training on the answer, CAGE-IN re-found what decades of drilling had already confirmed. If it can recover the known, you can trust it where nothing is proven yet.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {blind.map((b) => (
+          <article class="v5-card" data-reveal><p class="v5-eyebrow">{b.flag}</p><h3 class="mt-1 font-fraunces text-lg text-ink dark:text-canvas">{b.h}</h3><p class="mt-2 text-sm text-text-soft">{b.p}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3D VIEWER CTA + COMPLIANCE -->
+  <section class="border-t border-line bg-canvas-alt py-16 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <div class="flex flex-col items-center gap-2">
+        <a class="v5-btn-line" href="/viewer.html">Fly the 3D deposit demo <span aria-hidden="true">→</span></a>
+        <p class="text-xs text-text-soft">Instant interactive 3D viewer · no login · runs in your browser, even offline</p>
+      </div>
+      <p class="mt-8 text-center text-xs italic text-text-soft">Case results are presented in sanitized form for methodology illustration, with project-owner consent where applicable. Nothing on this page constitutes disclosure of exploration results under NI 43-101 or the JORC Code, and no economic potential is implied.</p>
+    </div>
+  </section>
+
+  <section class="bg-ink py-16 text-center text-canvas md:py-20">
+    <div class="mx-auto w-[min(860px,90vw)]">
+      <h2 class="font-fraunces text-3xl font-medium md:text-4xl">The next documented result could be your ground.</h2>
+      <p class="mt-3 text-canvas/70">Every engagement starts with a 48-hour Prospect Brief — your data, the full council, a fixed price.</p>
+      <a class="v5-btn-gold mt-6" href="/engage">Get the 48-Hour Prospect Brief <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 </PageLayout>
+
+<script>
+  // Pinned with/without reveal: clip the "after" image + reveal text as the track scrolls.
+  const tracks = Array.from(document.querySelectorAll<HTMLElement>('[data-scrub]'));
+  function update() {
+    const vh = window.innerHeight;
+    for (const t of tracks) {
+      const r = t.getBoundingClientRect();
+      const span = t.offsetHeight - vh;
+      const prog = span > 0 ? -r.top / span : 0;
+      const p = Math.max(0, Math.min(1, prog / 0.85));
+      const after = t.querySelector<HTMLElement>('.scrub-after');
+      const div = t.querySelector<HTMLElement>('.scrub-divider');
+      const rev = t.querySelector<HTMLElement>('.scrub-reveal');
+      if (after) after.style.clipPath = `inset(0 ${((1 - p) * 100).toFixed(1)}% 0 0)`;
+      if (div) div.style.left = `${(p * 100).toFixed(1)}%`;
+      if (rev) {
+        const rp = Math.max(0, Math.min(1, (p - 0.2) / 0.55));
+        rev.style.opacity = String(rp);
+        rev.style.transform = `translateY(${((1 - rp) * 14).toFixed(1)}px)`;
+      }
+    }
+  }
+  let ticking = false;
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { update(); ticking = false; }); } };
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  } else {
+    // reduced motion: show the "after" + reveal text fully
+    tracks.forEach((t) => {
+      t.querySelector<HTMLElement>('.scrub-after')?.style.setProperty('clip-path', 'inset(0 0 0 0)');
+      const rev = t.querySelector<HTMLElement>('.scrub-reveal');
+      if (rev) { rev.style.opacity = '1'; rev.style.transform = 'none'; }
+    });
+  }
+
+  // Manual before/after drag sliders
+  document.querySelectorAll<HTMLElement>('.cmp-slider').forEach((s) => {
+    const range = s.querySelector<HTMLInputElement>('input[type=range]');
+    const before = s.querySelector<HTMLElement>('.cmp-before');
+    const div = s.querySelector<HTMLElement>('.cmp-div');
+    const upd = () => {
+      const v = Number(range?.value ?? 50);
+      if (before) before.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+      if (div) div.style.left = `${v}%`;
+    };
+    range?.addEventListener('input', upd);
+    upd();
+  });
+</script>

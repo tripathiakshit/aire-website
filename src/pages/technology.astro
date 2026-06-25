@@ -1,0 +1,161 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const steps = [
+  { n: 'STEP 1', h: 'Research intelligence', role: 'Pre-field planning', p: 'What the published literature says about your terrane, your commodity, your deposit style — before a dollar is spent on the ground.', core: false },
+  { n: 'STEP 2', h: 'Regional reconnaissance', role: 'Satellite screening', p: 'Satellite-driven regional scanning — spectral screening over large areas to shortlist ground worth the full treatment.', core: false },
+  { n: 'STEP 3 · THE CORE', h: 'Multi-evidence AI scoring', role: 'The CAGE-IN engine', p: 'The flagship engine. Multi-sensor ingestion and spectral processing across six satellite platforms, GPU-accelerated — imagery, geophysics, geochemistry and drilling scored together by literature-calibrated deposit models, with ensemble fusion.', core: true },
+  { n: 'STEP 4', h: '3D delivery', role: 'Outputs you can act on', p: 'Ranked target maps, sections, interactive single-file 3D deposit viewers your whole board can open, and prospectus-ready reporting.', core: false },
+];
+const useCases = [
+  { n: '01 · Reconnaissance', when: 'Grassroots · any commodity', h: 'Find the ground worth chasing.', p: 'With only a few layers of data, CAGE-IN ranks where a mineral system is most likely to occur across a large area — so scarce budget goes to the ground that deserves it.', metric: 'Minimal data in · any commodity' },
+  { n: '02 · Targeting', when: 'Early-stage exploration', h: 'Drill targets in three dimensions.', p: 'From 3D ground geophysics, CAGE-IN places ranked drill targets in 3D — not just where to drill, but how deep, and why each one scores where it does.', metric: '~2× the conventional hit rate*' },
+  { n: '03 · Optimisation', when: 'Active drill program', h: 'Fewer holes, better placed.', p: 'For a program already turning the rig, CAGE-IN re-scores against every new intercept to optimise where the next holes go — maximising return on every metre drilled.', metric: 'Maximise ROI per metre' },
+  { n: '04 · Resource expansion', when: 'Advanced projects & operating mines', h: 'Make the discovery bigger.', p: 'CAGE-IN reintegrates and reinterprets all existing data to find extensions and repeats around a known deposit — adding tonnes and extending life-of-mine.', metric: 'Bigger discoveries · longer mine life' },
+];
+const engines = [
+  { tag: 'A', h: 'Method A — Geological reasoning', p: 'Weighted evidence scoring through twelve deposit models calibrated to peer-reviewed literature, with a consistency veto filter that kills geologically incoherent scores.' },
+  { tag: 'B', h: 'Method B — Machine learning', p: 'A supervised classifier trained with spatial-block cross-validation — the discipline that stops spatial autocorrelation from flattering the accuracy numbers.' },
+  { tag: 'A+B', h: 'Ensemble fusion', p: 'Dempster-Shafer evidence theory merges the two, surfacing high-confidence agreement zones and flagging where the methods disagree — disagreement is information.' },
+];
+const deposits = ['Porphyry Cu-Au-Mo', 'Epithermal Au-Ag', 'IOCG', 'Skarn', 'Intrusion-related Au', 'Laterite Ni', 'Ni sulphide', 'SEDEX polymetallic', 'Orogenic Au', 'Metamorphic graphite', 'VMS', 'Kimberlite (diamond)'];
+const facts = ['220+ regression tests run on every release', '2-5 min per 100 km² processed', 'GPU-adaptive tiling with CPU fallback', 'Desktop-deployed — your data stays on your machines', 'Per-run sidecar — inputs, versions & parameters recorded'];
+const maturity = [
+  { c: 'Multi-evidence AI targeting', d: 'The core CAGE-IN engine — unified multi-sensor imagery + multi-evidence scoring', s: 'Operational on live client programs', live: true },
+  { c: '3D prospectivity & deposit visualisation', d: 'Ranked maps, sections and interactive single-file 3D deposit viewers', s: 'Production', live: true },
+  { c: 'Legacy data ingestion', d: 'Legacy archives → working GIS project, fast', s: 'Production', live: true },
+  { c: 'Regional satellite reconnaissance', d: 'Large-area spectral screening to shortlist ground', s: 'On the roadmap — expanding', live: false },
+  { c: 'Pre-field research intelligence', d: 'Literature-driven planning before fieldwork begins', s: 'On the roadmap — expanding', live: false },
+];
+---
+
+<PageLayout
+  title="Technology — CAGE-IN: one engine, literature to drill targets | AiRE"
+  description="CAGE-IN is AiRE's flagship targeting engine: multi-sensor imagery, geophysics, geochemistry and drilling scored together by literature-calibrated deposit models, with ensemble fusion — one pipeline from published science to ranked drill targets."
+>
+  <!-- HERO -->
+  <section class="py-14 md:py-20">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Technology</p>
+      <h1 class="mt-3 font-fraunces text-4xl font-medium leading-[1.1] text-ink sm:text-5xl dark:text-canvas">CAGE-IN. One engine, literature to drill targets.</h1>
+      <p class="v5-lead mt-5 max-w-3xl">CAGE-IN is AiRE&rsquo;s flagship targeting platform — the engine proven on live programs and behind every result on this site. It isn&rsquo;t a list of products; it&rsquo;s one exploration workflow that takes a project from &ldquo;what does the science say?&rdquo; to &ldquo;drill here, and here&rsquo;s why.&rdquo;</p>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">What CAGE-IN does</p>
+      <h2 class="v5-h2 mt-2">Four steps. One engine. One defensible verdict.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">The same platform carries a project end to end — each step feeds the next, and every output traces back to cited science. The core is the multi-evidence scoring engine; the steps around it get your data in and your decisions out.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-4">
+        {steps.map((s) => (
+          <article class={`flex flex-col rounded-xl border bg-surface p-5 shadow-sm dark:bg-ink-2 ${s.core ? 'border-cage-gold dark:border-cage-gold/70' : 'border-line dark:border-ink-2'}`} data-reveal>
+            <p class={`text-xs font-bold uppercase tracking-[0.12em] ${s.core ? 'text-cage-gold-deep dark:text-cage-gold-soft' : 'text-copper dark:text-copper-soft'}`}>{s.n}</p>
+            <h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">{s.h}</h3>
+            <p class="mt-0.5 text-xs font-semibold uppercase tracking-wide text-copper-deep dark:text-copper-soft">{s.role}</p>
+            <p class="mt-2 text-sm text-text-soft">{s.p}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="use-cases" class="py-16 md:py-24">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Use cases</p>
+      <h2 class="v5-h2 mt-2">Wherever your project is, CAGE-IN plugs in.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">From grassroots ground to a producing mine, the same engine solves a different problem at each stage of the exploration lifecycle.</p>
+      <div class="mt-6 flex justify-between text-xs font-bold uppercase tracking-[0.14em] text-copper dark:text-copper-soft"><span>Grassroots ground</span><span>Producing mine</span></div>
+      <div class="mt-2 h-1 rounded bg-gradient-to-r from-emerald-700 via-cage-gold to-copper"></div>
+      <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {useCases.map((u) => (
+          <article class="flex flex-col rounded-xl border border-line bg-surface p-5 shadow-sm dark:border-ink-2 dark:bg-ink-2" data-reveal>
+            <p class="text-xs font-bold uppercase tracking-[0.1em] text-copper dark:text-copper-soft">{u.n}</p>
+            <p class="mt-0.5 text-xs text-text-soft">{u.when}</p>
+            <h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">{u.h}</h3>
+            <p class="mt-2 flex-1 text-sm text-text-soft">{u.p}</p>
+            <span class="mt-3 text-xs font-bold text-cage-gold-deep dark:text-cage-gold-soft">{u.metric}</span>
+          </article>
+        ))}
+      </div>
+      <p class="mt-6 text-xs italic text-text-soft">*Typical of AiRE programs — prioritized targets drill-tested at roughly double the hit rate of conventional targeting. The comparison basis is available to qualified parties under NDA.</p>
+    </div>
+  </section>
+
+  <!-- INSIDE THE ENGINE -->
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Inside the CAGE-IN engine</p>
+      <h2 class="v5-h2 mt-2">Three independent engines. One honest verdict.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">CAGE-IN never trusts a single method. Two fundamentally different scoring engines run independently, and a third weighs their agreement — so methodological disagreement is surfaced to you, not averaged away.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {engines.map((e) => (
+          <div class="v5-card" data-reveal>
+            <div class="flex h-9 w-9 items-center justify-center rounded-md bg-ink font-fraunces text-sm font-semibold text-cage-gold-soft">{e.tag}</div>
+            <h3 class="mt-3 font-fraunces text-lg text-ink dark:text-canvas">{e.h}</h3>
+            <p class="mt-2 text-sm text-text-soft">{e.p}</p>
+          </div>
+        ))}
+      </div>
+
+      <details class="mt-8 rounded-xl border border-line bg-surface dark:border-ink-2 dark:bg-ink-2">
+        <summary class="cursor-pointer px-5 py-4 font-semibold text-copper dark:text-copper-soft">Open the full method detail — evidence layers, deposit models, citation trace</summary>
+        <div class="border-t border-line px-5 py-5 dark:border-ink-2">
+          <p class="text-sm text-text-soft">Every run fuses a multi-evidence stack — remote sensing, geophysics, geochemistry, geology and structure, terrain and drilling — and <b class="text-ink dark:text-canvas">each layer enters the deposit model with its own model-specific, citation-locked weight</b>, then de-conflicts into one ranked verdict. Whatever your project doesn&rsquo;t have is disclosed as a dark layer, never quietly ignored.</p>
+          <h4 class="mt-5 font-fraunces text-base text-ink dark:text-canvas">Deposit models — literature-calibrated, citation-locked</h4>
+          <div class="mt-3 flex flex-wrap gap-2">
+            {deposits.map((d) => (<span class="rounded-full border border-line px-3 py-1 text-xs text-text-soft dark:border-ink-2">{d}</span>))}
+          </div>
+          <h4 class="mt-6 font-fraunces text-base text-ink dark:text-canvas">One worked trace</h4>
+          <p class="mt-1 text-sm text-text-soft">Two contributing parameters from a literature-calibrated model, with their published sources:</p>
+          <table class="mt-3 w-full text-left text-sm">
+            <thead><tr class="border-b border-line text-xs uppercase tracking-wide text-copper dark:border-ink-2 dark:text-copper-soft"><th class="py-2">Parameter</th><th class="py-2">Weight</th><th class="py-2">Cited source</th></tr></thead>
+            <tbody class="text-text-soft">
+              <tr class="border-b border-line/60 dark:border-ink-2/60"><td class="py-2">Ferric-iron alteration index</td><td>contributing</td><td>Sabins (1999)</td></tr>
+              <tr><td class="py-2">Clay / sericite (SWIR) ratio</td><td>contributing</td><td>Crosta &amp; Moore (1989); Hunt (1977)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <h3 class="mt-10 font-fraunces text-xl text-ink dark:text-canvas">Engineering facts</h3>
+      <div class="mt-3 flex flex-wrap gap-2">
+        {facts.map((f) => (<span class="rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-text-soft dark:border-ink-2 dark:bg-ink-2" set:html={f.replace(/^(\S+)/, '<b class="text-ink dark:text-canvas">$1</b>')} />))}
+      </div>
+    </div>
+  </section>
+
+  <!-- MATURITY -->
+  <section class="py-16 md:py-24">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Platform maturity</p>
+      <h2 class="v5-h2 mt-2">What&rsquo;s proven, what&rsquo;s expanding.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">CAGE-IN is one platform with several capabilities. We label each one&rsquo;s maturity honestly — the same discipline we apply to your geology.</p>
+      <div class="mt-8 overflow-hidden rounded-xl border border-line dark:border-ink-2">
+        <table class="w-full text-left text-sm">
+          <thead><tr class="bg-canvas-alt text-xs uppercase tracking-wide text-copper dark:bg-ink-2 dark:text-copper-soft"><th class="px-4 py-3">Capability</th><th class="px-4 py-3">What it does</th><th class="px-4 py-3">Status</th></tr></thead>
+          <tbody>
+            {maturity.map((m) => (
+              <tr class="border-t border-line dark:border-ink-2">
+                <td class="px-4 py-3 font-semibold text-ink dark:text-canvas">{m.c}</td>
+                <td class="px-4 py-3 text-text-soft">{m.d}</td>
+                <td class="px-4 py-3"><span class={`rounded-full px-2.5 py-1 text-xs font-semibold ${m.live ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300' : 'bg-cage-gold/15 text-cage-gold-deep dark:text-cage-gold-soft'}`}>{m.s}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-ink py-16 text-center text-canvas md:py-20">
+    <div class="mx-auto w-[min(860px,90vw)]">
+      <h2 class="font-fraunces text-3xl font-medium md:text-4xl">See CAGE-IN on your ground.</h2>
+      <p class="mt-3 text-canvas/70">The Prospect Brief tells you which capabilities your data can feed today — and what it would take to light up the rest.</p>
+      <a class="v5-btn-gold mt-6" href="/engage">Get the 48-Hour Prospect Brief <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</PageLayout>

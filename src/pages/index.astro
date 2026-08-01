@@ -7,21 +7,33 @@ const stats = [
   { n: 12, suffix: '', label: 'deposit models, calibrated to peer-reviewed literature' },
   { n: 220, suffix: '+', label: 'automated tests — every release reproduces the same answer' },
 ];
-const disciplines = [
-  { h: 'No weight without citation', p: 'Every parameter in every deposit model traces to published, peer-reviewed science. No exceptions, no folklore.' },
-  { h: 'One seat exists to refute the rest', p: "Nothing ships until the council's adversarial auditor has stress-tested every conclusion for false positives — and failed to break it." },
-  { h: 'Project memory that compounds', p: 'The council keeps an append-only record of your geology, your data and every decision — across sessions and across years.' },
-];
 const doors = [
   { route: '/explorer', kicker: '/explorer', h: 'Miners & juniors', p: 'Where to drill next — and what it costs. Shorten the discovery cycle and turn the data you already paid for into your next drill program.', cta: 'Enter as a miner' },
   { route: '/government', kicker: '/government', h: 'Governments, sovereign wealth & development banks', p: 'De-risk exploration at national scale — regional prospectivity mapping that draws investment into your critical and strategic minerals, with full data sovereignty.', cta: 'Enter as a program' },
   { route: '/investor', kicker: '/investor', h: 'Investors & financial institutions', p: 'Rank the assets in your portfolio on technical merit — which holdings are genuinely prospective, where the risk sits, and which would gain most from a CAGE-IN run.', cta: 'Enter as an investor' },
 ];
+const whyAire = [
+  { h: 'The explanation is the model — not a bolt-on', p: 'Most AI-prospectivity tools wrap an explanation around a black box. Here every score is traceable to a cited weight and a disclosed gap by construction — nothing to reverse-engineer.' },
+  { h: 'Every gap is named, never hidden', p: 'The coverage disclosure shows exactly what your data could not see. You get the confident read and the honest limits, on the same page.' },
+  { h: 'A named geologist signs every verdict', p: 'A seasoned explorer governs each project and signs off. The model shows its work; your geologist makes the call and takes it to the board.' },
+  { h: 'Your data stays yours', p: 'NDA first, data rooms not email attachments, and credentials never live in our code or outputs — full data sovereignty for companies and governments alike.' },
+];
+const howItWorks = [
+  { n: '01', h: 'You bring the data you already own', p: 'Satellite imagery, geophysics, geochemistry, drill logs — in whatever state it exists. Legacy scans and messy archives included; that is where we start.' },
+  { n: '02', h: 'The AiRE Council runs CAGE-IN', p: 'Your data is scored against 12 literature-calibrated deposit models. Every weight is cited, every coverage gap is disclosed, and an adversarial auditor tries to break each conclusion before it ships.' },
+  { n: '03', h: 'You receive ranked, defensible targets', p: 'A ranked drill-target list with prospectivity maps, interactive 3D models and a full coverage disclosure — traceable evidence your geologist can sign.' },
+];
+const commodities = ['Nickel', 'Copper-gold', 'Iron ore', 'Polymetallic', 'Critical & strategic minerals'];
+const disciplines = [
+  { h: 'No weight without citation', p: 'Every parameter in every deposit model traces to published, peer-reviewed science. No exceptions, no folklore.' },
+  { h: 'One seat exists to refute the rest', p: "Nothing ships until the council's adversarial auditor has stress-tested every conclusion for false positives — and failed to break it." },
+  { h: 'Project memory that compounds', p: 'The council keeps an append-only record of your geology, your data and every decision — across sessions and across years.' },
+];
 ---
 
 <PageLayout
-  title="AiRE — Subsurface intelligence that evolves with the science"
-  description="AiRE re-reads the exploration data you already own against current, peer-reviewed deposit science — and returns ranked, evidence-traced targets. Your data. Today's tech. Tomorrow's targets."
+  title="AiRE — AI mineral exploration targeting & prospectivity mapping"
+  description="AiRE re-reads the exploration data you already own against peer-reviewed deposit science and returns ranked, evidence-traced drill targets — AI-driven mineral prospectivity mapping for miners, governments and investors."
 >
   <!-- HERO -->
   <section class="py-14 md:py-20">
@@ -33,14 +45,15 @@ const doors = [
         </h1>
         <p class="mt-3 font-fraunces text-lg italic text-copper dark:text-copper-soft">Your data. Today&rsquo;s tech. Tomorrow&rsquo;s targets.</p>
         <p class="v5-lead mt-5">
-          AiRE resolves the exploration data you already own — satellite imagery, geophysics, geochemistry, drilling —
-          into a ranked, evidence-traced target list: every weight cited, every gap disclosed. You stay in command of
-          every call — the model shows its work; your geologist signs.
+          AiRE is a mineral-exploration intelligence platform for miners, governments and investors. Give us the
+          geological data you already own — satellite imagery, geophysics, geochemistry, drilling — and our
+          expert-led council returns a ranked, evidence-traced drill-target list: every weight cited, every gap disclosed.
         </p>
         <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
           <a class="v5-btn-gold" href="/engage">Get the 48-Hour Prospect Brief <span aria-hidden="true">→</span></a>
           <a class="v5-link text-sm" href="/viewer.html">or fly an interactive 3D model first →</a>
         </div>
+        <p class="mt-3 text-sm text-text-soft">Submit your exploration data, receive a ranked target list in 48 hours.</p>
       </div>
       <figure data-reveal>
         <img
@@ -87,17 +100,36 @@ const doors = [
     </div>
   </div>
 
-  <!-- TRUST BAND + DECISION FILTER -->
+  <!-- DOORS (who it's for) -->
+  <section class="bg-ink py-16 text-canvas md:py-24">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="text-xs font-bold uppercase tracking-[0.22em] text-cage-gold-soft">Who it&rsquo;s for</p>
+      <h2 class="mt-2 font-fraunces text-3xl font-medium md:text-4xl">Three ways in.</h2>
+      <p class="mt-4 max-w-3xl text-canvas/70">Miners, national programs and investors come to AiRE with different questions. Each gets its own door — and its own straight answer.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {doors.map((d) => (
+          <article class="flex flex-col rounded-xl border border-white/10 bg-white/[0.03] p-6" data-reveal>
+            <p class="font-mono text-xs text-cage-gold-soft">{d.kicker}</p>
+            <h3 class="mt-2 font-fraunces text-xl">{d.h}</h3>
+            <p class="mt-2 flex-1 text-sm text-canvas/70">{d.p}</p>
+            <a class="mt-5 inline-flex items-center gap-2 self-start rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-canvas transition-colors hover:bg-white/10" href={d.route}>{d.cta} <span aria-hidden="true">→</span></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY AIRE -->
   <section class="py-16 md:py-24">
     <div class="mx-auto w-[min(1140px,90vw)]">
-      <p class="v5-eyebrow">Why you can trust a score from us</p>
+      <p class="v5-eyebrow">Why explorers choose AiRE</p>
       <h2 class="v5-h2 mt-2">Not a black box. A score you can audit.</h2>
-      <div class="mt-8 grid gap-5 md:grid-cols-3">
-        <div class="v5-card" data-reveal><h4 class="font-fraunces text-lg text-ink dark:text-canvas">Every weight is cited</h4><p class="mt-2 text-sm text-text-soft">Each parameter in every deposit model traces to peer-reviewed literature — no folklore, no unexplained weighting.</p></div>
-        <div class="v5-card" data-reveal><h4 class="font-fraunces text-lg text-ink dark:text-canvas">Every gap is named</h4><p class="mt-2 text-sm text-text-soft">The coverage disclosure shows exactly what your data could not see — the dark layers are on the page, not hidden.</p></div>
-        <div class="v5-card" data-reveal><h4 class="font-fraunces text-lg text-ink dark:text-canvas">A named geologist signs</h4><p class="mt-2 text-sm text-text-soft">A <a class="v5-link" href="/council">seasoned explorer</a> takes charge and signs off on every report. The model shows its work; you make the call.</p></div>
+      <p class="v5-lead mt-4 max-w-3xl">Every AiRE result is built to be defended — to your board, your investors and your own geologists. Here is what that buys you that a generic AI tool cannot.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-2">
+        {whyAire.map((w) => (
+          <div class="v5-card" data-reveal><h3 class="font-fraunces text-lg text-ink dark:text-canvas">{w.h}</h3><p class="mt-2 text-sm text-text-soft">{w.p}</p></div>
+        ))}
       </div>
-      <p class="mt-6 text-text-soft">Most AI-prospectivity tools bolt an explanation onto a black box. Here the explanation <em>is</em> the model — every score is traceable to a cited weight and a disclosed gap by construction.</p>
       <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <div class="flex items-center justify-between gap-3 rounded-lg border border-line px-4 py-3 dark:border-ink-2"><span class="text-sm font-medium text-ink dark:text-canvas">Where do I drill?</span><a class="text-xs font-semibold text-copper dark:text-copper-soft" href="/case-studies">ranked targets →</a></div>
         <div class="flex items-center justify-between gap-3 rounded-lg border border-line px-4 py-3 dark:border-ink-2"><span class="text-sm font-medium text-ink dark:text-canvas">How sure are we?</span><a class="text-xs font-semibold text-copper dark:text-copper-soft" href="/case-studies">cited weights →</a></div>
@@ -107,60 +139,24 @@ const doors = [
     </div>
   </section>
 
-  <!-- BUILDER'S STORY -->
-  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
-    <div class="mx-auto grid w-[min(1140px,90vw)] items-start gap-10 md:grid-cols-2">
-      <div data-reveal class="overflow-hidden rounded-xl border border-line bg-ink dark:border-ink-2">
-        <iframe src="/hook-video/index.html" title="CAGE-IN — why AiRE exists (90-second hook video)" loading="lazy" class="block aspect-video w-full border-0"></iframe>
-      </div>
-      <div>
-        <p class="v5-eyebrow">The builder&rsquo;s story</p>
-        <h2 class="v5-h2 mt-2">Thirty years in the field. One conclusion: the software wasn&rsquo;t keeping up.</h2>
-        <p class="mt-4 text-text-soft">Dr. Amit Tripathi spent three decades finding minerals the hard way — mapping, drilling and modeling across twenty countries on five continents. On every project he watched the same quiet failure: the science of ore deposits kept advancing, paper by paper, while the software interpreting exploration data stayed frozen at whatever the vendor shipped.</p>
-        <p class="mt-3 text-text-soft">So he built what didn&rsquo;t exist: a live, GPU-accelerated targeting platform whose deposit models are calibrated to peer-reviewed literature and updated as the science moves — guarded by more than 220 automated regression tests, and proven on live exploration programs.</p>
-        <blockquote class="mt-5 border-l-2 border-copper pl-4">
-          <p class="font-fraunces text-lg italic text-ink dark:text-canvas">&ldquo;Every drill hole is a bet on an interpretation. I built CAGE-IN to make that bet the best-informed one on the table.&rdquo;</p>
-          <p class="mt-1 text-sm text-text-soft">Dr. Amit Tripathi · Founder, AiRE</p>
-        </blockquote>
-        <div class="mt-5 flex flex-wrap gap-2">
-          {['PhD, Structural Geology', '30+ years in exploration', '22+ publications', '20+ countries'].map((c) => (
-            <span class="rounded-full border border-line px-3 py-1 text-xs font-medium text-text-soft dark:border-ink-2">{c}</span>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DATA INTAKE — the 80% reality -->
-  <section class="py-16 md:py-24">
-    <div class="mx-auto w-[min(1140px,90vw)]">
-      <p class="v5-eyebrow">The 80% reality</p>
-      <h2 class="v5-h2 mt-2">We don&rsquo;t expect clean data. Clean exploration data doesn&rsquo;t exist.</h2>
-      <p class="v5-lead mt-4 max-w-3xl">Most of the work in modern targeting is not the algorithm — it is the wrangling. Legacy MapInfo files, drill logs scanned to PDF, coordinate systems from 1994: that is where exploration programs lose their months, and it is where we start.</p>
-      <blockquote class="mt-6 border-l-2 border-copper pl-4">
-        <p class="font-fraunces text-xl italic text-ink dark:text-canvas">&ldquo;Bring us your absolute worst folder.&rdquo;</p>
-        <p class="mt-1 text-sm text-text-soft">Mismatched datums, legacy geophysics, raw drill intercepts, unindexed geochemistry — the intake pipeline is built for the archive you actually have, not the database you wish you had.</p>
-      </blockquote>
-      <div class="mt-8 grid gap-5 md:grid-cols-3">
-        <div class="v5-card" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">01</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">Custom geo-data automation</h3><p class="mt-2 text-sm text-text-soft">Proprietary scripts ingest the structured majority — standardising datum projections, cleaning spatial coordinates and normalising assay detection limits across multi-year campaigns.</p><span class="mt-3 block text-xs font-semibold text-cage-gold-deep dark:text-cage-gold-soft">Months of spreadsheet alignment, eliminated.</span></div>
-        <div class="v5-card" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">02</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">Language-model parsing</h3><p class="mt-2 text-sm text-text-soft">Specialised language-model pipelines read the &ldquo;dark data&rdquo; standard software ignores — scanned PDFs, unindexed drill logs, legacy structural reports — converting field notes into quantifiable spatial attributes.</p><span class="mt-3 block text-xs font-semibold text-cage-gold-deep dark:text-cage-gold-soft">Value recovered from forgotten paper archives.</span></div>
-        <div class="v5-card border-cage-gold dark:border-cage-gold/60" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">03</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">Geologist audit</h3><p class="mt-2 text-sm text-text-soft">The safety catch. Every automated and language-model output is audited by an experienced exploration geologist before it reaches the targeting engine — checked at the rock level.</p><span class="mt-3 block text-xs font-semibold text-cage-gold-deep dark:text-cage-gold-soft">Human scrutiny before anything is scored.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COUNCIL TEASER -->
+  <!-- HOW IT WORKS -->
   <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
     <div class="mx-auto w-[min(1140px,90vw)]">
-      <p class="v5-eyebrow">The AiRE Council</p>
-      <h2 class="v5-h2 mt-2">You don&rsquo;t hire a consultant. You engage a council.</h2>
-      <p class="v5-lead mt-4 max-w-3xl">AiRE is led by a deep bench of senior exploration geologists and specialists spanning five continents. A named, qualified geologist — Dr.&nbsp;Tripathi — governs every project and signs every verdict. Working alongside that human team, a standing council of role-titled AI agents does the tireless work — stress-testing every target and citing every weight before anything ships. The model shows its work; your geologist makes the call.</p>
-      <div class="mt-8 grid gap-5 md:grid-cols-3">
-        {disciplines.map((d) => (
-          <div class="v5-card" data-reveal><h4 class="font-fraunces text-lg text-ink dark:text-canvas">{d.h}</h4><p class="mt-2 text-sm text-text-soft">{d.p}</p></div>
+      <p class="v5-eyebrow">How it works</p>
+      <h2 class="v5-h2 mt-2">From your archive to a ranked drill decision — in three steps.</h2>
+      <div class="mt-10 grid gap-8 md:grid-cols-3">
+        {howItWorks.map((s, i) => (
+          <div class="relative" data-reveal>
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ink font-fraunces text-lg font-semibold text-cage-gold-soft">{s.n}</div>
+            <h3 class="mt-4 font-fraunces text-lg text-ink dark:text-canvas">{s.h}</h3>
+            <p class="mt-2 text-sm text-text-soft">{s.p}</p>
+            {i < 2 && (
+              <span class="pointer-events-none absolute -right-4 top-4 hidden font-fraunces text-3xl text-copper/40 md:block" aria-hidden="true">→</span>
+            )}
+          </div>
         ))}
       </div>
-      <p class="mt-8"><a class="v5-link" href="/council">Meet the human bench and the full council →</a></p>
+      <p class="mt-8 text-sm text-text-soft">Every engagement starts with the <a class="v5-link" href="/engage">48-hour Prospect Brief</a> — a fixed-price, fixed-scope first look at your ground.</p>
     </div>
   </section>
 
@@ -184,13 +180,31 @@ const doors = [
         <a class="v5-btn-line" href="/viewer.html">Fly the 3D Deposit Demo <span aria-hidden="true">→</span></a>
         <p class="text-xs text-text-soft">Instant interactive 3D viewer · no login · runs in your browser, even offline</p>
       </div>
-      <p class="mt-8 text-text-soft">Blind tests prove recovery of what is already known; live programs are scored before anyone knows — across nickel, copper-gold, iron ore, polymetallic and more. <a class="v5-link" href="/case-studies">See the documented case studies →</a></p>
-      <p class="mt-3 text-xs text-text-soft">Sanitized for confidentiality — nothing here is a disclosure of exploration results or mineral resources under NI&nbsp;43-101 or the JORC Code, and no economic potential is implied.</p>
+      <p class="mt-3 text-center text-xs text-text-soft">Sanitized for confidentiality — nothing here is a disclosure of exploration results or mineral resources under NI&nbsp;43-101 or the JORC Code, and no economic potential is implied.</p>
+    </div>
+  </section>
+
+  <!-- PROOF ACROSS COMMODITIES -->
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">Proof, not promises</p>
+      <h2 class="v5-h2 mt-2">Scored across the commodity spectrum.</h2>
+      <div class="mt-5 flex flex-wrap gap-2">
+        {commodities.map((c) => (
+          <span class="rounded-full border border-line bg-surface px-4 py-1.5 text-sm font-medium text-ink dark:border-ink-2 dark:bg-ink-2 dark:text-canvas">{c}</span>
+        ))}
+      </div>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        <div class="v5-card" data-reveal><h3 class="font-fraunces text-lg text-ink dark:text-canvas">Drill-proven on live ground</h3><p class="mt-2 text-sm text-text-soft">On a live East African nickel program, CAGE-IN-ranked targets were drill-tested and returned confirmed nickel mineralization — carried from raw archives to the rig.</p></div>
+        <div class="v5-card" data-reveal><h3 class="font-fraunces text-lg text-ink dark:text-canvas">Blind-tested for honesty</h3><p class="mt-2 text-sm text-text-soft">Blind tests prove recovery of what is already known; live programs are scored before anyone knows the answer — across nickel, copper-gold, iron ore and polymetallic ground.</p></div>
+        <div class="v5-card" data-reveal><h3 class="font-fraunces text-lg text-ink dark:text-canvas">Compliance-ready reporting</h3><p class="mt-2 text-sm text-text-soft">NI 43-101 and JORC-aligned reporting is available, with a coverage disclosure that names every gap rather than papering over it.</p></div>
+      </div>
+      <p class="mt-6 text-sm text-text-soft">Client references are available on request under NDA — we never publish client data or names without written consent. <a class="v5-link" href="/case-studies">See the documented case studies →</a></p>
     </div>
   </section>
 
   <!-- USE-CASE TEASER -->
-  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+  <section class="py-16 md:py-24">
     <div class="mx-auto w-[min(1140px,90vw)] text-center">
       <p class="v5-eyebrow">Use cases</p>
       <h2 class="v5-h2 mt-2">One engine, every stage of the hunt.</h2>
@@ -204,21 +218,59 @@ const doors = [
     </div>
   </section>
 
-  <!-- DOORS -->
-  <section class="bg-ink py-16 text-canvas md:py-24">
+  <!-- COUNCIL TEASER -->
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
     <div class="mx-auto w-[min(1140px,90vw)]">
-      <p class="text-xs font-bold uppercase tracking-[0.22em] text-cage-gold-soft">Choose your door</p>
-      <h2 class="mt-2 font-fraunces text-3xl font-medium md:text-4xl">Three ways in.</h2>
-      <p class="mt-4 max-w-3xl text-canvas/70">Miners, national programs and investors come to AiRE with different questions. Each gets its own door — and its own straight answer.</p>
+      <p class="v5-eyebrow">The AiRE Council</p>
+      <h2 class="v5-h2 mt-2">You don&rsquo;t hire a consultant. You engage a council.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">AiRE is led by a deep bench of senior exploration geologists and specialists spanning five continents. A named, qualified geologist — Dr.&nbsp;Tripathi — governs every project and signs every verdict. Working alongside that human team, a standing council of role-titled AI agents does the tireless work — stress-testing every target and citing every weight before anything ships. The model shows its work; your geologist makes the call.</p>
       <div class="mt-8 grid gap-5 md:grid-cols-3">
-        {doors.map((d) => (
-          <article class="flex flex-col rounded-xl border border-white/10 bg-white/[0.03] p-6" data-reveal>
-            <p class="font-mono text-xs text-cage-gold-soft">{d.kicker}</p>
-            <h3 class="mt-2 font-fraunces text-xl">{d.h}</h3>
-            <p class="mt-2 flex-1 text-sm text-canvas/70">{d.p}</p>
-            <a class="mt-5 inline-flex items-center gap-2 self-start rounded-md border border-white/20 px-4 py-2 text-sm font-semibold text-canvas transition-colors hover:bg-white/10" href={d.route}>{d.cta} <span aria-hidden="true">→</span></a>
-          </article>
+        {disciplines.map((d) => (
+          <div class="v5-card" data-reveal><h4 class="font-fraunces text-lg text-ink dark:text-canvas">{d.h}</h4><p class="mt-2 text-sm text-text-soft">{d.p}</p></div>
         ))}
+      </div>
+      <p class="mt-8"><a class="v5-link" href="/council">Meet the human bench and the full council →</a></p>
+    </div>
+  </section>
+
+  <!-- BUILDER'S STORY -->
+  <section class="py-16 md:py-24">
+    <div class="mx-auto grid w-[min(1140px,90vw)] items-start gap-10 md:grid-cols-2">
+      <div data-reveal class="overflow-hidden rounded-xl border border-line bg-ink dark:border-ink-2">
+        <iframe src="/hook-video/index.html" title="CAGE-IN — why AiRE exists (90-second hook video)" loading="lazy" class="block aspect-video w-full border-0"></iframe>
+      </div>
+      <div>
+        <p class="v5-eyebrow">The builder&rsquo;s story</p>
+        <h2 class="v5-h2 mt-2">Thirty years in the field. One conclusion: the software wasn&rsquo;t keeping up.</h2>
+        <p class="mt-4 text-text-soft">Dr. Amit Tripathi spent three decades finding minerals the hard way — mapping, drilling and modeling across twenty countries on five continents. On every project he watched the same quiet failure: the science of ore deposits kept advancing, paper by paper, while the software interpreting exploration data stayed frozen at whatever the vendor shipped.</p>
+        <p class="mt-3 text-text-soft">So he built what didn&rsquo;t exist: a live, GPU-accelerated targeting platform whose deposit models are calibrated to peer-reviewed literature and updated as the science moves — guarded by more than 220 automated regression tests, and proven on live exploration programs.</p>
+        <blockquote class="mt-5 border-l-2 border-copper pl-4">
+          <p class="font-fraunces text-lg italic text-ink dark:text-canvas">&ldquo;Every drill hole is a bet on an interpretation. I built CAGE-IN to make that bet the best-informed one on the table.&rdquo;</p>
+          <p class="mt-1 text-sm text-text-soft">Dr. Amit Tripathi · Founder, AiRE</p>
+        </blockquote>
+        <div class="mt-5 flex flex-wrap gap-2">
+          {['PhD, Structural Geology', '30+ years in exploration', '22+ publications', '20+ countries'].map((c) => (
+            <span class="rounded-full border border-line px-3 py-1 text-xs font-medium text-text-soft dark:border-ink-2">{c}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA INTAKE — the 80% reality -->
+  <section class="border-t border-line bg-canvas-alt py-16 md:py-24 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,90vw)]">
+      <p class="v5-eyebrow">The 80% reality</p>
+      <h2 class="v5-h2 mt-2">We don&rsquo;t expect clean data. Clean exploration data doesn&rsquo;t exist.</h2>
+      <p class="v5-lead mt-4 max-w-3xl">Most of the work in modern targeting is not the algorithm — it is the wrangling. Legacy MapInfo files, drill logs scanned to PDF, coordinate systems from 1994: that is where exploration programs lose their months, and it is where we start.</p>
+      <blockquote class="mt-6 border-l-2 border-copper pl-4">
+        <p class="font-fraunces text-xl italic text-ink dark:text-canvas">&ldquo;Bring us your absolute worst folder.&rdquo;</p>
+        <p class="mt-1 text-sm text-text-soft">Mismatched datums, legacy geophysics, raw drill intercepts, unindexed geochemistry — the intake pipeline is built for the archive you actually have, not the database you wish you had.</p>
+      </blockquote>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        <div class="v5-card" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">01</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">Custom geo-data automation</h3><p class="mt-2 text-sm text-text-soft">Proprietary scripts ingest the structured majority — standardising datum projections, cleaning spatial coordinates and normalising assay detection limits across multi-year campaigns.</p><span class="mt-3 block text-xs font-semibold text-cage-gold-deep dark:text-cage-gold-soft">Months of spreadsheet alignment, eliminated.</span></div>
+        <div class="v5-card" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">02</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">Language-model parsing</h3><p class="mt-2 text-sm text-text-soft">Specialised language-model pipelines read the &ldquo;dark data&rdquo; standard software ignores — scanned PDFs, unindexed drill logs, legacy structural reports — converting field notes into quantifiable spatial attributes.</p><span class="mt-3 block text-xs font-semibold text-cage-gold-deep dark:text-cage-gold-soft">Value recovered from forgotten paper archives.</span></div>
+        <div class="v5-card border-cage-gold dark:border-cage-gold/60" data-reveal><div class="font-fraunces text-2xl text-copper dark:text-copper-soft">03</div><h3 class="mt-2 font-fraunces text-lg text-ink dark:text-canvas">Geologist audit</h3><p class="mt-2 text-sm text-text-soft">The safety catch. Every automated and language-model output is audited by an experienced exploration geologist before it reaches the targeting engine — checked at the rock level.</p><span class="mt-3 block text-xs font-semibold text-cage-gold-deep dark:text-cage-gold-soft">Human scrutiny before anything is scored.</span></div>
       </div>
     </div>
   </section>

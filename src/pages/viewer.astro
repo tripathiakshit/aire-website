@@ -1,0 +1,86 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+
+const features = [
+  { n: '1', h: 'One file, zero friction', p: 'The complete model — geometry, grades, basemap — ships as a single self-contained HTML file. No installs, no licenses, no server.' },
+  { n: '2', h: 'Built from your drill database', p: 'Collars, surveys, assays and modeled surfaces are read directly from your data — desurveyed, validated and rendered with full fidelity.' },
+  { n: '3', h: 'Honest by design', p: 'Data-supported geometry and interpreted projections are visually distinct, with disclosure language built in — your QP stays comfortable.' },
+];
+const keys = ['drag — orbit', 'scroll — zoom', 'WASD — fly', 'C — clip plane', '1-6 — camera presets'];
+---
+
+<PageLayout
+  title="The 3D Deposit Demo — AiRE Viewer"
+  description="Instant interactive 3D deposit viewer — fly through a demonstration orebody in your browser. Illustrative data, no login, no install, works offline."
+>
+  <!-- VIEWER STAGE -->
+  <section class="border-b border-line bg-canvas-alt py-10 md:py-14 dark:border-ink-2 dark:bg-ink-2/40">
+    <div class="mx-auto w-[min(1140px,94vw)]">
+      <p class="v5-eyebrow">Interactive · no login · offline-capable</p>
+      <!--
+        OPAQUE STATIC ASSET: /eldorado-atlantis-3d.html — a self-contained Three.js/WebGL
+        viewer (everything inlined, runs offline). Never edit its internals; to update the
+        demo, replace that file in public/. Isolated in an iframe because the app sets its
+        own fixed full-screen layout.
+      -->
+      <div class="mt-4 overflow-hidden rounded-xl border border-line shadow-lg dark:border-ink-2">
+        <iframe
+          id="depositViewer"
+          src="/eldorado-atlantis-3d.html"
+          title="Interactive 3D deposit viewer"
+          loading="lazy"
+          allow="fullscreen; pointer-lock"
+          class="hidden h-[78vh] min-h-[600px] w-full border-0 bg-ink sm:block"
+        ></iframe>
+      </div>
+
+      <!-- Desktop control bar -->
+      <div class="mt-3 hidden flex-wrap items-center justify-between gap-4 sm:flex">
+        <span class="text-sm text-text-soft">Interactive demonstration model · illustrative data · click the model first, then drive it — it&rsquo;s best full screen.</span>
+        <button class="v5-btn-line" id="vwFullscreen" type="button">Open full screen</button>
+      </div>
+
+      <!-- Mobile: a short inline frame is useless for a fly-through — launch full screen instead -->
+      <a class="v5-btn-gold mt-4 inline-flex sm:hidden" href="/eldorado-atlantis-3d.html" target="_blank" rel="noopener">Launch the 3D viewer <span aria-hidden="true">→</span></a>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        {keys.map((k) => (
+          <span class="rounded-md border border-line bg-surface px-3 py-1.5 font-mono text-xs text-text-soft dark:border-ink-2 dark:bg-ink-2">{k}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS MATTERS -->
+  <section class="py-16 md:py-24">
+    <div class="mx-auto w-[min(860px,90vw)]">
+      <p class="v5-eyebrow">Why this matters</p>
+      <h2 class="v5-h2 mt-2">If a board member can fly through it, a board member can fund it.</h2>
+      <p class="v5-lead mt-4">Exploration geology is three-dimensional; investor communication usually isn&rsquo;t. AiRE deposit viewers close that gap — every drill intercept, the modeled orebody and its untested extensions, in a file you can email. It opens on a laptop in a boardroom with no Wi-Fi, on a tablet at a conference, anywhere a decision gets made.</p>
+      <div class="mt-8 grid gap-5 md:grid-cols-3">
+        {features.map((f) => (
+          <div class="v5-card" data-reveal>
+            <div class="flex h-9 w-9 items-center justify-center rounded-full bg-ink font-fraunces text-sm font-semibold text-cage-gold-soft">{f.n}</div>
+            <h3 class="mt-3 font-fraunces text-lg text-ink dark:text-canvas">{f.h}</h3>
+            <p class="mt-2 text-sm text-text-soft">{f.p}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-10 flex flex-col items-center gap-2 text-center">
+        <a class="v5-btn-gold" href="/engage">Get a viewer for your deposit <span aria-hidden="true">→</span></a>
+        <p class="text-xs text-text-soft">Typical turnaround: days, not months — built from a clean drill database.</p>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  const btn = document.getElementById('vwFullscreen');
+  const frame = document.getElementById('depositViewer') as HTMLIFrameElement | null;
+  btn?.addEventListener('click', () => {
+    if (frame?.requestFullscreen) {
+      frame.requestFullscreen();
+      try { frame.contentWindow?.focus(); } catch {}
+    }
+  });
+</script>

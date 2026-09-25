@@ -12,7 +12,6 @@ const posts = (await getCollection('blog'))
   title="Blog — AI Resource Exploration"
   description="Insights on geological exploration, remote sensing, and geospatial technology from the AI Resource Exploration team."
 >
-  <!-- Page Hero -->
   <section class="relative bg-geo-slate text-white py-16 md:py-24 overflow-hidden">
     <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%); background-size: 30px 30px;"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-8 text-center">
@@ -24,7 +23,6 @@ const posts = (await getCollection('blog'))
     </div>
   </section>
 
-  <!-- Posts Grid -->
   <section class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {posts.length > 0 ? (

@@ -21,7 +21,6 @@ const formattedDate = post.data.pubDate.toLocaleDateString('en-US', {
 ---
 
 <PageLayout title={post.data.title} description={post.data.description}>
-  <!-- Article Hero -->
   {post.data.image && (
     <div class="w-full h-64 md:h-96 overflow-hidden">
       <img src={post.data.image} alt={post.data.title} class="w-full h-full object-cover" />
